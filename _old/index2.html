@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Monitoring App</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width = device-width, initial-scale = 1.0" />
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+
+  <!-- Javascript -->
+  <script src="../js/jquery.mobile-1.4.5.min.js"></script>
+  <script src="../js/jquery-1.10.2.js"></script>
+  <script src="../js/jquery-ui.js"></script>
+  <script src="../js/test.js"></script>
+
+  <!-- CSS --->
+  <link rel="stylesheet" href="../css/reset.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/jquery-mobile.css">
+  <link rel="stylesheet" href="../css/jquery-ui.css">
+  <link rel="stylesheet" href="../css/global.css" rel="stylesheet" />
+</head>
+
+<body class="other">
+    <!-- Header Bereich -->
+    <div id="header">
+      <div class="left">
+        <img src="../img/coperion_logo.png" width="180">
+      </div>
+      <div class="navigation">
+        <div id="dd" class="change-app" tabindex="1">
+        	<span>Sensoring</span>
+        	<ul class="dropdown">
+        		<li class="give"><a href="#">Sensoring</a></li>
+        		<li><a href="#">Material Tracking</a></li>
+        	</ul>
+        </div>
+      </div>
+      <div class="right">
+        <img id="exitBtn" src="../img/Exit_Icon.png">
+      </div>
+    </div>
+
+    <!-- Switch zwischen 2D und 3D -->
+    <div id="toggle-switch">
+      <fieldset>
+        <div data-role="fieldcontain">
+          <select id="select-based-flipswitch" data-role="flipswitch" data-mini="true">
+            <option value="3d">3D</option>
+            <option value="2d"><span class="2d">2D</span></option>
+          </select>
+        </div>
+      </fieldset>
+    </div>
+
+<div id="page">
+  <div class="anlagen-fade"></div>
+  <div id="anlage">
+    <div class="anlagen-bild">
+
+        <!-- Titel Sensoren-Seite -->
+        <div class="sensoren-titel"><p>Laserline <span class="blue">Düsseldorf</p></div>
+
+        <!-- Links Downstream -->
+        <div id="downstream-links">
+          <ul>
+            <li><a id="bxc"><span class="dot"><span class="number">12</span></span></a></li>
+            <li><a class="dot" id="wzk"></a></li>
+            <li><a class="dot" id="IBP250"></a></li>
+            <li><a class="dot" id="wet"></a></li>
+          </ul>
+        </div>
+
+    </div>
+  </div>
+<div id="first-row">
+  <ul id="sensoren-hauptnavi">
+    <li id="full-link"><a href="#full"><span>Full</span></a></li>
+    <li id="upstream-link"><a href="#upstream">Upstream<span class="upstream-arrow"></span></a></li>
+    <li id="compounding-link"><a href="#compounding">Compounding<span class="compounding-arrow"></span></a></li>
+    <li id="downstream-link"><a href="#downstream">Downstream<span class="downstream-arrow"></span></a></li>
+  </ul>
+
+  <!-- Fullview -->
+  <div id="full">
+    <p>Fullview</p>
+  </div>
+
+  <!-- Upstream -->
+  <div id="upstream">
+    <p>First tab is active by default:</p>
+    <pre><code>$( "#tabs" ).tabs(); </code></pre>
+  </div>
+
+  <!-- Compounding -->
+  <div id="compounding">
+    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+  </div>
+
+  <!-- Downstream -->
+  <div id="downstream">
+    <div id="second-row">
+      <ul>
+        <li><a id="foerderdruck-link" href="#foerderdruck">Special Link Hidden</a></li>
+        <li><a id="bxc-link" href="#fragment-2"><span>BXC</span></a></li>
+        <li><a href="#fragment-3"><span>WZK</span></a></li>
+        <li><a href="#fragment-4"><span>IBP250</span></a></li>
+        <li><a href="#fragment-5"><span>WET</span></a></li>
+      </ul>
+      <div id="foerderdruck">
+        <p>WTF IS LOS</p>
+      </div>
+
+      <div id="fragment-2">
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+      </div>
+
+      <div id="fragment-3">
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+      </div>
+
+      <div id="fragment-4">
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+      </div>
+
+      <div id="fragment-5">
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+      </div>
+
+    </div>
+  </div>
+
+</div>
+</div>
+´
+<script>
+$( "#first-row" ).tabs();
+$( "#second-row" ).tabs();
+</script>
+
+</body>
+</html>

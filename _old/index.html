@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Monitoring App</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width = device-width, initial-scale = 1.0" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <!-- CSS --->
+    <link href="../css/zozo.tabs.min.css" rel="stylesheet" />
+    <link href="../css/reset.css" rel="stylesheet" />
+    <link href="../css/global.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/jquery-mobile.css">
+
+    <!-- JQUERY UND TABS -->
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/zozo.tabs.js"></script>
+
+    <!-- HIGHCHARTS --->
+    <!-- Link zu den charts als solche in sensoren.html und rohstoffe.html -->
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+</head>
+
+<body class="other">
+  <!-- Header Bereich -->
+  <div id="header">
+    <div class="left">
+      <img src="../img/coperion_logo.png" width="180">
+    </div>
+    <div class="right">
+      <img id="exitBtn" src="../img/Exit_Icon.png">
+    </div>
+  </div>
+
+  <!-- Switch zwischen 2D und 3D -->
+  <div id="toggle-switch">
+    <fieldset>
+      <div data-role="fieldcontain">
+        <select id="select-based-flipswitch" data-role="flipswitch" data-mini="true">
+          <option value="3d">3D</option>
+          <option value="2d"><span class="2d">2D</span></option>
+        </select>
+      </div>
+    </fieldset>
+  </div>
+    <div class="menu-overlay"></div>
+    <div id="page">
+        <div id='hauptmenu dd' class="wrapper-dropdown-1" data-role='z-tabs'>
+          <!-- Links zu Sensoren / Rohstoffrückverfolgung -->
+            <ul id="navigation-switch">
+                <li id="sensoren"><a>Sensors</a></li>
+                <li id="rohstofferueckverfolgung"><a>Material Tracking</a></li>
+            </ul>
+            <div id="content">
+                <div data-content-url='ajax-content/01-sensoren.html'></div>
+                <div data-content-url='ajax-content/02-rohstoffe.html'></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tabs -->
+    <script>
+        jQuery(document).ready(function ($) {
+            $("#hauptmenu").zozoTabs({
+                rounded: false,
+                multiline: false,
+                theme: "white",
+                size: "medium",
+                responsive: true,
+                rememberState: false,
+                animation: {
+                  effects: "fade",
+                  type: "jquery",
+                  animation: "linear",
+                    duration: 2500
+                },
+                defaultTab: "tab1"
+            });
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Monitoring App</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width = device-width, initial-scale = 1.0" />
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+
+  <!-- Javascript -->
+  <!-- Third Party -->
+  <script src="js/lib/jquery-1.10.2.js"></script>
+  <script src="js/lib/jquery.mobile-1.4.5.min.js"></script>
+  <script src="js/lib/jquery-ui.js"></script>
+  <script src="js/lib/test.js"></script>
+
+  <!-- HIGHCHARTS --->
+  <script src="http://code.highcharts.com/highcharts.js"></script>
+  <script src="js/charts-sensoren.js"></script>
+
+  <!-- CSS --->
+  <link rel="stylesheet" href="../css/reset.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/jquery-ui.css">
+  <link rel="stylesheet" href="../css/global.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/jquery-mobile.css">
+
+
+</head>
+
+<body class="other">
+    <!-- Header Bereich -->
+    <div id="header">
+      <div class="left">
+        <img src="../img/coperion_logo.png" width="180">
+      </div>
+      <div class="navigation">
+        <div id="dd" class="change-app" tabindex="1">
+        	<span>Sensoring</span>
+        	<ul class="dropdown">
+        		<li class="give"><a href="#">Sensoring</a></li>
+        		<li><a href="#">Material Tracking</a></li>
+        	</ul>
+        </div>
+      </div>
+      <div class="right">
+        <img id="exitBtn" src="../img/Exit_Icon.png">
+      </div>
+    </div>
+
+    <!-- Switch zwischen 2D und 3D -->
+    <div id="toggle-switch">
+      <fieldset>
+        <div data-role="fieldcontain">
+          <select id="select-based-flipswitch" data-role="flipswitch" data-mini="true">
+            <option value="3d"></option>
+            <option value="2d"></option>
+          </select>
+        </div>
+      </fieldset>
+    </div>
+
+<div id="page">
+  <div class="anlagen-fade"></div>
+  <div id="anlage">
+
+    <div class="anlagen-bild">
+      <div id="two-di-view">
+        <img class="two-di" data-src="../img/three-di-part-1.png">
+        <img class="two-di" data-src="../img/three-di-part-2.png">
+        <img class="two-di" data-src="../img/three-di-part-3.png">
+        <img class="two-di" data-src="../img/three-di-part-4.png">
+        <img class="two-di" data-src="../img/three-di-part-5.png">
+        <img class="two-di" data-src="../img/three-di-part-6.png">
+        <img class="two-di" data-src="../img/three-di-part-7.png">
+        <img class="two-di" data-src="../img/three-di-part-8.png">
+     </div>
+
+      <div id="three-di-view">
+        <img class="three-di" data-src="../img/part-5.png">
+        <img class="three-di" data-src="../img/part-6.png">
+        <img class="three-di" data-src="../img/part-7.png">
+        <img class="three-di" data-src="../img/part-8.png">
+      </div>
+
+
+        <!-- Titel Sensoren-Seite -->
+
+
+        <!-- Links Downstream -->
+        <div id="downstream-links">
+          <ul>
+            <li><a id="bxc"><span class="dot"><span class="number">12</span></span></a></li>
+            <li><a class="dot" id="wzk"></a></li>
+            <li><a class="dot" id="IBP250"></a></li>
+            <li><a class="dot" id="wet"></a></li>
+          </ul>
+        </div>
+
+    </div>
+  </div>
+<div id="first-row">
+  <ul id="sensoren-hauptnavi">
+    <li id="full-link"><a href="#full"><span></span></a></li>
+    <li id="upstream-link"><a href="#upstream">Upstream<span class="upstream-arrow"></span></a></li>
+    <li id="compounding-link"><a href="#compounding">Compounding<span class="compounding-arrow"></span></a></li>
+    <li id="downstream-link"><a href="#downstream">Downstream<span class="downstream-arrow"></span></a></li>
+  </ul>
+
+  <!-- Fullview -->
+  <div id="full">
+    <div class="sensoren-titel-in"><p>Houston <span class="blue">Line 1</span></p></div>
+    <div id="sensoring-full-durchsatz" class="graph dummy-1"><p class="graph-title">Durchsatz <span class="blue">kg/h</span></p></div>
+    <div id="sensoring-full-energieverbrauch" class="graph dummy-1"><p class="graph-title">Energieverbrauch <span class="blue">kWh/kg</span></p></div>
+    <div id="sensoring-full-drehmoment" class="graph dummy-1"><p class="graph-title">Drehmoment <span class="blue">mm/s</span></p></div>
+  </div>
+
+  <!-- Upstream -->
+  <div id="upstream">
+    <div id="second-row-upstream">
+      <ul class="second-row-navigation">
+        <li class="hidden"><a id="foerderdruck-link-1" href="#foerderdruck-1">Special Link Hidden</a></li>
+        <li><a href="#filter-1"><span>Filter</span></a></li>
+        <li><a href="#ati"><span>ATI</span></a></li>
+        <li><a href="#zxd"><span>ZXD</span></a></li>
+        <li><a href="#hfs"><span>HFS</span></a></li>
+        <li><a href="#zrd"><span>ZRD</span></a></li>
+      </ul>
+      <div id="foerderdruck-1">
+        <div class="sensoren-titel-in"><p>Förderdruck</p></div>
+        <div id="foerderdruck-1-graph" class="graph dummy-2"><p class="graph-title">Förderdruck <span class="blue">whatever</span></p></div>
+      </div>
+
+      <div id="filter-1">
+        <div class="sensoren-titel-in"><p>Filter 1</p></div>
+        <div id="sensoring-full-durchsatz" class="graph dummy-2"><p class="graph-title">Filter <span class="blue">whatever</span></p></div>
+      </div>
+
+      <div id="ati">
+        <div class="sensoren-titel-in"><p>ATI</p></div>
+        <div id="sensoring-full-durchsatz" class="graph dummy-2"><p class="graph-title">ATI <span class="blue">whatever</span></p></div>
+      </div>
+
+      <div id="zxd">
+        <div class="sensoren-titel-in"><p>ZXD</p></div>
+        <div id="sensoring-full-durchsatz" class="graph dummy-2"><p class="graph-title">ZXD <span class="blue">whatever</span></p></div>
+      </div>
+
+      <div id="hfs">
+        <div class="sensoren-titel-in"><p>HFS</p></div>
+        <div id="sensoring-full-durchsatz" class="graph dummy-2"><p class="graph-title">HFS <span class="blue">whatever</span></p></div>
+      </div>
+
+      <div id="zrd">
+        <div class="sensoren-titel-in"><p>ZRD</p></div>
+        <div id="sensoring-full-durchsatz" class="graph dummy-2"><p class="graph-title">ZRD <span class="blue">whatever</span></p></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Compounding -->
+  <div id="compounding">
+    <div id="second-row-compounding">
+      <ul class="second-row-navigation scroll">
+        <li class="hidden"><a id="foerderdruck-link-2" href="#foerderdruck-2">Special Link Hidden</a></li>
+        <li><a href="#dosierer-1"><span>Dosierer 1</span></a></li>
+        <li><a href="#dosierer-2"><span>Dosierer 2</span></a></li>
+        <li><a href="#dosierer-3"><span>Dosierer 3</span></a></li>
+        <li><a href="#dosierer-4"><span>Dosierer 4</span></a></li>
+        <li><a href="#dosierer-5"><span>Dosierer 5</span></a></li>
+        <li><a href="#zsk"><span>ZSK</span></a></li>
+        <li><a href="#zsb"><span>ZSB</span></a></li>
+        <li><a href="#zs_eg"><span>ZS_EG</span></a></li>
+        <li><a href="#ssd"><span>Stand Suction Device</span></a></li>
+        <li><a href="#sp500"><span>SP 500</span></a></li>
+        <li><a href="#screener"><span>Screener</span></a></li>
+        <li><a href="#zvb"><span>ZVB</span></a></li>
+      </ul>
+      <div id="foerderdruck-2">
+        <div class="sensoren-titel-in"><p>Förderdruck</p></div>
+        <div id="sensoring-full-durchsatz" class="graph dummy-2"><p class="graph-title">Förderdruck <span class="blue">whatever</span></p></div>
+      </div>
+
+      <div id="dosierer-1">
+        <div class="sensoren-titel-in"><p>Dosierer 1</p></div>
+        <div id="sensoring-full-durchsatz" class="graph dummy-2"><p class="graph-title">Dosierer <span class="blue">whatever</span></p></div>
+      </div>
+
+      <div id="dosierer-2">
+        <div class="sensoren-titel-in"><p>Dosierer 2</p></div>
+        <div id="sensoring-full-durchsatz" class="graph dummy-2"><p class="graph-title">Dosierer 2 <span class="blue">whatever</span></p></div>
+      </div>
+
+      <div id="dosierer-3">
+        <div class="sensoren-titel-in"><p>Dosierer 3</p></div>
+        <div id="sensoring-full-durchsatz" class="graph dummy-2"><p class="graph-title">Dosierer 3 <span class="blue">whatever</span></p></div>
+      </div>
+
+      <div id="dosierer-4">
+        <div class="sensoren-titel-in"><p>Dosierer 4</p></div>
+        <div id="sensoring-full-durchsatz" class="graph dummy-2"><p class="graph-title">Dosierer 4 <span class="blue">whatever</span></p></div>
+
+      </div>
+
+      <div id="dosierer-5">
+        <div class="sensoren-titel-in"><p>Dosierer 5</p></div>
+        <div id="sensoring-full-durchsatz" class="graph dummy-2"><p class="graph-title">Dosierer 5 <span class="blue">whatever</span></p></div>
+      </div>
+
+      <div id="zsk">
+        <div class="sensoren-titel-in"><p>ZSK</p></div>
+        <div id="sensoring-full-durchsatz" class="graph dummy-2"><p class="graph-title">ZSK <span class="blue">whatever</span></p></div>
+
+      </div>
+
+      <div id="zsb">
+        <div class="sensoren-titel-in"><p>ZSB</p></div>
+        <div id="sensoring-full-durchsatz" class="graph dummy-2"><p class="graph-title">ZSB <span class="blue">whatever</span></p></div>
+      </div>
+
+      <div id="zs_eg">
+        <div class="sensoren-titel-in"><p>ZS_EG</p></div>
+        <div id="sensoring-full-durchsatz" class="graph dummy-2"><p class="graph-title">ZS_EG <span class="blue">whatever</span></p></div>
+      </div>
+
+      <div id="ssd">
+        <div class="sensoren-titel-in"><p>Stand Suction Device</p></div>
+        <div id="sensoring-full-durchsatz" class="graph dummy-2"><p class="graph-title">Stand Suction Device <span class="blue">whatever</span></p></div>
+      </div>
+
+      <div id="sp500">
+        <div class="sensoren-titel-in"><p>SP500</p></div>
+        <div id="sensoring-full-durchsatz" class="graph dummy-2"><p class="graph-title">SP500 <span class="blue">whatever</span></p></div>
+      </div>
+
+      <div id="screener">
+        <div class="sensoren-titel-in"><p>Screener</p></div>
+        <div id="sensoring-full-durchsatz" class="graph dummy-2"><p class="graph-title">Screener <span class="blue">whatever</span></p></div>
+      </div>
+
+      <div id="zvb">
+        <div class="sensoren-titel-in"><p>ZVB</p></div>
+        <div id="sensoring-full-durchsatz" class="graph dummy-2"><p class="graph-title">ZVB <span class="blue">whatever</span></p></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Downstream -->
+  <div id="downstream">
+    <div id="second-row">
+      <ul class="second-row-navigation">
+        <li class="hidden"><a id="foerderdruck-link-3" href="#foerderdruck-3">Special Link Hidden</a></li>
+        <li><a id="bxc-link" href="#bxc-component"><span>BXC</span></a></li>
+        <li><a href="#wzk"><span>WZK</span></a></li>
+        <li><a href="#ibp250"><span>IBP250</span></a></li>
+        <li><a href="#wet"><span>WET</span></a></li>
+      </ul>
+      <div id="foerderdruck-3">
+        <div class="sensoren-titel-in"><p>Förderdruck</p></div>
+        <div id="foerderdruck-3-graph" class="graph dummy-2"><p class="graph-title">Förderdruck <span class="blue">whatever</span></p></div>
+      </div>
+
+      <div id="bxc-component">
+        <div class="sensoren-titel-in"><p>BXC</p></div>
+        <div id="sensoring-full-durchsatz" class="graph dummy-2"><p class="graph-title">BXC <span class="blue">whatever</span></p></div>
+      </div>
+
+      <div id="wzk">
+        <div class="sensoren-titel-in"><p>WZK</p></div>
+        <div id="sensoring-full-durchsatz" class="graph dummy-2"><p class="graph-title">WZK <span class="blue">whatever</span></p></div>
+      </div>
+
+      <div id="ibp250">
+        <div class="sensoren-titel-in"><p>IBP 250</p></div>
+        <div id="sensoring-full-durchsatz" class="graph dummy-2"><p class="graph-title">IBP250 <span class="blue">whatever</span></p></div>
+      </div>
+
+      <div id="wet">
+        <div class="sensoren-titel-in"><p>WET</p></div>
+        <div id="sensoring-full-durchsatz" class="graph dummy-2"><p class="graph-title">WET <span class="blue">whatever</span></p></div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+</div>
+<div id="timeline"></div>
+<script>
+  $("#first-row").tabs();
+  $("#second-row").tabs({show: 'fade', hide: 'fade'});
+  $("#second-row-upstream").tabs({show: 'fade', hide: 'fade'});
+  $("#second-row-compounding").tabs({show: 'fade', hide: 'fade'});
+
+  $(".three-di").css('display','none');
+
+  $(".two-di").css({opacity:0});
+  $(".two-di").delay(200).each(function(i){$(this).delay(120*i).animate({"opacity":1},500);});
+</script>
+
+</body>
+</html>

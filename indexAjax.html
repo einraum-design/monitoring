@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Monitoring App</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width = device-width, initial-scale = 1.0" />
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+
+  <!-- Javascript -->
+  <script src="js/lib/jquery-1.10.2.js"></script>
+  <script src="js/lib/jquery.mobile-1.4.5.min.js"></script>
+  <script src="js/lib/jquery-ui.js"></script>
+  <script src="js/lib/spacebrew-1.4.1.js"></script>
+
+  <!-- Javascript for Content -->
+  <script src="js/dataAttr.js"></script>
+  <script src="js/navigationSwitch.js"></script>
+  <script src="js/imageZoom.js"></script>
+  <script src="js/showPoints.js"></script>
+  <script src="js/firstLinks.js"></script>
+  <script src="js/toggleSwitch.js"></script>
+  <script src="js/pageSwitch.js"></script>
+  <script src="js/spacebrew-client.js"></script>
+
+  <!-- HIGHCHARTS --->
+  <script src="http://code.highcharts.com/highcharts.js"></script>
+  <script src="../js/charts/chartSensors.js"></script>
+
+  <!-- CSS --->
+  <link rel="stylesheet" href="css/reset.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/jquery-ui.css">
+  <link rel="stylesheet" href="css/global.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/jquery-mobile.css">
+</head>
+
+<body class="other">
+    <!-- Header Bereich -->
+    <div id="header">
+      <div class="left">
+
+        <img src="../img/coperion_logo.png" width="180">
+      </div>
+      <div class="navigation">
+        <div id="dd" class="change-app" tabindex="1">
+        	<span>Sensoring</span>
+        	<ul class="dropdown">
+
+        		<li class="give"><a id="page1" href="">Sensoring</a></li>
+        		<li><a href="#page2">Material Tracking</a></li>
+        	</ul>
+        </div>
+      </div>
+      <div class="right">
+        <img id="exitBtn" src="../img/Exit_Icon.png">
+      </div>
+    </div>
+
+    <!-- Switch zwischen 2D und 3D -->
+    <div id="toggle-switch">
+      <fieldset>
+        <div data-role="fieldcontain">
+          <select id="select-based-flipswitch" data-role="flipswitch" data-mini="true">
+            <option value="3d"></option>
+            <option value="2d"></option>
+          </select>
+        </div>
+      </fieldset>
+    </div>
+<!-- Anlagen-Bild --->
+<div id="pageContent">
+<p>asdasda</p>
+</div>
+
+<!-- Timeline -->
+<div id="timeline"></div>
+
+<script>
+  $("#first-row").tabs();
+  $("#second-row-downstream").tabs({show: 'fade', hide: 'fade'});
+  $("#second-row-upstream").tabs({show: 'fade', hide: 'fade'});
+  $("#second-row-compounding").tabs({show: 'fade', hide: 'fade'});
+
+  $(".three-di").css('display','none');
+
+  $(".two-di").css({opacity:0});
+  $(".two-di").delay(200).each(function(i){$(this).delay(120*i).animate({"opacity":1},500);});
+</script>
+
+
+
+</body>
+</html>
