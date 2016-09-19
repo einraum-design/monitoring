@@ -36,7 +36,7 @@ $(document).ready(function(){
 
       $('#dd li:nth-child(2)').on('click',function(){
         $('body').fadeOut(500,function(){
-          $('body').load("material-tracking.html").fadeIn(1300);
+            $('body').load("material-tracking.html").fadeIn(1300);
         });
 
       });
