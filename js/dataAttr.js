@@ -1,4 +1,4 @@
-$(window).load(function(){
+$(document).ready(function(){
 
   // Change data attribute from images to data src when images loaded
 

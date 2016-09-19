@@ -48,8 +48,7 @@
         <div id="dd" class="change-app" tabindex="1">
         	<span>Sensoring</span>
         	<ul class="dropdown">
-
-        		<li class="give"><a href="" data-value="sensoring-page">Sensoring</a></li>
+        		<li class="give"><a href="index.html">Sensoring</a></li>
         		<li><a href="material-tracking.html">Material Tracking</a></li>
         	</ul>
         </div>
@@ -77,8 +76,8 @@
 
     <div class="anlagen-bild">
       <div id="two-di-view">
-        <img class="two-di" src="img/three-di-part-1.png">
-        <img class="two-di" src="img/three-di-part-2.png">
+        <img class="two-di" data-src="img/three-di-part-1.png">
+        <img class="two-di" data-src="img/three-di-part-2.png">
         <img class="two-di" data-src="img/three-di-part-3.png">
         <img class="two-di" data-src="img/three-di-part-4.png">
         <img class="two-di" data-src="img/three-di-part-5.png">
@@ -304,10 +303,13 @@
   $("#second-row-upstream").tabs({show: 'fade', hide: 'fade'});
   $("#second-row-compounding").tabs({show: 'fade', hide: 'fade'});
 
-  $(".three-di").css('display','none');
+  $(document).ready(function(){
 
-  $(".two-di").css({opacity:0});
-  $(".two-di").delay(200).each(function(i){$(this).delay(120*i).animate({"opacity":1},500);});
+    $(".three-di").css('display','none');
+
+    $(".two-di").css({opacity:0});
+    $(".two-di").delay(200).each(function(i){$(this).delay(120*i).animate({"opacity":1},500);});
+  });
 </script>
 
 </body>

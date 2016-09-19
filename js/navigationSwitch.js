@@ -28,6 +28,18 @@ $(document).ready(function(){
         $(this).siblings().removeClass('give');
       });
 
+      $('#dd li:first-child').on('click',function(){
+        $('body').fadeOut(500,function(){
+          $('body').load("index.html").fadeIn(1300);
+        });
+      });
+
+      $('#dd li:nth-child(2)').on('click',function(){
+        $('body').fadeOut(500,function(){
+          $('body').load("material-tracking.html").fadeIn(1300);
+        });
+
+      });
 
       obj.opts.on('click',function(){
         var opt = $(this);
@@ -37,7 +49,7 @@ $(document).ready(function(){
       });
 
       },
-
+/*
       getValue : function() {
         return this.val;
 
@@ -45,7 +57,7 @@ $(document).ready(function(){
       getIndex : function() {
         return this.index;
 
-      }
+      }*/
   }
 
   $(function() {
