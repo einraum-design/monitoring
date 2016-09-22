@@ -25,8 +25,8 @@ function showPoints(){
   $('.downstream-spacebrew').on('click', function(){
     $("#second-row-downstream-rohstoffe").tabs({ active: 0 });
     window.sendSpacebrewMessage('componentActivated', {
-      componentId: 16,
-      componentName: 'Tagessilo_3',
+      componentId: 28,
+      componentName: 'Silo_3',
       rohstoffTracking: true
     });
   });
