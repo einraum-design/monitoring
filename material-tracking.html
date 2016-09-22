@@ -103,9 +103,9 @@
 <div id="first-row-rohstoffe">
   <ul id="sensoren-hauptnavi">
     <li id="full-link"><a href="#full"><span></span></a></li>
-    <li id="upstream-link"><a href="#upstream">Raw materials<span class="upstream-arrow"></span></a></li>
-    <li id="compounding-link"><a href="#compounding">Compounding<span class="compounding-arrow"></span></a></li>
-    <li id="downstream-link"><a href="#downstream">Downstream<span class="downstream-arrow"></span></a></li>
+    <li id="upstream-link" class="upstream-spacebrew"><a href="#upstream">Raw materials<span class="upstream-arrow"></span></a></li>
+    <li id="compounding-link" class="compounding-spacebrew"><a href="#compounding">Compounding<span class="compounding-arrow"></span></a></li>
+    <li id="downstream-link" class="downstream-spacebrew"><a href="#downstream">Downstream<span class="downstream-arrow"></span></a></li>
   </ul>
 
   <!-- Fullview -->
@@ -118,7 +118,6 @@
   <div id="upstream">
     <div id="second-row-upstream-rohstoffe">
       <ul class="second-row-navigation">
-        <li class="hidden"><a id="foerderdruck-link-1" href="#rohstoff-1">Special Link Hidden</a></li>
         <li><a id="silo-1-link" href="#silo-1"><span>Silo 1</span></a></li>
         <li><a id="silo-2-link" href="#silo-2"><span>Silo 2</span></a></li>
         <li><a id="bigbag-link" href="#bigbag"><span>Big Bag</span></a></li>
@@ -308,9 +307,9 @@
 
 <script>
   $("#first-row-rohstoffe").tabs();
-  $("#second-row-downstream-rohstoffe").tabs({show: 'fade', hide: 'fade', active: 1});
-  $("#second-row-upstream-rohstoffe").tabs({show: 'fade', hide: 'fade', active: 1});
-  $("#second-row-compounding-rohstoffe").tabs({show: 'fade', hide: 'fade', active: 1});
+  $("#second-row-downstream-rohstoffe").tabs({show: 'fade', hide: 'fade', active: 0});
+  $("#second-row-upstream-rohstoffe").tabs({show: 'fade', hide: 'fade', active: 0});
+  $("#second-row-compounding-rohstoffe").tabs({show: 'fade', hide: 'fade', active: 0});
 
   $(document).ready(function(){
 

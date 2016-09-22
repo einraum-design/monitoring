@@ -31,12 +31,20 @@ $(document).ready(function(){
       $('#dd li:first-child').on('click',function(){
         $('body').fadeOut(200,function(){
           $('body').load("index.html").delay(300).fadeIn(1000);
+          window.sendSpacebrewMessage('componentActivated', {
+            componentId: 90,
+            componentName: 'Switch to Sensoring'
+          });
         });
       });
 
       $('#dd li:nth-child(2)').on('click',function(){
         $('body').fadeOut(200,function(){
             $('body').load("material-tracking.html").delay(300).fadeIn(1300);
+            window.sendSpacebrewMessage('componentActivated', {
+              componentId: 89,
+              componentName: 'Switch to Material Tracking'
+            });
         });
 
       });

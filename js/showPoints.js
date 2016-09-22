@@ -4,6 +4,33 @@ function showPoints(){
 
   $('#downstream-links, #upstream-links, #compounding-links, .compounding-arrow, .upstream-arrow, .downstream-arrow').css('display','none');
 
+  $('.upstream-spacebrew').on('click', function(){
+    $("#second-row-upstream-rohstoffe").tabs({ active: 0 });
+    window.sendSpacebrewMessage('componentActivated', {
+      componentId: 0,
+      componentName: 'Silo_1',
+      rohstoffTracking: true
+    });
+  });
+
+  $('.compounding-spacebrew').on('click', function(){
+    $("#second-row-compounding-rohstoffe").tabs({ active: 0 });
+    window.sendSpacebrewMessage('componentActivated', {
+      componentId: 8,
+      componentName: 'Tagessilo_1',
+      rohstoffTracking: true
+    });
+  });
+
+  $('.downstream-spacebrew').on('click', function(){
+    $("#second-row-downstream-rohstoffe").tabs({ active: 0 });
+    window.sendSpacebrewMessage('componentActivated', {
+      componentId: 16,
+      componentName: 'Tagessilo_3',
+      rohstoffTracking: true
+    });
+  });
+
   $("#upstream-link").on('click', function(){
     $("span").removeClass('active-auswahl-punkt');
     $(".anlagen-bild").css({'transform':'translate(500px, -120px) scale(2.2)'});
