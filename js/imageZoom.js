@@ -25,7 +25,7 @@ function zoomPoints(){
   $('#ati, #ati-link').click(function() {
       $("#second-row").tabs({ active: 2 });
       $("#ati-point span").addClass('active-auswahl-punkt');
-      $(".anlagen-bild").css({'transform':'translate(1250px, -120px) scale(4.3)'});
+      $(".anlagen-bild").css({'transform':'translate(1250px, -320px) scale(4.3)'});
       window.sendSpacebrewMessage('componentActivated', {
         componentId: 3,
         componentName: 'ATI',
@@ -43,7 +43,7 @@ function zoomPoints(){
   $('#zxd, #zxd-link').click(function() {
       $("#second-row").tabs({ active: 3 });
       $("#zxd-point span").addClass('active-auswahl-punkt');
-      $(".anlagen-bild").css({'transform':'translate(1250px, -120px) scale(4.3)'});
+      $(".anlagen-bild").css({'transform':'translate(1250px, -350px) scale(4.3)'});
       window.sendSpacebrewMessage('componentActivated', {
         componentId: 4,
         componentName: 'ZXD',
@@ -61,7 +61,7 @@ function zoomPoints(){
   $('#hfs, #hfs-link').click(function() {
       $("#second-row").tabs({ active: 4 });
       $("#hfs-point span").addClass('active-auswahl-punkt');
-      $(".anlagen-bild").css({'transform':'translate(1250px, -120px) scale(4.3)'});
+      $(".anlagen-bild").css({'transform':'translate(680px, -350px) scale(4.3)'});
       window.sendSpacebrewMessage('componentActivated', {
         componentId: 6,
         componentName: 'HFS',
@@ -79,7 +79,7 @@ function zoomPoints(){
   $('#zrd, #zrd-link').click(function() {
       $("#second-row").tabs({ active: 4 });
       $("#zrd-point span").addClass('active-auswahl-punkt');
-      $(".anlagen-bild").css({'transform':'translate(1250px, -120px) scale(4.3)'});
+      $(".anlagen-bild").css({'transform':'translate(650px, -350px) scale(4.3)'});
       window.sendSpacebrewMessage('componentActivated', {
         componentId: 7,
         componentName: 'ZRD',
