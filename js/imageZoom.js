@@ -554,6 +554,20 @@ function zoomPoints(){
       return false;
   })
 
+  // IBP250
+  $('#ibp-r, #ibp-r-link').click(function() {
+      $("#second-row").tabs({ active: 1 });
+      $("#ibp-r-point span").addClass('active-auswahl-punkt');
+      $(".anlagen-bild").css({'transform':'translate(1250px, -120px) scale(4.3)'});
+      window.sendSpacebrewMessage('componentActivated', {
+        componentId: 30,
+        componentName: 'IBP250',
+        rohstoffTracking: true
+      });
+      return false;
+  })
+
+
 
   // SILO 3
   $('#silo-3, #silo-3-link').click(function() {
