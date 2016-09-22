@@ -29,14 +29,14 @@ $(document).ready(function(){
       });
 
       $('#dd li:first-child').on('click',function(){
-        $('body').fadeOut(500,function(){
-          $('body').load("index.html").fadeIn(1300);
+        $('body').fadeOut(200,function(){
+          $('body').load("index.html").delay(300).fadeIn(1000);
         });
       });
 
       $('#dd li:nth-child(2)').on('click',function(){
-        $('body').fadeOut(500,function(){
-            $('body').load("material-tracking.html").fadeIn(1300);
+        $('body').fadeOut(200,function(){
+            $('body').load("material-tracking.html").delay(300).fadeIn(1300);
         });
 
       });

@@ -1,0 +1,345 @@
+/* Das CSS für die Ansicht der Anlage */
+
+/* Anlagen in zwei Ansichten */
+
+#anlagen-wrapper{
+  height: 303px;
+  overflow: hidden;
+  margin-top: -15px;
+}
+
+/* Background-Fade */
+.anlagen-fade{
+	background-image: url("../img/gradient.png");
+	width: 100%;
+	height: 270px;
+	position: absolute;
+	top: 60px;
+	z-index: 9999;
+	pointer-events: none;
+}
+
+/* Anlagen Bild für die 2D Ansicht */
+.anlagen-bild{
+	/*background-image: url("../img/anlage-3d-2.png") no-repeat -9999px -9999px;
+	background-image: url("../img/anlage-2d.png");*/
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-color: none;
+  height: 259px;
+  padding-top: 30px;
+	margin-top: 0px;
+	overflow: hidden;
+	-webkit-transition: all .5s ease;
+	-webkit-transform: translateZ(0);
+}
+
+/* Anlage für die 3D Ansicht*/
+.other .anlagen-bild{
+	/*background-image: url("../img/anlage-3d-2.png");
+	background-image: url("../img/anlage-2d.png") no-repeat -9999px -9999px,*/
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-color: none;
+	height: 259px;
+	padding-top: 85px;
+	-webkit-transition: all .5s ease-in-out;
+	-webkit-transform: translateZ(0);
+	background-position-y: 40px;
+}
+
+
+.anlagen-bild > div {
+
+}
+
+.anlage-ansicht-3d{
+	position: fixed;
+	left: 0px;
+	top: 100px;
+}
+
+.three-di-view{
+	position: fixed;
+	left: 0px;
+	top: 100px;
+}
+
+#anlage-ansicht-3d{
+	margin-left: 20px;
+	position: fixed;
+}
+
+div#three-di-view {
+  position: fixed;
+  margin-left: 20px;
+}
+
+#anlage-ansicht-3d img {
+    height: 205px;
+		width: auto;
+		margin: -3px;
+		 background-blend-mode: multiply;
+}
+
+img.three-di {
+    width: 200px;
+    height: auto;
+}
+
+img {
+	opacity: 1;
+}
+
+img[data-src] {
+	opacity: 0;
+}
+
+/* Die Punkte auf der Anlage */
+.auswahl-punkt{
+	background-image: url("../img/dots.png");
+	background-size: contain;
+	background-repeat: no-repeat;
+	padding: 10px;
+	font-size: 5px;
+	-webkit-animation-duration: .15s;
+	animation-duration: .15s;
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+
+}
+.active-auswahl-punkt{
+	width: 20px;
+	height: 20px;
+	background-image: url("../img/zoom.png");
+	-webkit-transform: translate3d(0,0,0) !important;
+	transform: translate3d(0,0,0) !important;
+	mix-blend-mode: multiply;
+	padding: 9px;
+}
+
+/* Positionen der Punkte bei Sensoring 3D Ansicht */
+
+/* Sensoring: Filter 1*/
+.other #filter-1-point{
+	position: absolute;
+	left: 202px;
+	top: 170px;
+}
+/* Akiver Punkt*/
+.other a#filter-1-point .active-dot{
+
+}
+
+/* Sensoring: ATI */
+.other #ati-point{
+	position: absolute;
+	left: 202px;
+	top: 235px;
+}
+/* Akiver Punkt*/
+.other a#ati-point .active-dot{
+
+}
+
+/* Sensoring: ZXD */
+.other #zxd-point{
+	position: absolute;
+	left: 202px;
+	top: 258px;
+}
+/* Akiver Punkt*/
+.other a#zxd-point .active-dot{
+
+}
+
+/* Sensoring: HFS */
+.other #hfs-point{
+	position: absolute;
+	left: 340px;
+	top: 255px;
+}
+/* Akiver Punkt*/
+.other a#hfs-point .active-dot{
+
+}
+
+/* Sensoring: ZRD */
+.other #zrd-point{
+	position: absolute;
+	left: 356px;
+	top: 260px;
+}
+/* Akiver Punkt*/
+.other a#zrd-point .active-dot{
+
+}
+
+/* Sensoring: Dosierer 1 */
+.other #dosierer-1-point{
+	position: absolute;
+	left: 442px;
+	top: 230px;
+}
+/* Akiver Punkt*/
+.other a#dosierer-1-point .active-dot{
+
+}
+
+/* Sensoring: Dosierer 2 */
+.other #dosierer-2-point{
+	position: absolute;
+	left: 452px;
+	top: 230px;
+}
+/* Akiver Punkt*/
+.other a#dosierer-2-point .active-dot{
+
+}
+
+/* Sensoring: Dosierer 3 */
+.other #dosierer-3-point{
+	position: absolute;
+	left: 466px;
+	top: 240px;
+}
+/* Akiver Punkt*/
+.other a#dosierer-3-point .active-dot{
+
+}
+
+/* Sensoring: Dosierer 4 */
+.other #dosierer-4-point{
+	position: absolute;
+	left: 476px;
+	top: 250px;
+}
+/* Akiver Punkt*/
+.other a#dosierer-4-point .active-dot{
+
+}
+
+
+/* Sensoring: Dosierer 5 */
+.other #dosierer-5-point{
+	position: absolute;
+	left: 478px;
+	top: 240px;
+}
+/* Akiver Punkt*/
+.other a#dosierer-5-point .active-dot{
+
+}
+
+/* Sensoring: ZSK */
+.other #zsk-point{
+	position: absolute;
+	left: 446px;
+	top: 255px;
+}
+/* Akiver Punkt*/
+.other a#zsk-point .active-dot{
+
+}
+
+/* Sensoring: ZSB */
+.other #zsb-point{
+	position: absolute;
+	left: 466px;
+	top: 255px;
+}
+/* Akiver Punkt*/
+.other a#zsb-point .active-dot{
+
+}
+
+/* Sensoring: ZSB */
+.other #zsb-point{
+	position: absolute;
+	left: 466px;
+	top: 255px;
+}
+/* Akiver Punkt*/
+.other a#zsb-point .active-dot{
+
+}
+
+/* Sensoring: ZS_EG */
+.other #zs_eg-point{
+	position: absolute;
+	left: 490px;
+	top: 255px;
+}
+/* Akiver Punkt*/
+.other a#zs_eg-point .active-dot{
+
+}
+
+/* Sensoring: ZS_EG */
+.other #zs_eg-point{
+	position: absolute;
+	left: 490px;
+	top: 255px;
+}
+/* Akiver Punkt*/
+.other a#zs_eg-point .active-dot{
+
+}
+
+/* Sensoring: SSD */
+.other #ssd-point{
+	position: absolute;
+	left: 540px;
+	top: 255px;
+}
+/* Akiver Punkt*/
+.other a#ssd-point .active-dot{
+
+}
+
+/* Sensoring: SP500 */
+.other #sp500-point{
+	position: absolute;
+	left: 567px;
+	top: 250px;
+}
+/* Akiver Punkt*/
+.other a#sp500-point .active-dot{
+
+}
+
+/* Sensoring: ZVB */
+.other #zvb-point{
+	position: absolute;
+	left: 580px;
+	top: 260px;
+}
+/* Akiver Punkt*/
+.other a#zvb-point .active-dot{
+
+}
+
+/* Sensoring: Screener */
+.other #screener-point{
+	position: absolute;
+	left: 575px;
+	top: 268px;
+}
+/* Akiver Punkt*/
+.other a#screener-point .active-dot{
+
+}
+
+/*Bei der 2-d ansicht */
+#bxc{
+	position: absolute;
+	left: 420px;
+	top: 0px;
+}
+
+a#bxc .active-dot{
+	position: fixed;
+	left: 797px;
+	top: 120px;
+	pointer-events: none;
+}

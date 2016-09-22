@@ -35,6 +35,7 @@
   <link rel="stylesheet" href="css/reset.css" rel="stylesheet" />
   <link rel="stylesheet" href="css/jquery-ui.css">
   <link rel="stylesheet" href="css/global.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/anlage.css" rel="stylesheet" />
   <link rel="stylesheet" href="css/jquery-mobile.css">
 </head>
 
@@ -72,18 +73,15 @@
 <!-- Anlagen-Bild --->
 <div id="page">
   <div class="anlagen-fade"></div>
-  <div id="anlage">
+  <div id="anlagen-wrapper">
 
     <div class="anlagen-bild">
-      <div id="two-di-view">
-        <img class="two-di" data-src="img/three-di-part-1.png">
-        <img class="two-di" data-src="img/three-di-part-2.png">
-        <img class="two-di" data-src="img/three-di-part-3.png">
-        <img class="two-di" data-src="img/three-di-part-4.png">
-        <img class="two-di" data-src="img/three-di-part-5.png">
-        <img class="two-di" data-src="img/three-di-part-6.png">
-        <img class="two-di" data-src="img/three-di-part-7.png">
-        <img class="two-di" data-src="img/three-di-part-8.png">
+      <div id="anlage-ansicht-3d">
+        <img class="ansicht-3d" data-src="img/anlage/anlage-3d-01.png">
+        <img class="ansicht-3d" data-src="img/anlage/anlage-3d-02.png">
+        <img class="ansicht-3d" data-src="img/anlage/anlage-3d-03.png">
+        <img class="ansicht-3d" data-src="img/anlage/anlage-3d-04.png">
+        <img class="ansicht-3d" data-src="img/anlage/anlage-3d-05.png">
      </div>
 
       <div id="three-di-view">
@@ -93,13 +91,42 @@
         <img class="three-di" data-src="img/part-8.png">
       </div>
 
+        <!-- Links innerhalb von Upstream -->
+        <div id="upstream-links">
+          <ul>
+            <li><a id="filter-1-point"><span class="auswahl-punkt"><span class="number">1</span></span></a></li>
+            <li><a id="ati-point"><span class="auswahl-punkt"><span class="number">2</span></span></a></li>
+            <li><a id="zxd-point"><span class="auswahl-punkt"><span class="number">3</span></span></a></li>
+            <li><a id="hfs-point"><span class="auswahl-punkt"><span class="number">4</span></span></a></li>
+            <li><a id="zrd-point"><span class="auswahl-punkt"><span class="number">5</span></span></a></li>
+          </ul>
+        </div>
+
         <!-- Links Downstream -->
         <div id="downstream-links">
           <ul>
-            <li><a id="bxc"><span class="dot"><span class="number">12</span></span></a></li>
-            <li><a class="dot" id="wzk"></a></li>
-            <li><a class="dot" id="IBP250"></a></li>
-            <li><a class="dot" id="wet"></a></li>
+            <li><a id="bxc"><span class="auswahl-punkt"><span class="number">12</span></span></a></li>
+            <li><a id="wzk"><span class="auswahl-punkt"><span class="number">12</span></span></a></li>
+            <li><a id="ibp250"><span class="auswahl-punkt"><span class="number">12</span></span></a></li>
+            <li><a id="wet"><span class="auswahl-punkt"><span class="number">12</span></span></a></li>
+          </ul>
+        </div>
+
+        <!-- Links innerhalb von Upstream -->
+        <div id="compounding-links">
+          <ul>
+            <li><a id="dosierer-1-point"><span class="auswahl-punkt"><span class="number">6</span></span></a></li>
+            <li><a id="dosierer-2-point"><span class="auswahl-punkt"><span class="number">7</span></span></a></li>
+            <li><a id="dosierer-3-point"><span class="auswahl-punkt"><span class="number">8</span></span></a></li>
+            <li><a id="dosierer-4-point"><span class="auswahl-punkt"><span class="number">9</span></span></a></li>
+            <li><a id="dosierer-5-point"><span class="auswahl-punkt"><span class="number">10</span></span></a></li>
+            <li><a id="zsk-point"><span class="auswahl-punkt"><span class="number">11</span></span></a></li>
+            <li><a id="zsb-point"><span class="auswahl-punkt"><span class="number">12</span></span></a></li>
+            <li><a id="zs_eg-point"><span class="auswahl-punkt"><span class="number">13</span></span></a></li>
+            <li><a id="ssd-point"><span class="auswahl-punkt"><span class="number">14</span></span></a></li>
+            <li><a id="sp500-point"><span class="auswahl-punkt"><span class="number">15</span></span></a></li>
+            <li><a id="zvb-point"><span class="auswahl-punkt"><span class="number">16</span></span></a></li>
+            <li><a id="screener-point"><span class="auswahl-punkt"><span class="number">17</span></span></a></li>
           </ul>
         </div>
 
@@ -108,16 +135,16 @@
 <div id="first-row">
   <ul id="sensoren-hauptnavi">
     <li id="full-link"><a href="#full"><span></span></a></li>
-    <li id="upstream-link"><a href="#upstream">Upstream<span class="upstream-arrow"></span></a></li>
+    <li id="upstream-link"><a href="#upstream">Raw materials<span class="upstream-arrow"></span></a></li>
     <li id="compounding-link"><a href="#compounding">Compounding<span class="compounding-arrow"></span></a></li>
-    <li id="downstream-link"><a href="#downstream">Downstream<span class="downstream-arrow"></span></a></li>
+    <li id="downstream-link"><a href="#downstream">Finished products<span class="downstream-arrow"></span></a></li>
   </ul>
 
   <!-- Fullview -->
   <div id="full">
     <div class="sensoren-titel-in"><p>Houston <span class="blue">Line 1</span></p></div>
     <div id="sensoring-full-durchsatz" class="graph dummy-1"><p class="graph-title">Durchsatz <span class="blue">kg/h</span></p></div>
-    <div id="sensoring-full-energieverbrauch" class="graph dummy-1"><p class="graph-title">Energieverbrauch <span class="blue">kWh/kg</span></p></div>
+    <div id="sensoring-full-energieverbrauch" class="graph dummy-1"><p class="graph-title">Energieverbrauch <span class="blue">kWh/h</span></p></div>
     <div id="sensoring-full-drehmoment" class="graph dummy-1"><p class="graph-title">Drehmoment <span class="blue">mm/s</span></p></div>
   </div>
 
@@ -133,33 +160,33 @@
         <li><a id="zrd-link" href="#zrd"><span>ZRD</span></a></li>
       </ul>
       <div id="foerderdruck-1">
-        <div class="sensoren-titel-in"><p>Förderdruck</p></div>
-        <div id="foerderdruck-1-graph" class="graph dummy-2"><p class="graph-title">Förderdruck <span class="blue">whatever 1</span></p></div>
+        <div class="sensoren-titel-in"><p>Feed Pressure</p></div>
+        <div id="foerderdruck-1-graph" class="graph dummy-2"><p class="graph-title">Feed Pressure <span class="blue">werte 1</span></p></div>
       </div>
 
       <div id="filter-1">
         <div class="sensoren-titel-in"><p>Filter 1</p></div>
-        <div id="sensoring-full-durchsatz" class="graph dummy-2"><p class="graph-title">Filter <span class="blue">whatever</span></p></div>
+        <div id="filter-1-graph" class="graph dummy-2"><p class="graph-title">Filter <span class="blue">werte</span></p></div>
       </div>
 
       <div id="ati">
         <div class="sensoren-titel-in"><p>ATI</p></div>
-        <div id="sensoring-full-durchsatz" class="graph dummy-2"><p class="graph-title">ATI <span class="blue">whatever</span></p></div>
+        <div id="ati-graph" class="graph dummy-2"><p class="graph-title">ATI <span class="blue">werte</span></p></div>
       </div>
 
       <div id="zxd">
         <div class="sensoren-titel-in"><p>ZXD</p></div>
-        <div id="sensoring-full-durchsatz" class="graph dummy-2"><p class="graph-title">ZXD <span class="blue">whatever</span></p></div>
+        <div id="zxd-graph" class="graph dummy-2"><p class="graph-title">ZXD <span class="blue">werte</span></p></div>
       </div>
 
       <div id="hfs">
         <div class="sensoren-titel-in"><p>HFS</p></div>
-        <div id="sensoring-full-durchsatz" class="graph dummy-2"><p class="graph-title">HFS <span class="blue">whatever</span></p></div>
+        <div id="hfs-graph" class="graph dummy-2"><p class="graph-title">HFS <span class="blue">werte</span></p></div>
       </div>
 
       <div id="zrd">
         <div class="sensoren-titel-in"><p>ZRD</p></div>
-        <div id="sensoring-full-durchsatz" class="graph dummy-2"><p class="graph-title">ZRD <span class="blue">whatever</span></p></div>
+        <div id="zrd-graph" class="graph dummy-2"><p class="graph-title">ZRD <span class="blue">werte</span></p></div>
       </div>
 
     </div>
@@ -170,84 +197,84 @@
     <div id="second-row-compounding">
       <ul class="second-row-navigation scroll">
         <li class="hidden"><a id="foerderdruck-link-2" href="#foerderdruck-2">Special Link Hidden</a></li>
-        <li><a id="dosierer-1-link" href="#dosierer-1"><span>Dosierer 1</span></a></li>
-        <li><a id="dosierer-2-link" href="#dosierer-2"><span>Dosierer 2</span></a></li>
-        <li><a id="dosierer-3-link" href="#dosierer-3"><span>Dosierer 3</span></a></li>
-        <li><a id="dosierer-4-link" href="#dosierer-4"><span>Dosierer 4</span></a></li>
-        <li><a id="dosierer-5-link" href="#dosierer-5"><span>Dosierer 5</span></a></li>
+        <li><a id="dosierer-1-link" href="#dosierer-1"><span>Batcher 1</span></a></li>
+        <li><a id="dosierer-2-link" href="#dosierer-2"><span>Batcher 2</span></a></li>
+        <li><a id="dosierer-3-link" href="#dosierer-3"><span>Batcher 3</span></a></li>
+        <li><a id="dosierer-4-link" href="#dosierer-4"><span>Batcher 4</span></a></li>
+        <li><a id="dosierer-5-link" href="#dosierer-5"><span>Batcher 5</span></a></li>
         <li><a id="zsk-link" href="#zsk"><span>ZSK</span></a></li>
         <li><a id="zsb-link" href="#zsb"><span>ZSB</span></a></li>
         <li><a id="zs_eg-link" href="#zs_eg"><span>ZS_EG</span></a></li>
         <li><a id="ssd-link" href="#ssd"><span>Stand Suction Device</span></a></li>
         <li><a id="sp-link" href="#sp500"><span>SP 500</span></a></li>
-        <li><a id="screener-link" href="#screener"><span>Screener</span></a></li>
         <li><a id="zvb-link" href="#zvb"><span>ZVB</span></a></li>
+        <li><a id="screener-link" href="#screener"><span>Screener</span></a></li>
       </ul>
       <div id="foerderdruck-2">
-        <div class="sensoren-titel-in"><p>Förderdruck</p></div>
-        <div id="sensoring-full-durchsatz" class="graph dummy-2"><p class="graph-title">Förderdruck <span class="blue">whatever 2</span></p></div>
+        <div class="sensoren-titel-in"><p>Feed Pressure</p></div>
+        <div id="sensoring-full-durchsatz" class="graph dummy-2"><p class="graph-title">Feed Pressure <span class="blue">werte 2</span></p></div>
       </div>
 
       <div id="dosierer-1">
-        <div class="sensoren-titel-in"><p>Dosierer 1</p></div>
-        <div id="sensoring-full-durchsatz" class="graph dummy-2"><p class="graph-title">Dosierer <span class="blue">whatever</span></p></div>
+        <div class="sensoren-titel-in"><p>Batcher 1</p></div>
+        <div id="dosierer-1-graph" class="graph dummy-2"><p class="graph-title">Batcher <span class="blue">werte</span></p></div>
       </div>
 
       <div id="dosierer-2">
-        <div class="sensoren-titel-in"><p>Dosierer 2</p></div>
-        <div id="sensoring-full-durchsatz" class="graph dummy-2"><p class="graph-title">Dosierer 2 <span class="blue">whatever</span></p></div>
+        <div class="sensoren-titel-in"><p>Batcher 2</p></div>
+        <div id="dosierer-2-graph" class="graph dummy-2"><p class="graph-title">Batcher 2 <span class="blue">werte</span></p></div>
       </div>
 
       <div id="dosierer-3">
-        <div class="sensoren-titel-in"><p>Dosierer 3</p></div>
-        <div id="sensoring-full-durchsatz" class="graph dummy-2"><p class="graph-title">Dosierer 3 <span class="blue">whatever</span></p></div>
+        <div class="sensoren-titel-in"><p>Batcher 3</p></div>
+        <div id="dosierer-3-graph" class="graph dummy-2"><p class="graph-title">Batcher 3 <span class="blue">werte</span></p></div>
       </div>
 
       <div id="dosierer-4">
-        <div class="sensoren-titel-in"><p>Dosierer 4</p></div>
-        <div id="sensoring-full-durchsatz" class="graph dummy-2"><p class="graph-title">Dosierer 4 <span class="blue">whatever</span></p></div>
+        <div class="sensoren-titel-in"><p>Batcher 4</p></div>
+        <div id="dosierer-4-graph" class="graph dummy-2"><p class="graph-title">Batcher 4 <span class="blue">werte</span></p></div>
 
       </div>
 
       <div id="dosierer-5">
-        <div class="sensoren-titel-in"><p>Dosierer 5</p></div>
-        <div id="sensoring-full-durchsatz" class="graph dummy-2"><p class="graph-title">Dosierer 5 <span class="blue">whatever</span></p></div>
+        <div class="sensoren-titel-in"><p>Batcher 5</p></div>
+        <div id="dosierer-5-graph" class="graph dummy-2"><p class="graph-title">Batcher 5 <span class="blue">werte</span></p></div>
       </div>
 
       <div id="zsk">
         <div class="sensoren-titel-in"><p>ZSK</p></div>
-        <div id="sensoring-full-durchsatz" class="graph dummy-2"><p class="graph-title">ZSK <span class="blue">whatever</span></p></div>
+        <div id="zsk-graph" class="graph dummy-2"><p class="graph-title">ZSK <span class="blue">werte</span></p></div>
 
       </div>
 
       <div id="zsb">
         <div class="sensoren-titel-in"><p>ZSB</p></div>
-        <div id="sensoring-full-durchsatz" class="graph dummy-2"><p class="graph-title">ZSB <span class="blue">whatever</span></p></div>
+        <div id="zsb-graph" class="graph dummy-2"><p class="graph-title">ZSB <span class="blue">werte</span></p></div>
       </div>
 
       <div id="zs_eg">
         <div class="sensoren-titel-in"><p>ZS_EG</p></div>
-        <div id="sensoring-full-durchsatz" class="graph dummy-2"><p class="graph-title">ZS_EG <span class="blue">whatever</span></p></div>
+        <div id="zs_eg-graph" class="graph dummy-2"><p class="graph-title">ZS_EG <span class="blue">werte</span></p></div>
       </div>
 
       <div id="ssd">
         <div class="sensoren-titel-in"><p>Stand Suction Device</p></div>
-        <div id="sensoring-full-durchsatz" class="graph dummy-2"><p class="graph-title">Stand Suction Device <span class="blue">whatever</span></p></div>
+        <div id="ssd-graph" class="graph dummy-2"><p class="graph-title">Stand Suction Device <span class="blue">werte</span></p></div>
       </div>
 
       <div id="sp500">
         <div class="sensoren-titel-in"><p>SP500</p></div>
-        <div id="sensoring-full-durchsatz" class="graph dummy-2"><p class="graph-title">SP500 <span class="blue">whatever</span></p></div>
-      </div>
-
-      <div id="screener">
-        <div class="sensoren-titel-in"><p>Screener</p></div>
-        <div id="sensoring-full-durchsatz" class="graph dummy-2"><p class="graph-title">Screener <span class="blue">whatever</span></p></div>
+        <div id="sensoring-full-durchsatz" class="graph dummy-2"><p class="graph-title">SP500 <span class="blue">werte</span></p></div>
       </div>
 
       <div id="zvb">
         <div class="sensoren-titel-in"><p>ZVB</p></div>
-        <div id="sensoring-full-durchsatz" class="graph dummy-2"><p class="graph-title">ZVB <span class="blue">whatever</span></p></div>
+        <div id="sensoring-full-durchsatz" class="graph dummy-2"><p class="graph-title">ZVB <span class="blue">werte</span></p></div>
+      </div>
+
+      <div id="screener">
+        <div class="sensoren-titel-in"><p>Screener</p></div>
+        <div id="sensoring-full-durchsatz" class="graph dummy-2"><p class="graph-title">Screener <span class="blue">werte</span></p></div>
       </div>
 
     </div>
@@ -264,28 +291,28 @@
         <li><a id="wet-link" href="#wet"><span>WET</span></a></li>
       </ul>
       <div id="foerderdruck-3">
-        <div class="sensoren-titel-in"><p>Förderdruck</p></div>
-        <div id="foerderdruck-3-graph" class="graph dummy-2"><p class="graph-title">Förderdruck <span class="blue">whatever 3</span></p></div>
+        <div class="sensoren-titel-in"><p>Feed Pressure</p></div>
+        <div id="foerderdruck-3-graph" class="graph dummy-2"><p class="graph-title">Feed Pressure <span class="blue">werte 3</span></p></div>
       </div>
 
       <div id="bxc-component">
         <div class="sensoren-titel-in"><p>BXC</p></div>
-        <div id="sensoring-full-durchsatz" class="graph dummy-2"><p class="graph-title">BXC <span class="blue">whatever</span></p></div>
+        <div id="bxc-graph" class="graph dummy-2"><p class="graph-title">BXC <span class="blue">werte</span></p></div>
       </div>
 
       <div id="wzk">
         <div class="sensoren-titel-in"><p>WZK</p></div>
-        <div id="sensoring-full-durchsatz" class="graph dummy-2"><p class="graph-title">WZK <span class="blue">whatever</span></p></div>
+        <div id="wzk-graph" class="graph dummy-2"><p class="graph-title">WZK <span class="blue">werte</span></p></div>
       </div>
 
       <div id="ibp250">
         <div class="sensoren-titel-in"><p>IBP 250</p></div>
-        <div id="sensoring-full-durchsatz" class="graph dummy-2"><p class="graph-title">IBP250 <span class="blue">whatever</span></p></div>
+        <div id="ibp250-graph" class="graph dummy-2"><p class="graph-title">IBP250 <span class="blue">werte</span></p></div>
       </div>
 
       <div id="wet">
         <div class="sensoren-titel-in"><p>WET</p></div>
-        <div id="sensoring-full-durchsatz" class="graph dummy-2"><p class="graph-title">WET <span class="blue">whatever</span></p></div>
+        <div id="wet-graph" class="graph dummy-2"><p class="graph-title">WET <span class="blue">werte</span></p></div>
       </div>
 
     </div>
@@ -307,8 +334,8 @@
 
     $(".three-di").css('display','none');
 
-    $(".two-di").css({opacity:0});
-    $(".two-di").delay(200).each(function(i){$(this).delay(120*i).animate({"opacity":1},500);});
+    $(".ansicht-3d").css({opacity:0});
+    $(".ansicht-3d").delay(200).each(function(i){$(this).delay(120*i).animate({"opacity":1},500);});
   });
 </script>
 

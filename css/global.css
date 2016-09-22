@@ -131,52 +131,6 @@ li{
 	background-color: #ebeaea;
 }
 
-.anlagen-bild > div {
-
-}
-
-.two-di-view{
-	position: fixed;
-	left: 0px;
-	top: 100px;
-}
-
-.three-di-view{
-	position: fixed;
-	left: 0px;
-	top: 100px;
-}
-
-#two-di-view{
-	margin-left: 20px;
-	position: fixed;
-}
-
-div#three-di-view {
-  position: fixed;
-  margin-left: 20px;
-}
-
-#two-di-view img {
-    height:270px;
-		width: auto;
-		margin: -3px;
-		 background-blend-mode: multiply;
-}
-
-img.three-di {
-    width: 200px;
-    height: auto;
-}
-
-img {
-	opacity: 1;
-}
-
-img[data-src] {
-	opacity: 0;
-}
-
 
 #first-row > div{
 	padding: 0px 20px;
@@ -186,6 +140,16 @@ img[data-src] {
 #first-row > div img{
 	width: 100%;
 }
+
+#first-row-rohstoffe > div{
+	padding: 0px 20px;
+	margin-top: 3px;
+}
+
+#first-row-rohstoffe > div img{
+	width: 100%;
+}
+
 
 /* Timeline Styling */
 
@@ -197,6 +161,16 @@ img[data-src] {
 	height: 60px;
 	background-image: url(../img/timeline.jpg);
 }
+
+#timeline-rohstoffe{
+	position: fixed;
+	bottom: 0px;
+	left: 0px;
+	width: 100%;
+	height: 60px;
+	background-image: url(../img/timeline-rohstoffe.jpg);
+}
+
 
 
 
@@ -292,27 +266,27 @@ li#full-link.ui-tabs-active{
   position: fixed !Important;
   left: 390px;
   top: 110px !important;
-  width: 205px;
+  width: 178px;
   height: 219px;
   -webkit-box-shadow: 0px 0px 15px -4px rgba(0,0,0,.2);
   text-align: center !important;
   padding-top: 20px !important;
   font-size: 18px !important;
-	background-color: none !important;
-	mix-blend-mode: multiply;
-	color: #333 !important;
+  background-color: none !important;
+  mix-blend-mode: multiply;
+  color: #333 !important;
 }
 
 .other a.downstream-start{
-  position: fixed !Important;
-  left: 630px;
+	position: fixed !Important;
+	left: 603px;
 	top: 110px !important;
-  width: 341px;
-  height: 219px;
-  -webkit-box-shadow: 0px 0px 15px -4px rgba(0,0,0,.2);
-  text-align: center !important;
-  padding-top: 20px !important;
-  font-size: 18px !important;
+	width: 369px;
+	height: 219px;
+	-webkit-box-shadow: 0px 0px 15px -4px rgba(0,0,0,.2);
+	text-align: center !important;
+	padding-top: 20px !important;
+	font-size: 18px !important;
 	mix-blend-mode: multiply;
 	color: #333 !important;
 }
@@ -470,40 +444,8 @@ li#full-link.ui-tabs-active{
 /* 3D SENSOREN DOWNSTREAM*/
 
 
-
-.dot{
-	background-image: url("../img/dots.png");
-	background-size: contain;
-	background-repeat: no-repeat;
-	padding: 10px;
-	font-size: 5px;
-
-	-webkit-animation-duration: .15s;
-	animation-duration: .15s;
-	-webkit-animation-fill-mode: both;
-	animation-fill-mode: both;
-
-}
-
-@-webkit-keyframes pulse {
-    0% { -webkit-transform: scale(1); }
-    50% { -webkit-transform: scale(1.03); }
-    100% { -webkit-transform: scale(1); }
-}
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.03); }
-    100% { transform: scale(1); }
-}
-
-.active-dot{
-	width: 20px;
-	height: 20px;
-	background-image: url("../img/zoom.png");
-	-webkit-transform: translate3d(0,0,0) !important;
-	transform: translate3d(0,0,0) !important;
-	mix-blend-mode: multiply;
-	padding: 9px;
+.rohstoff-dummy{
+	padding-top: 10px;
 }
 
 .active-dot .number{
@@ -512,7 +454,7 @@ li#full-link.ui-tabs-active{
 
 .other #bxc{
 	position: absolute;
-	left: 653px;
+	left: 700px;
 	top: 170px;
 }
 
@@ -539,6 +481,37 @@ a#bxc .active-dot{
 #bxc .active-dot .anlagen-bild{
 	background-color: red;
 }
+
+.other #wzk{
+	position: absolute;
+	left: 753px;
+  top: 170px;
+}
+
+#wzk{
+	position: absolute;
+	left: 420px;
+	top: 0px;
+}
+
+.other a#wzk .active-dot{
+	position: fixed;
+	left: 738px;
+	top: 163px;
+	pointer-events: none;
+}
+
+a#wzk .active-dot{
+	position: fixed;
+	left: 797px;
+	top: 120px;
+	pointer-events: none;
+}
+
+#wzk .active-dot .anlagen-bild{
+	background-color: red;
+}
+
 
 
 /* BXC */
@@ -764,9 +737,9 @@ ul.scroll {
 	top: 75px;
   margin: 0 auto;
   /* left: 32%; */
-  width: 344px;
+  width: 717px;
   left: 50%;
-  margin-left: -172px;
+  margin-left: -208px;
 	transition: all .6s ease-in-out;
 	z-index: 9999;
 }
@@ -1141,70 +1114,8 @@ li.z-tab.z-active.component-zoom img{
 
 /* Header Bereich */
 
-/* Background-Fade */
-
-.anlagen-fade{
-	background-image: url("../img/gradient.png");
-	width: 100%;
-	height: 270px;
-	position: absolute;
-	top: 60px;
-	z-index: 9999;
-	pointer-events: none;
-}
-
-.anlagen-bild{
-	/*background-image: url("../img/anlage-3d-2.png") no-repeat -9999px -9999px;
-	background-image: url("../img/anlage-2d.png");*/
-	background-repeat: no-repeat;
-	background-size: contain;
-	background-color: none;
-  height: 259px;
-  padding-top: 30px;
-	margin-top: 0px;
-	overflow: hidden;
-
-	-webkit-transition: all .6s ease;
-	-webkit-transform: translateZ(0);
-}
-
-.anlagen-bildw{
-	background-repeat: no-repeat;
-	background-size: contain;
-	background-color: none;
-  height: 230px;
-  padding-top: 60px;
-	margin-top: 0px;
-	overflow: hidden;
-
-	-webkit-transition: all .6s ease;
-	-webkit-transform: translateZ(0);
-}
-
- a#sensor-2 .3d-ansicht .anlagen-bild{
-	transform: translate(200px, -30px) scale(5);
-}
-
-
-#anlage {
-    height: 303px;
-    overflow: hidden;
-    margin-top: -15px;
-}
-
-.other .anlagen-bild{
-	/*background-image: url("../img/anlage-3d-2.png");
-	background-image: url("../img/anlage-2d.png") no-repeat -9999px -9999px,*/
-	background-repeat: no-repeat;
-	background-size: contain;
-	background-color: none;
-	height: 259px;
-	padding-top: 30px;
-
-	-webkit-transition: all .6s ease;
-	-webkit-transform: translateZ(0);
-
-	background-position-y: 40px;
+a#sensor-2 .3d-ansicht .anlagen-bild{
+ transform: translate(200px, -30px) scale(5);
 }
 
 #sensor-2 img .anlagen-bild{
