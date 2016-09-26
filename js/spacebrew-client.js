@@ -16,7 +16,7 @@ $( document ).ready( function () {
 		? parseInt( deviceInQueryStr, 10 )
 		: ~~( Math.random() * 69 );
 	var deviceName = 'tablet-app-' + deviceId;
-	var appName = 'network';
+	var appName = 'monitoring';
 
 	var isMaster = getQueryString( 'master' ) === 'true';
 
@@ -37,10 +37,13 @@ $( document ).ready( function () {
 		spaceBrewClient.connect();
 
 		spaceBrewClient.onOpen = function () {
-			isConnected = true;
-			isConnecting = false;
-			console.log( 'CONNECTED' );
-		};
+				isConnected = true;
+				isConnecting = false;
+
+				setTimeout( function () {
+					sendMessage( 'appConnected' );
+				}, 250 );
+			};
 
 		spaceBrewClient.onError = function ( err ) {
 			isConnecting = false;
