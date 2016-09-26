@@ -106,6 +106,35 @@ $(document).ready( function () {
 	
 	function showAllocation ( allocation ) {
 		console.log( 'SHOW ALLOCATION DETAILS', allocation );
+
+		var infoEl = $( '#first-row-rohstoffe .ui-tabs-panel[aria-hidden="false"]' );
+
+		if ( infoEl.length ){
+			if ( allocation.recipe && allocation.recipe.number ) {
+				$( 'recipe-number', infoEl ).text( allocation.recipe.number );
+			}
+
+			var nextEl = $( 'recipe-next', infoEl );
+			nextEl.text( allocation.nextId );
+
+			console.log( infoEl, allocation.recipe );
+		}
+
+		var tableEl = $( '.ui-tabs-panel[aria-hidden="false"]' );
+
+		if ( tableEl.length && allocation.recipe ) {
+			var amountEl = $( '[data-content="amount"] .value', tableEl );
+			amountEl.text( allocation.recipe.amount );
+
+			var materialEl = $( '[data-content="material"] .value', tableEl );
+			materialEl.text( allocation.recipe.material );
+
+			var chargeEl = $( '[data-content="losnummer"] .value', tableEl );
+			chargeEl.text( allocation.recipe.charge );
+
+			var vendorEl = $( '[data-content="lieferant"] .value', tableEl );
+			vendorEl.text( allocation.recipe.vendor );
+		}
 	}
 
 	function closePopup () {
@@ -156,22 +185,73 @@ function getTimelineData () {
 		'day': moment.duration( 1, 'days' ),
 		'hour': moment.duration( 1, 'hours' )
 	};
+
+	var recipeData = {
+		'recipe-1': {
+			number: 1,
+			amount: { min: 3023, max: 30232 },
+			material: { min: 2490, max: 23022 },
+			charge: { min: 39203, max: 934230 },
+			vendor: { min: 290, max: 1022 }
+		},
+		'recipe-2': {
+			number: 2,
+			amount: { min: 3023, max: 30232 },
+			material: { min: 2490, max: 23022 },
+			charge: { min: 39203, max: 934230 },
+			vendor: { min: 290, max: 1022 }
+		},
+		'recipe-3': {
+			number: 3,
+			amount: { min: 3023, max: 30232 },
+			material: { min: 2490, max: 23022 },
+			charge: { min: 39203, max: 934230 },
+			vendor: { min: 290, max: 1022 }
+		},
+		'recipe-4': {
+			number: 4,
+			amount: { min: 3023, max: 30232 },
+			material: { min: 2490, max: 23022 },
+			charge: { min: 39203, max: 934230 },
+			vendor: { min: 290, max: 1022 }
+		}
+	};
 	
 	var allocations = [ ];
 	
 	var lastAllocationEndDate = moment( startDate );
+	var nextType = allocationTypes[randomNumber( 0, allocationTypes.length - 1, true )];
 
 	for ( var allocationIndex = 0; allocationIndex < allocationCount; ++allocationIndex ) {
 		var allocationStartDate = moment( lastAllocationEndDate );
 		var allocationDuration = ~~( completeDuration / allocationCount );
 		var allocationEndDate = moment( allocationStartDate ).add( allocationDuration, 'milliseconds' );
 
-		allocations.push( {
+		var type = nextType;
+		nextType = allocationTypes[randomNumber( 0, allocationTypes.length - 1, true )];
+
+		var allocation = {
 			start: allocationStartDate,
 			end: allocationEndDate,
-			type: allocationTypes[randomNumber( 0, allocationTypes.length - 1, true )],
-			id: 'allocation-' + allocationIndex
-		} );
+			type: type,
+			next: nextType,
+			id: 'allocation-' + allocationIndex,
+			nextId: 'allocation-' + ( allocationIndex + 1 )
+		};
+
+		if ( recipeData[allocation.type] ) {
+			allocation.recipe = { };
+			
+			Object.keys( recipeData[allocation.type] ).forEach( function ( key ) {
+				if ( recipeData[allocation.type][key].min && recipeData[allocation.type][key].max ) {
+					allocation.recipe[key] = randomNumber( recipeData[allocation.type][key].min, recipeData[allocation.type][key].max, true );
+				}
+			} );
+
+			allocation.recipe.number = recipeData[allocation.type].number;
+		}
+
+		allocations.push( allocation );
 
 		lastAllocationEndDate = allocationEndDate;
 	}
@@ -181,6 +261,7 @@ function getTimelineData () {
 	data.endDate = endDate;
 	data.timespans = timelineSpans;
 	data.allocationTypes = allocationTypes;
+	data.recipeData = recipeData;
 
 	return data;
 }
