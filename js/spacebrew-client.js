@@ -16,7 +16,7 @@ $( document ).ready( function () {
 		? parseInt( deviceInQueryStr, 10 )
 		: ~~( Math.random() * 69 );
 	var deviceName = 'tablet-app-' + deviceId;
-	var appName = 'network';
+	var appName = 'monitoring';
 
 	var isMaster = getQueryString( 'master' ) === 'true';
 
