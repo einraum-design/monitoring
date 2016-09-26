@@ -14,6 +14,7 @@
   <script src="js/lib/jquery-ui.js"></script>
   <script src="js/lib/spacebrew-1.4.1.js"></script>
   <script src="js/lib/visibility.min.js"></script>
+  <script src="js/lib/moment.js"></script>
 
   <!-- Javascript for Content -->
   <script src="js/dataAttr.js"></script>
@@ -23,15 +24,16 @@
   <script src="js/firstLinks.js"></script>
   <script src="js/toggleSwitch.js"></script>
   <script src="js/pageSwitch.js"></script>
+  <script src="js/timeline.js"></script>
 
   <!-- Spacebrew -->
   <script src="js/spacebrew-client.js"></script>
 
-  <!-- HighCharts --->
-  <script src="http://code.highcharts.com/highcharts.js"></script>
+  <!-- HighCharts -->
+  <script src="js/lib/highcharts.js"></script>
   <script src="js/charts/chartSensors.js"></script>
 
-  <!-- CSS --->
+  <!-- CSS -->
   <link rel="stylesheet" href="css/reset.css" rel="stylesheet" />
   <link rel="stylesheet" href="css/jquery-ui.css">
   <link rel="stylesheet" href="css/global.css" rel="stylesheet" />
@@ -364,7 +366,23 @@
 </div>
 
 <!-- Timeline -->
-<div id="timeline"></div>
+<div id="timeline">
+  <div id="timeline-popup">
+    <button class="timeline-popup-close-button">Close</button>
+    <div class="timeline-popup-text">
+      <h1 id="timeline-popup-title">.....</h1>
+      <span>Date: <time id="timeline-popup-time">.....</time></span>
+      <p id="timeline-popup-description">.....</h1>
+    </div>
+    <div class="timeline-popup-arrow"></div>
+  </div>
+  <div class="timeline-events">
+  </div>
+  <div id="timeline-timespan-options">
+  </div>
+  <button id="timeline-timespan-selected">
+  </button>
+</div>
 
 <script>
   $("#first-row").tabs();

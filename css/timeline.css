@@ -1,0 +1,142 @@
+/* Timeline Styling */
+
+#timeline {
+	position: fixed;
+	bottom: 0px;
+	left: 0px;
+	width: 100%;
+	height: 60px;
+}
+
+#timeline-rohstoffe {
+	position: fixed;
+	bottom: 0px;
+	left: 0px;
+	width: 100%;
+	height: 60px;
+	background-image: url(../img/timeline-rohstoffe.jpg);
+}
+
+#timeline-events {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+#timeline .event-button {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	transform: translateX(-50%) translateY(-50%);
+	background: transparent;
+	text-indent: -5000px;
+	border-radius: 15px;
+	overflow: hidden;
+	width: 15px;
+	height: 15px;
+	border: none;
+	cursor: pointer;
+}
+
+#timeline .event-button.type-maintenance {
+	background-color: blue;
+}
+
+#timeline .event-button.type-error {
+	background-color: red;
+}
+
+#timeline .event-button.type-setup {
+	background-color: yellow;
+}
+
+#timeline-popup {
+	position: absolute;
+	top: 0;
+	transform: translateY(-100%);
+	display: none;
+	width: 100%;
+	height: 200px;
+	background-color: #ccc;
+}
+
+#timeline-popup.is-active {
+	display: block;
+}
+
+#timeline-popup.is-in-past {
+	background-color: #333;
+	color: #fff;
+}
+
+#timeline-popup .timeline-popup-close-button {
+	position: absolute;
+	top:  20px;
+	left: 20px;
+	width: 30px;
+	height: 30px;
+	overflow: hidden;
+	display: block;
+}
+
+.timeline-popup-arrow {
+	position: absolute;
+	height: 20px;
+	width: 10px;
+	bottom: 0;
+	transform: translateX(-50%) translateY(100%);
+	background-color: red;
+}
+
+#timeline-popup[data-type="maintenance"] .timeline-popup-arrow {
+	background-color: blue;
+}
+
+#timeline-popup[data-type="error"] .timeline-popup-arrow {
+	background-color: red;
+}
+
+#timeline-popup[data-type="setup"] .timeline-popup-arrow {
+	background-color: yellow;
+}
+
+#timeline-timespan-selected {
+	display: block;
+	position: absolute;
+	top: 50%;
+	right: 30px;
+	background: #ccc;
+	border-radius: 4px;
+	color: #000;
+	width: 120px;
+	height: 30px;
+	transform: translateY(-50%);
+	cursor: pointer;
+	z-index: 10;
+}
+
+#timeline-timespan-options {
+	width: 120px;
+	position: absolute;
+	right: 30px;
+	top: 50%;
+	transform: translateY(-100%);
+	z-index: 11;
+	background-color: #666;
+	color: #fff;
+	display: none;
+}
+
+#timeline-timespan-options.is-active {
+	display: block;
+}
+
+#timeline-timespan-options .timeline-option {
+	display: block;
+}
+
+#timeline-timespan-options .timeline-option.is-selected {
+	color: #fff;
+}
