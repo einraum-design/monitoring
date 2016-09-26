@@ -59,6 +59,7 @@ $(document).ready( function () {
 					endX = ( allocationEndTimestamp - timelineSpanStartTimestamp ) / ( timelineSpanEndTimestamp - timelineSpanStartTimestamp );
 				}
 
+				allocationEl.setAttribute( 'data-type', allocation.type );
 				allocationEl.textContent = allocation.type.replace( 'recipe-', '' );
 				allocationEl.style.left = ( startX * 100 ) + '%';
 				allocationEl.style.width = ( ( endX - startX ) * 100 ) + '%';
@@ -104,7 +105,7 @@ $(document).ready( function () {
 	}
 	
 	function showAllocation ( allocation ) {
-		console.log( 'SHOWING ALLOCATION', allocation );
+		console.log( 'SHOW ALLOCATION DETAILS', allocation );
 	}
 
 	function closePopup () {

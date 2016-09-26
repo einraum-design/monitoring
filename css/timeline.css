@@ -58,9 +58,10 @@
 	overflow: hidden;
 	border-radius: 30px;
 	transform: translateY(-50%);
-	background-color: green;
+	background-color: #ccc;
 	cursor: pointer;
 	text-align: center;
+	color: #fff;
 }
 
 #raw-material-timeline .allocation.is-in-future {
@@ -73,6 +74,18 @@
 
 #raw-material-timeline .allocation.is-current {
 	border: 2px orange solid;
+}
+
+#raw-material-timeline .allocation[data-type^="recipe"] {
+	background-color: green;
+}
+
+#raw-material-timeline .allocation[data-type="maintenance"] {
+	background-color: orange;
+}
+
+#raw-material-timeline .allocation[data-type^="setup"] {
+	background-color: blue;
 }
 
 #timeline-popup {
