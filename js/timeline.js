@@ -15,12 +15,9 @@ $(document).ready( function () {
 
 	function render () {
 		requestAnimationFrame( function () {
-			// var now = moment();
-			
+			var now = getCurrentMoment();
+						
 			var currentTimelineSpan = timelineData.timespans[currentTimelineSpanId];
-
-			// den jetzigen zeitpunkt faken, so dass wir events angezeigt bekommen
-			var now = moment().week( 42 );
 			var halfTimeSpanSeconds = ~~( currentTimelineSpan.asSeconds() / 2 );
 
 			var timelineSpanStart = moment( now ).subtract( halfTimeSpanSeconds, 'seconds' );
@@ -47,6 +44,7 @@ $(document).ready( function () {
 
 				var eventEl = $( '<button class="event-button type-' + event.type + '" id="button-' + event.id + '">' + event.title + '</button>' );
 				eventEl.css( 'left', eventX + '%' );
+				eventEl.attr( 'data-event-id', event.id );
 				eventEl.on( 'click', function () {
 					openDetailPopup( event, eventX, eventIsInPast );
 				} );
@@ -79,9 +77,7 @@ $(document).ready( function () {
 		} );
 	}
 
-	render();
-
-	setInterval( render, 800 );
+	
 
 	function openDetailPopup ( eventData, eventX, isEventInPast ) {
 		popupEl[isEventInPast ? 'addClass' : 'removeClass']( 'is-in-past' );
@@ -91,6 +87,9 @@ $(document).ready( function () {
 
 		var descriptionEl = $( '#timeline-popup-description', popupEl );
 		descriptionEl.text( eventData.description );
+
+		var imageEl = $( '#timeline-popup-image', popupEl );
+		imageEl.attr( 'src', eventData.image );
 		
 		popupEl.attr( 'data-type', eventData.type );
 		popupEl.addClass( 'is-active' );
@@ -118,6 +117,66 @@ $(document).ready( function () {
 	function toggleSelection () {
 		optionsEl.toggleClass( 'is-active' );
 	}
+
+	// EIN EVENT AUF DER TIMELINE HINZUFÜGEN:
+	// addTimelineEvent( {
+	// 	id: 'meine-id',
+	// 	date: moment( '2016-10-14 09:30:26' ),
+	// 	type: 'setup',
+	// 	title: 'mein titel',
+	// 	description: 'my description yo',
+	// 	image: 'images/test/img.svg'
+	// },
+	// nach 3 sekunden wieder runternehmen von der timeline
+	// 3000 );
+	function addTimelineEvent ( eventData, deleteAfter ) {
+		if (
+			eventData &&
+			eventData.id &&
+			eventData.date &&
+			eventData.date.isValid &&
+			eventData.date.isValid() &&
+			eventData.type &&
+			eventData.title &&
+			eventData.description &&
+			eventData.image
+		) {
+			timelineData.events.push( eventData );
+
+			if ( deleteAfter ) {
+				setTimeout( function () {
+					removeTimelineEvent( eventData.id );
+				}, deleteAfter );
+			}
+
+			render();
+		} else {
+			console.log( 'YO. DEIN EVENT IS FALSCH FORMATIERT. BITTE DIESES FORMAT NUTZEN:', JSON.stringify( timelineData.events[0], null, '  ' ) );
+		}
+	}
+
+	function removeTimelineEvent ( removeId ) {
+		var eventIndex = -1;
+
+		timelineData.events
+			.forEach( function ( event, index ) {
+				if ( event.id === removeId ) {
+					eventIndex = index;
+				}
+			} );
+
+		if ( eventIndex !== -1 ) {
+			timelineData.events.splice( eventIndex, 1 );
+		}
+
+		render();
+	}
+
+	render();
+	setInterval( render, 5000 );
+
+	window.removeTimelineEvent = removeTimelineEvent;
+	window.addTimelineEvent = addTimelineEvent;
 } );
 
 function getTimelineData () {
@@ -148,6 +207,9 @@ function getTimelineData () {
 	// beispiel für die 'echten Daten'
 	// var events = [
 	// 	{
+	// 		// event id, kann eindeutige zahlen kombination sein
+	// 		id: 'event-121312',
+	// 		
 	// 		// event datum
 	// 		date: moment( '2016-10-14 09:30:26' ),
 	// 		
@@ -156,9 +218,8 @@ function getTimelineData () {
 	// 		
 	// 		title: 'Event Title blabla',
 	// 		description: 'hello 123',
-	//		
-	//		// event id, kann eindeutige zahlen kombination sein
-	// 		id: 'event-121312'
+	// 		
+	// 		image: 'img/events/testImage.svg'
 	// 	}
 	// ]
 
@@ -171,11 +232,12 @@ function getTimelineData () {
 		var eventDate = moment( eventTimestamp, 'x' );
 
 		events[eventIndex] = {
+			id: 'event-' + eventIndex,
 			date: eventDate,
 			type: eventTypes[randomNumber(0, eventTypes.length - 1, true)],
 			title: 'EVENT ' + ( eventIndex + 1 ),
 			description: 'lorem ipsum dolor',
-			id: 'event-' + eventIndex
+			image: 'img/events/testImage.svg'
 		};
 	}
 
@@ -186,6 +248,16 @@ function getTimelineData () {
 	data.eventTypes = eventTypes;
 
 	return data;
+}
+
+function getCurrentMoment () {
+	var now = moment();
+
+	// den jetzigen zeitpunkt faken, so dass wir events angezeigt bekommen
+	if ( now.week() < 42 ) {
+		now = moment().week( 42 );
+	}
+	return now;
 }
 
 function randomNumber ( min, max, round ) {
