@@ -2,6 +2,10 @@ $(document).ready(function(){
 
   $("#full-link").click(function(){
     $(".anlagen-bild").css({'transform':'translate(0px, 0px) scale(1)'});
+    window.sendSpacebrewMessage('componentActivated', {
+      componentId: 200,
+      rohstoffTracking: true
+    });
   });
 
   $('.full-link-spacebrew').on('click',function(){
