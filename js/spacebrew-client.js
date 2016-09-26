@@ -37,10 +37,13 @@ $( document ).ready( function () {
 		spaceBrewClient.connect();
 
 		spaceBrewClient.onOpen = function () {
-			isConnected = true;
-			isConnecting = false;
-			console.log( 'CONNECTED' );
-		};
+				isConnected = true;
+				isConnecting = false;
+
+				setTimeout( function () {
+					sendMessage( 'appConnected' );
+				}, 250 );
+			};
 
 		spaceBrewClient.onError = function ( err ) {
 			isConnecting = false;
