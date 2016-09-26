@@ -31,12 +31,13 @@
 /* Rohstoffe auf der Übersichtsseite */
 
 #rohstoffe-recipe{
-  width: 200px;
+  width: 260px;
   height: 230px;
-  background-color: red;
+  background-color: #424242;
   text-align: center;
-  padding-top: 70px;
-
+  padding-top: 50px;
+  line-height: 5em;
+  float: left;
 }
 
 .recipe-title{
@@ -45,9 +46,27 @@
   text-transform: uppercase;
   color: #fff;
   letter-spacing: 1px;
+  z-index: 1;
 }
 
 .recipe-number{
-  font-size: 90px;
+  font-size: 120px;
+  color: #fff;
+  z-index: 1;
+}
+
+.recipe-scale{
+  width: 260px;
   position: absolute;
+  margin-bottom: 0px;
+  height: 40px;
+  background-color: red;
+  z-index: 0;
+}
+
+#rohstoffe-fuellstaende-uebersicht{
+  width: 100%;
+  float: left;
+  margin-left: 20px;
+  background-color: green;
 }
