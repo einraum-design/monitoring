@@ -36,7 +36,7 @@ $( document ).ready( function () {
 		isConnecting = true;
 		spaceBrewClient.connect();
 
-		spaceBrewClient.appConnected = function () {
+		spaceBrewClient.opOpen = function () {
 			isConnected = true;
 			isConnecting = false;
 			console.log( 'CONNECTED' );
