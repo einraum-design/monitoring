@@ -107,17 +107,21 @@ $(document).ready( function () {
 	function showAllocation ( allocation ) {
 		console.log( 'SHOW ALLOCATION DETAILS', allocation );
 
-		var infoEl = $( '#first-row-rohstoffe .ui-tabs-panel[aria-hidden="false"]' );
+		var infoEl = $( '#first-row-rohstoffe > .ui-tabs-panel[aria-hidden="false"]' );
 
 		if ( infoEl.length ){
+			var wrapperEl = $( '#rohstoffe-recipe', infoEl );
+
 			if ( allocation.recipe && allocation.recipe.number ) {
-				$( 'recipe-number', infoEl ).text( allocation.recipe.number );
+				wrapperEl.addClass( 'is-showing-recipe' );
+				$( '.recipe-number', infoEl ).text( allocation.recipe.number );
+			} else {
+				wrapperEl.removeClass( 'is-showing-recipe' );
+				$( '.recipe-number', infoEl ).text( allocation.type );
 			}
 
-			var nextEl = $( 'recipe-next', infoEl );
+			var nextEl = $( '.recipe-next', infoEl );
 			nextEl.text( allocation.nextId );
-
-			console.log( infoEl, allocation.recipe );
 		}
 
 		var tableEl = $( '.ui-tabs-panel[aria-hidden="false"]' );
