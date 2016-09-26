@@ -490,7 +490,7 @@ $(function() {
       },
       xAxis: {
         type: 'datetime',
-        tickPixelInterval: 150,
+        tickPixelInterval: 350,
         floating: true,
         labels: {
             align: 'left',
@@ -502,21 +502,11 @@ $(function() {
               position: 'absolute'
             },
         },
+
       },
       yAxis: {
         title: {
-          min: 0,
-          max: 350,
-          endOnTick: false,
-          tickInterval: 25,
-          zIndex: 1000,
-          align: 'left',
-            style: {
-              color: '#fff',
-              font: 'Gotham',
-              position: 'absolute',
-              fontSize: '43px',
-            },
+          text: 'ewewr'
         },
         plotLines: [{
           value: 0,
