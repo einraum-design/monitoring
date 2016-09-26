@@ -16,7 +16,7 @@ $( document ).ready( function () {
 		? parseInt( deviceInQueryStr, 10 )
 		: ~~( Math.random() * 69 );
 	var deviceName = 'tablet-app-' + deviceId;
-	var appName = 'network';
+	var appName = 'monitoring';
 
 	var isMaster = getQueryString( 'master' ) === 'true';
 
@@ -28,14 +28,14 @@ $( document ).ready( function () {
 
 		spaceBrewClient.name( deviceName );
 		spaceBrewClient.addPublish( 'componentActivated', 'string' );
-		spaceBrewClient.addPublish( 'appOpened', 'string' );
+		spaceBrewClient.addPublish( 'appConnected', 'string' );
 		spaceBrewClient.addPublish( 'appClosed', 'string' );
 		spaceBrewClient.addPublish( 'plantActivated', 'string' );
 		spaceBrewClient.addPublish( 'plantDeactivated', 'string' );
-		
+
 		isConnecting = true;
 		spaceBrewClient.connect();
-		
+
 		spaceBrewClient.onOpen = function () {
 			isConnected = true;
 			isConnecting = false;
@@ -60,7 +60,7 @@ $( document ).ready( function () {
 			data.deviceId = deviceId;
 			data.appName = appName;
 			data.isMaster = isMaster;
-			
+
 			if ( typeof value !== 'undefined' ) {
 				data.value = value;
 			}

@@ -4,6 +4,33 @@ $(document).ready(function(){
     $(".anlagen-bild").css({'transform':'translate(0px, 0px) scale(1)'});
   });
 
+  $('.upstream-spacebrew').on('click', function(){
+    $("#second-row-upstream-rohstoffe").tabs({ active: 0 });
+    window.sendSpacebrewMessage('componentActivated', {
+      componentId: 0,
+      componentName: 'Silo_1',
+      rohstoffTracking: true
+    });
+  });
+
+  $('.compounding-spacebrew').on('click', function(){
+    $("#second-row-compounding-rohstoffe").tabs({ active: 0 });
+    window.sendSpacebrewMessage('componentActivated', {
+      componentId: 8,
+      componentName: 'Tagessilo_1',
+      rohstoffTracking: true
+    });
+  });
+
+  $('.downstream-spacebrew').on('click', function(){
+    $("#second-row-downstream-rohstoffe").tabs({ active: 0 });
+    window.sendSpacebrewMessage('componentActivated', {
+      componentId: 28,
+      componentName: 'Silo_3',
+      rohstoffTracking: true
+    });
+  });
+
 
   // Startscreen Anzeige
   // Upstream, Compounding und Downstream werden zuerst als Kacheln angezeigt.

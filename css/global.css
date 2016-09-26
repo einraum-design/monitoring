@@ -124,13 +124,95 @@ li{
 }
 
 .dummy-2{
-	width: 100%;
+	width: 500px;
 	height: 260px;
 	margin-top: 7px;
 	margin-bottom: 11px;
+	margin-right: -10px;
+	float: left;
 	background-color: #ebeaea;
 }
 
+/* Komponenten Steckbriefe */
+
+.komponenten-infobox{
+	height: 260px;
+	float: right;
+	width: 47%;
+	margin-top: 7px;
+	font-size: 12px;
+	line-height: 1.37em;
+}
+
+.komponenten-titel{
+	font-size: 18px;
+	margin-bottom: 2px;
+}
+
+.komponenten-strong{
+	font-weight: 600;
+}
+
+.komponenten-id{
+	font-size: 10px;
+}
+
+.product-id{
+	margin-right: 10px;
+}
+
+.komponenten-information{
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+.komponenten-maintenance{
+	width: 138px;
+	padding: 5px;
+	float: left;
+	border-radius: 2px;
+	margin-right: 5px;
+}
+
+.grey-box{
+	background-color: rgba(239,239,239,.8);
+}
+
+.blue-box{
+	background-color: rgba(227,233,239,.8);
+}
+
+.komponenten-maintenance:last-child{
+	margin-right: 0px !important;
+}
+
+
+.clear{
+	display: block;
+	clear: both;
+}
+
+.kompontenten-replacement{
+	width: 424px;
+	padding: 15px 15px;
+	margin-top: 10px;
+	border-radius: 2px;
+	background-color: rgba(239,239,239,.8);
+}
+
+.komponenten-order-button{
+	float: right;
+	padding: 7px 35px;
+	border-radius: 3px;
+	background-color: #7f9bbd;
+	color: #fff;
+	margin-top: -7px;
+}
+
+.komponenten-bottom{
+	position: fixed;
+	bottom: 80px;
+}
 
 #first-row > div{
 	padding: 0px 20px;
@@ -737,7 +819,7 @@ ul.scroll {
 	top: 75px;
   margin: 0 auto;
   /* left: 32%; */
-  width: 717px;
+  width: 460px;
   left: 50%;
   margin-left: -208px;
 	transition: all .6s ease-in-out;

@@ -109,14 +109,20 @@ img[data-src] {
 
 }
 .active-auswahl-punkt{
-	width: 20px;
-	height: 20px;
+	width: 70px !important;
+	height: 70px !important;
 	background-image: url("../img/zoom.png");
 	-webkit-transform: translate3d(0,0,0) !important;
 	transform: translate3d(0,0,0) !important;
 	mix-blend-mode: multiply;
 	padding: 9px;
+  background-repeat: no-repeat;
 }
+
+.active-auswahl-punkt .number{
+  display: none;
+}
+
 
 /* Positionen der Punkte bei Sensoring 3D Ansicht */
 
@@ -330,16 +336,43 @@ img[data-src] {
 
 }
 
-/*Bei der 2-d ansicht */
-#bxc{
+
+/* Sensoring: BXC */
+.other #bxc-point{
 	position: absolute;
-	left: 420px;
-	top: 0px;
+	left: 615px;
+	top: 205px;
+}
+/* Akiver Punkt*/
+.other a#bxc-point .active-dot{
 }
 
-a#bxc .active-dot{
-	position: fixed;
-	left: 797px;
-	top: 120px;
-	pointer-events: none;
+/* Sensoring: WZK */
+.other #wzk-point{
+	position: absolute;
+	left: 689px;
+	top: 140px;
+}
+/* Akiver Punkt*/
+.other a#wzk-point .active-dot{
+}
+
+/* Sensoring: IBP */
+.other #ibp250-point{
+	position: absolute;
+	left: 730px;
+	top: 258px;
+}
+/* Akiver Punkt*/
+.other a#ibp250-point .active-dot{
+}
+
+/* Sensoring: IBP */
+.other #wet-point{
+	position: absolute;
+	left: 816px;
+	top: 140px;
+}
+/* Akiver Punkt*/
+.other a#wet-point .active-dot{
 }
