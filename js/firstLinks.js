@@ -4,6 +4,13 @@ $(document).ready(function(){
     $(".anlagen-bild").css({'transform':'translate(0px, 0px) scale(1)'});
   });
 
+  $('.full-link-spacebrew').on('click',function(){
+    window.sendSpacebrewMessage('componentActivated', {
+      componentId: 200,
+      rohstoffTracking: true
+    });
+  });
+
   $('.upstream-spacebrew').on('click', function(){
     $("#second-row-upstream-rohstoffe").tabs({ active: 0 });
     window.sendSpacebrewMessage('componentActivated', {
