@@ -51,6 +51,30 @@
 	background-color: yellow;
 }
 
+#raw-material-timeline .allocation {
+	position: absolute;
+	top: 50%;
+	height: 20px;
+	overflow: hidden;
+	border-radius: 30px;
+	transform: translateY(-50%);
+	background-color: green;
+	cursor: pointer;
+	text-align: center;
+}
+
+#raw-material-timeline .allocation.is-in-future {
+	opacity: 0.9;
+}
+
+#raw-material-timeline .allocation.is-in-past {
+	opacity: 0.4;
+}
+
+#raw-material-timeline .allocation.is-current {
+	border: 2px orange solid;
+}
+
 #timeline-popup {
 	position: absolute;
 	top: 0;
