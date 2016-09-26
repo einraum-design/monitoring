@@ -502,7 +502,6 @@ $(function() {
               position: 'absolute'
             },
         },
-
       },
       yAxis: {
         title: {
@@ -512,13 +511,12 @@ $(function() {
           tickInterval: 25,
           zIndex: 1000,
           align: 'left',
-          style: {
-            color: '#fff',
-            font: 'Gotham',
-            position: 'absolute',
-            fontSize: '43px',
-          },
-
+            style: {
+              color: '#fff',
+              font: 'Gotham',
+              position: 'absolute',
+              fontSize: '43px',
+            },
         },
         plotLines: [{
           value: 0,
