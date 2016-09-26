@@ -39,6 +39,7 @@
   <link rel="stylesheet" href="css/global.css" rel="stylesheet" />
   <link rel="stylesheet" href="css/anlage.css" rel="stylesheet" />
   <link rel="stylesheet" href="css/jquery-mobile.css">
+  <link rel="stylesheet" href="css/rohstoffe.css">
 </head>
 
 <body class="other">
@@ -113,7 +114,13 @@
   <!-- Fullview -->
   <div id="full">
     <div class="sensoren-titel-in"><p>Houston <span class="blue">Line 1</span></p></div>
-    <img class="rohstoff-dummy" src="img/rohstoffe-2.jpg" />
+    <div id="rohstoffe-recipe">
+      <span class="recipe-title">Recipe</span><br />
+      <span class="recipe-number">3</span>
+
+      <div class="recipe-scale"></div>
+      <div class="recipe-next">Next 2</div>
+    </div>
   </div>
 
   <!-- Upstream -->
@@ -127,17 +134,83 @@
 
       <div id="silo-1">
         <div class="sensoren-titel-in"><p>Silo 1</p></div>
-        <img class="rohstoff-dummy" src="img/rohstoffe-1.jpg" />
+        <table class="rohstoffe-fuellstaende">
+          <tr class="rohstoffe-title">
+            <td>Material</td>
+            <td>Menge</td>
+            <td>Materialcode</td>
+            <td>Losnummer</td>
+            <td>Lieferant</td>
+          </tr>
+          <tr class="rohstoffe-element">
+            <td class="rohstoffe-bold">Polyethylen</td>
+            <td data-content="amount"><span class="value">9000</span><span class="unit">kg</span></td>
+            <td data-content="materialcode"><span class="value">0093458035</span></td>
+            <td data-content="losnummer"><span class="value">9023809</span></td>
+            <td data-content="lieferant"><span class="value">123456</span></td>
+          </tr>
+          <tr class="rohstoffe-element">
+            <td class="rohstoffe-bold">Polyethylen</td>
+            <td data-content="amount"><span class="value">9000</span><span class="unit">kg</span></td>
+            <td data-content="materialcode"><span class="value">0093458035</span></td>
+            <td data-content="losnummer"><span class="value">9023809</span></td>
+            <td data-content="lieferant"><span class="value">123456</span></td>
+          </tr>
+        </table>
       </div>
 
       <div id="silo-2">
         <div class="sensoren-titel-in"><p>Silo 2</p></div>
-        <img class="rohstoff-dummy" src="img/rohstoffe-1.jpg" />
+        <table class="rohstoffe-fuellstaende">
+          <tr class="rohstoffe-title">
+            <td>Material</td>
+            <td>Menge</td>
+            <td>Materialcode</td>
+            <td>Losnummer</td>
+            <td>Lieferant</td>
+          </tr>
+          <tr class="rohstoffe-element">
+            <td class="rohstoffe-bold">Polyethylen</td>
+            <td data-content="amount"><span class="value">9000</span><span class="unit">kg</span></td>
+            <td data-content="materialcode"><span class="value">0093458035</span></td>
+            <td data-content="losnummer"><span class="value">9023809</span></td>
+            <td data-content="lieferant"><span class="value">123456</span></td>
+          </tr>
+          <tr class="rohstoffe-element">
+            <td class="rohstoffe-bold">Polyethylen</td>
+            <td data-content="amount"><span class="value">9000</span><span class="unit">kg</span></td>
+            <td data-content="materialcode"><span class="value">0093458035</span></td>
+            <td data-content="losnummer"><span class="value">9023809</span></td>
+            <td data-content="lieferant"><span class="value">123456</span></td>
+          </tr>
+        </table>
       </div>
 
       <div id="bigbag">
         <div class="sensoren-titel-in"><p>Big Bag</p></div>
-        <img class="rohstoff-dummy" src="img/rohstoffe-1.jpg" />
+        <table class="rohstoffe-fuellstaende">
+          <tr class="rohstoffe-title">
+            <td>Material</td>
+            <td>Menge</td>
+            <td>Materialcode</td>
+            <td>Losnummer</td>
+            <td>Lieferant</td>
+          </tr>
+          <tr class="rohstoffe-element">
+            <td class="rohstoffe-bold">Polyethylen</td>
+            <td data-content="amount"><span class="value">9000</span><span class="unit">kg</span></td>
+            <td data-content="materialcode"><span class="value">0093458035</span></td>
+            <td data-content="losnummer"><span class="value">9023809</span></td>
+            <td data-content="lieferant"><span class="value">123456</span></td>
+          </tr>
+          <tr class="rohstoffe-element">
+            <td class="rohstoffe-bold">Polyethylen</td>
+            <td data-content="amount"><span class="value">9000</span><span class="unit">kg</span></td>
+            <td data-content="materialcode"><span class="value">0093458035</span></td>
+            <td data-content="losnummer"><span class="value">9023809</span></td>
+            <td data-content="lieferant"><span class="value">123456</span></td>
+          </tr>
+        </table>
       </div>
 
     </div>
@@ -161,54 +234,274 @@
 
       <div id="tagessilo-1">
         <div class="sensoren-titel-in"><p>Tagessilo 1</p></div>
-        <img class="rohstoff-dummy" src="img/rohstoffe-1.jpg" />
+        <table class="rohstoffe-fuellstaende">
+          <tr class="rohstoffe-title">
+            <td>Material</td>
+            <td>Menge</td>
+            <td>Materialcode</td>
+            <td>Losnummer</td>
+            <td>Lieferant</td>
+          </tr>
+          <tr class="rohstoffe-element">
+            <td class="rohstoffe-bold">Polyethylen</td>
+            <td data-content="amount"><span class="value">9000</span><span class="unit">kg</span></td>
+            <td data-content="materialcode"><span class="value">0093458035</span></td>
+            <td data-content="losnummer"><span class="value">9023809</span></td>
+            <td data-content="lieferant"><span class="value">123456</span></td>
+          </tr>
+          <tr class="rohstoffe-element">
+            <td class="rohstoffe-bold">Polyethylen</td>
+            <td data-content="amount"><span class="value">9000</span><span class="unit">kg</span></td>
+            <td data-content="materialcode"><span class="value">0093458035</span></td>
+            <td data-content="losnummer"><span class="value">9023809</span></td>
+            <td data-content="lieferant"><span class="value">123456</span></td>
+          </tr>
+        </table>
       </div>
 
       <div id="dosierer-1-r">
         <div class="sensoren-titel-in"><p>Dosierer 1</p></div>
-        <img class="rohstoff-dummy" src="img/rohstoffe-1.jpg" />
+        <table class="rohstoffe-fuellstaende">
+          <tr class="rohstoffe-title">
+            <td>Material</td>
+            <td>Menge</td>
+            <td>Materialcode</td>
+            <td>Losnummer</td>
+            <td>Lieferant</td>
+          </tr>
+          <tr class="rohstoffe-element">
+            <td class="rohstoffe-bold">Polyethylen</td>
+            <td data-content="amount"><span class="value">9000</span><span class="unit">kg</span></td>
+            <td data-content="materialcode"><span class="value">0093458035</span></td>
+            <td data-content="losnummer"><span class="value">9023809</span></td>
+            <td data-content="lieferant"><span class="value">123456</span></td>
+          </tr>
+          <tr class="rohstoffe-element">
+            <td class="rohstoffe-bold">Polyethylen</td>
+            <td data-content="amount"><span class="value">9000</span><span class="unit">kg</span></td>
+            <td data-content="materialcode"><span class="value">0093458035</span></td>
+            <td data-content="losnummer"><span class="value">9023809</span></td>
+            <td data-content="lieferant"><span class="value">123456</span></td>
+          </tr>
+        </table>
       </div>
 
       <div id="tagessilo-2">
         <div class="sensoren-titel-in"><p>Tagessilo 2</p></div>
-        <img class="rohstoff-dummy" src="img/rohstoffe-1.jpg" />
+        <table class="rohstoffe-fuellstaende">
+          <tr class="rohstoffe-title">
+            <td>Material</td>
+            <td>Menge</td>
+            <td>Materialcode</td>
+            <td>Losnummer</td>
+            <td>Lieferant</td>
+          </tr>
+          <tr class="rohstoffe-element">
+            <td class="rohstoffe-bold">Polyethylen</td>
+            <td data-content="amount"><span class="value">9000</span><span class="unit">kg</span></td>
+            <td data-content="materialcode"><span class="value">0093458035</span></td>
+            <td data-content="losnummer"><span class="value">9023809</span></td>
+            <td data-content="lieferant"><span class="value">123456</span></td>
+          </tr>
+          <tr class="rohstoffe-element">
+            <td class="rohstoffe-bold">Polyethylen</td>
+            <td data-content="amount"><span class="value">9000</span><span class="unit">kg</span></td>
+            <td data-content="materialcode"><span class="value">0093458035</span></td>
+            <td data-content="losnummer"><span class="value">9023809</span></td>
+            <td data-content="lieferant"><span class="value">123456</span></td>
+          </tr>
+        </table>
       </div>
 
       <div id="dosierer-2-r">
         <div class="sensoren-titel-in"><p>Dosierer 2</p></div>
-        <img class="rohstoff-dummy" src="img/rohstoffe-1.jpg" />
+        <table class="rohstoffe-fuellstaende">
+          <tr class="rohstoffe-title">
+            <td>Material</td>
+            <td>Menge</td>
+            <td>Materialcode</td>
+            <td>Losnummer</td>
+            <td>Lieferant</td>
+          </tr>
+          <tr class="rohstoffe-element">
+            <td class="rohstoffe-bold">Polyethylen</td>
+            <td data-content="amount"><span class="value">9000</span><span class="unit">kg</span></td>
+            <td data-content="materialcode"><span class="value">0093458035</span></td>
+            <td data-content="losnummer"><span class="value">9023809</span></td>
+            <td data-content="lieferant"><span class="value">123456</span></td>
+          </tr>
+          <tr class="rohstoffe-element">
+            <td class="rohstoffe-bold">Polyethylen</td>
+            <td data-content="amount"><span class="value">9000</span><span class="unit">kg</span></td>
+            <td data-content="materialcode"><span class="value">0093458035</span></td>
+            <td data-content="losnummer"><span class="value">9023809</span></td>
+            <td data-content="lieferant"><span class="value">123456</span></td>
+          </tr>
+        </table>
 
       </div>
 
       <div id="hopper">
         <div class="sensoren-titel-in"><p>Hopper</p></div>
-        <img class="rohstoff-dummy" src="img/rohstoffe-1.jpg" />
+        <table class="rohstoffe-fuellstaende">
+          <tr class="rohstoffe-title">
+            <td>Material</td>
+            <td>Menge</td>
+            <td>Materialcode</td>
+            <td>Losnummer</td>
+            <td>Lieferant</td>
+          </tr>
+          <tr class="rohstoffe-element">
+            <td class="rohstoffe-bold">Polyethylen</td>
+            <td data-content="amount"><span class="value">9000</span><span class="unit">kg</span></td>
+            <td data-content="materialcode"><span class="value">0093458035</span></td>
+            <td data-content="losnummer"><span class="value">9023809</span></td>
+            <td data-content="lieferant"><span class="value">123456</span></td>
+          </tr>
+          <tr class="rohstoffe-element">
+            <td class="rohstoffe-bold">Polyethylen</td>
+            <td data-content="amount"><span class="value">9000</span><span class="unit">kg</span></td>
+            <td data-content="materialcode"><span class="value">0093458035</span></td>
+            <td data-content="losnummer"><span class="value">9023809</span></td>
+            <td data-content="lieferant"><span class="value">123456</span></td>
+          </tr>
+        </table>
       </div>
 
       <div id="dosierer-3-r">
         <div class="sensoren-titel-in"><p>Dosierer 3</p></div>
-        <img class="rohstoff-dummy" src="img/rohstoffe-1.jpg" />
+        <table class="rohstoffe-fuellstaende">
+          <tr class="rohstoffe-title">
+            <td>Material</td>
+            <td>Menge</td>
+            <td>Materialcode</td>
+            <td>Losnummer</td>
+            <td>Lieferant</td>
+          </tr>
+          <tr class="rohstoffe-element">
+            <td class="rohstoffe-bold">Polyethylen</td>
+            <td data-content="amount"><span class="value">9000</span><span class="unit">kg</span></td>
+            <td data-content="materialcode"><span class="value">0093458035</span></td>
+            <td data-content="losnummer"><span class="value">9023809</span></td>
+            <td data-content="lieferant"><span class="value">123456</span></td>
+          </tr>
+          <tr class="rohstoffe-element">
+            <td class="rohstoffe-bold">Polyethylen</td>
+            <td data-content="amount"><span class="value">9000</span><span class="unit">kg</span></td>
+            <td data-content="materialcode"><span class="value">0093458035</span></td>
+            <td data-content="losnummer"><span class="value">9023809</span></td>
+            <td data-content="lieferant"><span class="value">123456</span></td>
+          </tr>
+        </table>
 
       </div>
 
       <div id="bigbag2">
         <div class="sensoren-titel-in"><p>Big Bag 2</p></div>
-        <img class="rohstoff-dummy" src="img/rohstoffe-1.jpg" />
+        <table class="rohstoffe-fuellstaende">
+          <tr class="rohstoffe-title">
+            <td>Material</td>
+            <td>Menge</td>
+            <td>Materialcode</td>
+            <td>Losnummer</td>
+            <td>Lieferant</td>
+          </tr>
+          <tr class="rohstoffe-element">
+            <td class="rohstoffe-bold">Polyethylen</td>
+            <td data-content="amount"><span class="value">9000</span><span class="unit">kg</span></td>
+            <td data-content="materialcode"><span class="value">0093458035</span></td>
+            <td data-content="losnummer"><span class="value">9023809</span></td>
+            <td data-content="lieferant"><span class="value">123456</span></td>
+          </tr>
+          <tr class="rohstoffe-element">
+            <td class="rohstoffe-bold">Polyethylen</td>
+            <td data-content="amount"><span class="value">9000</span><span class="unit">kg</span></td>
+            <td data-content="materialcode"><span class="value">0093458035</span></td>
+            <td data-content="losnummer"><span class="value">9023809</span></td>
+            <td data-content="lieferant"><span class="value">123456</span></td>
+          </tr>
+        </table>
       </div>
 
       <div id="dosierer-4-r">
         <div class="sensoren-titel-in"><p>Dosierer 4</p></div>
-        <img class="rohstoff-dummy" src="img/rohstoffe-1.jpg" />
+        <table class="rohstoffe-fuellstaende">
+          <tr class="rohstoffe-title">
+            <td>Material</td>
+            <td>Menge</td>
+            <td>Materialcode</td>
+            <td>Losnummer</td>
+            <td>Lieferant</td>
+          </tr>
+          <tr class="rohstoffe-element">
+            <td class="rohstoffe-bold">Polyethylen</td>
+            <td data-content="amount"><span class="value">9000</span><span class="unit">kg</span></td>
+            <td data-content="materialcode"><span class="value">0093458035</span></td>
+            <td data-content="losnummer"><span class="value">9023809</span></td>
+            <td data-content="lieferant"><span class="value">123456</span></td>
+          </tr>
+          <tr class="rohstoffe-element">
+            <td class="rohstoffe-bold">Polyethylen</td>
+            <td data-content="amount"><span class="value">9000</span><span class="unit">kg</span></td>
+            <td data-content="materialcode"><span class="value">0093458035</span></td>
+            <td data-content="losnummer"><span class="value">9023809</span></td>
+            <td data-content="lieferant"><span class="value">123456</span></td>
+          </tr>
+        </table>
       </div>
 
       <div id="tagessilo-3">
         <div class="sensoren-titel-in"><p>Tagessilo 3</p></div>
-        <img class="rohstoff-dummy" src="img/rohstoffe-1.jpg" />
+        <table class="rohstoffe-fuellstaende">
+          <tr class="rohstoffe-title">
+            <td>Material</td>
+            <td>Menge</td>
+            <td>Materialcode</td>
+            <td>Losnummer</td>
+            <td>Lieferant</td>
+          </tr>
+          <tr class="rohstoffe-element">
+            <td class="rohstoffe-bold">Polyethylen</td>
+            <td data-content="amount"><span class="value">9000</span><span class="unit">kg</span></td>
+            <td data-content="materialcode"><span class="value">0093458035</span></td>
+            <td data-content="losnummer"><span class="value">9023809</span></td>
+            <td data-content="lieferant"><span class="value">123456</span></td>
+          </tr>
+          <tr class="rohstoffe-element">
+            <td class="rohstoffe-bold">Polyethylen</td>
+            <td data-content="amount"><span class="value">9000</span><span class="unit">kg</span></td>
+            <td data-content="materialcode"><span class="value">0093458035</span></td>
+            <td data-content="losnummer"><span class="value">9023809</span></td>
+            <td data-content="lieferant"><span class="value">123456</span></td>
+          </tr>
+        </table>
       </div>
 
       <div id="dosierer-5-r">
         <div class="sensoren-titel-in"><p>Dosierer 5</p></div>
-        <img class="rohstoff-dummy" src="img/rohstoffe-1.jpg" />
+        <table class="rohstoffe-fuellstaende">
+          <tr class="rohstoffe-title">
+            <td>Material</td>
+            <td>Menge</td>
+            <td>Materialcode</td>
+            <td>Losnummer</td>
+            <td>Lieferant</td>
+          </tr>
+          <tr class="rohstoffe-element">
+            <td class="rohstoffe-bold">Polyethylen</td>
+            <td data-content="amount"><span class="value">9000</span><span class="unit">kg</span></td>
+            <td data-content="materialcode"><span class="value">0093458035</span></td>
+            <td data-content="losnummer"><span class="value">9023809</span></td>
+            <td data-content="lieferant"><span class="value">123456</span></td>
+          </tr>
+          <tr class="rohstoffe-element">
+            <td class="rohstoffe-bold">Polyethylen</td>
+            <td data-content="amount"><span class="value">9000</span><span class="unit">kg</span></td>
+            <td data-content="materialcode"><span class="value">0093458035</span></td>
+            <td data-content="losnummer"><span class="value">9023809</span></td>
+            <td data-content="lieferant"><span class="value">123456</span></td>
+          </tr>
+        </table>
       </div>
 
     </div>
@@ -236,42 +529,218 @@
 
       <div id="silo-3">
         <div class="sensoren-titel-in"><p>Silo 3</p></div>
-        <img class="rohstoff-dummy" src="img/rohstoffe-1.jpg" />
+        <table class="rohstoffe-fuellstaende">
+          <tr class="rohstoffe-title">
+            <td>Material</td>
+            <td>Menge</td>
+            <td>Materialcode</td>
+            <td>Losnummer</td>
+            <td>Lieferant</td>
+          </tr>
+          <tr class="rohstoffe-element">
+            <td class="rohstoffe-bold">Polyethylen</td>
+            <td data-content="amount"><span class="value">9000</span><span class="unit">kg</span></td>
+            <td data-content="materialcode"><span class="value">0093458035</span></td>
+            <td data-content="losnummer"><span class="value">9023809</span></td>
+            <td data-content="lieferant"><span class="value">123456</span></td>
+          </tr>
+          <tr class="rohstoffe-element">
+            <td class="rohstoffe-bold">Polyethylen</td>
+            <td data-content="amount"><span class="value">9000</span><span class="unit">kg</span></td>
+            <td data-content="materialcode"><span class="value">0093458035</span></td>
+            <td data-content="losnummer"><span class="value">9023809</span></td>
+            <td data-content="lieferant"><span class="value">123456</span></td>
+          </tr>
+        </table>
       </div>
 
       <div id="wzk-r">
         <div class="sensoren-titel-in"><p>WZK</p></div>
-        <img class="rohstoff-dummy" src="img/rohstoffe-1.jpg" />
+        <table class="rohstoffe-fuellstaende">
+          <tr class="rohstoffe-title">
+            <td>Material</td>
+            <td>Menge</td>
+            <td>Materialcode</td>
+            <td>Losnummer</td>
+            <td>Lieferant</td>
+          </tr>
+          <tr class="rohstoffe-element">
+            <td class="rohstoffe-bold">Polyethylen</td>
+            <td data-content="amount"><span class="value">9000</span><span class="unit">kg</span></td>
+            <td data-content="materialcode"><span class="value">0093458035</span></td>
+            <td data-content="losnummer"><span class="value">9023809</span></td>
+            <td data-content="lieferant"><span class="value">123456</span></td>
+          </tr>
+          <tr class="rohstoffe-element">
+            <td class="rohstoffe-bold">Polyethylen</td>
+            <td data-content="amount"><span class="value">9000</span><span class="unit">kg</span></td>
+            <td data-content="materialcode"><span class="value">0093458035</span></td>
+            <td data-content="losnummer"><span class="value">9023809</span></td>
+            <td data-content="lieferant"><span class="value">123456</span></td>
+          </tr>
+        </table>
       </div>
 
       <div id="ibp250-r">
         <div class="sensoren-titel-in"><p>IBP 250</p></div>
-        <img class="rohstoff-dummy" src="img/rohstoffe-1.jpg" />
+        <table class="rohstoffe-fuellstaende">
+          <tr class="rohstoffe-title">
+            <td>Material</td>
+            <td>Menge</td>
+            <td>Materialcode</td>
+            <td>Losnummer</td>
+            <td>Lieferant</td>
+          </tr>
+          <tr class="rohstoffe-element">
+            <td class="rohstoffe-bold">Polyethylen</td>
+            <td data-content="amount"><span class="value">9000</span><span class="unit">kg</span></td>
+            <td data-content="materialcode"><span class="value">0093458035</span></td>
+            <td data-content="losnummer"><span class="value">9023809</span></td>
+            <td data-content="lieferant"><span class="value">123456</span></td>
+          </tr>
+          <tr class="rohstoffe-element">
+            <td class="rohstoffe-bold">Polyethylen</td>
+            <td data-content="amount"><span class="value">9000</span><span class="unit">kg</span></td>
+            <td data-content="materialcode"><span class="value">0093458035</span></td>
+            <td data-content="losnummer"><span class="value">9023809</span></td>
+            <td data-content="lieferant"><span class="value">123456</span></td>
+          </tr>
+        </table>
       </div>
 
       <div id="silo-4">
         <div class="sensoren-titel-in"><p>Silo 4</p></div>
-        <img class="rohstoff-dummy" src="img/rohstoffe-1.jpg" />
+        <table class="rohstoffe-fuellstaende">
+          <tr class="rohstoffe-title">
+            <td>Material</td>
+            <td>Menge</td>
+            <td>Materialcode</td>
+            <td>Losnummer</td>
+            <td>Lieferant</td>
+          </tr>
+          <tr class="rohstoffe-element">
+            <td class="rohstoffe-bold">Polyethylen</td>
+            <td data-content="amount"><span class="value">9000</span><span class="unit">kg</span></td>
+            <td data-content="materialcode"><span class="value">0093458035</span></td>
+            <td data-content="losnummer"><span class="value">9023809</span></td>
+            <td data-content="lieferant"><span class="value">123456</span></td>
+          </tr>
+          <tr class="rohstoffe-element">
+            <td class="rohstoffe-bold">Polyethylen</td>
+            <td data-content="amount"><span class="value">9000</span><span class="unit">kg</span></td>
+            <td data-content="materialcode"><span class="value">0093458035</span></td>
+            <td data-content="losnummer"><span class="value">9023809</span></td>
+            <td data-content="lieferant"><span class="value">123456</span></td>
+          </tr>
+        </table>
       </div>
 
       <div id="silo-5">
         <div class="sensoren-titel-in"><p>Silo 5</p></div>
-        <img class="rohstoff-dummy" src="img/rohstoffe-1.jpg" />
+        <table class="rohstoffe-fuellstaende">
+          <tr class="rohstoffe-title">
+            <td>Material</td>
+            <td>Menge</td>
+            <td>Materialcode</td>
+            <td>Losnummer</td>
+            <td>Lieferant</td>
+          </tr>
+          <tr class="rohstoffe-element">
+            <td class="rohstoffe-bold">Polyethylen</td>
+            <td data-content="amount"><span class="value">9000</span><span class="unit">kg</span></td>
+            <td data-content="materialcode"><span class="value">0093458035</span></td>
+            <td data-content="losnummer"><span class="value">9023809</span></td>
+            <td data-content="lieferant"><span class="value">123456</span></td>
+          </tr>
+          <tr class="rohstoffe-element">
+            <td class="rohstoffe-bold">Polyethylen</td>
+            <td data-content="amount"><span class="value">9000</span><span class="unit">kg</span></td>
+            <td data-content="materialcode"><span class="value">0093458035</span></td>
+            <td data-content="losnummer"><span class="value">9023809</span></td>
+            <td data-content="lieferant"><span class="value">123456</span></td>
+          </tr>
+        </table>
       </div>
 
       <div id="silo-6">
         <div class="sensoren-titel-in"><p>Silo 6</p></div>
-        <img class="rohstoff-dummy" src="img/rohstoffe-1.jpg" />
+        <table class="rohstoffe-fuellstaende">
+          <tr class="rohstoffe-title">
+            <td>Material</td>
+            <td>Menge</td>
+            <td>Materialcode</td>
+            <td>Losnummer</td>
+            <td>Lieferant</td>
+          </tr>
+          <tr class="rohstoffe-element">
+            <td class="rohstoffe-bold">Polyethylen</td>
+            <td data-content="amount"><span class="value">9000</span><span class="unit">kg</span></td>
+            <td data-content="materialcode"><span class="value">0093458035</span></td>
+            <td data-content="losnummer"><span class="value">9023809</span></td>
+            <td data-content="lieferant"><span class="value">123456</span></td>
+          </tr>
+          <tr class="rohstoffe-element">
+            <td class="rohstoffe-bold">Polyethylen</td>
+            <td data-content="amount"><span class="value">9000</span><span class="unit">kg</span></td>
+            <td data-content="materialcode"><span class="value">0093458035</span></td>
+            <td data-content="losnummer"><span class="value">9023809</span></td>
+            <td data-content="lieferant"><span class="value">123456</span></td>
+          </tr>
+        </table>
       </div>
 
       <div id="silo-7">
         <div class="sensoren-titel-in"><p>Silo 7</p></div>
-        <img class="rohstoff-dummy" src="img/rohstoffe-1.jpg" />
+        <table class="rohstoffe-fuellstaende">
+          <tr class="rohstoffe-title">
+            <td>Material</td>
+            <td>Menge</td>
+            <td>Materialcode</td>
+            <td>Losnummer</td>
+            <td>Lieferant</td>
+          </tr>
+          <tr class="rohstoffe-element">
+            <td class="rohstoffe-bold">Polyethylen</td>
+            <td data-content="amount"><span class="value">9000</span><span class="unit">kg</span></td>
+            <td data-content="materialcode"><span class="value">0093458035</span></td>
+            <td data-content="losnummer"><span class="value">9023809</span></td>
+            <td data-content="lieferant"><span class="value">123456</span></td>
+          </tr>
+          <tr class="rohstoffe-element">
+            <td class="rohstoffe-bold">Polyethylen</td>
+            <td data-content="amount"><span class="value">9000</span><span class="unit">kg</span></td>
+            <td data-content="materialcode"><span class="value">0093458035</span></td>
+            <td data-content="losnummer"><span class="value">9023809</span></td>
+            <td data-content="lieferant"><span class="value">123456</span></td>
+          </tr>
+        </table>
       </div>
 
       <div id="silo-8">
         <div class="sensoren-titel-in"><p>Silo 8</p></div>
-        <img class="rohstoff-dummy" src="img/rohstoffe-1.jpg" />
+        <table class="rohstoffe-fuellstaende">
+          <tr class="rohstoffe-title">
+            <td>Material</td>
+            <td>Menge</td>
+            <td>Materialcode</td>
+            <td>Losnummer</td>
+            <td>Lieferant</td>
+          </tr>
+          <tr class="rohstoffe-element">
+            <td class="rohstoffe-bold">Polyethylen</td>
+            <td data-content="amount"><span class="value">9000</span><span class="unit">kg</span></td>
+            <td data-content="materialcode"><span class="value">0093458035</span></td>
+            <td data-content="losnummer"><span class="value">9023809</span></td>
+            <td data-content="lieferant"><span class="value">123456</span></td>
+          </tr>
+          <tr class="rohstoffe-element">
+            <td class="rohstoffe-bold">Polyethylen</td>
+            <td data-content="amount"><span class="value">9000</span><span class="unit">kg</span></td>
+            <td data-content="materialcode"><span class="value">0093458035</span></td>
+            <td data-content="losnummer"><span class="value">9023809</span></td>
+            <td data-content="lieferant"><span class="value">123456</span></td>
+          </tr>
+        </table>
       </div>
 
       <!--

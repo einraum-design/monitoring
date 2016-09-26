@@ -1,0 +1,53 @@
+/*Rohstoff Füllstände*/
+
+.rohstoffe-fuellstaende{
+  width: 100%;
+  margin-top: 7px;
+  padding: 10px;
+}
+
+.rohstoffe-title td{
+  padding: 10px 20px;
+  background-color: #fff;
+  color: #7f9bbd;
+}
+
+.rohstoffe-element td{
+  padding: 20px;
+  font-size: 16px;
+  background-color: red;
+  background-color: #f4f4f4;
+  margin-bottom: 10px;
+}
+
+.rohstoffe-element{
+
+}
+
+.rohstoffe-bold{
+  font-weight: 700;
+}
+
+/* Rohstoffe auf der Übersichtsseite */
+
+#rohstoffe-recipe{
+  width: 200px;
+  height: 230px;
+  background-color: red;
+  text-align: center;
+  padding-top: 70px;
+
+}
+
+.recipe-title{
+  margin-top: 30px;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+.recipe-number{
+  font-size: 90px;
+  position: absolute;
+}
