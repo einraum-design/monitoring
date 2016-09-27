@@ -1,9 +1,11 @@
 $(document).ready(function(){
+
   function zoomPoints(){
 
     // UPSTREAM
 
     $('#filter-1, #filter-1-link').click(function() {
+      console.log('clicked');
         $("#second-row").tabs({ active: 1 });
         $("#filter-1-point .auswahl-punkt").addClass('active-auswahl-punkt');
         $(".anlagen-bild").css({'transform':'translate(1250px, -120px) scale(4.3)'});

@@ -148,6 +148,8 @@ $(function() {
       },
       series: [{
 
+        type: 'spline',
+
         name: 'Durchsatz',
         data: (function () {
           // generate an array of random data

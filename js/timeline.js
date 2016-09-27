@@ -7,7 +7,7 @@ $(document).ready( function () {
 	var popupEl = $( '#timeline-popup' );
 	var optionsEl = $( '#timeline-timespan-options', timelineEl );
 	var timelineData = getTimelineData();
-	
+
 	var currentTimelineSpanId = Object.keys( timelineData.timespans )[0];
 
 	popupEl.find( '.timeline-popup-close-button' ).on( 'click', closePopup );
@@ -16,7 +16,7 @@ $(document).ready( function () {
 	function render () {
 		requestAnimationFrame( function () {
 			var now = getCurrentMoment();
-						
+
 			var currentTimelineSpan = timelineData.timespans[currentTimelineSpanId];
 			var halfTimeSpanSeconds = ~~( currentTimelineSpan.asSeconds() / 2 );
 
@@ -57,11 +57,11 @@ $(document).ready( function () {
 
 				if ( ! optionEl.length ) {
 					optionEl = $( '<button class="timeline-option" data-timespan="' + timespan + '">' + timespan + '</button>' );
-					
+
 					optionEl.on( 'click', function () {
 						selectTimespan( timespan );
 					} );
-					
+
 					optionsEl.append( optionEl );
 				}
 
@@ -77,7 +77,7 @@ $(document).ready( function () {
 		} );
 	}
 
-	
+
 
 	function openDetailPopup ( eventData, eventX, isEventInPast ) {
 		popupEl[isEventInPast ? 'addClass' : 'removeClass']( 'is-in-past' );
@@ -90,7 +90,7 @@ $(document).ready( function () {
 
 		var imageEl = $( '#timeline-popup-image', popupEl );
 		imageEl.attr( 'src', eventData.image );
-		
+
 		popupEl.attr( 'data-type', eventData.type );
 		popupEl.addClass( 'is-active' );
 		popupEl.find( '.timeline-popup-arrow' ).css( 'left', eventX + '%' );
@@ -201,7 +201,7 @@ function getTimelineData () {
 		'day': moment.duration( 1, 'days' ),
 		'hour': moment.duration( 1, 'hours' )
 	};
-	
+
 	var events = [ ];
 
 	// beispiel für die 'echten Daten'
@@ -209,20 +209,43 @@ function getTimelineData () {
 	// 	{
 	// 		// event id, kann eindeutige zahlen kombination sein
 	// 		id: 'event-121312',
-	// 		
+	//
 	// 		// event datum
 	// 		date: moment( '2016-10-14 09:30:26' ),
-	// 		
+	//
 	// 		// event typ: setup, maintenance oder was auch immer
 	// 		type: 'setup',
-	// 		
+	//
 	// 		title: 'Event Title blabla',
 	// 		description: 'hello 123',
-	// 		
+	//
 	// 		image: 'img/events/testImage.svg'
 	// 	}
 	// ]
 
+	var events = [
+		{
+			id:'event-121312',
+			date: moment( '2016-10-10 09:30:26' ),
+			type: 'setup',
+			title: 'Hier steht ein Ereignis',
+			description: 'Eine wunderbare Heiterkeit hat meine ganze Seele eingenommen, gleich den süßen Frühlingsmorgen, die ich mit ganzem Herzen genieße. Ich bin allein und freue mich meines Lebens in dieser Gegend, die für solche Seelen geschaffen ist wie die meine.',
+			image: 'img/events/2016-10-10-event.jpg'
+		},
+
+		{
+			id:'event-12131e2',
+			date: moment( '2016-10-13 09:30:26' ),
+			type: 'setup',
+			title: 'JAHA',
+			description: 'hello 123',
+			image: 'img/events/2016-10-10-event.jpg'
+		}
+
+	];
+
+
+/*
 	// generate a few random events. we should probably use actual data instead of random items
 	for ( var eventIndex = 0; eventIndex < eventCount; ++eventIndex ) {
 		var eventPosition = Math.random();
@@ -240,7 +263,7 @@ function getTimelineData () {
 			image: 'img/events/testImage.svg'
 		};
 	}
-
+*/
 	data.events = events;
 	data.startDate = startDate;
 	data.endDate = endDate;
