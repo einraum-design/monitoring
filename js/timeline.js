@@ -197,9 +197,9 @@ function getTimelineData () {
 	];
 
 	var timelineSpans = {
-		'week': moment.duration( 1, 'weeks' ),
-		'day': moment.duration( 1, 'days' ),
-		'hour': moment.duration( 1, 'hours' )
+		'Week': moment.duration( 1, 'weeks' ),
+		'Day': moment.duration( 1, 'days' ),
+		'Hour': moment.duration( 1, 'hours' )
 	};
 
 	var events = [ ];

@@ -179,7 +179,7 @@
         <div id="ati-graph" class="graph dummy-2"><p class="graph-title">ATI <span class="blue">werte</span></p></div>
         <!--- Anfang Infobox --->
 
-        <div class="komponenten-infobox">
+        <div class="komponenten-infobox ati-infobox">
           <h3 class="komponenten-titel"><span class="komponenten-strong">ATI</span> <span class="blue"></span></h3>
           <p class="komponenten-id">
             <span class="product-id"><span class="komponenten-strong">Product ID</span> 12345678</span>
@@ -230,7 +230,7 @@
 
         <!--- Anfang Infobox --->
 
-        <div class="komponenten-infobox">
+        <div class="komponenten-infobox zxd-infobox">
           <h3 class="komponenten-titel"><span class="komponenten-strong">ZXD 250</span> <span class="blue">Rotary Valve for Powder</span></h3>
           <p class="komponenten-id">
             <span class="product-id"><span class="komponenten-strong">Product ID</span> 12345678</span>
@@ -478,7 +478,7 @@
         <div id="zsk-graph" class="graph dummy-2"><p class="graph-title">ZSK <span class="blue">werte</span></p></div>
 
         <!--- Anfang Infobox --->
-        <div class="komponenten-infobox">
+        <div class="komponenten-infobox zsk-infobox">
           <h3 class="komponenten-titel"><span class="komponenten-strong">ZSK</span> <span class="blue"></span></h3>
           <p class="komponenten-id">
             <span class="product-id"><span class="komponenten-strong">Product ID</span> 12345678</span>
@@ -548,7 +548,7 @@
         <div id="sensoring-full-durchsatz" class="graph dummy-2"><p class="graph-title">ZVB <span class="blue">werte</span></p></div>
 
         <!--- Anfang Infobox --->
-        <div class="komponenten-infobox">
+        <div class="komponenten-infobox zvb-infobox">
           <h3 class="komponenten-titel"><span class="komponenten-strong">ZVB</span> <span class="blue"></span></h3>
           <p class="komponenten-id">
             <span class="product-id"><span class="komponenten-strong">Product ID</span> 12345678</span>
@@ -782,12 +782,17 @@
 <!-- Timeline -->
 <div id="timeline">
   <div id="timeline-popup">
-    <button class="timeline-popup-close-button">Close</button>
+    <button class="timeline-popup-close-button">x</button>
     <div class="timeline-popup-text">
-      <h1 id="timeline-popup-title">.....</h1>
-      <span>Date: <time id="timeline-popup-time">.....</time></span>
-      <p id="timeline-popup-description">.....</h1>
-      <img id="timeline-popup-image" src="" />
+      <div class="timeline-image">
+        <img id="timeline-popup-image" src="" />
+      </div>
+
+      <div class="timeline-content">
+        <span><time id="timeline-popup-time">.....</time></span>
+        <h1 id="timeline-popup-title">.....</h1>
+        <p id="timeline-popup-description">.....</p>
+      </div>
     </div>
     <div class="timeline-popup-arrow"></div>
   </div>
