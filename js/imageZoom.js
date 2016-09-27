@@ -317,7 +317,7 @@ $(document).ready(function(){
     $('#bxc, #bxc-link').click(function() {
         $("#second-row").tabs({ active: 1 });
         $("#bxc-point .auswahl-punkt").addClass('active-auswahl-punkt');
-        $(".anlagen-bild").css({'transform':'translate(-510px, -630px) scale(6)'});
+        $(".anlagen-bild").css({'transform':'translate(-670px, -330px) scale(6)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 25,
           componentName: 'BXC',
@@ -333,8 +333,8 @@ $(document).ready(function(){
 
     $('#wzk, #wzk-link').click(function() {
         $("#second-row").tabs({ active: 2 });
-        $("#wzk .auswahl-punkt").addClass('active-auswahl-punkt');
-        $(".anlagen-bild").css({'transform':'translate(-970px, -120px) scale(4.3)'});
+        $("#wzk-point .auswahl-punkt").addClass('active-auswahl-punkt');
+        $(".anlagen-bild").css({'transform':'translate(-810px, 50px) scale(4.3)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 26,
           componentName: 'WZK',
@@ -343,10 +343,15 @@ $(document).ready(function(){
         return false;
     })
 
+    $('a#wzk-point .auswahl-punkt').on('click',function(){
+      console.log('clicke');
+      $('#wzk-link').trigger("click");
+    });
+
     $('#ibp, #ibp-link').click(function() {
         $("#second-row").tabs({ active: 3 });
-        $("#wet .auswahl-punkt").addClass('active-auswahl-punkt');
-        $(".anlagen-bild").css({'transform':'translate(-950px, -120px) scale(4.3)'});
+        $("#ibp250-point .auswahl-punkt").addClass('active-auswahl-punkt');
+        $(".anlagen-bild").css({'transform':'translate(-980px, -400px) scale(4.3)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 30,
           componentName: 'IBP250',
@@ -355,10 +360,15 @@ $(document).ready(function(){
         return false;
     })
 
+    $('a#ibp250-point .auswahl-punkt').on('click',function(){
+      console.log('clicke');
+      $('#ibp-link').trigger("click");
+    });
+
     $('#wet, #wet-link').click(function() {
         $("#second-row").tabs({ active: 4 });
-        $("#wet .auswahl-punkt").addClass('active-auswahl-punkt');
-        $(".anlagen-bild").css({'transform':'translate(-930px, -120px) scale(4.3)'});
+        $("#wet-point .auswahl-punkt").addClass('active-auswahl-punkt');
+        $(".anlagen-bild").css({'transform':'translate(-1330px, 60px) scale(4.3)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 31,
           componentName: 'WET',
@@ -366,6 +376,11 @@ $(document).ready(function(){
         });
         return false;
     })
+
+    $('a#wet-point .auswahl-punkt').on('click',function(){
+      console.log('clicke');
+      $('#wet-link').trigger("click");
+    });
 
     }
 

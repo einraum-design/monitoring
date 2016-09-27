@@ -127,8 +127,8 @@ li{
 
 .dummy-2{
 	width: 500px;
-	height: 260px;
-	margin-top: 7px;
+	height: 252px;
+	margin-top: 15px;
 	margin-bottom: 11px;
 	margin-right: -10px;
 	float: left;
@@ -141,7 +141,7 @@ li{
 	height: 260px;
 	float: right;
 	width: 47%;
-	margin-top: 7px;
+	margin-top: 15px;
 	font-size: 12px;
 	line-height: 1.37em;
 }
@@ -801,7 +801,7 @@ ul.scroll {
   left: 50%;
   margin-left: -208px;
 	transition: all .6s ease-in-out;
-	z-index: 9999;
+	z-index: 9;
 }
 
 #sensoren-hauptnavi li {
@@ -844,7 +844,7 @@ li.ui-tabs-active a {
 	position: fixed;
 	left: 20px;
 	top: 369px;
-	z-index: 999;
+	z-index: 9;
 	border-radius: 4px;
 }
 

@@ -43,7 +43,7 @@ $( document ).ready( function () {
 
 				setTimeout( function () {
 					sendMessage( 'appConnected' );
-				}, 250 );
+				}, 1000 );
 			};
 
 		spaceBrewClient.onError = function ( err ) {

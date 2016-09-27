@@ -41,7 +41,7 @@ $(function() {
     $('#sensoring-full-durchsatz').highcharts({
 
       title: {
-        text: 'Durchsatz <span class="blue">kg/h</span>',
+        text: 'Throughput <span class="blue">kg/h</span>',
         align: 'left',
         floating: true,
           style: {
@@ -169,7 +169,7 @@ $(function() {
     $('#sensoring-full-energieverbrauch').highcharts({
 
       title: {
-        text: 'Energieverbrauch <span class="blue">kWh/h</span>',
+        text: 'Energy consumption <span class="blue">kWh/h</span>',
         align: 'left',
         zIndex: 100,
         floating: true,
@@ -298,7 +298,7 @@ $(function() {
     $('#sensoring-full-drehmoment').highcharts({
 
       title: {
-        text: 'Drehmoment <span class="blue">%</span>',
+        text: 'Torque <span class="blue">%</span>',
         align: 'left',
         floating: true,
           style: {
