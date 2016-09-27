@@ -50,7 +50,7 @@
 }
 
 #timeline .event-button.type-setup {
-	background-color: yellow;
+	background-color: #ccbc00;
 }
 
 #raw-material-timeline .allocation {
@@ -111,62 +111,72 @@
 }
 
 #timeline-popup .timeline-popup-close-button {
-	position: absolute;
-	top:  20px;
-	right: 20px;
-	width: 30px;
-	height: 30px;
-	overflow: hidden;
-	display: block;
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  width: 30px;
+  height: 30px;
+  overflow: hidden;
+  display: block;
+  color: #a1a1a1;
+  background: none;
+  border: 0px;
+  font-size: 40px;
+  line-height: 0px;
+  font-weight: 200;
+  font-family: 'Gotham';
+  padding: 0px;
+  margin: 0px;
+	box-shadow: 0px !important;
+	-webkit-box-shadow: 0px !important;
 }
 
 .timeline-popup-arrow {
 	position: absolute;
 	height: 20px;
-	width: 10px;
+	width: 2px;
 	bottom: 0;
 	transform: translateX(-50%) translateY(100%);
-	background-color: red;
+	background-color: #ccbc00;
 }
 
-#timeline-popup[data-type="maintenance"] .timeline-popup-arrow {
+#timeline-popup[data-type="maintenance"] #timeline-timespan-selected {
 	background-color: blue;
 }
 
-#timeline-popup[data-type="error"] .timeline-popup-arrow {
+#timeline-popup[data-type="error"] #timeline-timespan-selected {
 	background-color: red;
 }
 
-#timeline-popup[data-type="setup"] .timeline-popup-arrow {
-	background-color: yellow;
+#timeline-popup[data-type="setup"] #timeline-timespan-selected {
+	background-color: #ccbc00;
 }
 
 #timeline-timespan-selected {
-	display: block;
-	position: absolute;
-	top: 50%;
-	right: 30px;
-	background: #ccc;
-	border-radius: 4px;
-	color: #000;
-	width: 120px;
-	height: 30px;
-	transform: translateY(-50%);
-	cursor: pointer;
-	z-index: 10;
+  display: block;
+  position: absolute;
+  top: 40%;
+  right: 20px;
+  background: #ffffff;
+  border-radius: 14px;
+  color: #000;
+  width: 70px;
+  height: 30px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  z-index: 9;
   font-size: 11px;
   font-family: 'Gotham';
   line-height: 1.5em;
+
 }
 
 #timeline-timespan-options {
-	width: 120px;
 	position: absolute;
-	right: 30px;
+	right: 20px;
 	top: 50%;
 	transform: translateY(-100%);
 	z-index: 11;
-	background-color: #666;
 	color: #fff;
 	display: none;
 }
@@ -177,8 +187,56 @@
 
 #timeline-timespan-options .timeline-option {
 	display: block;
+	background-color: #4CAF50; /* Green */
+	border: none;
+	color: white;
+	background: #ffffff;
+	border-radius: 14px;
+	color: #000;
+	width: 70px;
+	height: 30px;
+	transform: translateY(-50%);
+	cursor: pointer;
+	z-index: 9;
+	font-size: 11px;
+	font-family: 'Gotham';
+	line-height: 1.6em;
+	margin-bottom: 5px;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, .15);
 }
 
 #timeline-timespan-options .timeline-option.is-selected {
-	color: #fff;
+	color: green;
+}
+
+#timeline-popup-title{
+	text-align: left;
+	margin-top: 0px;
+}
+
+time#timeline-popup-time {
+    font-size: 18px;
+}
+
+.timeline-image{
+	float: left;
+	margin-left: 20px;
+	margin-top: 20px;
+}
+
+.timeline-image img{
+	height: 276px;
+	width: auto;
+}
+
+.timeline-content{
+	width: 450px;
+	float: left;
+	margin-left: 20px;
+	margin-top: 20px;
+}
+
+p#timeline-popup-description {
+    margin-top: 20px;
+    font-size: 14px;
 }

@@ -106,7 +106,7 @@ li{
 /* Zweite Ebene Navigation und Close Button der Navigation */
 
 .second-row-navigation {
-    margin-left: 30px !important;
+  margin-left: 30px !important;
 }
 
 /* PLACEHOLDER FÜR DIE GRAFEN */
@@ -185,6 +185,43 @@ li{
 	border-radius: 2px;
 	margin-right: 5px;
 }
+
+.ati-infobox{
+	background-image: url("../img/steckbriefe/ati.png");
+	background-size: 340px;
+	background-repeat: no-repeat;
+	background-position: top right;
+}
+
+.zxd-infobox{
+	background-image: url("../img/steckbriefe/zxd.png");
+	background-size: 210px;
+	background-repeat: no-repeat;
+	background-position: top right;
+}
+
+.zrd-infobox{
+	background-image: url("../img/steckbriefe/zrd.png");
+	background-size: 210px;
+	background-repeat: no-repeat;
+	background-position: top right;
+}
+
+.zsk-infobox{
+	background-image: url("../img/steckbriefe/zsk.png");
+	background-size: 330px;
+	background-repeat: no-repeat;
+	background-position: top right;
+}
+
+.zvb-infobox{
+	background-image: url("../img/steckbriefe/zvb.png");
+	background-size: 270px;
+	background-repeat: no-repeat;
+	background-position: top right;
+}
+
+
 
 .grey-box{
 	background-color: rgba(239,239,239,.8);
