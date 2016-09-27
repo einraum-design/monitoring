@@ -8,6 +8,8 @@ $(document).ready( function () {
 	var optionsEl = $( '#timeline-timespan-options', timelineEl );
 	var timelineData = getTimelineData();
 
+	hiddenEvents.init();
+
 	var currentTimelineSpanId = Object.keys( timelineData.timespans )[0];
 
 	popupEl.find( '.timeline-popup-close-button' ).on( 'click', closePopup );
@@ -287,4 +289,165 @@ function randomNumber ( min, max, round ) {
 	return round ?
 		Math.round( min + Math.random() * ( max - min ) ) :
 		min + Math.random() * ( max - min );
+}
+
+
+var hiddenEvents = {
+
+	data: "",
+
+	init: function() {
+
+		hiddenEvents.loadData();
+		$(".hiddenEvents .hiddenMaintenance").on('click', function() {
+			hiddenEvents.maintenance();
+		});
+
+		$(".hiddenEvents .hiddenError").on('click', function() {
+			hiddenEvents.error();
+		});
+
+		$(".hiddenError-Forwarding .knob").removeClass("loaded");
+
+	},
+
+	loadData: function() {
+
+		$.ajax({
+			dataType: "json",
+			url : "../daten/_hiddenEvents/events.data",
+			success : function (data) {
+					hiddenEvents.data = data;
+					// console.log(hiddenEvents.data);
+			}
+		});
+
+	},
+
+	maintenance: function() {
+
+		if (hiddenEvents.data.maintenance) {
+			if (hiddenEvents.data.maintenance.length > 0) {
+
+				var size = hiddenEvents.data.maintenance.length;
+				var rand = Math.random() * (size - 1) + 1;
+				var data = hiddenEvents.data.maintenance[parseInt(rand)];
+
+				$(".hiddenEventPopups .hiddenMaintenance-Message .text").html(data.alertText);
+				$(".hiddenEventPopups .hiddenMaintenance-Response .text").html(data.alertResponse);
+
+				$(".hiddenMaintenance-Message").addClass("active");
+
+
+					$(".hiddenMaintenance-Message .decline").on('click', function() {
+						$(".hiddenMaintenance-Message").removeClass("active");
+					});
+
+					$(".hiddenMaintenance-Message .accept").on('click', function() {
+						$(".hiddenMaintenance-Message").removeClass("active");
+						$(".hiddenMaintenance-Response").addClass("active");
+
+						// var tempDate = moment().format("YYYY-MM-DD hh:mm:ss");
+
+						// EIN EVENT AUF DER TIMELINE HINZUFÜGEN:
+						addTimelineEvent( {
+							id: data.eventTitle,
+							date: moment( data.eventDate ),
+							type: 'maintenance',
+							title: data.eventTitle,
+							description: data.eventDescription,
+							image: data.eventImage
+						},
+						// nach 3 sekunden wieder runternehmen von der timeline
+						1200000 );
+
+						setTimeout(function(){
+						  $(".hiddenMaintenance-Response").removeClass("active");
+						}, 2000);
+
+					});
+
+			}
+		}
+
+	},
+
+	error: function() {
+
+		if (hiddenEvents.data.errors) {
+			if (hiddenEvents.data.errors.length > 0) {
+
+				var size = hiddenEvents.data.errors.length;
+				var rand = Math.random() * (size - 1) + 1;
+				var data = hiddenEvents.data.errors[parseInt(rand)];
+
+				$(".hiddenEventPopups .hiddenError-Message .title").html(data.title);
+				$('.hiddenEventPopups .hiddenError-Message .hiddenErrorHeader').css("background-image", "url("+data.image+")");
+				$('.hiddenEventPopups .hiddenError-Response .hiddenErrorHeader').css("background-image", "url("+data.image+")");
+				$('.hiddenEventPopups .hiddenError-Forwarding .hiddenErrorHeader').css("background-image", "url("+data.image+")");
+				$(".hiddenEventPopups .hiddenError-Message .text").html(data.error);
+				$(".hiddenEventPopups .hiddenError-Forwarding .title").html(data.title);
+				$(".hiddenEventPopups .hiddenError-Response .title").html(data.title);
+				$(".hiddenError-Message").addClass("active");
+
+
+				// Forwarding
+
+				$(".hiddenError-Message .buttons .intern").on('click', function() {
+					$(".hiddenError-Message").removeClass("active");
+					$(".hiddenEventPopups .hiddenError-Forwarding .text").html(data.intern);
+					$(".hiddenError-Forwarding").addClass("active");
+					setTimeout(function(){
+						$(".hiddenError-Forwarding .knob").addClass("loaded");
+					}, 500);
+					setTimeout(function(){
+						$(".hiddenError-Forwarding").removeClass("active");
+						$(".hiddenError-Forwarding .knob").removeClass("loaded");
+
+						$(".hiddenEventPopups .hiddenError-Response .text").html(data.response_intern);
+						$(".hiddenError-Response").addClass("active");
+
+						setTimeout(function(){
+							$(".hiddenError-Response").removeClass("active");
+						}, 2000);
+
+					}, 3000);
+				});
+
+				$(".hiddenError-Message .buttons .coperion").on('click', function() {
+					$(".hiddenError-Message").removeClass("active");
+					$(".hiddenEventPopups .hiddenError-Forwarding .text").html(data.coperion);
+					$(".hiddenError-Forwarding").addClass("active");
+					setTimeout(function(){
+						$(".hiddenError-Forwarding .knob").addClass("loaded");
+					}, 500);
+					setTimeout(function(){
+						$(".hiddenError-Forwarding").removeClass("active");
+						$(".hiddenError-Forwarding .knob").removeClass("loaded");
+
+						$(".hiddenEventPopups .hiddenError-Response .text").html(data.response_coperion);
+						$(".hiddenError-Response").addClass("active");
+
+						setTimeout(function(){
+							$(".hiddenError-Response").removeClass("active");
+						}, 2000);
+
+					}, 3000);
+				});
+
+
+
+
+
+					// $(".hiddenMaintenance-Message .decline").on('click', function() {
+					// 	$(".hiddenMaintenance-Message").removeClass("active");
+					// });
+
+
+
+			}
+		}
+
+	}
+
 }

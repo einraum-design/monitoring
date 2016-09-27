@@ -45,7 +45,11 @@
     <!-- Header Bereich -->
     <div id="header">
       <div class="left">
-        <img src="img/coperion_logo.png" width="180">
+        <div class="hiddenEvents">
+          <img src="img/coperion_logo.png" width="180">
+          <div class="hiddenError"></div>
+          <div class="hiddenMaintenance"></div>
+        </div>
       </div>
       <div class="navigation">
         <div id="dd" class="change-app" tabindex="1">
@@ -797,6 +801,53 @@
   </div>
   <button id="timeline-timespan-selected">
   </button>
+</div>
+
+<div class="hiddenEventPopups">
+
+  <div class="hiddenMaintenance">
+    <div class="hiddenMaintenance-Message">
+      <div class="text"></div>
+      <div class="buttons">
+        <div class="accept btn">Bestätigen</div>
+        <div class="decline btn">Ablehnen</div>
+        <div class="clear"></div>
+      </div>
+    </div>
+    <div class="hiddenMaintenance-Response">
+      <div class="text"></div>
+    </div>
+  </div>
+
+  <div class="hiddenError">
+    <div class="hiddenError-Message">
+      <div class="hiddenErrorHeader">
+        <div class="title"></div>
+      </div>
+      <div class="text"></div>
+      <div class="buttons">
+        <div class="intern btn">Intern bearbeiten</div>
+        <div class="coperion btn">Weiterleiten an Coperion</div>
+        <div class="clear"></div>
+      </div>
+    </div>
+    <div class="hiddenError-Forwarding">
+      <div class="hiddenErrorHeader">
+        <div class="title"></div>
+      </div>
+      <div class="text"></div>
+      <div class="loader">
+        <div class="knob"></div>
+      </div>
+    </div>
+    <div class="hiddenError-Response">
+      <div class="hiddenErrorHeader">
+        <div class="title"></div>
+      </div>
+      <div class="text"></div>
+    </div>
+  </div>
+
 </div>
 
 <script>

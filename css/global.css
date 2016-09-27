@@ -647,8 +647,8 @@ h1{
 }
 
 .left img{
-	position: absolute;
-	margin: 10px 20px;
+	/*position: absolute;
+	margin: 10px 20px;*/
 }
 
 .right{
@@ -1231,4 +1231,183 @@ a#sensor-2 .3d-ansicht .anlagen-bild{
 .blur{
 	-webkit-filter: blur(5px);
 	transition: all 1s ease-in-out;
+}
+
+
+.hiddenEvents {
+	position: absolute;
+	margin: 10px 20px;
+}
+
+.hiddenEvents > div {
+	position: absolute;
+	width: 50%;
+	height:100%;
+	top:0;
+}
+
+.hiddenEvents .hiddenError {
+	left:0;
+}
+
+.hiddenEvents .hiddenMaintenance {
+	right:0;
+}
+
+.hiddenEventPopups > div > div {
+	display: none;
+}
+
+.hiddenEventPopups > div > div.active {
+	display: block;
+}
+
+.hiddenEventPopups .hiddenMaintenance > div {
+	background:#313232;
+	z-index: 9999;
+	color:#ffffff;
+	width:500px;
+	font-size: 18px;
+	padding:25px 50px 0;
+	border-radius: 4px;
+	position: fixed;
+	top:50%;
+	margin-top:-150px;
+	left:50%;
+	margin-left: -300px;
+
+	box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+
+}
+
+.hiddenEventPopups div > div p {
+	margin-bottom: 25px;
+}
+
+.hiddenEventPopups div > div .buttons {
+	padding-bottom: 35px;
+}
+
+.hiddenEventPopups div > div .buttons > div.btn {
+		line-height: 48px;
+		border:1px solid #6f7070;
+		display: inline-block;
+		padding:0px 25px;
+		border-radius: 4px;
+		-webkit-tap-highlight-color: rgba(0,0,0,0);
+		-webkit-appearance: none;
+		user-select:none;
+		outline:none;
+		cursor: pointer;
+}
+
+.hiddenEventPopups div > div .buttons > div.btn:hover, .hiddenEventPopups div > div .buttons > div.btn:active {
+	background: #6f7070;
+}
+
+.hiddenEventPopups div > div .buttons > div.btn:first-of-type {
+	float: left;
+}
+
+.hiddenEventPopups div > div .buttons > div.btn:nth-child(2) {
+	float: right;
+}
+
+.hiddenEventPopups .hiddenMaintenance-Message {
+	border-top:9px solid #d3b736;
+}
+
+.hiddenEventPopups .hiddenMaintenance-Response .text {
+	padding-top: 25px;
+	padding-bottom: 25px;
+}
+
+.hiddenEventPopups .hiddenMaintenance-Response {
+	margin-top: -90px;
+}
+
+
+.hiddenEventPopups .hiddenError > div {
+	position: fixed;
+	z-index: 99999;
+	top:60px;
+	left:0;
+	bottom:0;
+	right:0;
+	background:#333333;
+	padding:50px 25px;
+	color:#fff;
+}
+
+.hiddenErrorHeader {
+	height: 32vh;
+	font-size: 18px;
+	margin-left: -25px
+	margin-right:-25px;
+	margin-top: -50px;
+	padding:50px 25px 0px;
+	margin-bottom:25px;
+	background-position: bottom center;
+}
+
+.hiddenEventPopups .hiddenError > div .text {
+	padding-top: 75px;
+	text-align: center;
+	max-width: 100%;
+	width:800px;
+	margin-left:auto;
+	margin-right:auto;
+	font-size: 24px;
+}
+
+.hiddenEventPopups .hiddenError > div .text .strong {
+	font-weight: 700;
+}
+
+.hiddenErrorHeader span {
+	color:#7b9bba;
+}
+
+.hiddenEventPopups .hiddenError .loader {
+	height:10px;
+	background: #dedede;
+	position: relative;
+	z-index: 1;
+	width: 600px;
+	margin:75px auto 25px;
+	overflow: hidden;
+}
+
+.hiddenEventPopups .hiddenError .loader .knob {
+	height: 10px;
+	background: #7b9bba;
+	position: absolute;
+	z-index: 2;
+	width: 100%;
+	-webkit-transform: translateX(-100%);
+	-moz-transform: translateX(-100%);
+	transform: translateX(-100%);
+	-webkit-transition: all 2s;
+	transition: all 2s;
+}
+
+.hiddenEventPopups .hiddenError .loader .knob.loaded {
+	-webkit-transform: translateX(0);
+	-moz-transform: translateX(0);
+	transform: translateX(0);
+}
+
+.hiddenEventPopups .hiddenError > div .buttons {
+	text-align: center;
+	max-width: 100%;
+	width:800px;
+	margin-left:auto;
+	margin-right:auto;
+	padding-top: 75px;
+}
+
+.hiddenEventPopups .hiddenError > div .buttons div {
+	float:none !important;
+	margin-left: 15px;
+	margin-right: 15px;
 }
