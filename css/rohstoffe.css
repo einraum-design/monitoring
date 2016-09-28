@@ -8,15 +8,14 @@
 
 .rohstoffe-title td{
   padding: 10px 20px;
-  background-color: #fff;
+  background-color: #f0f0f0;
   color: #7f9bbd;
 }
 
 .rohstoffe-element td{
   padding: 20px;
   font-size: 16px;
-  background-color: red;
-  background-color: #f4f4f4;
+  background-color: #fafafa;
   margin-bottom: 10px;
 }
 
@@ -32,7 +31,7 @@
 
 #rohstoffe-recipe{
   width: 260px;
-  height: 230px;
+  height: 245px;
   background-color: #424242;
   text-align: center;
   padding-top: 50px;
@@ -42,9 +41,8 @@
 
 .recipe-title{
   margin-top: 30px;
-  font-size: 12px;
-  text-transform: uppercase;
-  color: #fff;
+  font-size: 16px;
+  color: #8099bc;
   letter-spacing: 1px;
   z-index: 1;
 }
@@ -68,4 +66,76 @@
   width: 700px;
   float: left;
   margin-left: 20px;
+  margin-bottom: 11px;
+}
+
+.rohstoffe-fuellstoff-01, .rohstoffe-fuellstoff-02, .rohstoffe-fuellstoff-03 {
+  background-color: #f7f7f7;
+  height: 91px;
+}
+
+.rohstoffe-fuellstoff-01 .knob{
+  background-color: #809dbc;
+  width: 55%;
+  height: 91px;
+  position: absolute;
+  z-index: 0;
+}
+
+.rohstoffe-fuellstoff-02 .knob{
+  background-color: #bfcee0;
+  width: 40%;
+  height: 91px;
+  position: absolute;
+  z-index: 0;
+}
+
+.rohstoffe-fuellstoff-03 .knob{
+  background-color: #cbcbcb;
+  width: 20%;
+  height: 91px;
+  position: absolute;
+  z-index: 0;
+}
+
+h3.rohstoffe-title {
+  font-size: 18px;
+}
+
+.rohstoffe-text {
+  float: left;
+  position: relative;
+  z-index: 1;
+  padding: 10px;
+}
+
+.rohstoffe-element {
+  border-bottom: 5px solid;
+  border-color: #fff;
+}
+
+.rohstoffe-values {
+  float: right;
+  text-align: right;
+  position: relative;
+  z-index: 1;
+  padding: 10px;
+}
+
+p.rohstoffe-subtitle {
+  color: #fff;
+}
+
+h3.rohstoffe-percent {
+  font-size: 36px;
+  font-weight: 200;
+  position: relative;
+  padding: 10px 0px;
+}
+
+p.rohstoffe-value {
+  font-size: 16px;
+  position: relative;
+  font-weight: 400;
+  z-index: 1;
 }

@@ -7,7 +7,7 @@ $(document).ready( function () {
 	var popupEl = $( '#timeline-popup' );
 	var optionsEl = $( '#timeline-timespan-options', timelineEl );
 	var timelineData = getTimelineData();
-	
+
 	var currentTimelineSpanId = Object.keys( timelineData.timespans )[0];
 
 	popupEl.find( '.timeline-popup-close-button' ).on( 'click', closePopup );
@@ -16,7 +16,7 @@ $(document).ready( function () {
 	function render () {
 		requestAnimationFrame( function () {
 			var now = getCurrentMoment();
-						
+
 			var currentTimelineSpan = timelineData.timespans[currentTimelineSpanId];
 			var halfTimeSpanSeconds = ~~( currentTimelineSpan.asSeconds() / 2 );
 
@@ -84,11 +84,11 @@ $(document).ready( function () {
 
 				if ( ! optionEl.length ) {
 					optionEl = $( '<button class="timeline-option" data-timespan="' + timespan + '">' + timespan + '</button>' );
-					
+
 					optionEl.on( 'click', function () {
 						selectTimespan( timespan );
 					} );
-					
+
 					optionsEl.append( optionEl );
 				}
 
@@ -103,7 +103,7 @@ $(document).ready( function () {
 			selectedEl.text( currentTimelineSpanId );
 		} );
 	}
-	
+
 	function showAllocation ( allocation ) {
 		console.log( 'SHOW ALLOCATION DETAILS', allocation );
 
@@ -220,9 +220,9 @@ function getTimelineData () {
 			vendor: { min: 290, max: 1022 }
 		}
 	};
-	
+
 	var allocations = [ ];
-	
+
 	var lastAllocationEndDate = moment( startDate );
 	var nextType = allocationTypes[randomNumber( 0, allocationTypes.length - 1, true )];
 
@@ -245,7 +245,7 @@ function getTimelineData () {
 
 		if ( recipeData[allocation.type] ) {
 			allocation.recipe = { };
-			
+
 			Object.keys( recipeData[allocation.type] ).forEach( function ( key ) {
 				if ( recipeData[allocation.type][key].min && recipeData[allocation.type][key].max ) {
 					allocation.recipe[key] = randomNumber( recipeData[allocation.type][key].min, recipeData[allocation.type][key].max, true );
