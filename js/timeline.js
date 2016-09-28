@@ -2,6 +2,10 @@
 
 // moment.js wird benutzt für alle datums variablen: http://momentjs.com/docs/#/displaying/format/
 
+
+var startWeek = 39;
+var endWeek = 43;
+
 $(document).ready( function () {
 	var timelineEl = $( '#timeline' );
 	var popupEl = $( '#timeline-popup' );
@@ -132,6 +136,7 @@ $(document).ready( function () {
 	// nach 3 sekunden wieder runternehmen von der timeline
 	// 3000 );
 	function addTimelineEvent ( eventData, deleteAfter ) {
+
 		if (
 			eventData &&
 			eventData.id &&
@@ -184,8 +189,8 @@ $(document).ready( function () {
 function getTimelineData () {
 	var data =  { };
 
-	var startDate = moment().week( 42 ).isoWeekday( 1 ).hour( 0 ).minute( 0 ).second( 0 );
-	var endDate = moment().week( 45 ).isoWeekday( 1 ).hour( 0 ).minute( 0 ).second( 0 );
+	var startDate = moment().week( startWeek ).isoWeekday( 1 ).hour( 0 ).minute( 0 ).second( 0 );
+	var endDate = moment().week( endWeek ).isoWeekday( 1 ).hour( 0 ).minute( 0 ).second( 0 );
 
 	var startDateTimestamp = parseInt( startDate.format( 'x' ), 10 );
 	var endDateTimestamp = parseInt( endDate.format( 'x' ), 10 );
@@ -279,8 +284,8 @@ function getCurrentMoment () {
 	var now = moment();
 
 	// den jetzigen zeitpunkt faken, so dass wir events angezeigt bekommen
-	if ( now.week() < 42 ) {
-		now = moment().week( 42 );
+	if ( now.week() < startWeek ) {
+		now = moment().week( startWeek );
 	}
 	return now;
 }
@@ -348,12 +353,14 @@ var hiddenEvents = {
 						$(".hiddenMaintenance-Response").addClass("active");
 
 						// var tempDate = moment().format("YYYY-MM-DD hh:mm:ss");
+						// console.log(data.eventDate);
+						// console.log(moment( data.eventDate ));
 
 						// EIN EVENT AUF DER TIMELINE HINZUFÜGEN:
 						addTimelineEvent( {
 							id: data.eventTitle,
 							date: moment( data.eventDate ),
-							type: 'maintenance',
+							type: "maintenance",
 							title: data.eventTitle,
 							description: data.eventDescription,
 							image: data.eventImage
@@ -411,6 +418,8 @@ var hiddenEvents = {
 							$(".hiddenError-Response").removeClass("active");
 						}, 2000);
 
+						hiddenEvents.sendError(data);
+
 					}, 3000);
 				});
 
@@ -432,6 +441,8 @@ var hiddenEvents = {
 							$(".hiddenError-Response").removeClass("active");
 						}, 2000);
 
+						hiddenEvents.sendError(data);
+
 					}, 3000);
 				});
 
@@ -447,6 +458,22 @@ var hiddenEvents = {
 
 			}
 		}
+
+	},
+
+	sendError: function(data) {
+
+		// EIN EVENT AUF DER TIMELINE HINZUFÜGEN:
+		addTimelineEvent( {
+			id: data.title,
+			date: moment(),
+			type: "error",
+			title: data.eventTitle,
+			description: data.eventError,
+			image: data.eventImage
+		},
+		// nach 3 sekunden wieder runternehmen von der timeline
+		1200000 );
 
 	}
 

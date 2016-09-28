@@ -2,33 +2,39 @@
   "errors": [
     {
         "title": "Störmeldung <span># 187</span>",
+        "eventTitle": "Störmeldung # 187",
         "image": "daten/_hiddenEvents/errors/error.jpg",
         "error": "<p><span class='strong'>Gehäuse 6</span> kann nicht über 90% geheizt werden!</p>",
+        "eventError": "Gehäuse 6 kann nicht über 90% geheizt werden!",
         "intern": "<p>Was soll hier stehen?</p>",
         "coperion": "<p>Verbindung zu <span class='strong'>Coperion Service-Box</span> wird aufgebaut. Daten werden an Coperion weitergeleitet.</p>",
         "response_intern": "<p>XYZ setzt sich mit Ihnen in Verbindung.</p>",
         "response_coperion": "<p>Coperion setzt sich mit Ihnen in Verbindung.</p>",
-        "eventImage": ""
+        "eventImage": " "
     },
     {
         "title": "Störmeldung <span># 188</span>",
+        "eventTitle": "Störmeldung # 188",
         "image": "daten/_hiddenEvents/errors/error.jpg",
         "error": "<p><span class='strong'>Gehäuse 6</span> kann nicht über 90% geheizt werden!</p>",
+        "eventError": "Gehäuse 6 kann nicht über 90% geheizt werden!",
         "intern": "<p>Was soll hier stehen?</p>",
         "coperion": "<p>Verbindung zu <span class='strong'>Coperion Service-Box</span> wird aufgebaut. Daten werden an Coperion weitergeleitet.</p>",
         "response_intern": "<p>XYZ setzt sich mit Ihnen in Verbindung.</p>",
         "response_coperion": "<p>Coperion setzt sich mit Ihnen in Verbindung.</p>",
-        "eventImage": ""
+        "eventImage": " "
     },
     {
         "title": "Störmeldung <span># 189</span>",
+        "eventTitle": "Störmeldung # 189",
         "image": "daten/_hiddenEvents/errors/error.jpg",
         "error": "<p><span class='strong'>Gehäuse 6</span> kann nicht über 90% geheizt werden!</p>",
+        "eventError": "Gehäuse 6 kann nicht über 90% geheizt werden!",
         "intern": "<p>Was soll hier stehen?</p>",
         "coperion": "<p>Verbindung zu <span class='strong'>Coperion Service-Box</span> wird aufgebaut. Daten werden an Coperion weitergeleitet.</p>",
         "response_intern": "<p>XYZ setzt sich mit Ihnen in Verbindung.</p>",
         "response_coperion": "<p>Coperion setzt sich mit Ihnen in Verbindung.</p>",
-        "eventImage": ""
+        "eventImage": " "
     }
 
   ],
@@ -38,25 +44,25 @@
         "eventTitle": "Testtitel 3",
         "eventDescription": "Das ist eine wunderschöne Beschreibung für dieses Event.",
         "eventDate": "2016-10-14 09:30:00",
-        "eventImage": "",
         "alertText": "<p>Komponente: 3</p><p>Die Getriebeölqualität ist in ca. 4 Wochen erreicht.<br />Getriebeöl sollte gewechselt werden.</p><p>Wollen Sie einen Termin vereinbaren?</p>",
-        "alertResponse": "<p>Der Termin wurde für den 14.10.2016 um 09.30 Uhr festgelegt!<br />Der Techniker Herr Karl Schmidt ist informiert!</p>"
+        "alertResponse": "<p>Der Termin wurde für den 14.10.2016 um 09.30 Uhr festgelegt!<br />Der Techniker Herr Karl Schmidt ist informiert!</p>",
+        "eventImage": " "
     },
     {
         "eventTitle": "Testtitel 2",
         "eventDescription": "Das ist eine wunderschöne Beschreibung für dieses Event.",
         "eventDate": "2016-10-14 09:30:00",
-        "eventImage": "",
         "alertText": "<p>Komponente: 2</p><p>Die Getriebeölqualität ist in ca. 4 Wochen erreicht.<br />Getriebeöl sollte gewechselt werden.</p><p>Wollen Sie einen Termin vereinbaren?</p>",
-        "alertResponse": "<p>Der Termin wurde für den 14.10.2016 um 09.30 Uhr festgelegt!<br />Der Techniker Herr Karl Schmidt ist informiert!</p>"
+        "alertResponse": "<p>Der Termin wurde für den 14.10.2016 um 09.30 Uhr festgelegt!<br />Der Techniker Herr Karl Schmidt ist informiert!</p>",
+        "eventImage": " "
     },
     {
         "eventTitle": "Testtitel 1",
         "eventDescription": "Das ist eine wunderschöne Beschreibung für dieses Event.",
         "eventDate": "2016-10-14 09:30:00",
-        "eventImage": "",
         "alertText": "<p>Komponente: 1</p><p>Die Getriebeölqualität ist in ca. 4 Wochen erreicht.<br />Getriebeöl sollte gewechselt werden.</p><p>Wollen Sie einen Termin vereinbaren?</p>",
-        "alertResponse": "<p>Der Termin wurde für den 14.10.2016 um 09.30 Uhr festgelegt!<br />Der Techniker Herr Karl Schmidt ist informiert!</p>"
+        "alertResponse": "<p>Der Termin wurde für den 14.10.2016 um 09.30 Uhr festgelegt!<br />Der Techniker Herr Karl Schmidt ist informiert!</p>",
+        "eventImage": " "
     }
   ]
 
