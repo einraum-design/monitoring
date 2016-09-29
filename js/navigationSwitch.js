@@ -29,25 +29,29 @@ $(document).ready(function(){
       });
 
       $('#dd li:first-child').on('click',function(){
-        $('body').fadeOut(200,function(){
-          window.location = 'index.html?deviceId=' + getQueryString( 'deviceId' ) + '&master=' + getQueryString( 'master' );
-          // $('body').load("index.html").delay(300).fadeIn(1000);
-          // window.sendSpacebrewMessage('componentActivated', {
-          //   componentId: 90,
-          //   componentName: 'Switch to Sensoring'
-          // });
-        });
+        $("#app-tab1").addClass("active");
+        $("#app-tab2").removeClass("active");
+        // $('body').fadeOut(200,function(){
+        //   window.location = 'index.html?deviceId=' + getQueryString( 'deviceId' ) + '&master=' + getQueryString( 'master' );
+        //   // $('body').load("index.html").delay(300).fadeIn(1000);
+        //   // window.sendSpacebrewMessage('componentActivated', {
+        //   //   componentId: 90,
+        //   //   componentName: 'Switch to Sensoring'
+        //   // });
+        // });
       });
 
       $('#dd li:nth-child(2)').on('click',function(){
-        $('body').fadeOut(200,function(){
-          window.location = 'material-tracking.html?deviceId=' + getQueryString( 'deviceId' ) + '&master=' + getQueryString( 'master' );
-            // $('body').load("material-tracking.html").delay(300).fadeIn(1300);
-            // window.sendSpacebrewMessage('componentActivated', {
-            //   componentId: 89,
-            //   componentName: 'Switch to Material Tracking'
-            // });
-        });
+        $("#app-tab2").addClass("active");
+        $("#app-tab1").removeClass("active");
+        // $('body').fadeOut(200,function(){
+        //   window.location = 'material-tracking.html?deviceId=' + getQueryString( 'deviceId' ) + '&master=' + getQueryString( 'master' );
+        //     // $('body').load("material-tracking.html").delay(300).fadeIn(1300);
+        //     // window.sendSpacebrewMessage('componentActivated', {
+        //     //   componentId: 89,
+        //     //   componentName: 'Switch to Material Tracking'
+        //     // });
+        // });
 
       });
 

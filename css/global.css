@@ -59,6 +59,15 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 }
 
+.app-tab {
+	display: none;
+}
+
+.app-tab.active {
+	display: block;
+}
+
+
 p{
   font-family: "Gotham" !important;
 }
