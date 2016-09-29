@@ -70,9 +70,15 @@
 	position: fixed;
 }
 
+#anlage-ansicht-2d{
+	margin-left: 20px;
+	position: fixed;
+}
+
 div#three-di-view {
   position: fixed;
-  margin-left: 20px;
+  margin-left: -20px;
+  margin-top: 60px;
 }
 
 #anlage-ansicht-3d img {
@@ -83,8 +89,9 @@ div#three-di-view {
 }
 
 img.three-di {
-    width: 200px;
-    height: auto;
+  height: 205px;
+  width: auto;
+  margin: -3px;
 }
 
 img {

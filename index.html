@@ -91,10 +91,11 @@
      </div>
 
       <div id="three-di-view">
-        <img class="three-di" data-src="img/part-5.png">
-        <img class="three-di" data-src="img/part-6.png">
-        <img class="three-di" data-src="img/part-7.png">
-        <img class="three-di" data-src="img/part-8.png">
+        <img class="three-di" data-src="img/anlage/anlage-2d-01.png">
+        <img class="three-di" data-src="img/anlage/anlage-2d-02.png">
+        <img class="three-di" data-src="img/anlage/anlage-2d-03.png">
+        <img class="three-di" data-src="img/anlage/anlage-2d-04.png">
+        <img class="three-di" data-src="img/anlage/anlage-2d-05.png">
       </div>
 
         <!-- Links innerhalb von Upstream -->
@@ -313,7 +314,7 @@
       </ul>
       <div id="foerderdruck-2">
         <div class="sensoren-titel-in"><p>Feed Pressure</p></div>
-        <div id="sensoring-full-durchsatz" class="graph chart-big"><p class="graph-title">Feed Pressure <span class="blue">werte 2</span></p></div>
+        <div id="foerderdruck-2-graph" class="graph chart-big"><p class="graph-title">Feed Pressure <span class="blue">werte 2</span></p></div>
       </div>
 
       <div id="dosierer-1">
@@ -785,7 +786,15 @@
 
 <!-- Timeline -->
 <div id="timeline">
+  <a id="legende-button"></a>
+  <div id="timeline-legende">
+    <span class="selbstoptimierung">Optimization</span>
+    <span class="warnung">Warning</span>
+    <span class="stoerung">Error</span>
+    <span class="wartung">Maintenance</span>
+  </div>
   <div id="timeline-popup">
+    <div id="timline-data-type-bar"></div>
     <button class="timeline-popup-close-button">x</button>
     <div class="timeline-popup-text">
       <div class="timeline-image">
@@ -793,7 +802,7 @@
       </div>
 
       <div class="timeline-content">
-        <span><time id="timeline-popup-time">.....</time></span>
+        <p id="timeline-date"><time id="timeline-popup-time">.....</time></p>
         <h1 id="timeline-popup-title">.....</h1>
         <p id="timeline-popup-description">.....</p>
       </div>

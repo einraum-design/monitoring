@@ -37,16 +37,17 @@
 	transform: translateX(-50%) translateY(-50%);
 	background: transparent;
 	text-indent: -5000px;
-	border-radius: 5px;
+	border-radius: 50%;
 	overflow: hidden;
 	width: 5px;
 	height: 12px;
 	border: none;
 	cursor: pointer;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, .15);
 }
 
 #timeline .event-button.type-maintenance {
-	background-color: blue;
+	background-color: #7f9bbd;
 }
 
 #timeline .event-button.type-error {
@@ -152,14 +153,14 @@
 .timeline-popup-arrow {
 	position: absolute;
 	height: 20px;
-	width: 2px;
+	width: 1px;
 	bottom: 0;
 	transform: translateX(-50%) translateY(100%);
-	background-color: #ccbc00;
+	background-color: #333;
 }
 
 #timeline-popup[data-type="maintenance"] #timeline-timespan-selected {
-	background-color: blue;
+	background-color: #7f9bbd;
 }
 
 #timeline-popup[data-type="error"] #timeline-timespan-selected {
@@ -167,7 +168,7 @@
 }
 
 #timeline-popup[data-type="setup"] #timeline-timespan-selected {
-	background-color: #ccbc00;
+	background-color: yellow;
 }
 
 #timeline-timespan-selected {
@@ -230,16 +231,19 @@
 #timeline-popup-title{
 	text-align: left;
 	margin-top: 0px;
+	font-size: 17px;
+	margin-right: 20px;
 }
 
 time#timeline-popup-time {
-    font-size: 18px;
+	font-size: 18px;
+	color: #fff;
 }
 
 .timeline-image{
 	float: left;
-	margin-left: 20px;
-	margin-top: 20px;
+	margin-left: 25px;
+	margin-top: 15px;
 }
 
 .timeline-image img{
@@ -254,7 +258,102 @@ time#timeline-popup-time {
 	margin-top: 20px;
 }
 
+p#timeline-date {
+  width: 320px;
+}
+
 p#timeline-popup-description {
-    margin-top: 20px;
-    font-size: 14px;
+  margin-top: 20px;
+  font-size: 14px;
+	line-height: 1.5;
+}
+
+#timline-data-type-bar{
+	width: 10px;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	height: 100%;
+	background-color: green;
+}
+
+div#timeline-popup[data-type="error"] #timline-data-type-bar {
+  background-color: red;
+}
+
+div#timeline-popup[data-type="error"] #timeline-popup-title{
+	color: red;
+}
+
+div#timeline-popup[data-type="maintenance"] #timline-data-type-bar {
+  background-color: #7f9bbd;
+}
+
+div#timeline-popup[data-type="maintenance"] #timeline-popup-title{
+	color: #7f9bbd;
+}
+
+
+/* Legende */
+
+#legende-button{
+	position: fixed;
+	bottom: 15px;
+	left: 17px;
+	z-index: 9999;
+	width: 30px;
+	height: 30px;
+	background-image: url('../img/legende-info.png');
+	background-size: cover;
+}
+
+#legende-button.active{
+	background-image: url('../img/legende-info-active.png');
+	background-size: cover;
+}
+
+span.selbstoptimierung::before {
+  content: url(../img/legende-selbstopimierung.png);
+	padding-right: 6px;
+	margin-top: -2px;
+}
+
+span.warnung::before {
+  content: url(../img/legende-selbstopimierung.png);
+	padding-right: 6px;
+	margin-top: -2px;
+}
+
+span.stoerung::before {
+  content: url(../img/legende-selbstopimierung.png);
+	padding-right: 6px;
+	margin-top: -2px;
+}
+
+span.wartung::before {
+  content: url(../img/legende-selbstopimierung.png);
+	padding-right: 6px;
+	margin-top: -2px;
+}
+
+#timeline-legende{
+	width: 100%;
+	background-color: #f5f5f5;
+	position: fixed;
+	bottom: 0px;
+	z-index: 999;
+	display: none;
+	padding-top: 24px;
+	padding-bottom: 21px;
+  font-size: 12px;
+	padding-left: 80px;
+	background-image: url('../img/timeline/legende-background.jpg');
+}
+
+#timeline-legende span{
+	margin-right: 20px;
+}
+
+#timeline-legende.active{
+	display: block;
 }

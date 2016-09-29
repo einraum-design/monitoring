@@ -763,7 +763,7 @@ a.upstream-start{
   position: fixed !Important;
   left: 20px;
   top: 110px !important;
-  width: 430px;
+  width: 330px;
   height: 219px;
 	background-color: transparent !important;
   -webkit-box-shadow: 0px 0px 15px -4px rgba(0,0,0,.2);
@@ -776,9 +776,9 @@ a.upstream-start{
 
 a.compounding-start{
   position: fixed !Important;
-  left: 445px;
+  left: 385px;
   top: 110px !important;
-  width: 302px;
+  width: 242px;
   height: 219px;
 	background-color: transparent !important;
   -webkit-box-shadow: 0px 0px 15px -4px rgba(0,0,0,.2);
@@ -791,9 +791,9 @@ a.compounding-start{
 
 a.downstream-start{
   position: fixed !Important;
-  left: 782px;
+  left: 662px;
   top: 110px !important;
-  width: 195px;
+  width: 310px;
   height: 219px;
 	background-color: transparent !important;
   -webkit-box-shadow: 0px 0px 15px -4px rgba(0,0,0,.2);

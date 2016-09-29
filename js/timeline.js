@@ -232,23 +232,54 @@ function getTimelineData () {
 
 	var events = [
 		{
-			id:'event-121312',
-			date: moment( '2016-10-10 09:30:26' ),
-			type: 'setup',
-			title: 'Hier steht ein Ereignis',
-			description: 'Eine wunderbare Heiterkeit hat meine ganze Seele eingenommen, gleich den süßen Frühlingsmorgen, die ich mit ganzem Herzen genieße. Ich bin allein und freue mich meines Lebens in dieser Gegend, die für solche Seelen geschaffen ist wie die meine.',
-			image: 'img/events/2016-10-10-event.jpg'
+			id:'event-1',
+			date: moment( '2016-09-28 09:30:26' ),
+			type: 'maintenance',
+			title: 'Wartungsarbeit: ZXD-Schleuse',
+			description: 'Die Lager und Dichtungen der ZXD-Schleuse des Außensilos wurden nach der vierteljährlichen Inspektion nach 8.000 Betriebsstunden ausgetauscht.',
+			image: 'img/events/2016-09-28-event.png'
 		},
 
 		{
-			id:'event-12131e2',
-			date: moment( '2016-10-13 09:30:26' ),
-			type: 'setup',
-			title: 'JAHA',
-			description: 'hello 123',
-			image: 'img/events/2016-10-10-event.jpg'
+			id:'event-2',
+			date: moment( '2016-09-27 09:30:26' ),
+			type: 'error',
+			title: 'Störmeldung #0246: Starke Temperaturabweichung bei Gehäuse XY',
+			description: 'Analyse ergab: Keine ausreichende Kühlung aufgrund einer Mischzone in der Schnecke.',
+			image: 'img/events/2016-09-27-event.png'
+		},
+		{
+			id:'event-121312',
+			date: moment( '2016-09-26 09:30:26' ),
+			type: 'error',
+			title: 'Störmeldung #0247: Zu hoher Drehmoment',
+			description: 'Analyse ergab: Peaks aufgrund schwankender Dosierung.',
+			image: 'img/events/placeholder-event.jpg'
+		},
+		{
+			id:'event-121312',
+			date: moment( '2016-09-26 14:30:26' ),
+			type: 'error',
+			title: 'Störmeldung #0248: Zu geringer Drehmoment',
+			description: 'Analyse ergab: Geringer Druck aufgrund niedriger Drehzahl.',
+			image: 'img/events/placeholder-event.jpg'
+		},
+		{
+			id:'event-121312',
+			date: moment( '2016-09-26 19:30:26' ),
+			type: 'error',
+			title: 'Störmeldung #0249: Maschine XY schaltet sich bei laufender Dosierung ab',
+			description: 'Analyse ergab: Leerlaufmoment war zu hoch eingestellt.',
+			image: 'img/events/placeholder-event.jpg'
+		},
+		{
+			id:'event-121312',
+			date: moment( '2016-09-26 19:30:26' ),
+			type: 'error',
+			title: 'Störmeldung #0249: Maschine XY schaltet sich bei laufender Dosierung ab',
+			description: 'Analyse ergab: Leerlaufmoment war zu hoch eingestellt.',
+			image: 'img/events/placeholder-event.jpg'
 		}
-
 	];
 
 
