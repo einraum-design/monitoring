@@ -351,7 +351,7 @@ var hiddenEvents = {
 
 		$.ajax({
 			dataType: "json",
-			url : "../daten/_hiddenEvents/events.data",
+			url : "daten/_hiddenEvents/events.json",
 			success : function (data) {
 					hiddenEvents.data = data;
 					// console.log(hiddenEvents.data);

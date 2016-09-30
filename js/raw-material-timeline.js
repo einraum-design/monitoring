@@ -386,7 +386,5 @@ var rawTimeline = {
 };
 
 $(document).ready( function () {
-
-		rawTimeline.init();
-
+	rawTimeline.init();
 });

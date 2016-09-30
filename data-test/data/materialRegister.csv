@@ -1,0 +1,8 @@
+id;title;chargeSize;chargeIdMin;chargeIdMax
+pp;PP;25000;10;19
+pe;PE;7500;20;29
+chalk;CaCO3;25000;30;39
+premix;Premix;1000;40;49
+additiveYellow;Additive Yellow;600;50;59
+aditiveBlack;Additive Black;500;60;69
+gf;GF;9000;70;79
