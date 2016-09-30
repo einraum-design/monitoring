@@ -55,7 +55,7 @@
 }
 
 #timeline .event-button.type-setup {
-	background-color: #ccbc00;
+	background-color: green;
 }
 
 #raw-material-timeline .allocation {
@@ -283,6 +283,14 @@ div#timeline-popup[data-type="error"] #timline-data-type-bar {
 
 div#timeline-popup[data-type="error"] #timeline-popup-title{
 	color: red;
+}
+
+div#timeline-popup[data-type="setup"] #timline-data-type-bar {
+  background-color: green;
+}
+
+div#timeline-popup[data-type="setup"] #timeline-popup-title{
+	color: green;
 }
 
 div#timeline-popup[data-type="maintenance"] #timline-data-type-bar {

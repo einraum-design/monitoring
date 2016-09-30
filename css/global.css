@@ -154,6 +154,17 @@ li{
 	background-color: #ebeaea;
 }
 
+.more-graphs{
+	float: left;
+}
+
+.graph-thin{
+	width: 500px;
+	margin-top: 15px;
+	height: 50px;
+
+}
+
 /* Komponenten Steckbriefe */
 
 .komponenten-infobox{

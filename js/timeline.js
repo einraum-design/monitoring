@@ -235,26 +235,26 @@ function getTimelineData () {
 			id:'event-1',
 			date: moment( '2016-09-28 09:30:26' ),
 			type: 'maintenance',
-			title: 'Wartungsarbeit: ZXD-Schleuse',
-			description: 'Die Lager und Dichtungen der ZXD-Schleuse des Außensilos wurden nach der vierteljährlichen Inspektion nach 8.000 Betriebsstunden ausgetauscht.',
+			title: 'Maintenance: ZXD',
+			description: 'Bearings and Sealings on ZXD- rotary valve below XXXX have been replaced during Inspection after 8.000 operating hours.',
 			image: 'img/events/2016-09-28-event.png'
 		},
 
 		{
 			id:'event-2',
-			date: moment( '2016-09-27 09:30:26' ),
+			date: moment( '2016-09-29 09:30:26' ),
 			type: 'error',
-			title: 'Störmeldung #0246: Starke Temperaturabweichung bei Gehäuse XY',
-			description: 'Analyse ergab: Keine ausreichende Kühlung aufgrund einer Mischzone in der Schnecke.',
+			title: 'Error #0246',
+			description: 'Analysis revealed: Suction conveying line was blocked. Conveying pressure = - 500 mbar.',
 			image: 'img/events/2016-09-27-event.png'
 		},
 		{
-			id:'event-121312',
-			date: moment( '2016-09-26 09:30:26' ),
-			type: 'error',
-			title: 'Störmeldung #0247: Zu hoher Drehmoment',
-			description: 'Analyse ergab: Peaks aufgrund schwankender Dosierung.',
-			image: 'img/events/placeholder-event.jpg'
+			id:'event-3',
+			date: moment( '2016-09-30 09:30:26' ),
+			type: 'setup',
+			title: 'Leakage in Conveying System / Wear in Rotary Valve',
+			description: 'Conveying pressure constantly increasing for 5 hours. Solution: Performance was increased.',
+			image: 'img/events/2016-09-29-event.png'
 		},
 		{
 			id:'event-121312',
