@@ -3,8 +3,7 @@
 <script src="lib/papaparse.js"></script>
 <script src="src/table-data.js"></script>
 <script>
-/* loadTableData */
-loadTableData().then( addUI );
+/* global tableData */
 
 function addUI () {
 	var labelEl = document.createElement( 'label' );
@@ -13,7 +12,7 @@ function addUI () {
 
 	document.body.appendChild( labelEl );
 
-	getHours().then( function ( hours ) {
+	tableData.getHours().then( function ( hours ) {
 		var inputEl = document.createElement( 'input' );
 		inputEl.type = 'range';
 		inputEl.min = hours[0];
@@ -32,7 +31,7 @@ function addUI () {
 	document.body.appendChild( outputEl );
 	
 	function inputUpdated ( newValue ) {
-		getProductionAtHour( Math.round( newValue ) ).then( function ( productionData ) {
+		tableData.getProductionAtHour( Math.round( newValue ) ).then( function ( productionData ) {
 			outputEl.value = JSON.stringify( productionData, null, '  ' );
 			valueEl.textContent = newValue;
 		} );
@@ -40,6 +39,6 @@ function addUI () {
 
 	inputUpdated( 0 );
 }
-
+requestAnimationFrame( addUI );
 
 </script>
