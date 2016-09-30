@@ -45,12 +45,21 @@
   color: #8099bc;
   letter-spacing: 1px;
   z-index: 1;
+  opacity: 0;
+}
+
+.is-showing-recipe .recipe-title {
+  opacity: 1;
 }
 
 .recipe-number{
-  font-size: 120px;
+  font-size: 35px;
   color: #fff;
   z-index: 1;
+}
+
+.is-showing-recipe .recipe-number {
+  font-size: 120px;
 }
 
 .recipe-scale{
@@ -62,11 +71,33 @@
   z-index: 0;
 }
 
-#rohstoffe-fuellstaende-uebersicht{
+#rohstoffe-fuellstaende-uebersicht,
+.rohstoffe-fuellstaende-uebersicht {
   width: 700px;
   float: left;
   margin-left: 20px;
   margin-bottom: 11px;
+}
+
+.rohstoffe-fuellstaende-uebersicht {
+  transition: all 0.3s ease;
+  opacity: 0;
+}
+
+.rohstoffe-fuellstaende-uebersicht.is-active {
+  opacity: 1;
+}
+
+.rohstoffe-fuellstaende-uebersicht .knob {
+  transition: all 0.3s ease;
+}
+
+.rohstoffe-fuellstaende-uebersicht:not(.is-active) .knob {
+  width: 0 !important;
+}
+
+.rohstoffe-fuellstand-container {
+  position: relative;;
 }
 
 .rohstoffe-fuellstoff-01, .rohstoffe-fuellstoff-02, .rohstoffe-fuellstoff-03 {
