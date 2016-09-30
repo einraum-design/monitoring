@@ -10,16 +10,10 @@ $(document).ready(function(){
     $(".anlagen-bild").css({'transform':'translate(0px, 0px) scale(1)'});
     window.sendSpacebrewMessage('componentActivated', {
       componentId: 200,
-      rohstoffTracking: true
+      rohstoffTracking: false
     });
   });
 
-  $('.full-link-spacebrew').on('click',function(){
-    window.sendSpacebrewMessage('componentActivated', {
-      componentId: 200,
-      rohstoffTracking: true
-    });
-  });
 
   $('.upstream-spacebrew').on('click', function(){
     $("#second-row-upstream-rohstoffe").tabs({ active: 0 });

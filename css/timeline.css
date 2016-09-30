@@ -327,19 +327,19 @@ span.selbstoptimierung::before {
 }
 
 span.warnung::before {
-  content: url(../img/legende-selbstopimierung.png);
+  content: url(../img/legende-warning.png);
 	padding-right: 6px;
 	margin-top: -2px;
 }
 
 span.stoerung::before {
-  content: url(../img/legende-selbstopimierung.png);
+  content: url(../img/legende-error.png);
 	padding-right: 6px;
 	margin-top: -2px;
 }
 
 span.wartung::before {
-  content: url(../img/legende-selbstopimierung.png);
+  content: url(../img/legende-maintenance.png);
 	padding-right: 6px;
 	margin-top: -2px;
 }
