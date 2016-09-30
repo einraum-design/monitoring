@@ -34,10 +34,10 @@ $(document).ready(function(){
         // $('body').fadeOut(200,function(){
         //   window.location = 'index.html?deviceId=' + getQueryString( 'deviceId' ) + '&master=' + getQueryString( 'master' );
         //   // $('body').load("index.html").delay(300).fadeIn(1000);
-        //   // window.sendSpacebrewMessage('componentActivated', {
-        //   //   componentId: 90,
-        //   //   componentName: 'Switch to Sensoring'
-        //   // });
+        window.sendSpacebrewMessage('componentActivated', {
+        componentId: 90,
+        componentName: 'Switch to Sensoring'
+        });
         // });
       });
 
@@ -47,10 +47,10 @@ $(document).ready(function(){
         // $('body').fadeOut(200,function(){
         //   window.location = 'material-tracking.html?deviceId=' + getQueryString( 'deviceId' ) + '&master=' + getQueryString( 'master' );
         //     // $('body').load("material-tracking.html").delay(300).fadeIn(1300);
-        //     // window.sendSpacebrewMessage('componentActivated', {
-        //     //   componentId: 89,
-        //     //   componentName: 'Switch to Material Tracking'
-        //     // });
+        window.sendSpacebrewMessage('componentActivated', {
+        componentId: 89,
+        componentName: 'Switch to Material Tracking'
+        });
         // });
 
       });
