@@ -28,6 +28,7 @@ $(function() {
       }
     }
 
+    var chart;
 
     $(function() {
       $(document).ready(function() {
@@ -38,7 +39,7 @@ $(function() {
           colors: ['#7c99bb']
         });
 
-        $('#foerderdruck-1-graph').highcharts({
+        $('#zvb-graph').highcharts({
           tooltip: {
             shared: false
           },
@@ -46,7 +47,7 @@ $(function() {
             enabled: false
           },
           title: {
-            text: 'Throughput <span class="blue">kg/h</span>',
+            text: 'ZVB rpm',
             align: 'left',
             floating: true,
               style: {
@@ -97,7 +98,510 @@ $(function() {
                   var series = this.series[0];
                   setInterval(function () {
                       var x = (new Date()).getTime(), // current time
-                          y = Math.random() * (320 - 280) + 280
+                          y = Math.random() * (20 - 25) + 25
+                      series.addPoint([x, y], true, true);
+                  }, 10000);
+              }
+          }
+        },
+          xAxis: {
+            type: 'datetime',
+            tickPixelInterval: 150,
+            floating: true,
+            offset: -30,
+            gridLineWidth: 0,
+            minorGridLineWidth: 0,
+            minPadding: 0,
+            maxPadding: 0
+          },
+
+          yAxis: {
+            gridLineWidth: 0,
+            minorGridLineWidth: 0,
+            offset: -40,
+            opposite: true,
+            tickLength: 0,
+            title: {
+              text: ''
+            },
+            plotLines: [{
+              value: 0,
+              width: 0,
+              color: '#808080'
+            }],
+            plotBands: [{
+              from: 0,
+              to: 22,
+              linearGradient: [0, 0, 0, 350],
+              color: 'rgba(123,152,184,0.5)',
+              zIndex: 5
+            }]
+          },
+          tooltip: {
+            enabled: false
+          },
+          legend: {
+            enabled: false
+          },
+          exporting: {
+            enabled: false
+          },
+          series: [{
+            name: 'Durchsatz',
+            data: (function() {
+              var data = [],
+                time = (new Date()).getTime(),
+                i;
+
+                for (i = -999; i <= 0; i += 5) {
+                    data.push([
+                        time + i * 3000,
+                        Math.random() * (20 - 25) + 25
+                    ]);
+                }
+                return data;
+            }())
+          }]
+        });
+
+        $('#dosierer-5-graph').highcharts({
+          tooltip: {
+            shared: false
+          },
+          credits: {
+            enabled: false
+          },
+          title: {
+            text: 'K-ML-KV3-F kg/h',
+            align: 'left',
+            floating: true,
+              style: {
+                color: '#424242',
+                fontWeight: 'light',
+                fontSize: '13px',
+                fontFamily: 'Gotham',
+                spanColor: '#fff'
+              }
+          },
+          plotOptions: {
+            areaspline: {
+              fillOpacity: 0.8,
+                series: {
+                  pointPadding: 0,
+                  groupPadding: 0,
+              }
+            },
+            series: {
+              marker: {
+                enabled: false
+              },
+              zones: [{
+                value: 0.5,
+                color: '#7c99bb'
+              }, {
+                color: '#7c99bb'
+              }],
+              lineWidth: 0
+            }
+          },
+          chart: {
+            type: 'area',
+            backgroundColor: {
+              linearGradient: [0, 0, 0, 350],
+              stops: [
+                [0, 'rgb(245, 245, 245)'],
+                [1, 'rgb(245, 245, 245)']
+              ]
+            },
+            marginLeft: 0,
+            marginRight: 0,
+            marginBottom: 0,
+            events: {
+              load: function () {
+
+                  // set up the updating of the chart each second
+                  var series = this.series[0];
+                  setInterval(function () {
+                      var x = (new Date()).getTime(), // current time
+                          y = Math.random() * (0 - 0) + 0
+                      series.addPoint([x, y], true, true);
+                  }, 10000);
+              }
+          }
+        },
+          xAxis: {
+            type: 'datetime',
+            tickPixelInterval: 150,
+            floating: true,
+            offset: -30,
+            gridLineWidth: 0,
+            minorGridLineWidth: 0,
+            minPadding: 0,
+            maxPadding: 0
+          },
+
+          yAxis: {
+            gridLineWidth: 0,
+            minorGridLineWidth: 0,
+            offset: -40,
+            opposite: true,
+            tickLength: 0,
+            title: {
+              text: ''
+            },
+            plotLines: [{
+              value: 0,
+              width: 0,
+              color: '#808080'
+            }],
+            plotBands: [{
+              from: 0,
+              to: 0,
+              linearGradient: [0, 0, 0, 350],
+              color: 'rgba(123,152,184,0.5)',
+              zIndex: 5
+            }]
+          },
+          tooltip: {
+            enabled: false
+          },
+          legend: {
+            enabled: false
+          },
+          exporting: {
+            enabled: false
+          },
+          series: [{
+            name: 'Durchsatz',
+            data: (function() {
+              var data = [],
+                time = (new Date()).getTime(),
+                i;
+
+                for (i = -999; i <= 0; i += 5) {
+                    data.push([
+                        time + i * 3000,
+                        Math.random() * (0 - 0) + 0
+                    ]);
+                }
+                return data;
+            }())
+          }]
+        });
+
+
+        $('#dosierer-4-graph').highcharts({
+          tooltip: {
+            shared: false
+          },
+          credits: {
+            enabled: false
+          },
+          title: {
+            text: 'K-ML-T60 kg/h',
+            align: 'left',
+            floating: true,
+              style: {
+                color: '#424242',
+                fontWeight: 'light',
+                fontSize: '13px',
+                fontFamily: 'Gotham',
+                spanColor: '#fff'
+              }
+          },
+          plotOptions: {
+            areaspline: {
+              fillOpacity: 0.8,
+                series: {
+                  pointPadding: 0,
+                  groupPadding: 0,
+              }
+            },
+            series: {
+              marker: {
+                enabled: false
+              },
+              zones: [{
+                value: 0.5,
+                color: '#7c99bb'
+              }, {
+                color: '#7c99bb'
+              }],
+              lineWidth: 0
+            }
+          },
+          chart: {
+            type: 'area',
+            backgroundColor: {
+              linearGradient: [0, 0, 0, 350],
+              stops: [
+                [0, 'rgb(245, 245, 245)'],
+                [1, 'rgb(245, 245, 245)']
+              ]
+            },
+            marginLeft: 0,
+            marginRight: 0,
+            marginBottom: 0,
+            events: {
+              load: function () {
+
+                  // set up the updating of the chart each second
+                  var series = this.series[0];
+                  setInterval(function () {
+                      var x = (new Date()).getTime(), // current time
+                          y = Math.random() * (1298 - 1300) + 1300
+                      series.addPoint([x, y], true, true);
+                  }, 10000);
+              }
+          }
+        },
+          xAxis: {
+            type: 'datetime',
+            tickPixelInterval: 150,
+            floating: true,
+            offset: -20,
+            gridLineWidth: 0,
+            minorGridLineWidth: 0,
+            minPadding: 0,
+            maxPadding: 0
+          },
+
+          yAxis: {
+            gridLineWidth: 0,
+            minorGridLineWidth: 0,
+            offset: -40,
+            opposite: true,
+            tickLength: 0,
+            title: {
+              text: ''
+            },
+            plotLines: [{
+              value: 0,
+              width: 0,
+              color: '#808080'
+            }],
+            plotBands: [{
+              from: 0,
+              to: 0,
+              linearGradient: [0, 0, 0, 350],
+              color: 'rgba(123,152,184,0.5)',
+              zIndex: 5
+            }]
+          },
+          tooltip: {
+            enabled: false
+          },
+          legend: {
+            enabled: false
+          },
+          exporting: {
+            enabled: false
+          },
+          series: [{
+            name: 'Durchsatz',
+            data: (function() {
+              var data = [],
+                time = (new Date()).getTime(),
+                i;
+
+                for (i = -999; i <= 0; i += 5) {
+                    data.push([
+                        time + i * 3000,
+                        Math.random() * (1298 - 1300) + 1300
+                    ]);
+                }
+                return data;
+            }())
+          }]
+        });
+
+
+        $('#dosierer-3-graph').highcharts({
+          tooltip: {
+            shared: false
+          },
+          credits: {
+            enabled: false
+          },
+          title: {
+            text: 'K-ML-D5-KT20 kg/h',
+            align: 'left',
+            floating: true,
+              style: {
+                color: '#424242',
+                fontWeight: 'light',
+                fontSize: '13px',
+                fontFamily: 'Gotham',
+                spanColor: '#fff'
+              }
+          },
+          plotOptions: {
+            areaspline: {
+              fillOpacity: 0.8,
+                series: {
+                  pointPadding: 0,
+                  groupPadding: 0,
+              }
+            },
+            series: {
+              marker: {
+                enabled: false
+              },
+              zones: [{
+                value: 0.5,
+                color: '#7c99bb'
+              }, {
+                color: '#7c99bb'
+              }],
+              lineWidth: 0
+            }
+          },
+          chart: {
+            type: 'area',
+            backgroundColor: {
+              linearGradient: [0, 0, 0, 350],
+              stops: [
+                [0, 'rgb(245, 245, 245)'],
+                [1, 'rgb(245, 245, 245)']
+              ]
+            },
+            marginLeft: 0,
+            marginRight: 0,
+            marginBottom: 0,
+            events: {
+              load: function () {
+
+                  // set up the updating of the chart each second
+                  var series = this.series[0];
+                  setInterval(function () {
+                      var x = (new Date()).getTime(), // current time
+                          y = Math.random() * (76 - 78) + 78
+                      series.addPoint([x, y], true, true);
+                  }, 10000);
+              }
+          }
+        },
+          xAxis: {
+            type: 'datetime',
+            tickPixelInterval: 150,
+            floating: true,
+            offset: -30,
+            gridLineWidth: 0,
+            minorGridLineWidth: 0,
+            minPadding: 0,
+            maxPadding: 0
+          },
+
+          yAxis: {
+            gridLineWidth: 0,
+            minorGridLineWidth: 0,
+            offset: -40,
+            opposite: true,
+            tickLength: 0,
+            title: {
+              text: ''
+            },
+            plotLines: [{
+              value: 0,
+              width: 0,
+              color: '#808080'
+            }],
+            plotBands: [{
+              from: 0,
+              to: 0,
+              linearGradient: [0, 0, 0, 350],
+              color: 'rgba(123,152,184,0.5)',
+              zIndex: 5
+            }]
+          },
+          tooltip: {
+            enabled: false
+          },
+          legend: {
+            enabled: false
+          },
+          exporting: {
+            enabled: false
+          },
+          series: [{
+            name: 'Durchsatz',
+            data: (function() {
+              var data = [],
+                time = (new Date()).getTime(),
+                i;
+
+                for (i = -999; i <= 0; i += 5) {
+                    data.push([
+                        time + i * 3000,
+                        Math.random() * (76 - 78) + 78
+                    ]);
+                }
+                return data;
+            }())
+          }]
+        });
+
+
+        $('#dosierer-2-graph').highcharts({
+          tooltip: {
+            shared: false
+          },
+          credits: {
+            enabled: false
+          },
+          title: {
+            text: 'K-ML-D5-S60 <span class="blue">kg/h</span>',
+            align: 'left',
+            floating: true,
+              style: {
+                color: '#424242',
+                fontWeight: 'light',
+                fontSize: '13px',
+                fontFamily: 'Gotham',
+                spanColor: '#fff'
+              }
+          },
+          plotOptions: {
+            areaspline: {
+              fillOpacity: 0.8,
+                series: {
+                  pointPadding: 0,
+                  groupPadding: 0,
+              }
+            },
+            series: {
+              marker: {
+                enabled: false
+              },
+              zones: [{
+                value: 0.5,
+                color: '#7c99bb'
+              }, {
+                color: '#7c99bb'
+              }],
+              lineWidth: 0
+            }
+          },
+          chart: {
+            type: 'area',
+            backgroundColor: {
+              linearGradient: [0, 0, 0, 350],
+              stops: [
+                [0, 'rgb(245, 245, 245)'],
+                [1, 'rgb(245, 245, 245)']
+              ]
+            },
+            marginLeft: 0,
+            marginRight: 0,
+            marginBottom: 0,
+            events: {
+              load: function () {
+
+                  // set up the updating of the chart each second
+                  var series = this.series[0];
+                  setInterval(function () {
+                      var x = (new Date()).getTime(), // current time
+                          y = Math.random() * (1220 - 1224) + 1224
                       series.addPoint([x, y], true, true);
                   }, 10000);
               }
@@ -130,7 +634,7 @@ $(function() {
             }],
             plotBands: [{
               from: 0,
-              to: 300,
+              to: 0,
               linearGradient: [0, 0, 0, 350],
               color: 'rgba(123,152,184,0.5)',
               zIndex: 5
@@ -155,7 +659,259 @@ $(function() {
                 for (i = -999; i <= 0; i += 5) {
                     data.push([
                         time + i * 3000,
-                        Math.random() * (320 - 280) + 280
+                        Math.random() * (1220 - 1224) + 1224
+                    ]);
+                }
+                return data;
+            }())
+          }]
+        });
+
+        $('#dosierer-1-graph').highcharts({
+          tooltip: {
+            shared: false
+          },
+          credits: {
+            enabled: false
+          },
+          title: {
+            text: 'K-ML-D5-BSP-135 <span class="blue">kg/h</span>',
+            align: 'left',
+            floating: true,
+              style: {
+                color: '#424242',
+                fontWeight: 'light',
+                fontSize: '13px',
+                fontFamily: 'Gotham',
+                spanColor: '#fff'
+              }
+          },
+          plotOptions: {
+            areaspline: {
+              fillOpacity: 0.8,
+                series: {
+                  pointPadding: 0,
+                  groupPadding: 0,
+              }
+            },
+            series: {
+              marker: {
+                enabled: false
+              },
+              zones: [{
+                value: 0.5,
+                color: '#7c99bb'
+              }, {
+                color: '#7c99bb'
+              }],
+              lineWidth: 0
+            }
+          },
+          chart: {
+            type: 'area',
+            backgroundColor: {
+              linearGradient: [0, 0, 0, 350],
+              stops: [
+                [0, 'rgb(245, 245, 245)'],
+                [1, 'rgb(245, 245, 245)']
+              ]
+            },
+            marginLeft: 0,
+            marginRight: 0,
+            marginBottom: 0,
+            events: {
+              load: function () {
+
+                  // set up the updating of the chart each second
+                  var series = this.series[0];
+                  setInterval(function () {
+                      var x = (new Date()).getTime(), // current time
+                          y = Math.random() * (0 - 0) + 0
+                      series.addPoint([x, y], true, true);
+                  }, 10000);
+              }
+          }
+        },
+          xAxis: {
+            type: 'datetime',
+            tickPixelInterval: 150,
+            floating: true,
+            offset: -30,
+            gridLineWidth: 0,
+            minorGridLineWidth: 0,
+            minPadding: 0,
+            maxPadding: 0
+          },
+
+          yAxis: {
+            gridLineWidth: 0,
+            minorGridLineWidth: 0,
+            offset: -50,
+            opposite: true,
+            tickLength: 0,
+            title: {
+              text: ''
+            },
+            plotLines: [{
+              value: 0,
+              width: 0,
+              color: '#808080'
+            }],
+            plotBands: [{
+              from: 0,
+              to: 0,
+              linearGradient: [0, 0, 0, 350],
+              color: 'rgba(123,152,184,0.5)',
+              zIndex: 5
+            }]
+          },
+          tooltip: {
+            enabled: false
+          },
+          legend: {
+            enabled: false
+          },
+          exporting: {
+            enabled: false
+          },
+          series: [{
+            name: 'Durchsatz',
+            data: (function() {
+              var data = [],
+                time = (new Date()).getTime(),
+                i;
+
+                for (i = -999; i <= 0; i += 5) {
+                    data.push([
+                        time + i * 3000,
+                        Math.random() * (0 - 0) + 0
+                    ]);
+                }
+                return data;
+            }())
+          }]
+        });
+
+
+
+        $('#ati-graph').highcharts({
+          tooltip: {
+            shared: false
+          },
+          credits: {
+            enabled: false
+          },
+          title: {
+            text: 'ATI <span class="blue">on</span>',
+            align: 'left',
+            floating: true,
+              style: {
+                color: '#424242',
+                fontWeight: 'light',
+                fontSize: '13px',
+                fontFamily: 'Gotham',
+                spanColor: '#fff'
+              }
+          },
+          plotOptions: {
+            areaspline: {
+              fillOpacity: 0.8,
+                series: {
+                  pointPadding: 0,
+                  groupPadding: 0,
+              }
+            },
+            series: {
+              marker: {
+                enabled: false
+              },
+              zones: [{
+                value: 0.5,
+                color: '#7c99bb'
+              }, {
+                color: '#7c99bb'
+              }],
+              lineWidth: 0
+            }
+          },
+          chart: {
+            type: 'area',
+            backgroundColor: {
+              linearGradient: [0, 0, 0, 350],
+              stops: [
+                [0, 'rgb(245, 245, 245)'],
+                [1, 'rgb(245, 245, 245)']
+              ]
+            },
+            marginLeft: 0,
+            marginRight: 0,
+            marginBottom: 0,
+            events: {
+              load: function () {
+
+                  // set up the updating of the chart each second
+                  var series = this.series[0];
+                  setInterval(function () {
+                      var x = (new Date()).getTime(), // current time
+                          y = Math.random() * (1 - 1) + 1
+                      series.addPoint([x, y], true, true);
+                  }, 10000);
+              }
+          }
+        },
+          xAxis: {
+            type: 'datetime',
+            tickPixelInterval: 150,
+            floating: true,
+            offset: -30,
+            gridLineWidth: 0,
+            minorGridLineWidth: 0,
+            minPadding: 0,
+            maxPadding: 0
+          },
+
+          yAxis: {
+            gridLineWidth: 0,
+            minorGridLineWidth: 0,
+            offset: -50,
+            opposite: true,
+            tickLength: 0,
+            title: {
+              text: ''
+            },
+            plotLines: [{
+              value: 0,
+              width: 0,
+              color: '#808080'
+            }],
+            plotBands: [{
+              from: 0,
+              to: 1,
+              linearGradient: [0, 0, 0, 350],
+              color: 'rgba(123,152,184,0.5)',
+              zIndex: 5
+            }]
+          },
+          tooltip: {
+            enabled: false
+          },
+          legend: {
+            enabled: false
+          },
+          exporting: {
+            enabled: false
+          },
+          series: [{
+            name: 'Durchsatz',
+            data: (function() {
+              var data = [],
+                time = (new Date()).getTime(),
+                i;
+
+                for (i = -999; i <= 0; i += 5) {
+                    data.push([
+                        time + i * 3000,
+                        Math.random() * (1 - 1) + 1
                     ]);
                 }
                 return data;
@@ -171,7 +927,7 @@ $(function() {
             enabled: false
           },
           title: {
-            text: 'Throughput <span class="blue">kg/h</span>',
+            text: 'Feed pressure <span class="blue">kg/h</span>',
             align: 'left',
             floating: true,
               style: {
@@ -222,7 +978,257 @@ $(function() {
                   var series = this.series[0];
                   setInterval(function () {
                       var x = (new Date()).getTime(), // current time
-                          y = Math.random() * (320 - 280) + 280
+                          y = Math.random() * (495 - 505) + 505
+                      series.addPoint([x, y], true, true);
+                  }, 10000);
+              }
+          }
+        },
+          xAxis: {
+            type: 'datetime',
+            tickPixelInterval: 150,
+            floating: true,
+            offset: -30,
+            gridLineWidth: 0,
+            minorGridLineWidth: 0,
+            minPadding: 0,
+            maxPadding: 0
+          },
+
+          yAxis: {
+            gridLineWidth: 0,
+            minorGridLineWidth: 0,
+            offset: -50,
+            opposite: true,
+            tickLength: 0,
+            title: {
+              text: ''
+            },
+            plotLines: [{
+              value: 0,
+              width: 0,
+              color: '#808080'
+            }],
+            plotBands: [{
+              from: 0,
+              to: 500,
+              linearGradient: [0, 0, 0, 350],
+              color: 'rgba(123,152,184,0.5)',
+              zIndex: 5
+            }]
+          },
+          tooltip: {
+            enabled: false
+          },
+          legend: {
+            enabled: false
+          },
+          exporting: {
+            enabled: false
+          },
+          series: [{
+            name: 'Durchsatz',
+            data: (function() {
+              var data = [],
+                time = (new Date()).getTime(),
+                i;
+
+                for (i = -999; i <= 0; i += 5) {
+                    data.push([
+                        time + i * 3000,
+                        Math.random() * (495 - 505) + 505
+                    ]);
+                }
+                return data;
+            }())
+          }]
+        });
+
+        $('#hfs-graph').highcharts({
+          tooltip: {
+            shared: false
+          },
+          credits: {
+            enabled: false
+          },
+          title: {
+            text: 'HFS <span class="blue">off</span>',
+            align: 'left',
+            floating: true,
+              style: {
+                color: '#424242',
+                fontWeight: 'light',
+                fontSize: '13px',
+                fontFamily: 'Gotham',
+                spanColor: '#fff'
+              }
+          },
+          plotOptions: {
+            areaspline: {
+              fillOpacity: 0.8,
+                series: {
+                  pointPadding: 0,
+                  groupPadding: 0,
+              }
+            },
+            series: {
+              marker: {
+                enabled: false
+              },
+              zones: [{
+                value: 0.5,
+                color: '#7c99bb'
+              }, {
+                color: '#7c99bb'
+              }],
+              lineWidth: 0
+            }
+          },
+          chart: {
+            type: 'area',
+            backgroundColor: {
+              linearGradient: [0, 0, 0, 350],
+              stops: [
+                [0, 'rgb(245, 245, 245)'],
+                [1, 'rgb(245, 245, 245)']
+              ]
+            },
+            marginLeft: 0,
+            marginRight: 0,
+            marginBottom: 0,
+            events: {
+              load: function () {
+
+                  // set up the updating of the chart each second
+                  var series = this.series[0];
+                  setInterval(function () {
+                      var x = (new Date()).getTime(), // current time
+                          y = Math.random() * (0 - 0) + 0
+                      series.addPoint([x, y], true, true);
+                  }, 10000);
+              }
+          }
+        },
+          xAxis: {
+            type: 'datetime',
+            tickPixelInterval: 150,
+            floating: true,
+            offset: -30,
+            gridLineWidth: 0,
+            minorGridLineWidth: 0,
+            minPadding: 0,
+            maxPadding: 0
+          },
+
+          yAxis: {
+            gridLineWidth: 0,
+            minorGridLineWidth: 0,
+            offset: -50,
+            opposite: true,
+            tickLength: 0,
+            title: {
+              text: ''
+            },
+            plotLines: [{
+              value: 0,
+              width: 0,
+              color: '#808080'
+            }],
+            plotBands: [{
+              from: 0,
+              to: 0,
+              linearGradient: [0, 0, 0, 350],
+              color: 'rgba(123,152,184,0.5)',
+              zIndex: 5
+            }]
+          },
+          tooltip: {
+            enabled: false
+          },
+          legend: {
+            enabled: false
+          },
+          exporting: {
+            enabled: false
+          },
+          series: [{
+            name: 'Durchsatz',
+            data: (function() {
+              var data = [],
+                time = (new Date()).getTime(),
+                i;
+
+                for (i = -999; i <= 0; i += 5) {
+                    data.push([
+                        time + i * 3000,
+                        Math.random() * (0 - 0) + 0
+                    ]);
+                }
+                return data;
+            }())
+          }]
+        });
+
+        $('#foerderdruck-1-graph').highcharts({
+          tooltip: {
+            shared: false
+          },
+          credits: {
+            enabled: false
+          },
+          title: {
+            text: 'Feed pressure <span class="blue">kg/h</span>',
+            align: 'left',
+            floating: true,
+              style: {
+                color: '#424242',
+                fontWeight: 'light',
+                fontSize: '13px',
+                fontFamily: 'Gotham',
+                spanColor: '#fff'
+              }
+          },
+          plotOptions: {
+            areaspline: {
+              fillOpacity: 0.8,
+                series: {
+                  pointPadding: 0,
+                  groupPadding: 0,
+              }
+            },
+            series: {
+              marker: {
+                enabled: false
+              },
+              zones: [{
+                value: 0.5,
+                color: '#7c99bb'
+              }, {
+                color: '#7c99bb'
+              }],
+              lineWidth: 0
+            }
+          },
+          chart: {
+            type: 'area',
+            backgroundColor: {
+              linearGradient: [0, 0, 0, 350],
+              stops: [
+                [0, 'rgb(245, 245, 245)'],
+                [1, 'rgb(245, 245, 245)']
+              ]
+            },
+            marginLeft: 0,
+            marginRight: 0,
+            marginBottom: 0,
+            events: {
+              load: function () {
+
+                  // set up the updating of the chart each second
+                  var series = this.series[0];
+                  setInterval(function () {
+                      var x = (new Date()).getTime(), // current time
+                          y = Math.random() * (299 - 301) + 301
                       series.addPoint([x, y], true, true);
                   }, 10000);
               }
@@ -280,7 +1286,7 @@ $(function() {
                 for (i = -999; i <= 0; i += 5) {
                     data.push([
                         time + i * 3000,
-                        Math.random() * (320 - 280) + 280
+                        Math.random() * (299 - 301) + 301
                     ]);
                 }
                 return data;
@@ -600,7 +1606,7 @@ $(function() {
                   var series = this.series[0];
                   setInterval(function () {
                       var x = (new Date()).getTime(), // current time
-                          y = Math.random() * (20 - 25) + 25
+                          y = Math.random() * (0 - 0) + 0
                       series.addPoint([x, y], true, true);
                   }, 10000);
               }
@@ -633,7 +1639,7 @@ $(function() {
             }],
             plotBands: [{
               from: 0,
-              to: 22,
+              to: 0,
               linearGradient: [0, 0, 0, 350],
               color: 'rgba(123,152,184,0.5)',
               zIndex: 5
@@ -658,139 +1664,13 @@ $(function() {
                 for (i = -999; i <= 0; i += 5) {
                     data.push([
                         time + i * 3000,
-                        Math.random() * (20 - 25) + 25
+                        Math.random() * (0 - 0) + 0
                     ]);
                 }
                 return data;
             }())
           }]
         });
-
-        $('#foerderdruck-1-graph').highcharts({
-          tooltip: {
-            shared: false
-          },
-          credits: {
-            enabled: false
-          },
-          title: {
-            text: 'Throughput <span class="blue">kg/h</span>',
-            align: 'left',
-            floating: true,
-              style: {
-                color: '#424242',
-                fontWeight: 'light',
-                fontSize: '13px',
-                fontFamily: 'Gotham',
-                spanColor: '#fff'
-              }
-          },
-          plotOptions: {
-            areaspline: {
-              fillOpacity: 0.8,
-                series: {
-                  pointPadding: 0,
-                  groupPadding: 0,
-              }
-            },
-            series: {
-              marker: {
-                enabled: false
-              },
-              zones: [{
-                value: 0.5,
-                color: '#7c99bb'
-              }, {
-                color: '#7c99bb'
-              }],
-              lineWidth: 0
-            }
-          },
-          chart: {
-            type: 'area',
-            backgroundColor: {
-              linearGradient: [0, 0, 0, 350],
-              stops: [
-                [0, 'rgb(245, 245, 245)'],
-                [1, 'rgb(245, 245, 245)']
-              ]
-            },
-            marginLeft: 0,
-            marginRight: 0,
-            marginBottom: 0,
-            events: {
-              load: function () {
-
-                  // set up the updating of the chart each second
-                  var series = this.series[0];
-                  setInterval(function () {
-                      var x = (new Date()).getTime(), // current time
-                          y = Math.random() * (320 - 280) + 280
-                      series.addPoint([x, y], true, true);
-                  }, 10000);
-              }
-          }
-        },
-          xAxis: {
-            type: 'datetime',
-            tickPixelInterval: 150,
-            floating: true,
-            offset: -30,
-            gridLineWidth: 0,
-            minorGridLineWidth: 0,
-            minPadding: 0,
-            maxPadding: 0
-          },
-
-          yAxis: {
-            gridLineWidth: 0,
-            minorGridLineWidth: 0,
-            offset: -50,
-            opposite: true,
-            tickLength: 0,
-            title: {
-              text: ''
-            },
-            plotLines: [{
-              value: 0,
-              width: 0,
-              color: '#808080'
-            }],
-            plotBands: [{
-              from: 0,
-              to: 300,
-              linearGradient: [0, 0, 0, 350],
-              color: 'rgba(123,152,184,0.5)',
-              zIndex: 5
-            }]
-          },
-          tooltip: {
-            enabled: false
-          },
-          legend: {
-            enabled: false
-          },
-          exporting: {
-            enabled: false
-          },
-          series: [{
-            name: 'Durchsatz',
-            data: (function() {
-              var data = [],
-                time = (new Date()).getTime(),
-                i;
-
-                for (i = -999; i <= 0; i += 5) {
-                    data.push([
-                        time + i * 3000,
-                        Math.random() * (320 - 280) + 280
-                    ]);
-                }
-                return data;
-            }())
-          }]
-        });
-
 
         $('#foerderdruck-2-graph').highcharts({
           tooltip: {
@@ -800,7 +1680,7 @@ $(function() {
             enabled: false
           },
           title: {
-            text: 'Throughput <span class="blue">kg/h</span>',
+            text: 'Feed pressure <span class="blue">kg/h</span>',
             align: 'left',
             floating: true,
               style: {
@@ -824,7 +1704,7 @@ $(function() {
                 enabled: false
               },
               zones: [{
-                value: 0.5,
+                value: 100,
                 color: '#7c99bb'
               }, {
                 color: '#7c99bb'
@@ -851,7 +1731,7 @@ $(function() {
                   var series = this.series[0];
                   setInterval(function () {
                       var x = (new Date()).getTime(), // current time
-                          y = Math.random() * (320 - 280) + 280
+                          y = Math.random() * (299 - 301) + 301
                       series.addPoint([x, y], true, true);
                   }, 10000);
               }
@@ -871,6 +1751,7 @@ $(function() {
           yAxis: {
             gridLineWidth: 0,
             minorGridLineWidth: 0,
+            minorTickInterval: 400,
             offset: -50,
             opposite: true,
             tickLength: 0,
@@ -909,7 +1790,7 @@ $(function() {
                 for (i = -999; i <= 0; i += 5) {
                     data.push([
                         time + i * 3000,
-                        Math.random() * (320 - 280) + 280
+                        Math.random() * (299 - 301) + 301
                     ]);
                 }
                 return data;
