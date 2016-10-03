@@ -2093,6 +2093,16 @@
     $(".ansicht-3d").delay(200).each(function(i){$(this).delay(120*i).animate({"opacity":1},500);});
     $(".two-di").css({opacity:0});
     $(".two-di").delay(200).each(function(i){$(this).delay(120*i).animate({"opacity":1},500);});
+
+    $("#exitBtn").on("click", function(){
+      /*if ( window.sendSpacebrewMessage ) {
+        window.sendSpacebrewMessage( 'appCloses' );
+      }*/
+
+      setTimeout( function () {
+        window.close();
+      }, 150 );
+    })
   });
 </script>
 
