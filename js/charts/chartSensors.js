@@ -39,7 +39,7 @@ $(function() {
           colors: ['#7c99bb']
         });
 
-        $('#zsk-graph-02').highcharts({
+        $('#ssd-04').highcharts({
           tooltip: {
             shared: false
           },
@@ -47,7 +47,134 @@ $(function() {
             enabled: false
           },
           title: {
-            text: 'Energy consumption <span class="blue">mm/s</span>',
+            text: 'Torque <span class="blue">%</span>',
+            align: 'left',
+            floating: true,
+              style: {
+                color: '#424242',
+                fontWeight: 'light',
+                fontSize: '13px',
+                fontFamily: 'Gotham',
+                spanColor: '#fff'
+              }
+          },
+          plotOptions: {
+            areaspline: {
+              fillOpacity: 0.8,
+                series: {
+                  pointPadding: 0,
+                  groupPadding: 0,
+              }
+            },
+            series: {
+              marker: {
+                enabled: false
+              },
+              zones: [{
+                value: 100,
+                color: '#7c99bb'
+              }, {
+                color: '#7c99bb'
+              }],
+              lineWidth: 0
+            }
+          },
+          chart: {
+            type: 'area',
+            backgroundColor: {
+              linearGradient: [0, 0, 0, 350],
+              stops: [
+                [0, 'rgb(245, 245, 245)'],
+                [1, 'rgb(245, 245, 245)']
+              ]
+            },
+            marginLeft: 0,
+            marginRight: 0,
+            marginBottom: 0,
+            events: {
+              load: function () {
+
+                  // set up the updating of the chart each second
+                  var series = this.series[0];
+                  setInterval(function () {
+                      var x = (new Date()).getTime(), // current time
+                          y = Math.random() * (40 - 40) + 40
+                      series.addPoint([x, y], true, true);
+                  }, 10000);
+              }
+          }
+        },
+          xAxis: {
+            type: 'datetime',
+            tickPixelInterval: 150,
+            floating: true,
+            offset: -70,
+            gridLineWidth: 0,
+            minorGridLineWidth: 0,
+            minPadding: 0,
+            maxPadding: 0
+          },
+
+          yAxis: {
+            gridLineWidth: 0,
+            minorGridLineWidth: 0,
+            minorTickInterval: 400,
+            offset: -50,
+            opposite: true,
+            tickLength: 0,
+            title: {
+              text: ''
+            },
+            plotLines: [{
+              value: 0,
+              width: 0,
+              color: '#808080'
+            }],
+            plotBands: [{
+              from: 0,
+              to: 0,
+              linearGradient: [0, 0, 0, 350],
+              color: 'rgba(123,152,184,0.5)',
+              zIndex: 5
+            }]
+          },
+          tooltip: {
+            enabled: false
+          },
+          legend: {
+            enabled: false
+          },
+          exporting: {
+            enabled: false
+          },
+          series: [{
+            name: 'Durchsatz',
+            data: (function() {
+              var data = [],
+                time = (new Date()).getTime(),
+                i;
+
+                for (i = -999; i <= 0; i += 5) {
+                    data.push([
+                        time + i * 3000,
+                        Math.random() * (40 - 40) + 40
+                    ]);
+                }
+                return data;
+            }())
+          }]
+        });
+
+
+        $('#ssd-graph-03').highcharts({
+          tooltip: {
+            shared: false
+          },
+          credits: {
+            enabled: false
+          },
+          title: {
+            text: 'Temperature <span class="blue">mm/s</span>',
             align: 'left',
             floating: true,
               style: {
@@ -99,6 +226,1649 @@ $(function() {
                   setInterval(function () {
                       var x = (new Date()).getTime(), // current time
                           y = Math.random() * (421 - 421) + 421
+                      series.addPoint([x, y], true, true);
+                  }, 10000);
+              }
+          }
+        },
+          xAxis: {
+            type: 'datetime',
+            tickPixelInterval: 150,
+            floating: true,
+            offset: -70,
+            gridLineWidth: 0,
+            minorGridLineWidth: 0,
+            minPadding: 0,
+            maxPadding: 0
+          },
+
+          yAxis: {
+            gridLineWidth: 0,
+            minorGridLineWidth: 0,
+            minorTickInterval: 400,
+            offset: -50,
+            opposite: true,
+            tickLength: 0,
+            title: {
+              text: ''
+            },
+            plotLines: [{
+              value: 0,
+              width: 0,
+              color: '#808080'
+            }],
+            plotBands: [{
+              from: 0,
+              to: 0,
+              linearGradient: [0, 0, 0, 350],
+              color: 'rgba(123,152,184,0.5)',
+              zIndex: 5
+            }]
+          },
+          tooltip: {
+            enabled: false
+          },
+          legend: {
+            enabled: false
+          },
+          exporting: {
+            enabled: false
+          },
+          series: [{
+            name: 'Durchsatz',
+            data: (function() {
+              var data = [],
+                time = (new Date()).getTime(),
+                i;
+
+                for (i = -999; i <= 0; i += 5) {
+                    data.push([
+                        time + i * 3000,
+                        Math.random() * (260 - 260) + 260
+                    ]);
+                }
+                return data;
+            }())
+          }]
+        });
+
+        $('#ssd-graph-02').highcharts({
+          tooltip: {
+            shared: false
+          },
+          credits: {
+            enabled: false
+          },
+          title: {
+            text: 'Energy consumption <span class="blue">C</span>',
+            align: 'left',
+            floating: true,
+              style: {
+                color: '#424242',
+                fontWeight: 'light',
+                fontSize: '13px',
+                fontFamily: 'Gotham',
+                spanColor: '#fff'
+              }
+          },
+          plotOptions: {
+            areaspline: {
+              fillOpacity: 0.8,
+                series: {
+                  pointPadding: 0,
+                  groupPadding: 0,
+              }
+            },
+            series: {
+              marker: {
+                enabled: false
+              },
+              zones: [{
+                value: 100,
+                color: '#7c99bb'
+              }, {
+                color: '#7c99bb'
+              }],
+              lineWidth: 0
+            }
+          },
+          chart: {
+            type: 'area',
+            backgroundColor: {
+              linearGradient: [0, 0, 0, 350],
+              stops: [
+                [0, 'rgb(245, 245, 245)'],
+                [1, 'rgb(245, 245, 245)']
+              ]
+            },
+            marginLeft: 0,
+            marginRight: 0,
+            marginBottom: 0,
+            events: {
+              load: function () {
+
+                  // set up the updating of the chart each second
+                  var series = this.series[0];
+                  setInterval(function () {
+                      var x = (new Date()).getTime(), // current time
+                          y = Math.random() * (260 - 260) + 260
+                      series.addPoint([x, y], true, true);
+                  }, 10000);
+              }
+          }
+        },
+          xAxis: {
+            type: 'datetime',
+            tickPixelInterval: 150,
+            floating: true,
+            offset: -70,
+            gridLineWidth: 0,
+            minorGridLineWidth: 0,
+            minPadding: 0,
+            maxPadding: 0
+          },
+
+          yAxis: {
+            gridLineWidth: 0,
+            minorGridLineWidth: 0,
+            minorTickInterval: 400,
+            offset: -50,
+            opposite: true,
+            tickLength: 0,
+            title: {
+              text: ''
+            },
+            plotLines: [{
+              value: 0,
+              width: 0,
+              color: '#808080'
+            }],
+            plotBands: [{
+              from: 0,
+              to: 0,
+              linearGradient: [0, 0, 0, 350],
+              color: 'rgba(123,152,184,0.5)',
+              zIndex: 5
+            }]
+          },
+          tooltip: {
+            enabled: false
+          },
+          legend: {
+            enabled: false
+          },
+          exporting: {
+            enabled: false
+          },
+          series: [{
+            name: 'Durchsatz',
+            data: (function() {
+              var data = [],
+                time = (new Date()).getTime(),
+                i;
+
+                for (i = -999; i <= 0; i += 5) {
+                    data.push([
+                        time + i * 3000,
+                        Math.random() * (421 - 421) + 421
+                    ]);
+                }
+                return data;
+            }())
+          }]
+        });
+
+        $('#ssd-graph-01').highcharts({
+          tooltip: {
+            shared: false
+          },
+          credits: {
+            enabled: false
+          },
+          title: {
+            text: 'Vibration <span class="blue">mm/s</span>',
+            align: 'left',
+            floating: true,
+              style: {
+                color: '#424242',
+                fontWeight: 'light',
+                fontSize: '13px',
+                fontFamily: 'Gotham',
+                spanColor: '#fff'
+              }
+          },
+          plotOptions: {
+            areaspline: {
+              fillOpacity: 0.8,
+                series: {
+                  pointPadding: 0,
+                  groupPadding: 0,
+              }
+            },
+            series: {
+              marker: {
+                enabled: false
+              },
+              zones: [{
+                value: 100,
+                color: '#7c99bb'
+              }, {
+                color: '#7c99bb'
+              }],
+              lineWidth: 0
+            }
+          },
+          chart: {
+            type: 'area',
+            backgroundColor: {
+              linearGradient: [0, 0, 0, 350],
+              stops: [
+                [0, 'rgb(245, 245, 245)'],
+                [1, 'rgb(245, 245, 245)']
+              ]
+            },
+            marginLeft: 0,
+            marginRight: 0,
+            marginBottom: 0,
+            events: {
+              load: function () {
+
+                  // set up the updating of the chart each second
+                  var series = this.series[0];
+                  setInterval(function () {
+                      var x = (new Date()).getTime(), // current time
+                          y = Math.random() * (1.8 - 1.9) + 1.9
+                      series.addPoint([x, y], true, true);
+                  }, 10000);
+              }
+          }
+        },
+          xAxis: {
+            type: 'datetime',
+            tickPixelInterval: 150,
+            floating: true,
+            offset: -70,
+            gridLineWidth: 0,
+            minorGridLineWidth: 0,
+            minPadding: 0,
+            maxPadding: 0
+          },
+
+          yAxis: {
+            gridLineWidth: 0,
+            minorGridLineWidth: 0,
+            minorTickInterval: 400,
+            offset: -50,
+            opposite: true,
+            tickLength: 0,
+            title: {
+              text: ''
+            },
+            plotLines: [{
+              value: 0,
+              width: 0,
+              color: '#808080'
+            }],
+            plotBands: [{
+              from: 0,
+              to: 0,
+              linearGradient: [0, 0, 0, 350],
+              color: 'rgba(123,152,184,0.5)',
+              zIndex: 5
+            }]
+          },
+          tooltip: {
+            enabled: false
+          },
+          legend: {
+            enabled: false
+          },
+          exporting: {
+            enabled: false
+          },
+          series: [{
+            name: 'Durchsatz',
+            data: (function() {
+              var data = [],
+                time = (new Date()).getTime(),
+                i;
+
+                for (i = -999; i <= 0; i += 5) {
+                    data.push([
+                        time + i * 3000,
+                        Math.random() * (1.8 - 1.9) + 1.9
+                    ]);
+                }
+                return data;
+            }())
+          }]
+        });
+
+
+        $('#zs_eg-graph-04').highcharts({
+          tooltip: {
+            shared: false
+          },
+          credits: {
+            enabled: false
+          },
+          title: {
+            text: 'Torque <span class="blue">%</span>',
+            align: 'left',
+            floating: true,
+              style: {
+                color: '#424242',
+                fontWeight: 'light',
+                fontSize: '13px',
+                fontFamily: 'Gotham',
+                spanColor: '#fff'
+              }
+          },
+          plotOptions: {
+            areaspline: {
+              fillOpacity: 0.8,
+                series: {
+                  pointPadding: 0,
+                  groupPadding: 0,
+              }
+            },
+            series: {
+              marker: {
+                enabled: false
+              },
+              zones: [{
+                value: 100,
+                color: '#7c99bb'
+              }, {
+                color: '#7c99bb'
+              }],
+              lineWidth: 0
+            }
+          },
+          chart: {
+            type: 'area',
+            backgroundColor: {
+              linearGradient: [0, 0, 0, 350],
+              stops: [
+                [0, 'rgb(245, 245, 245)'],
+                [1, 'rgb(245, 245, 245)']
+              ]
+            },
+            marginLeft: 0,
+            marginRight: 0,
+            marginBottom: 0,
+            events: {
+              load: function () {
+
+                  // set up the updating of the chart each second
+                  var series = this.series[0];
+                  setInterval(function () {
+                      var x = (new Date()).getTime(), // current time
+                          y = Math.random() * (40 - 40) + 40
+                      series.addPoint([x, y], true, true);
+                  }, 10000);
+              }
+          }
+        },
+          xAxis: {
+            type: 'datetime',
+            tickPixelInterval: 150,
+            floating: true,
+            offset: -70,
+            gridLineWidth: 0,
+            minorGridLineWidth: 0,
+            minPadding: 0,
+            maxPadding: 0
+          },
+
+          yAxis: {
+            gridLineWidth: 0,
+            minorGridLineWidth: 0,
+            minorTickInterval: 400,
+            offset: -50,
+            opposite: true,
+            tickLength: 0,
+            title: {
+              text: ''
+            },
+            plotLines: [{
+              value: 0,
+              width: 0,
+              color: '#808080'
+            }],
+            plotBands: [{
+              from: 0,
+              to: 0,
+              linearGradient: [0, 0, 0, 350],
+              color: 'rgba(123,152,184,0.5)',
+              zIndex: 5
+            }]
+          },
+          tooltip: {
+            enabled: false
+          },
+          legend: {
+            enabled: false
+          },
+          exporting: {
+            enabled: false
+          },
+          series: [{
+            name: 'Durchsatz',
+            data: (function() {
+              var data = [],
+                time = (new Date()).getTime(),
+                i;
+
+                for (i = -999; i <= 0; i += 5) {
+                    data.push([
+                        time + i * 3000,
+                        Math.random() * (40 - 40) + 40
+                    ]);
+                }
+                return data;
+            }())
+          }]
+        });
+
+
+        $('#zs_eg-graph-03').highcharts({
+          tooltip: {
+            shared: false
+          },
+          credits: {
+            enabled: false
+          },
+          title: {
+            text: 'Temperature <span class="blue">mm/s</span>',
+            align: 'left',
+            floating: true,
+              style: {
+                color: '#424242',
+                fontWeight: 'light',
+                fontSize: '13px',
+                fontFamily: 'Gotham',
+                spanColor: '#fff'
+              }
+          },
+          plotOptions: {
+            areaspline: {
+              fillOpacity: 0.8,
+                series: {
+                  pointPadding: 0,
+                  groupPadding: 0,
+              }
+            },
+            series: {
+              marker: {
+                enabled: false
+              },
+              zones: [{
+                value: 100,
+                color: '#7c99bb'
+              }, {
+                color: '#7c99bb'
+              }],
+              lineWidth: 0
+            }
+          },
+          chart: {
+            type: 'area',
+            backgroundColor: {
+              linearGradient: [0, 0, 0, 350],
+              stops: [
+                [0, 'rgb(245, 245, 245)'],
+                [1, 'rgb(245, 245, 245)']
+              ]
+            },
+            marginLeft: 0,
+            marginRight: 0,
+            marginBottom: 0,
+            events: {
+              load: function () {
+
+                  // set up the updating of the chart each second
+                  var series = this.series[0];
+                  setInterval(function () {
+                      var x = (new Date()).getTime(), // current time
+                          y = Math.random() * (421 - 421) + 421
+                      series.addPoint([x, y], true, true);
+                  }, 10000);
+              }
+          }
+        },
+          xAxis: {
+            type: 'datetime',
+            tickPixelInterval: 150,
+            floating: true,
+            offset: -70,
+            gridLineWidth: 0,
+            minorGridLineWidth: 0,
+            minPadding: 0,
+            maxPadding: 0
+          },
+
+          yAxis: {
+            gridLineWidth: 0,
+            minorGridLineWidth: 0,
+            minorTickInterval: 400,
+            offset: -50,
+            opposite: true,
+            tickLength: 0,
+            title: {
+              text: ''
+            },
+            plotLines: [{
+              value: 0,
+              width: 0,
+              color: '#808080'
+            }],
+            plotBands: [{
+              from: 0,
+              to: 0,
+              linearGradient: [0, 0, 0, 350],
+              color: 'rgba(123,152,184,0.5)',
+              zIndex: 5
+            }]
+          },
+          tooltip: {
+            enabled: false
+          },
+          legend: {
+            enabled: false
+          },
+          exporting: {
+            enabled: false
+          },
+          series: [{
+            name: 'Durchsatz',
+            data: (function() {
+              var data = [],
+                time = (new Date()).getTime(),
+                i;
+
+                for (i = -999; i <= 0; i += 5) {
+                    data.push([
+                        time + i * 3000,
+                        Math.random() * (260 - 260) + 260
+                    ]);
+                }
+                return data;
+            }())
+          }]
+        });
+
+        $('#zs_eg-graph-02').highcharts({
+          tooltip: {
+            shared: false
+          },
+          credits: {
+            enabled: false
+          },
+          title: {
+            text: 'Energy consumption <span class="blue">C</span>',
+            align: 'left',
+            floating: true,
+              style: {
+                color: '#424242',
+                fontWeight: 'light',
+                fontSize: '13px',
+                fontFamily: 'Gotham',
+                spanColor: '#fff'
+              }
+          },
+          plotOptions: {
+            areaspline: {
+              fillOpacity: 0.8,
+                series: {
+                  pointPadding: 0,
+                  groupPadding: 0,
+              }
+            },
+            series: {
+              marker: {
+                enabled: false
+              },
+              zones: [{
+                value: 100,
+                color: '#7c99bb'
+              }, {
+                color: '#7c99bb'
+              }],
+              lineWidth: 0
+            }
+          },
+          chart: {
+            type: 'area',
+            backgroundColor: {
+              linearGradient: [0, 0, 0, 350],
+              stops: [
+                [0, 'rgb(245, 245, 245)'],
+                [1, 'rgb(245, 245, 245)']
+              ]
+            },
+            marginLeft: 0,
+            marginRight: 0,
+            marginBottom: 0,
+            events: {
+              load: function () {
+
+                  // set up the updating of the chart each second
+                  var series = this.series[0];
+                  setInterval(function () {
+                      var x = (new Date()).getTime(), // current time
+                          y = Math.random() * (260 - 260) + 260
+                      series.addPoint([x, y], true, true);
+                  }, 10000);
+              }
+          }
+        },
+          xAxis: {
+            type: 'datetime',
+            tickPixelInterval: 150,
+            floating: true,
+            offset: -70,
+            gridLineWidth: 0,
+            minorGridLineWidth: 0,
+            minPadding: 0,
+            maxPadding: 0
+          },
+
+          yAxis: {
+            gridLineWidth: 0,
+            minorGridLineWidth: 0,
+            minorTickInterval: 400,
+            offset: -50,
+            opposite: true,
+            tickLength: 0,
+            title: {
+              text: ''
+            },
+            plotLines: [{
+              value: 0,
+              width: 0,
+              color: '#808080'
+            }],
+            plotBands: [{
+              from: 0,
+              to: 0,
+              linearGradient: [0, 0, 0, 350],
+              color: 'rgba(123,152,184,0.5)',
+              zIndex: 5
+            }]
+          },
+          tooltip: {
+            enabled: false
+          },
+          legend: {
+            enabled: false
+          },
+          exporting: {
+            enabled: false
+          },
+          series: [{
+            name: 'Durchsatz',
+            data: (function() {
+              var data = [],
+                time = (new Date()).getTime(),
+                i;
+
+                for (i = -999; i <= 0; i += 5) {
+                    data.push([
+                        time + i * 3000,
+                        Math.random() * (421 - 421) + 421
+                    ]);
+                }
+                return data;
+            }())
+          }]
+        });
+
+        $('#zs_eg-graph-01').highcharts({
+          tooltip: {
+            shared: false
+          },
+          credits: {
+            enabled: false
+          },
+          title: {
+            text: 'Vibration <span class="blue">mm/s</span>',
+            align: 'left',
+            floating: true,
+              style: {
+                color: '#424242',
+                fontWeight: 'light',
+                fontSize: '13px',
+                fontFamily: 'Gotham',
+                spanColor: '#fff'
+              }
+          },
+          plotOptions: {
+            areaspline: {
+              fillOpacity: 0.8,
+                series: {
+                  pointPadding: 0,
+                  groupPadding: 0,
+              }
+            },
+            series: {
+              marker: {
+                enabled: false
+              },
+              zones: [{
+                value: 100,
+                color: '#7c99bb'
+              }, {
+                color: '#7c99bb'
+              }],
+              lineWidth: 0
+            }
+          },
+          chart: {
+            type: 'area',
+            backgroundColor: {
+              linearGradient: [0, 0, 0, 350],
+              stops: [
+                [0, 'rgb(245, 245, 245)'],
+                [1, 'rgb(245, 245, 245)']
+              ]
+            },
+            marginLeft: 0,
+            marginRight: 0,
+            marginBottom: 0,
+            events: {
+              load: function () {
+
+                  // set up the updating of the chart each second
+                  var series = this.series[0];
+                  setInterval(function () {
+                      var x = (new Date()).getTime(), // current time
+                          y = Math.random() * (1.8 - 1.9) + 1.9
+                      series.addPoint([x, y], true, true);
+                  }, 10000);
+              }
+          }
+        },
+          xAxis: {
+            type: 'datetime',
+            tickPixelInterval: 150,
+            floating: true,
+            offset: -70,
+            gridLineWidth: 0,
+            minorGridLineWidth: 0,
+            minPadding: 0,
+            maxPadding: 0
+          },
+
+          yAxis: {
+            gridLineWidth: 0,
+            minorGridLineWidth: 0,
+            minorTickInterval: 400,
+            offset: -50,
+            opposite: true,
+            tickLength: 0,
+            title: {
+              text: ''
+            },
+            plotLines: [{
+              value: 0,
+              width: 0,
+              color: '#808080'
+            }],
+            plotBands: [{
+              from: 0,
+              to: 0,
+              linearGradient: [0, 0, 0, 350],
+              color: 'rgba(123,152,184,0.5)',
+              zIndex: 5
+            }]
+          },
+          tooltip: {
+            enabled: false
+          },
+          legend: {
+            enabled: false
+          },
+          exporting: {
+            enabled: false
+          },
+          series: [{
+            name: 'Durchsatz',
+            data: (function() {
+              var data = [],
+                time = (new Date()).getTime(),
+                i;
+
+                for (i = -999; i <= 0; i += 5) {
+                    data.push([
+                        time + i * 3000,
+                        Math.random() * (1.8 - 1.9) + 1.9
+                    ]);
+                }
+                return data;
+            }())
+          }]
+        });
+
+
+        $('#zsb-graph-04').highcharts({
+          tooltip: {
+            shared: false
+          },
+          credits: {
+            enabled: false
+          },
+          title: {
+            text: 'Torque <span class="blue">%</span>',
+            align: 'left',
+            floating: true,
+              style: {
+                color: '#424242',
+                fontWeight: 'light',
+                fontSize: '13px',
+                fontFamily: 'Gotham',
+                spanColor: '#fff'
+              }
+          },
+          plotOptions: {
+            areaspline: {
+              fillOpacity: 0.8,
+                series: {
+                  pointPadding: 0,
+                  groupPadding: 0,
+              }
+            },
+            series: {
+              marker: {
+                enabled: false
+              },
+              zones: [{
+                value: 100,
+                color: '#7c99bb'
+              }, {
+                color: '#7c99bb'
+              }],
+              lineWidth: 0
+            }
+          },
+          chart: {
+            type: 'area',
+            backgroundColor: {
+              linearGradient: [0, 0, 0, 350],
+              stops: [
+                [0, 'rgb(245, 245, 245)'],
+                [1, 'rgb(245, 245, 245)']
+              ]
+            },
+            marginLeft: 0,
+            marginRight: 0,
+            marginBottom: 0,
+            events: {
+              load: function () {
+
+                  // set up the updating of the chart each second
+                  var series = this.series[0];
+                  setInterval(function () {
+                      var x = (new Date()).getTime(), // current time
+                          y = Math.random() * (40 - 40) + 40
+                      series.addPoint([x, y], true, true);
+                  }, 10000);
+              }
+          }
+        },
+          xAxis: {
+            type: 'datetime',
+            tickPixelInterval: 150,
+            floating: true,
+            offset: -70,
+            gridLineWidth: 0,
+            minorGridLineWidth: 0,
+            minPadding: 0,
+            maxPadding: 0
+          },
+
+          yAxis: {
+            gridLineWidth: 0,
+            minorGridLineWidth: 0,
+            minorTickInterval: 400,
+            offset: -50,
+            opposite: true,
+            tickLength: 0,
+            title: {
+              text: ''
+            },
+            plotLines: [{
+              value: 0,
+              width: 0,
+              color: '#808080'
+            }],
+            plotBands: [{
+              from: 0,
+              to: 0,
+              linearGradient: [0, 0, 0, 350],
+              color: 'rgba(123,152,184,0.5)',
+              zIndex: 5
+            }]
+          },
+          tooltip: {
+            enabled: false
+          },
+          legend: {
+            enabled: false
+          },
+          exporting: {
+            enabled: false
+          },
+          series: [{
+            name: 'Durchsatz',
+            data: (function() {
+              var data = [],
+                time = (new Date()).getTime(),
+                i;
+
+                for (i = -999; i <= 0; i += 5) {
+                    data.push([
+                        time + i * 3000,
+                        Math.random() * (40 - 40) + 40
+                    ]);
+                }
+                return data;
+            }())
+          }]
+        });
+
+
+        $('#zsb-graph-03').highcharts({
+          tooltip: {
+            shared: false
+          },
+          credits: {
+            enabled: false
+          },
+          title: {
+            text: 'Temperature <span class="blue">mm/s</span>',
+            align: 'left',
+            floating: true,
+              style: {
+                color: '#424242',
+                fontWeight: 'light',
+                fontSize: '13px',
+                fontFamily: 'Gotham',
+                spanColor: '#fff'
+              }
+          },
+          plotOptions: {
+            areaspline: {
+              fillOpacity: 0.8,
+                series: {
+                  pointPadding: 0,
+                  groupPadding: 0,
+              }
+            },
+            series: {
+              marker: {
+                enabled: false
+              },
+              zones: [{
+                value: 100,
+                color: '#7c99bb'
+              }, {
+                color: '#7c99bb'
+              }],
+              lineWidth: 0
+            }
+          },
+          chart: {
+            type: 'area',
+            backgroundColor: {
+              linearGradient: [0, 0, 0, 350],
+              stops: [
+                [0, 'rgb(245, 245, 245)'],
+                [1, 'rgb(245, 245, 245)']
+              ]
+            },
+            marginLeft: 0,
+            marginRight: 0,
+            marginBottom: 0,
+            events: {
+              load: function () {
+
+                  // set up the updating of the chart each second
+                  var series = this.series[0];
+                  setInterval(function () {
+                      var x = (new Date()).getTime(), // current time
+                          y = Math.random() * (421 - 421) + 421
+                      series.addPoint([x, y], true, true);
+                  }, 10000);
+              }
+          }
+        },
+          xAxis: {
+            type: 'datetime',
+            tickPixelInterval: 150,
+            floating: true,
+            offset: -70,
+            gridLineWidth: 0,
+            minorGridLineWidth: 0,
+            minPadding: 0,
+            maxPadding: 0
+          },
+
+          yAxis: {
+            gridLineWidth: 0,
+            minorGridLineWidth: 0,
+            minorTickInterval: 400,
+            offset: -50,
+            opposite: true,
+            tickLength: 0,
+            title: {
+              text: ''
+            },
+            plotLines: [{
+              value: 0,
+              width: 0,
+              color: '#808080'
+            }],
+            plotBands: [{
+              from: 0,
+              to: 0,
+              linearGradient: [0, 0, 0, 350],
+              color: 'rgba(123,152,184,0.5)',
+              zIndex: 5
+            }]
+          },
+          tooltip: {
+            enabled: false
+          },
+          legend: {
+            enabled: false
+          },
+          exporting: {
+            enabled: false
+          },
+          series: [{
+            name: 'Durchsatz',
+            data: (function() {
+              var data = [],
+                time = (new Date()).getTime(),
+                i;
+
+                for (i = -999; i <= 0; i += 5) {
+                    data.push([
+                        time + i * 3000,
+                        Math.random() * (260 - 260) + 260
+                    ]);
+                }
+                return data;
+            }())
+          }]
+        });
+
+        $('#zsb-graph-02').highcharts({
+          tooltip: {
+            shared: false
+          },
+          credits: {
+            enabled: false
+          },
+          title: {
+            text: 'Energy consumption <span class="blue">C</span>',
+            align: 'left',
+            floating: true,
+              style: {
+                color: '#424242',
+                fontWeight: 'light',
+                fontSize: '13px',
+                fontFamily: 'Gotham',
+                spanColor: '#fff'
+              }
+          },
+          plotOptions: {
+            areaspline: {
+              fillOpacity: 0.8,
+                series: {
+                  pointPadding: 0,
+                  groupPadding: 0,
+              }
+            },
+            series: {
+              marker: {
+                enabled: false
+              },
+              zones: [{
+                value: 100,
+                color: '#7c99bb'
+              }, {
+                color: '#7c99bb'
+              }],
+              lineWidth: 0
+            }
+          },
+          chart: {
+            type: 'area',
+            backgroundColor: {
+              linearGradient: [0, 0, 0, 350],
+              stops: [
+                [0, 'rgb(245, 245, 245)'],
+                [1, 'rgb(245, 245, 245)']
+              ]
+            },
+            marginLeft: 0,
+            marginRight: 0,
+            marginBottom: 0,
+            events: {
+              load: function () {
+
+                  // set up the updating of the chart each second
+                  var series = this.series[0];
+                  setInterval(function () {
+                      var x = (new Date()).getTime(), // current time
+                          y = Math.random() * (260 - 260) + 260
+                      series.addPoint([x, y], true, true);
+                  }, 10000);
+              }
+          }
+        },
+          xAxis: {
+            type: 'datetime',
+            tickPixelInterval: 150,
+            floating: true,
+            offset: -70,
+            gridLineWidth: 0,
+            minorGridLineWidth: 0,
+            minPadding: 0,
+            maxPadding: 0
+          },
+
+          yAxis: {
+            gridLineWidth: 0,
+            minorGridLineWidth: 0,
+            minorTickInterval: 400,
+            offset: -50,
+            opposite: true,
+            tickLength: 0,
+            title: {
+              text: ''
+            },
+            plotLines: [{
+              value: 0,
+              width: 0,
+              color: '#808080'
+            }],
+            plotBands: [{
+              from: 0,
+              to: 0,
+              linearGradient: [0, 0, 0, 350],
+              color: 'rgba(123,152,184,0.5)',
+              zIndex: 5
+            }]
+          },
+          tooltip: {
+            enabled: false
+          },
+          legend: {
+            enabled: false
+          },
+          exporting: {
+            enabled: false
+          },
+          series: [{
+            name: 'Durchsatz',
+            data: (function() {
+              var data = [],
+                time = (new Date()).getTime(),
+                i;
+
+                for (i = -999; i <= 0; i += 5) {
+                    data.push([
+                        time + i * 3000,
+                        Math.random() * (421 - 421) + 421
+                    ]);
+                }
+                return data;
+            }())
+          }]
+        });
+
+        $('#zsb-graph-01').highcharts({
+          tooltip: {
+            shared: false
+          },
+          credits: {
+            enabled: false
+          },
+          title: {
+            text: 'Vibration <span class="blue">mm/s</span>',
+            align: 'left',
+            floating: true,
+              style: {
+                color: '#424242',
+                fontWeight: 'light',
+                fontSize: '13px',
+                fontFamily: 'Gotham',
+                spanColor: '#fff'
+              }
+          },
+          plotOptions: {
+            areaspline: {
+              fillOpacity: 0.8,
+                series: {
+                  pointPadding: 0,
+                  groupPadding: 0,
+              }
+            },
+            series: {
+              marker: {
+                enabled: false
+              },
+              zones: [{
+                value: 100,
+                color: '#7c99bb'
+              }, {
+                color: '#7c99bb'
+              }],
+              lineWidth: 0
+            }
+          },
+          chart: {
+            type: 'area',
+            backgroundColor: {
+              linearGradient: [0, 0, 0, 350],
+              stops: [
+                [0, 'rgb(245, 245, 245)'],
+                [1, 'rgb(245, 245, 245)']
+              ]
+            },
+            marginLeft: 0,
+            marginRight: 0,
+            marginBottom: 0,
+            events: {
+              load: function () {
+
+                  // set up the updating of the chart each second
+                  var series = this.series[0];
+                  setInterval(function () {
+                      var x = (new Date()).getTime(), // current time
+                          y = Math.random() * (1.8 - 1.9) + 1.9
+                      series.addPoint([x, y], true, true);
+                  }, 10000);
+              }
+          }
+        },
+          xAxis: {
+            type: 'datetime',
+            tickPixelInterval: 150,
+            floating: true,
+            offset: -70,
+            gridLineWidth: 0,
+            minorGridLineWidth: 0,
+            minPadding: 0,
+            maxPadding: 0
+          },
+
+          yAxis: {
+            gridLineWidth: 0,
+            minorGridLineWidth: 0,
+            minorTickInterval: 400,
+            offset: -50,
+            opposite: true,
+            tickLength: 0,
+            title: {
+              text: ''
+            },
+            plotLines: [{
+              value: 0,
+              width: 0,
+              color: '#808080'
+            }],
+            plotBands: [{
+              from: 0,
+              to: 0,
+              linearGradient: [0, 0, 0, 350],
+              color: 'rgba(123,152,184,0.5)',
+              zIndex: 5
+            }]
+          },
+          tooltip: {
+            enabled: false
+          },
+          legend: {
+            enabled: false
+          },
+          exporting: {
+            enabled: false
+          },
+          series: [{
+            name: 'Durchsatz',
+            data: (function() {
+              var data = [],
+                time = (new Date()).getTime(),
+                i;
+
+                for (i = -999; i <= 0; i += 5) {
+                    data.push([
+                        time + i * 3000,
+                        Math.random() * (1.8 - 1.9) + 1.9
+                    ]);
+                }
+                return data;
+            }())
+          }]
+        });
+
+        $('#zsk-graph-04').highcharts({
+          tooltip: {
+            shared: false
+          },
+          credits: {
+            enabled: false
+          },
+          title: {
+            text: 'Torque <span class="blue">%</span>',
+            align: 'left',
+            floating: true,
+              style: {
+                color: '#424242',
+                fontWeight: 'light',
+                fontSize: '13px',
+                fontFamily: 'Gotham',
+                spanColor: '#fff'
+              }
+          },
+          plotOptions: {
+            areaspline: {
+              fillOpacity: 0.8,
+                series: {
+                  pointPadding: 0,
+                  groupPadding: 0,
+              }
+            },
+            series: {
+              marker: {
+                enabled: false
+              },
+              zones: [{
+                value: 100,
+                color: '#7c99bb'
+              }, {
+                color: '#7c99bb'
+              }],
+              lineWidth: 0
+            }
+          },
+          chart: {
+            type: 'area',
+            backgroundColor: {
+              linearGradient: [0, 0, 0, 350],
+              stops: [
+                [0, 'rgb(245, 245, 245)'],
+                [1, 'rgb(245, 245, 245)']
+              ]
+            },
+            marginLeft: 0,
+            marginRight: 0,
+            marginBottom: 0,
+            events: {
+              load: function () {
+
+                  // set up the updating of the chart each second
+                  var series = this.series[0];
+                  setInterval(function () {
+                      var x = (new Date()).getTime(), // current time
+                          y = Math.random() * (40 - 40) + 40
+                      series.addPoint([x, y], true, true);
+                  }, 10000);
+              }
+          }
+        },
+          xAxis: {
+            type: 'datetime',
+            tickPixelInterval: 150,
+            floating: true,
+            offset: -70,
+            gridLineWidth: 0,
+            minorGridLineWidth: 0,
+            minPadding: 0,
+            maxPadding: 0
+          },
+
+          yAxis: {
+            gridLineWidth: 0,
+            minorGridLineWidth: 0,
+            minorTickInterval: 400,
+            offset: -50,
+            opposite: true,
+            tickLength: 0,
+            title: {
+              text: ''
+            },
+            plotLines: [{
+              value: 0,
+              width: 0,
+              color: '#808080'
+            }],
+            plotBands: [{
+              from: 0,
+              to: 0,
+              linearGradient: [0, 0, 0, 350],
+              color: 'rgba(123,152,184,0.5)',
+              zIndex: 5
+            }]
+          },
+          tooltip: {
+            enabled: false
+          },
+          legend: {
+            enabled: false
+          },
+          exporting: {
+            enabled: false
+          },
+          series: [{
+            name: 'Durchsatz',
+            data: (function() {
+              var data = [],
+                time = (new Date()).getTime(),
+                i;
+
+                for (i = -999; i <= 0; i += 5) {
+                    data.push([
+                        time + i * 3000,
+                        Math.random() * (40 - 40) + 40
+                    ]);
+                }
+                return data;
+            }())
+          }]
+        });
+
+
+        $('#zsk-graph-03').highcharts({
+          tooltip: {
+            shared: false
+          },
+          credits: {
+            enabled: false
+          },
+          title: {
+            text: 'Temperature <span class="blue">mm/s</span>',
+            align: 'left',
+            floating: true,
+              style: {
+                color: '#424242',
+                fontWeight: 'light',
+                fontSize: '13px',
+                fontFamily: 'Gotham',
+                spanColor: '#fff'
+              }
+          },
+          plotOptions: {
+            areaspline: {
+              fillOpacity: 0.8,
+                series: {
+                  pointPadding: 0,
+                  groupPadding: 0,
+              }
+            },
+            series: {
+              marker: {
+                enabled: false
+              },
+              zones: [{
+                value: 100,
+                color: '#7c99bb'
+              }, {
+                color: '#7c99bb'
+              }],
+              lineWidth: 0
+            }
+          },
+          chart: {
+            type: 'area',
+            backgroundColor: {
+              linearGradient: [0, 0, 0, 350],
+              stops: [
+                [0, 'rgb(245, 245, 245)'],
+                [1, 'rgb(245, 245, 245)']
+              ]
+            },
+            marginLeft: 0,
+            marginRight: 0,
+            marginBottom: 0,
+            events: {
+              load: function () {
+
+                  // set up the updating of the chart each second
+                  var series = this.series[0];
+                  setInterval(function () {
+                      var x = (new Date()).getTime(), // current time
+                          y = Math.random() * (421 - 421) + 421
+                      series.addPoint([x, y], true, true);
+                  }, 10000);
+              }
+          }
+        },
+          xAxis: {
+            type: 'datetime',
+            tickPixelInterval: 150,
+            floating: true,
+            offset: -70,
+            gridLineWidth: 0,
+            minorGridLineWidth: 0,
+            minPadding: 0,
+            maxPadding: 0
+          },
+
+          yAxis: {
+            gridLineWidth: 0,
+            minorGridLineWidth: 0,
+            minorTickInterval: 400,
+            offset: -50,
+            opposite: true,
+            tickLength: 0,
+            title: {
+              text: ''
+            },
+            plotLines: [{
+              value: 0,
+              width: 0,
+              color: '#808080'
+            }],
+            plotBands: [{
+              from: 0,
+              to: 0,
+              linearGradient: [0, 0, 0, 350],
+              color: 'rgba(123,152,184,0.5)',
+              zIndex: 5
+            }]
+          },
+          tooltip: {
+            enabled: false
+          },
+          legend: {
+            enabled: false
+          },
+          exporting: {
+            enabled: false
+          },
+          series: [{
+            name: 'Durchsatz',
+            data: (function() {
+              var data = [],
+                time = (new Date()).getTime(),
+                i;
+
+                for (i = -999; i <= 0; i += 5) {
+                    data.push([
+                        time + i * 3000,
+                        Math.random() * (260 - 260) + 260
+                    ]);
+                }
+                return data;
+            }())
+          }]
+        });
+
+        $('#zsk-graph-02').highcharts({
+          tooltip: {
+            shared: false
+          },
+          credits: {
+            enabled: false
+          },
+          title: {
+            text: 'Energy consumption <span class="blue">C</span>',
+            align: 'left',
+            floating: true,
+              style: {
+                color: '#424242',
+                fontWeight: 'light',
+                fontSize: '13px',
+                fontFamily: 'Gotham',
+                spanColor: '#fff'
+              }
+          },
+          plotOptions: {
+            areaspline: {
+              fillOpacity: 0.8,
+                series: {
+                  pointPadding: 0,
+                  groupPadding: 0,
+              }
+            },
+            series: {
+              marker: {
+                enabled: false
+              },
+              zones: [{
+                value: 100,
+                color: '#7c99bb'
+              }, {
+                color: '#7c99bb'
+              }],
+              lineWidth: 0
+            }
+          },
+          chart: {
+            type: 'area',
+            backgroundColor: {
+              linearGradient: [0, 0, 0, 350],
+              stops: [
+                [0, 'rgb(245, 245, 245)'],
+                [1, 'rgb(245, 245, 245)']
+              ]
+            },
+            marginLeft: 0,
+            marginRight: 0,
+            marginBottom: 0,
+            events: {
+              load: function () {
+
+                  // set up the updating of the chart each second
+                  var series = this.series[0];
+                  setInterval(function () {
+                      var x = (new Date()).getTime(), // current time
+                          y = Math.random() * (260 - 260) + 260
                       series.addPoint([x, y], true, true);
                   }, 10000);
               }
@@ -1296,130 +3066,6 @@ $(function() {
           }]
         });
 
-        $('#hfs-graph').highcharts({
-          tooltip: {
-            shared: false
-          },
-          credits: {
-            enabled: false
-          },
-          title: {
-            text: 'HFS <span class="blue">off</span>',
-            align: 'left',
-            floating: true,
-              style: {
-                color: '#424242',
-                fontWeight: 'light',
-                fontSize: '13px',
-                fontFamily: 'Gotham',
-                spanColor: '#fff'
-              }
-          },
-          plotOptions: {
-            areaspline: {
-              fillOpacity: 0.8,
-                series: {
-                  pointPadding: 0,
-                  groupPadding: 0,
-              }
-            },
-            series: {
-              marker: {
-                enabled: false
-              },
-              zones: [{
-                value: 0.5,
-                color: '#7c99bb'
-              }, {
-                color: '#7c99bb'
-              }],
-              lineWidth: 0
-            }
-          },
-          chart: {
-            type: 'area',
-            backgroundColor: {
-              linearGradient: [0, 0, 0, 350],
-              stops: [
-                [0, 'rgb(245, 245, 245)'],
-                [1, 'rgb(245, 245, 245)']
-              ]
-            },
-            marginLeft: 0,
-            marginRight: 0,
-            marginBottom: 0,
-            events: {
-              load: function () {
-
-                  // set up the updating of the chart each second
-                  var series = this.series[0];
-                  setInterval(function () {
-                      var x = (new Date()).getTime(), // current time
-                          y = Math.random() * (0 - 0) + 0
-                      series.addPoint([x, y], true, true);
-                  }, 10000);
-              }
-          }
-        },
-          xAxis: {
-            type: 'datetime',
-            tickPixelInterval: 150,
-            floating: true,
-            offset: -30,
-            gridLineWidth: 0,
-            minorGridLineWidth: 0,
-            minPadding: 0,
-            maxPadding: 0
-          },
-
-          yAxis: {
-            gridLineWidth: 0,
-            minorGridLineWidth: 0,
-            offset: -50,
-            opposite: true,
-            tickLength: 0,
-            title: {
-              text: ''
-            },
-            plotLines: [{
-              value: 0,
-              width: 0,
-              color: '#808080'
-            }],
-            plotBands: [{
-              from: 0,
-              to: 0,
-              linearGradient: [0, 0, 0, 350],
-              color: 'rgba(123,152,184,0.5)',
-              zIndex: 5
-            }]
-          },
-          tooltip: {
-            enabled: false
-          },
-          legend: {
-            enabled: false
-          },
-          exporting: {
-            enabled: false
-          },
-          series: [{
-            name: 'Durchsatz',
-            data: (function() {
-              var data = [],
-                time = (new Date()).getTime(),
-                i;
-
-                for (i = -999; i <= 0; i += 5) {
-                    data.push([
-                        time + i * 3000,
-                        Math.random() * (0 - 0) + 0
-                    ]);
-                }
-                return data;
-            }())
-          }]
-        });
 
         $('#foerderdruck-1-graph').highcharts({
           tooltip: {
@@ -1672,7 +3318,7 @@ $(function() {
           }]
         });
 
-
+/*
         $('#zxd-graph').highcharts({
           tooltip: {
             shared: false
@@ -1797,7 +3443,7 @@ $(function() {
             }())
           }]
         });
-
+*/
 
         $('#zrd-graph').highcharts({
           tooltip: {

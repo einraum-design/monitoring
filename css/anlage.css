@@ -103,7 +103,7 @@ img[data-src] {
 }
 
 /* Die Punkte auf der Anlage */
-.auswahl-punkt{
+.auswahl-punktXXX{
 	background-image: url("../img/dots.png");
 	background-size: contain;
 	background-repeat: no-repeat;
@@ -113,20 +113,23 @@ img[data-src] {
 	animation-duration: .15s;
 	-webkit-animation-fill-mode: both;
 	animation-fill-mode: both;
+  display: block;
 
 }
-.active-auswahl-punkt{
-	width: 70px !important;
-	height: 70px !important;
+.active-auswahl-punktXXX{
+	width: 5px !important;
+	height: 5px !important;
 	background-image: url("../img/zoom.png");
-	-webkit-transform: translate3d(0,0,0) !important;
-	transform: translate3d(0,0,0) !important;
+	/*-webkit-transform: translate3d(0,0,0) !important;
+	transform: translate3d(0,0,0) !important;*/
+  transform: translate(0, 0) !important;
+
 	mix-blend-mode: multiply;
 	padding: 9px;
   background-repeat: no-repeat;
 }
 
-.active-auswahl-punkt .number{
+.active-auswahl-punktXXX .number{
   display: none;
 }
 
@@ -136,7 +139,7 @@ img[data-src] {
 /* Sensoring: Filter 1*/
 .other #filter-1-point{
 	position: absolute;
-	left: 202px;
+	left: 215px;
 	top: 170px;
 }
 /* Akiver Punkt*/
@@ -144,10 +147,21 @@ img[data-src] {
 
 }
 
+/* Sensoring: Filter 1*/
+#filter-1-point{
+	position: absolute;
+	left: 175px;
+	top: 170px;
+}
+/* Akiver Punkt*/
+a#filter-1-point .active-dot{
+
+}
+
 /* Sensoring: ATI */
 .other #ati-point{
 	position: absolute;
-	left: 202px;
+	left: 215px;
 	top: 235px;
 }
 /* Akiver Punkt*/
@@ -158,7 +172,7 @@ img[data-src] {
 /* Sensoring: ZXD */
 .other #zxd-point{
 	position: absolute;
-	left: 202px;
+	left: 215px;
 	top: 258px;
 }
 /* Akiver Punkt*/
@@ -169,7 +183,7 @@ img[data-src] {
 /* Sensoring: HFS */
 .other #hfs-point{
 	position: absolute;
-	left: 340px;
+	left: 353px;
 	top: 255px;
 }
 /* Akiver Punkt*/
@@ -180,7 +194,7 @@ img[data-src] {
 /* Sensoring: ZRD */
 .other #zrd-point{
 	position: absolute;
-	left: 356px;
+	left: 367px;
 	top: 260px;
 }
 /* Akiver Punkt*/
@@ -191,8 +205,9 @@ img[data-src] {
 /* Sensoring: Dosierer 1 */
 .other #dosierer-1-point{
 	position: absolute;
-	left: 442px;
-	top: 230px;
+  left: 455px;
+  top: 225px;
+
 }
 /* Akiver Punkt*/
 .other a#dosierer-1-point .active-dot{
@@ -202,8 +217,8 @@ img[data-src] {
 /* Sensoring: Dosierer 2 */
 .other #dosierer-2-point{
 	position: absolute;
-	left: 452px;
-	top: 230px;
+  left: 464px;
+  top: 225px;
 }
 /* Akiver Punkt*/
 .other a#dosierer-2-point .active-dot{
@@ -213,8 +228,8 @@ img[data-src] {
 /* Sensoring: Dosierer 3 */
 .other #dosierer-3-point{
 	position: absolute;
-	left: 466px;
-	top: 240px;
+  left: 478px;
+  top: 240px;
 }
 /* Akiver Punkt*/
 .other a#dosierer-3-point .active-dot{
@@ -224,8 +239,8 @@ img[data-src] {
 /* Sensoring: Dosierer 4 */
 .other #dosierer-4-point{
 	position: absolute;
-	left: 476px;
-	top: 250px;
+  left: 490px;
+  top: 250px;
 }
 /* Akiver Punkt*/
 .other a#dosierer-4-point .active-dot{
@@ -236,8 +251,8 @@ img[data-src] {
 /* Sensoring: Dosierer 5 */
 .other #dosierer-5-point{
 	position: absolute;
-	left: 478px;
-	top: 240px;
+  left: 492px;
+  top: 240px;
 }
 /* Akiver Punkt*/
 .other a#dosierer-5-point .active-dot{
@@ -247,8 +262,8 @@ img[data-src] {
 /* Sensoring: ZSK */
 .other #zsk-point{
 	position: absolute;
-	left: 446px;
-	top: 255px;
+  left: 460px;
+  top: 255px;
 }
 /* Akiver Punkt*/
 .other a#zsk-point .active-dot{
@@ -258,52 +273,32 @@ img[data-src] {
 /* Sensoring: ZSB */
 .other #zsb-point{
 	position: absolute;
-	left: 466px;
-	top: 255px;
+  left: 480px;
+  top: 255px;
 }
 /* Akiver Punkt*/
 .other a#zsb-point .active-dot{
 
 }
 
-/* Sensoring: ZSB */
-.other #zsb-point{
-	position: absolute;
-	left: 466px;
-	top: 255px;
-}
-/* Akiver Punkt*/
-.other a#zsb-point .active-dot{
-
-}
 
 /* Sensoring: ZS_EG */
 .other #zs_eg-point{
 	position: absolute;
-	left: 490px;
-	top: 255px;
+  left: 503px;
+  top: 255px;
 }
 /* Akiver Punkt*/
 .other a#zs_eg-point .active-dot{
 
 }
 
-/* Sensoring: ZS_EG */
-.other #zs_eg-point{
-	position: absolute;
-	left: 490px;
-	top: 255px;
-}
-/* Akiver Punkt*/
-.other a#zs_eg-point .active-dot{
-
-}
 
 /* Sensoring: SSD */
 .other #ssd-point{
 	position: absolute;
-	left: 540px;
-	top: 255px;
+  left: 550px;
+  top: 256px;
 }
 /* Akiver Punkt*/
 .other a#ssd-point .active-dot{
@@ -313,8 +308,8 @@ img[data-src] {
 /* Sensoring: SP500 */
 .other #sp500-point{
 	position: absolute;
-	left: 567px;
-	top: 250px;
+  left: 580px;
+  top: 251px;
 }
 /* Akiver Punkt*/
 .other a#sp500-point .active-dot{
@@ -324,7 +319,7 @@ img[data-src] {
 /* Sensoring: ZVB */
 .other #zvb-point{
 	position: absolute;
-	left: 580px;
+  left: 593px;
 	top: 260px;
 }
 /* Akiver Punkt*/
@@ -335,8 +330,8 @@ img[data-src] {
 /* Sensoring: Screener */
 .other #screener-point{
 	position: absolute;
-	left: 575px;
-	top: 268px;
+  left: 588px;
+  top: 269px;
 }
 /* Akiver Punkt*/
 .other a#screener-point .active-dot{
@@ -347,8 +342,8 @@ img[data-src] {
 /* Sensoring: BXC */
 .other #bxc-point{
 	position: absolute;
-	left: 615px;
-	top: 205px;
+  left: 629px;
+  top: 205px;
 }
 /* Akiver Punkt*/
 .other a#bxc-point .active-dot{
@@ -357,7 +352,7 @@ img[data-src] {
 /* Sensoring: WZK */
 .other #wzk-point{
 	position: absolute;
-	left: 689px;
+  left: 703px;
 	top: 140px;
 }
 /* Akiver Punkt*/
@@ -367,8 +362,8 @@ img[data-src] {
 /* Sensoring: IBP */
 .other #ibp250-point{
 	position: absolute;
-	left: 730px;
-	top: 258px;
+  left: 743px;
+  top: 250px;
 }
 /* Akiver Punkt*/
 .other a#ibp250-point .active-dot{
@@ -377,9 +372,52 @@ img[data-src] {
 /* Sensoring: IBP */
 .other #wet-point{
 	position: absolute;
-	left: 816px;
-	top: 140px;
+  left: 830px;
+  top: 140px;
 }
 /* Akiver Punkt*/
 .other a#wet-point .active-dot{
+}
+
+/*CLICKPOINTS*/
+.auswahl-punkt {
+
+  display: block;
+  position: fixed;
+  width: 24px;
+  height: 24px;
+  margin-left: -12px;
+  margin-right: -12px;
+  text-align: center;
+  line-height: 1.245;
+  transform-origin: center;
+  background-image: url("../img/dots.png");
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+.opacitySize{
+  opacity: .8;
+  transform: scale(.5) !important;
+}
+
+.active-auswahl-punkt {
+
+  background-image: url("../img/zoom.png");
+  opacity: 1;
+  transform: scale(1) !important;
+  opacity: 1 !important;
+}
+
+.auswahl-punkt .number {
+
+  display: inline;
+  font-size: 5px;
+  font-family: "Gotham", sans-serif;
+  color: #333;
+}
+
+.active-auswahl-punkt .number {
+
+  display: none;
 }

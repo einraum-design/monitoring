@@ -1,4 +1,66 @@
+/*function ClickPoint(index, id, positionX1, positionY1, positionX2, positionY2) {
+
+  //vars
+  this.index = index;
+  this.id = id;
+  this.positions = [positionX1, positionY1, positionX2, positionY2];
+
+  this.viewMode = "3d";
+  this.inFocus = false;
+  this.domElement;
+
+  //create dom element
+  this.createPoint = function() {
+
+    var point = document.createElement('li');
+    point.id = this.id;
+    point.className = 'clickPoint';
+    point.style.left = this.positions[0] + 'px';
+    point.style.top = this.positions[1] + 'px';
+
+    var indexSpan = document.createElement('span');
+    indexSpan.className = 'clickPointIndex';
+    indexSpan.innerHTML = index;
+    point.appendChild(indexSpan);
+
+    var wrapper = $('#rawMaterials');
+    wrapper.append(point);
+
+    this.domElement = document.getElementById(this.id);
+  }
+
+  this.updatePoint = function() {
+
+    this.domElement.style.backgroundColor = 'red';
+  }
+
+  //call functions
+  this.createPoint();
+}*/
+
 $(document).ready(function(){
+
+  /*//array
+  var clickPoints = [];
+
+  //fill array
+  var point = new ClickPoint('1', 'test1', 200, 180, 0, 0);
+  clickPoints.push(point);
+
+  var point = new ClickPoint('2', 'test2', 300, 180, 0, 0);
+  clickPoints.push(point);
+
+  //click on point
+  $('.clickPoint').click(function() {
+
+    //add or remove class of points
+    $(this).addClass('clickPointActive');
+    $(this).siblings().removeClass('clickPointActive');
+
+    //trigger tabs
+    $(this).attr('id');
+  });*/
+
 
   function zoomPoints(){
 
@@ -7,17 +69,17 @@ $(document).ready(function(){
     $('#filter-1, #filter-1-link').click(function() {
       console.log('clicked');
         $("#second-row").tabs({ active: 1 });
-        $("#filter-1-point .auswahl-punkt").addClass('active-auswahl-punkt');
+        $("ul li").siblings().removeClass('active-auswahl-punkt');
+        $("#upstream-links #filter-1-point").addClass('active-auswahl-punkt');
         $(".anlagen-bild").css({'transform':'translate(1250px, -120px) scale(4.3)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 1,
           componentName: 'Filter',
           rohstoffTracking: false
         });
-        return false;
     })
 
-    $('a#filter-1-point .auswahl-punkt').on('click',function(){
+    $('#filter-1-point').on('click',function(){
         $('#filter-1-link').trigger("click");
     });
 
@@ -25,17 +87,18 @@ $(document).ready(function(){
 
     $('#ati, #ati-link').click(function() {
         $("#second-row").tabs({ active: 2 });
-        $("#ati-point .auswahl-punkt").addClass('active-auswahl-punkt');
+        $("ul li").siblings().removeClass('active-auswahl-punkt');
+        $("#upstream-links #ati-point").addClass('active-auswahl-punkt');
         $(".anlagen-bild").css({'transform':'translate(1250px, -320px) scale(4.3)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 3,
           componentName: 'ATI',
           rohstoffTracking: false
         });
-        return false;
+
     })
 
-    $('a#ati-point .auswahl-punkt').on('click',function(){
+    $('#ati-point').on('click',function(){
         $('#ati-link').trigger("click");
     });
 
@@ -43,17 +106,18 @@ $(document).ready(function(){
 
     $('#zxd, #zxd-link').click(function() {
         $("#second-row").tabs({ active: 3 });
-        $("#zxd-point .auswahl-punkt").addClass('active-auswahl-punkt');
+        $("ul li").siblings().removeClass('active-auswahl-punkt');
+        $("#upstream-links #zxd-point").addClass('active-auswahl-punkt');
         $(".anlagen-bild").css({'transform':'translate(1250px, -350px) scale(4.3)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 4,
           componentName: 'ZXD',
           rohstoffTracking: false
         });
-        return false;
+
     })
 
-    $('a#zxd-point .auswahl-punkt').on('click',function(){
+    $('#zxd-point').on('click',function(){
         $('#zxd-link').trigger("click");
     });
 
@@ -61,17 +125,18 @@ $(document).ready(function(){
 
     $('#hfs, #hfs-link').click(function() {
         $("#second-row").tabs({ active: 4 });
-        $("#hfs-point .auswahl-punkt").addClass('active-auswahl-punkt');
+        $("ul li").siblings().removeClass('active-auswahl-punkt');
+        $("#upstream-links #hfs-point").addClass('active-auswahl-punkt');
         $(".anlagen-bild").css({'transform':'translate(680px, -350px) scale(4.3)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 6,
           componentName: 'HFS',
           rohstoffTracking: false
         });
-        return false;
+
     })
 
-    $('a#hfs-point .auswahl-punkt').on('click',function(){
+    $('#hfs-point').on('click',function(){
         $('#hfs-link').trigger("click");
     });
 
@@ -79,17 +144,18 @@ $(document).ready(function(){
 
     $('#zrd, #zrd-link').click(function() {
         $("#second-row").tabs({ active: 4 });
-        $("#zrd-point .auswahl-punkt").addClass('active-auswahl-punkt');
+        $("ul li").siblings().removeClass('active-auswahl-punkt');
+        $("#upstream-links #zrd-point").addClass('active-auswahl-punkt');
         $(".anlagen-bild").css({'transform':'translate(650px, -350px) scale(4.3)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 7,
           componentName: 'ZRD',
           rohstoffTracking: false
         });
-        return false;
+
     })
 
-    $('a#zrd-point .auswahl-punkt').on('click',function(){
+    $('#zrd-point').on('click',function(){
         $('#zrd-link').trigger("click");
     });
 
@@ -99,17 +165,18 @@ $(document).ready(function(){
 
     $('#dosierer-1, #dosierer-1-link').click(function() {
         $("#second-row").tabs({ active: 1 });
-        $("#dosierer-1-point .auswahl-punkt").addClass('active-auswahl-punkt');
-        $(".anlagen-bild").css({'transform':'translate(330px, -440px) scale(6)'});
+        $("ul li").siblings().removeClass('active-auswahl-punkt');
+        $("#compounding-links #dosierer-1-point").addClass('active-auswahl-punkt');
+        $(".anlagen-bild").css({'transform':'translate(330px, -340px) scale(4.3)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 9,
           componentName: 'K-ML-D5-BSP-135',
           rohstoffTracking: false
         });
-        return false;
+
     })
 
-    $('a#dosierer-1-point .auswahl-punkt').on('click',function(){
+    $('#dosierer-1-point').on('click',function(){
         $('#dosierer-1-link').trigger("click");
     });
 
@@ -117,17 +184,18 @@ $(document).ready(function(){
 
     $('#dosierer-2, #dosierer-2-link').click(function() {
         $("#second-row").tabs({ active: 2 });
-        $("#dosierer-2-point .auswahl-punkt").addClass('active-auswahl-punkt');
-        $(".anlagen-bild").css({'transform':'translate(290px, -440px) scale(6)'});
+        $("ul li").siblings().removeClass('active-auswahl-punkt');
+        $("#compounding-links #dosierer-2-point").addClass('active-auswahl-punkt');
+        $(".anlagen-bild").css({'transform':'translate(290px, -340px) scale(4.3)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 11,
           componentName: 'K2-ML-D5-S60',
           rohstoffTracking: false
         });
-        return false;
+
     })
 
-    $('a#dosierer-2-point .auswahl-punkt').on('click',function(){
+    $('#dosierer-2-point').on('click',function(){
         $('#dosierer-2-link').trigger("click");
     });
 
@@ -135,17 +203,18 @@ $(document).ready(function(){
 
     $('#dosierer-3, #dosierer-3-link').click(function() {
         $("#second-row").tabs({ active: 3 });
-        $("#dosierer-3-point .auswahl-punkt").addClass('active-auswahl-punkt');
-        $(".anlagen-bild").css({'transform':'translate(210px, -500px) scale(6)'});
+        $("ul li").siblings().removeClass('active-auswahl-punkt');
+        $("#compounding-links #dosierer-3-point").addClass('active-auswahl-punkt');
+        $(".anlagen-bild").css({'transform':'translate(210px, -340px) scale(4.3)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 13,
           componentName: 'K-ML-D5-KT20',
           rohstoffTracking: false
         });
-        return false;
+
     })
 
-    $('a#dosierer-3-point .auswahl-punkt').on('click',function(){
+    $('#dosierer-3-point').on('click',function(){
         $('#dosierer-3-link').trigger("click");
     });
 
@@ -153,17 +222,18 @@ $(document).ready(function(){
 
     $('#dosierer-4, #dosierer-4-link').click(function() {
         $("#second-row").tabs({ active: 4 });
-        $("#dosierer-4-point .auswahl-punkt").addClass('active-auswahl-punkt');
-        $(".anlagen-bild").css({'transform':'translate(130px, -570px) scale(6)'});
+        $("ul li").siblings().removeClass('active-auswahl-punkt');
+        $("#compounding-links #dosierer-4-point").addClass('active-auswahl-punkt');
+        $(".anlagen-bild").css({'transform':'translate(130px, -360px) scale(4.3)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 15,
           componentName: 'K-ML-KV3-6D',
           rohstoffTracking: false
         });
-        return false;
+
     })
 
-    $('a#dosierer-4-point .auswahl-punkt').on('click',function(){
+    $('#dosierer-4-point').on('click',function(){
         $('#dosierer-4-link').trigger("click");
     });
 
@@ -171,17 +241,18 @@ $(document).ready(function(){
 
     $('#dosierer-5, #dosierer-5-link').click(function() {
         $("#second-row").tabs({ active: 5 });
-        $("#dosierer-5-point .auswahl-punkt").addClass('active-auswahl-punkt');
-        $(".anlagen-bild").css({'transform':'translate(130px, -520px) scale(6)'});
+        $("ul li").siblings().removeClass('active-auswahl-punkt');
+        $("#compounding-links #dosierer-5-point").addClass('active-auswahl-punkt');
+        $(".anlagen-bild").css({'transform':'translate(130px, -360px) scale(4.3)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 17,
           componentName: 'K2-ML-T60',
           rohstoffTracking: false
         });
-        return false;
+
     })
 
-    $('a#dosierer-5-point .auswahl-punkt').on('click',function(){
+    $('#dosierer-5-point').on('click',function(){
         $('#dosierer-5-link').trigger("click");
     });
 
@@ -189,17 +260,18 @@ $(document).ready(function(){
 
     $('#zsk, #zsk-link').click(function() {
         $("#second-row").tabs({ active: 6 });
-        $("#zsk-point .auswahl-punkt").addClass('active-auswahl-punkt');
-        $(".anlagen-bild").css({'transform':'translate(320px, -590px) scale(6)'});
+        $("ul li").siblings().removeClass('active-auswahl-punkt');
+        $("#compounding-links #zsk-point").addClass('active-auswahl-punkt');
+        $(".anlagen-bild").css({'transform':'translate(320px, -390px) scale(4.3)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 18,
           componentName: 'ZSK',
           rohstoffTracking: false
         });
-        return false;
+
     })
 
-    $('a#zsk-point .auswahl-punkt').on('click',function(){
+    $('#zsk-point').on('click',function(){
         $('#zsk-link').trigger("click");
     });
 
@@ -207,17 +279,18 @@ $(document).ready(function(){
 
     $('#zsb, #zsb-link').click(function() {
         $("#second-row").tabs({ active: 7 });
-        $("#zsb-point .auswahl-punkt").addClass('active-auswahl-punkt');
-        $(".anlagen-bild").css({'transform':'translate(200px, -590px) scale(6)'});
+        $("ul li").siblings().removeClass('active-auswahl-punkt');
+        $("#compounding-links #zsb-point").addClass('active-auswahl-punkt');
+        $(".anlagen-bild").css({'transform':'translate(200px, -390px) scale(4.3)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 19,
           componentName: 'ZSB',
           rohstoffTracking: false
         });
-        return false;
+
     })
 
-    $('a#zsb-point .auswahl-punkt').on('click',function(){
+    $('#zsb-point').on('click',function(){
         $('#zsb-link').trigger("click");
     });
 
@@ -225,17 +298,18 @@ $(document).ready(function(){
 
     $('#zs_eg, #zs_eg-link').click(function() {
         $("#second-row").tabs({ active: 8 });
-        $("#zs_eg-point .auswahl-punkt").addClass('active-auswahl-punkt');
-        $(".anlagen-bild").css({'transform':'translate(70px, -590px) scale(6)'});
+        $("ul li").siblings().removeClass('active-auswahl-punkt');
+        $("#compounding-links #zs_eg-point").addClass('active-auswahl-punkt');
+        $(".anlagen-bild").css({'transform':'translate(70px, -390px) scale(4.3)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 20,
           componentName: 'ZS_EG',
           rohstoffTracking: false
         });
-        return false;
+
     })
 
-    $('a#zs_eg-point .auswahl-punkt').on('click',function(){
+    $('#zs_eg-point').on('click',function(){
         $('#zs_eg-link').trigger("click");
     });
 
@@ -243,17 +317,18 @@ $(document).ready(function(){
 
     $('#ssd, #ssd-link').click(function() {
         $("#second-row").tabs({ active: 9 });
-        $("#ssd-point .auswahl-punkt").addClass('active-auswahl-punkt');
-        $(".anlagen-bild").css({'transform':'translate(-250px, -590px) scale(6)'});
+        $("ul li").siblings().removeClass('active-auswahl-punkt');
+        $("#compounding-links #ssd-point").addClass('active-auswahl-punkt');
+        $(".anlagen-bild").css({'transform':'translate(-250px, -390px) scale(4.3)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 21,
           componentName: 'StrandSuctionDevice',
           rohstoffTracking: false
         });
-        return false;
+
     })
 
-    $('a#ssd-point .auswahl-punkt').on('click',function(){
+    $('#ssd-point').on('click',function(){
         $('#ssd-link').trigger("click");
     });
 
@@ -261,17 +336,18 @@ $(document).ready(function(){
 
     $('#sp500, #sp-link').click(function() {
         $("#second-row").tabs({ active: 10 });
-        $("#sp500-point .auswahl-punkt").addClass('active-auswahl-punkt');
-        $(".anlagen-bild").css({'transform':'translate(-410px, -570px) scale(6)'});
+        $("ul li").siblings().removeClass('active-auswahl-punkt');
+        $("#compounding-links #sp500-point").addClass('active-auswahl-punkt');
+        $(".anlagen-bild").css({'transform':'translate(-410px, -390px) scale(4.3)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 22,
           componentName: 'SP500',
           rohstoffTracking: false
         });
-        return false;
+
     })
 
-    $('a#sp500-point .auswahl-punkt').on('click',function(){
+    $('#sp500-point').on('click',function(){
         $('#sp-link').trigger("click");
     });
 
@@ -279,17 +355,18 @@ $(document).ready(function(){
 
     $('#zvb, #zvb-link').click(function() {
         $("#second-row").tabs({ active: 11 });
-        $("#zvb-point .auswahl-punkt").addClass('active-auswahl-punkt');
-        $(".anlagen-bild").css({'transform':'translate(-460px, -600px) scale(6)'});
+        $("ul li").siblings().removeClass('active-auswahl-punkt');
+        $("#compounding-links #zvb-point").addClass('active-auswahl-punkt');
+        $(".anlagen-bild").css({'transform':'translate(-460px, -410px) scale(4.3)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 24,
           componentName: 'ZVB',
           rohstoffTracking: false
         });
-        return false;
+
     })
 
-    $('a#zvb-point .auswahl-punkt').on('click',function(){
+    $('#zvb-point').on('click',function(){
         $('#zvb-link').trigger("click");
     });
 
@@ -297,17 +374,18 @@ $(document).ready(function(){
 
     $('#screener, #screener-link').click(function() {
         $("#second-row").tabs({ active: 11 });
-        $("#screener-point .auswahl-punkt").addClass('active-auswahl-punkt');
-        $(".anlagen-bild").css({'transform':'translate(-450px, -580px) scale(6)'});
+        $("ul li").siblings().removeClass('active-auswahl-punkt');
+        $("#compounding-links #screener-point").addClass('active-auswahl-punkt');
+        $(".anlagen-bild").css({'transform':'translate(-450px, -410px) scale(4.3)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 23,
           componentName: 'Screener',
           rohstoffTracking: false
         });
-        return false;
+
     })
 
-    $('a#screener-point .auswahl-punkt').on('click',function(){
+    $('#screener-point').on('click',function(){
         $('#screener-link').trigger("click");
     });
 
@@ -318,68 +396,71 @@ $(document).ready(function(){
 
     $('#bxc, #bxc-link').click(function() {
         $("#second-row").tabs({ active: 1 });
-        $("#bxc-point .auswahl-punkt").addClass('active-auswahl-punkt');
-        $(".anlagen-bild").css({'transform':'translate(-670px, -330px) scale(6)'});
+        $("ul li").siblings().removeClass('active-auswahl-punkt');
+        $("#downstream-links #bxc-point").addClass('active-auswahl-punkt');
+        $(".anlagen-bild").css({'transform':'translate(-480px, -250px) scale(4.3)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 25,
           componentName: 'BXC',
           rohstoffTracking: false
         });
-        return false;
+
     })
 
-    $('a#bxc-point .auswahl-punkt').on('click',function(){
+    $('#bxc-point').on('click',function(){
       console.log('clicke');
       $('#bxc-link').trigger("click");
     });
 
     $('#wzk, #wzk-link').click(function() {
         $("#second-row").tabs({ active: 2 });
-        $("#wzk-point .auswahl-punkt").addClass('active-auswahl-punkt');
+        $("ul li").siblings().removeClass('active-auswahl-punkt');
+        $("#downstream-links #wzk-point").addClass('active-auswahl-punkt');
         $(".anlagen-bild").css({'transform':'translate(-810px, 50px) scale(4.3)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 26,
           componentName: 'WZK',
           rohstoffTracking: false
         });
-        return false;
+
     })
 
-    $('a#wzk-point .auswahl-punkt').on('click',function(){
+    $('#wzk-point').on('click',function(){
       console.log('clicke');
       $('#wzk-link').trigger("click");
     });
 
     $('#ibp, #ibp-link').click(function() {
         $("#second-row").tabs({ active: 3 });
-        $("#ibp250-point .auswahl-punkt").addClass('active-auswahl-punkt');
-        $(".anlagen-bild").css({'transform':'translate(-980px, -400px) scale(4.3)'});
+        $("ul li").siblings().removeClass('active-auswahl-punkt');
+        $("#downstream-links #ibp250-point").addClass('active-auswahl-punkt');
+        $(".anlagen-bild").css({'transform':'translate(-980px, -380px) scale(4.3)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 30,
           componentName: 'IBP250',
           rohstoffTracking: false
         });
-        return false;
+
     })
 
-    $('a#ibp250-point .auswahl-punkt').on('click',function(){
-      console.log('clicke');
+    $('#ibp250-point').on('click',function(){
       $('#ibp-link').trigger("click");
     });
 
     $('#wet, #wet-link').click(function() {
         $("#second-row").tabs({ active: 4 });
-        $("#wet-point .auswahl-punkt").addClass('active-auswahl-punkt');
+        $("ul li").siblings().removeClass('active-auswahl-punkt');
+        $("#downstream-links #wet-point").addClass('active-auswahl-punkt');
         $(".anlagen-bild").css({'transform':'translate(-1330px, 60px) scale(4.3)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 31,
           componentName: 'WET',
           rohstoffTracking: false
         });
-        return false;
+
     })
 
-    $('a#wet-point .auswahl-punkt').on('click',function(){
+    $('#wet-point').on('click',function(){
       console.log('clicke');
       $('#wet-link').trigger("click");
     });
@@ -391,204 +472,218 @@ $(document).ready(function(){
     $('#upstream-link, #compounding-link, #downstream-link, #full-link').click(function() {
       $("#second-row-downstream, #second-row-compounding, #second-row-upstream").tabs({ active: 0 });
       $("#sensoren-hauptnavi").tabs({ active: 0 });
-      return false;
+
     })
 
     // MATERIAL TRACKING
+
+    $('.upstream-spacebrew').on('click', function(){
+      $(".anlagen-bild").css({'transform':'translate(830px, -150px) scale(3.3)'});
+    });
+
+    $('.compounding-spacebrew').on('click', function(){
+      console.log('i was clicked');
+      $(".anlagen-bild").css({'transform':'translate(300px, -220px) scale(6.3)'});
+    });
+
+    $('.downstream-spacebrew').on('click', function(){
+      console.log('i was clicked');
+      $(".anlagen-bild").css({'transform':'translate(-400px, -65px) scale(1.7)'});
+    });
 
     // SILO 1
     $('#silo-1, #silo-1-link').click(function() {
         $("#second-row").tabs({ active: 1 });
         $("#silo-1-point .auswahl-punkt").addClass('active-auswahl-punkt');
-        $(".anlagen-bild").css({'transform':'translate(1250px, -120px) scale(4.3)'});
+        $(".anlagen-bild").css({'transform':'translate(830px, -150px) scale(3.3)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 0,
           componentName: 'Silo_1',
           rohstoffTracking: true
         });
-        return false;
+
     })
 
     // SILO 2
     $('#silo-2, #silo-2-link').click(function() {
         $("#second-row").tabs({ active: 1 });
         $("#silo-2-point .auswahl-punkt").addClass('active-auswahl-punkt');
-        $(".anlagen-bild").css({'transform':'translate(1250px, -120px) scale(4.3)'});
+        $(".anlagen-bild").css({'transform':'translate(750px, -150px) scale(3.3)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 2,
           componentName: 'Silo_2',
           rohstoffTracking: true
         });
-        return false;
+
     })
 
     // BIG BAG
     $('#bigbag, #bigbag-link').click(function() {
         $("#second-row").tabs({ active: 1 });
         $("#bigbag-2-point .auswahl-punkt").addClass('active-auswahl-punkt');
-        $(".anlagen-bild").css({'transform':'translate(1250px, -120px) scale(4.3)'});
+        $(".anlagen-bild").css({'transform':'translate(980px, -420px) scale(6)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 5,
           componentName: 'BigBag_1',
           rohstoffTracking: true
         });
-        return false;
+
     })
 
     // TAGESSILO 1
     $('#tagessilo-1, #tagessilo-1-link').click(function() {
         $("#second-row").tabs({ active: 1 });
         $("#tagessilo-1-point .auswahl-punkt").addClass('active-auswahl-punkt');
-        $(".anlagen-bild").css({'transform':'translate(1250px, -120px) scale(4.3)'});
+        $(".anlagen-bild").css({'transform':'translate(300px, -220px) scale(6.3)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 8,
           componentName: 'Tagessilo_1',
           rohstoffTracking: true
         });
-        return false;
+
     })
 
     // DOSIERER 1
     $('#dosierer-1-r, #dosierer-1-r-link').click(function() {
         $("#second-row").tabs({ active: 1 });
         $("#dosierer-1-r-point .auswahl-punkt").addClass('active-auswahl-punkt');
-        $(".anlagen-bild").css({'transform':'translate(1250px, -120px) scale(4.3)'});
+        $(".anlagen-bild").css({'transform':'translate(290px, -220px) scale(6.3)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 9,
           componentName: 'K-ML-D5-BSP-135',
           rohstoffTracking: true
         });
-        return false;
+
     })
 
     // TAGESSILO 2
     $('#tagessilo-2, #tagessilo-2-link').click(function() {
         $("#second-row").tabs({ active: 1 });
         $("#tagessilo-2-point .auswahl-punkt").addClass('active-auswahl-punkt');
-        $(".anlagen-bild").css({'transform':'translate(1250px, -120px) scale(4.3)'});
+        $(".anlagen-bild").css({'transform':'translate(280px, -220px) scale(6.3)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 10,
           componentName: 'Tagessilo_2',
           rohstoffTracking: true
         });
-        return false;
+
     })
 
     // DOSIERER 2
     $('#dosierer-2-r, #dosierer-2-r-link').click(function() {
         $("#second-row").tabs({ active: 1 });
         $("#dosierer-2-r-point .auswahl-punkt").addClass('active-auswahl-punkt');
-        $(".anlagen-bild").css({'transform':'translate(1250px, -120px) scale(4.3)'});
+        $(".anlagen-bild").css({'transform':'translate(380px, -390px) scale(6.3)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 11,
           componentName: 'K2-ML-D5-S60',
           rohstoffTracking: true
         });
-        return false;
+
     })
 
     // HOPPER
     $('#hopper, #hopper-link').click(function() {
         $("#second-row").tabs({ active: 1 });
         $("#hopper-point .auswahl-punkt").addClass('active-auswahl-punkt');
-        $(".anlagen-bild").css({'transform':'translate(1250px, -120px) scale(4.3)'});
+        $(".anlagen-bild").css({'transform':'translate(350px, -390px) scale(6.3)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 12,
           componentName: 'Hopper',
           rohstoffTracking: true
         });
-        return false;
+
     })
 
     // DOSIERER 3
     $('#dosierer-3-r, #dosierer-3-r-link').click(function() {
         $("#second-row").tabs({ active: 1 });
         $("#dosierer-3-r-point .auswahl-punkt").addClass('active-auswahl-punkt');
-        $(".anlagen-bild").css({'transform':'translate(1250px, -120px) scale(4.3)'});
+        $(".anlagen-bild").css({'transform':'translate(300px, -390px) scale(6.3)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 13,
           componentName: 'K-ML-D5-KT20',
           rohstoffTracking: true
         });
-        return false;
+
     })
 
     // BIG BAG 2
     $('#bigbag2, #bigbag2-link').click(function() {
         $("#second-row").tabs({ active: 1 });
         $("#bigbag2-point .auswahl-punkt").addClass('active-auswahl-punkt');
-        $(".anlagen-bild").css({'transform':'translate(1250px, -120px) scale(4.3)'});
+        $(".anlagen-bild").css({'transform':'translate(270px, -390px) scale(6.3)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 14,
           componentName: 'BigBag_2',
           rohstoffTracking: true
         });
-        return false;
+
     })
 
     // DOSIERER 4
     $('#dosierer-4-r, #dosierer-4-r-link').click(function() {
         $("#second-row").tabs({ active: 1 });
         $("#dosierer-4-r-point .auswahl-punkt").addClass('active-auswahl-punkt');
-        $(".anlagen-bild").css({'transform':'translate(1250px, -120px) scale(4.3)'});
+        $(".anlagen-bild").css({'transform':'translate(270px, -520px) scale(6.3)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 15,
           componentName: 'K-ML-KV3-6D',
           rohstoffTracking: true
         });
-        return false;
+
     })
 
     // TAGESSILO 3
     $('#tagessilo-3, #tagessilo-3-link').click(function() {
         $("#second-row").tabs({ active: 1 });
         $("#tagessilo-3-point .auswahl-punkt").addClass('active-auswahl-punkt');
-        $(".anlagen-bild").css({'transform':'translate(1250px, -120px) scale(4.3)'});
+        $(".anlagen-bild").css({'transform':'translate(220px, -520px) scale(6.3)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 16,
           componentName: 'Tagessilo_3',
           rohstoffTracking: true
         });
-        return false;
+
     })
 
     // DOSIERER 5
     $('#dosierer-5-r, #dosierer-5-r-link').click(function() {
         $("#second-row").tabs({ active: 1 });
         $("#dosierer-5-r-point .auswahl-punkt").addClass('active-auswahl-punkt');
-        $(".anlagen-bild").css({'transform':'translate(1250px, -120px) scale(4.3)'});
+        $(".anlagen-bild").css({'transform':'translate(200px, -520px) scale(6.3)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 17,
           componentName: 'K2-ML-T60',
           rohstoffTracking: true
         });
-        return false;
+
     })
 
     // WZK
     $('#wzk-r, #wzk-r-link').click(function() {
         $("#second-row").tabs({ active: 1 });
         $("#wzk-r-point .auswahl-punkt").addClass('active-auswahl-punkt');
-        $(".anlagen-bild").css({'transform':'translate(1250px, -120px) scale(4.3)'});
+        $(".anlagen-bild").css({'transform':'translate(-750px, -230px) scale(3.3)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 26,
           componentName: 'WZK',
           rohstoffTracking: true
         });
-        return false;
+
     })
 
     // IBP250
     $('#ibp-r, #ibp-r-link').click(function() {
         $("#second-row").tabs({ active: 1 });
         $("#ibp-r-point .auswahl-punkt").addClass('active-auswahl-punkt');
-        $(".anlagen-bild").css({'transform':'translate(1250px, -120px) scale(4.3)'});
+        $(".anlagen-bild").css({'transform':'translate(-720px, -230px) scale(3.3)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 30,
           componentName: 'IBP250',
           rohstoffTracking: true
         });
-        return false;
+
     })
 
 
@@ -597,78 +692,77 @@ $(document).ready(function(){
     $('#silo-3, #silo-3-link').click(function() {
         $("#second-row").tabs({ active: 1 });
         $("#silo-3-point .auswahl-punkt").addClass('active-auswahl-punkt');
-        $(".anlagen-bild").css({'transform':'translate(1250px, -120px) scale(4.3)'});
+        $(".anlagen-bild").css({'transform':'translate(-840px, 30px) scale(3.3)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 28,
           componentName: 'Silo_3',
           rohstoffTracking: true
         });
-        return false;
     })
 
     // SILO 4
     $('#silo-4, #silo-4-link').click(function() {
         $("#second-row").tabs({ active: 1 });
         $("#silo-4-point .auswahl-punkt").addClass('active-auswahl-punkt');
-        $(".anlagen-bild").css({'transform':'translate(1250px, -120px) scale(4.3)'});
+        $(".anlagen-bild").css({'transform':'translate(-890px, 30px) scale(3.3)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 29,
           componentName: 'Silo_4',
           rohstoffTracking: true
         });
-        return false;
+
     })
 
     // SILO 5
     $('#silo-5, #silo-5-link').click(function() {
         $("#second-row").tabs({ active: 1 });
         $("#silo-5-point .auswahl-punkt").addClass('active-auswahl-punkt');
-        $(".anlagen-bild").css({'transform':'translate(1250px, -120px) scale(4.3)'});
+        $(".anlagen-bild").css({'transform':'translate(-950px, 30px) scale(3.3)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 32,
           componentName: 'Silo_5',
           rohstoffTracking: true
         });
-        return false;
+
     })
 
     // SILO 6
     $('#silo-6, #silo-6-link').click(function() {
         $("#second-row").tabs({ active: 1 });
         $("#silo-6-point .auswahl-punkt").addClass('active-auswahl-punkt');
-        $(".anlagen-bild").css({'transform':'translate(1250px, -120px) scale(4.3)'});
+        $(".anlagen-bild").css({'transform':'translate(-1000px, 30px) scale(3.3)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 33,
           componentName: 'Silo_6',
           rohstoffTracking: true
         });
-        return false;
+
     })
 
     // SILO 7
     $('#silo-7, #silo-7-link').click(function() {
         $("#second-row").tabs({ active: 1 });
         $("#silo-6-point .auswahl-punkt").addClass('active-auswahl-punkt');
-        $(".anlagen-bild").css({'transform':'translate(1250px, -120px) scale(4.3)'});
+        $(".anlagen-bild").css({'transform':'translate(-1200px, 30px) scale(3.3)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 34,
           componentName: 'Silo_7',
           rohstoffTracking: true
         });
-        return false;
+
     })
 
     // SILO 8
     $('#silo-8, #silo-8-link').click(function() {
         $("#second-row").tabs({ active: 1 });
         $("#silo-8-point .auswahl-punkt").addClass('active-auswahl-punkt');
-        $(".anlagen-bild").css({'transform':'translate(1250px, -120px) scale(4.3)'});
+        $(".anlagen-bild").css({'transform':'translate(-1350px, 30px) scale(3.3)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 35,
           componentName: 'Silo_8',
           rohstoffTracking: true
         });
-        return false;
+
     })
 
 
@@ -677,6 +771,8 @@ $(document).ready(function(){
   ///////////////////////////////////////////////////////////
 
   // Switchen zwischen den Ansichten, Update Zoom
+
+  /*
   function caseSwitch(){
 
     $('#toggle-switch').on('change', function() {
@@ -686,12 +782,12 @@ $(document).ready(function(){
             $("#second-row").tabs({ active: 1 });
             $("#bxc .auswahl-punkt").addClass('active-auswahl-punkt');
             $(".anlagen-bild").css({'transform':'translate(-980px, -120px) scale(4.3)'});
-            return false;
+
           })
 
         if ($('#bxc .auswahl-punkt').hasClass('active-auswahl-punkt')){
           $(".anlagen-bild").css({'transform':'translate(-1200px, -0px) scale(4.3)'});
-          return false;
+
         }
 
       } else {
@@ -700,12 +796,12 @@ $(document).ready(function(){
             $("#second-row").tabs({ active: 1 });
             $("#bxc .auswahl-punkt").addClass('active-auswahl-punkt');
             $(".anlagen-bild").css({'transform':'translate(-980px, -120px) scale(4.3)'});
-            return false;
+
           })
 
         if ($('#bxc .auswahl-punkt').hasClass('active-auswahl-punkt')){
           $(".anlagen-bild").css({'transform':'translate(-980px, -120px) scale(4.3)'});
-          return false;
+
         }
       }
     });
@@ -713,4 +809,52 @@ $(document).ready(function(){
 
   caseSwitch();
 
+  */
+
+  //change opacity
+  /*$('#upstream-links .auswahl-punkt', '.second-row-navigation li a').on('click', function(event){
+
+    //remove class
+    $('#upstream-links .auswahl-punkt').removeClass('active-auswahl-punkt');
+    $('#upstream-links .auswahl-punkt').css('opacity', '0.7');
+    $('#upstream-links .auswahl-punkt').css('transform', 'scale(.5)');
+
+    if ($(this).hasClass('auswahl-punkt')) {
+
+      $(this).addClass('active-auswahl-punkt');
+      $(this).css('opacity', '1');
+    } else {
+
+      console.log($(this));
+    }
+
+  });*/
+
+  $('#upstream-links ul li').click(function() {
+
+    $(this).addClass('active-auswahl-punkt');
+    $(this).siblings().removeClass('active-auswahl-punkt');
+    $('.auswahl-punkt').addClass('opacitySize');
+    $('.active-auswahl-punkt').addClass('activeBig');
+  });
+
+  $('#compounding-links ul li').click(function() {
+
+    $(this).addClass('active-auswahl-punkt');
+    $(this).siblings().removeClass('active-auswahl-punkt');
+    $('.auswahl-punkt').addClass('opacitySize');
+    $('.active-auswahl-punkt').addClass('activeBig');
+  });
+
+  $('#downstream-links ul li').click(function() {
+
+    $(this).addClass('active-auswahl-punkt');
+    $(this).siblings().removeClass('active-auswahl-punkt');
+    $('.auswahl-punkt').addClass('opacitySize');
+    $('.active-auswahl-punkt').addClass('activeBig');
+  });
+
+  $('.second-row-navigation a').on('click', function(){
+    $('.auswahl-punkt').addClass('opacitySize');
+  });
 });

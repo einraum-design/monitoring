@@ -3,7 +3,7 @@
 // moment.js wird benutzt für alle datums variablen: http://momentjs.com/docs/#/displaying/format/
 
 
-var startWeek = 39;
+var startWeek = 38;
 var endWeek = 43;
 
 $(document).ready( function () {
@@ -233,7 +233,7 @@ function getTimelineData () {
 	var events = [
 		{
 			id:'event-1',
-			date: moment( '2016-09-28 09:30:26' ),
+			date: moment( '2016-10-01 09:30:26' ),
 			type: 'maintenance',
 			title: 'Maintenance: ZXD',
 			description: 'Bearings and Sealings on ZXD- rotary valve below XXXX have been replaced during Inspection after 8.000 operating hours.',
@@ -242,7 +242,7 @@ function getTimelineData () {
 
 		{
 			id:'event-2',
-			date: moment( '2016-09-29 09:30:26' ),
+			date: moment( '2016-10-02 09:30:26' ),
 			type: 'error',
 			title: 'Error #0246',
 			description: 'Analysis revealed: Suction conveying line was blocked. Conveying pressure = - 500 mbar.',
@@ -250,7 +250,7 @@ function getTimelineData () {
 		},
 		{
 			id:'event-3',
-			date: moment( '2016-09-30 09:30:26' ),
+			date: moment( '2016-09-30 15:30:26' ),
 			type: 'setup',
 			title: 'Leakage in Conveying System / Wear in Rotary Valve',
 			description: 'Conveying pressure constantly increasing for 5 hours. Solution: Performance was increased.',

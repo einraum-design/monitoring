@@ -161,8 +161,12 @@ li{
 .graph-thin{
 	width: 500px;
 	margin-top: 15px;
-	height: 50px;
+	height: 51px;
 
+}
+
+.in-betrieb{
+	background-image: url('../img/on.jpg');
 }
 
 /* Komponenten Steckbriefe */
@@ -738,7 +742,7 @@ h1{
 
 #toggle-switch{
   position: fixed;
-  right: 40px;
+  right: 20px;
 	top: 70px;
 	z-index: 99;
 }
@@ -1134,6 +1138,7 @@ li.z-tab.z-active.component-zoom img{
 
 .change-app ul{
 	background-color: rgba(142,174,212,.1) !important;
+
 	height: 100%;
 }
 
@@ -1168,7 +1173,7 @@ li.z-tab.z-active.component-zoom img{
   transition: all 0.5s ease-in;
   list-style: none;
   opacity: 0;
-  pointer-events: none;
+
   width: 100%;
   left: 0px;
   position: fixed;
@@ -1193,6 +1198,10 @@ li.z-tab.z-active.component-zoom img{
 	padding-right: 250px;
 }
 
+#dd li.give {
+    pointer-events: none;
+}
+
 .change-app .dropdown li i {
     float: right;
     color: inherit;
@@ -1205,7 +1214,7 @@ li.z-tab.z-active.component-zoom img{
 
 .change-app.active .dropdown {
 	opacity: 1;
-	pointer-events: auto;
+
 	z-index: 999;
 
 }

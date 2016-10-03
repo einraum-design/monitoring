@@ -26,6 +26,8 @@ $(document).ready(function(){
       $('li').on('click', function(){
         $(this).addClass('give');
         $(this).siblings().removeClass('give');
+
+
       });
 
       $('#dd li:first-child').on('click',function(){
@@ -36,6 +38,9 @@ $(document).ready(function(){
         componentName: 'Switch to Sensoring',
         rohstoffTracking: false
         });
+
+        resetPlantView();
+
       });
 
       $('#dd li:nth-child(2)').on('click',function(){
@@ -46,6 +51,8 @@ $(document).ready(function(){
         componentName: 'Switch to Material Tracking',
         rohstoffTracking: true
         });
+
+        resetPlantView();
       });
 
       obj.opts.on('click',function(){
@@ -72,14 +79,21 @@ $(document).ready(function(){
     var dd = new DropDown( $('#dd') );
 
     $(document).click(function() {
-      $('.change-app').removeClass('active');
-      $('#page').removeClass('blur');
-    });
 
-    $('#dd').on('click', function(){
-      $('#page').toggleClass('blur');
+      $('#page').removeClass('blur');
     });
 
   });
 
 });
+
+var resetPlantView = function() {
+
+  $('#full-link').trigger('click');
+  $('#upstream-link a').addClass('upstream-start');
+  $('#compounding-link a').addClass('compounding-start');
+  $('#downstream-link a').addClass('downstream-start');
+
+  $("#first-row").tabs({active: 0});
+  $("#first-row-rohstoffe").tabs({active: 0});
+}
