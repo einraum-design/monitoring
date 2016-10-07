@@ -1,157 +1,310 @@
-/*global $, moment*/
+/*global $, moment, tableData, Promise*/
 
 // moment.js wird benutzt für alle datums variablen: http://momentjs.com/docs/#/displaying/format/
 
+
 var rawTimeline = {
 
-	// data: "",
+	rawTimelineSelectedComponentId: -1,
+	isShowingOverView: false,
+
+	setSelectedComponent: function ( componentId ) {
+		rawTimeline.rawTimelineSelectedComponentId = componentId;
+		rawTimeline.render();
+	},
+
+	setOverview: function ( newIsOverview ) {
+		rawTimeline.isShowingOverView = newIsOverview;
+	},
 
 	init: function() {
-
 		var timelineEl = $( '#raw-material-timeline' );
 		var popupEl = $( '#timeline-popup' );
 		var optionsEl = $( '#timeline-timespan-options', timelineEl );
-		var timelineData = getTimelineData();
-
-		var currentTimelineSpanId = Object.keys( timelineData.timespans )[0];
+		var currentTimelineSpanId = Object.keys( getTimespans() )[0];
 
 		popupEl.find( '.timeline-popup-close-button' ).on( 'click', closePopup );
 		timelineEl.find( '#timeline-timespan-selected' ).on( 'click', toggleSelection );
 
+		var allocations = [ ];
+
+		function start () {
+			getAllocationsInTimespan( getTimelineBorders() ).then( function ( productionAllocations ) {
+				allocations = productionAllocations;
+
+				return productionAllocations;
+			} );
+
+			rawTimeline.render();
+			setInterval( rawTimeline.render, 5000 );
+
+			// TODO:
+			// - DETECT RESET TO OVERVIEW
+			// - SHOW RECIPE CONTENT BARS ON OVERVIEW
+			// - UPDATE TABLE ON DETAIL SELECT
+			// - UPDATE FILL LEVELS ON ALL COMPONENTS ON DETAIL SELECT
+
+			// var currentAllocation = getCurrentAllocation( getTimelineBorders() );
+
+			// if ( currentAllocation ) {
+			// 	showAllocation( currentAllocation );
+			// }
+		}
+
 		function render () {
 			requestAnimationFrame( function () {
-				var now = getCurrentMoment();
-				var borders = getTimelineBorders();
-				var allocationsInTimespan = getAllocationsInTimespan( borders );
+				if ( allocations.length ) {
+					var now = getCurrentMoment();
+					var borders = getTimelineBorders();
 
-				// remove all allocations that were displayed before
-				timelineEl.find( '.allocation' ).remove();
+					// remove all allocations that were displayed before
+					timelineEl.find( '.allocation' ).remove();
 
-				allocationsInTimespan.forEach( function ( allocation, allocationIndex ) {
-					var allocationEl = document.createElement( 'div' );
-					allocationEl.classList.add( 'allocation' );
+					var prevAllocationContent = false;
+					var nextAllocationContent = false;
 
-					allocationEl.addEventListener( 'click', function () {
-						showAllocation( allocation );
+					var useShiftBlocks = currentTimelineSpanId === 'week';
+					var currentShiftLength = 0;
+					var currentShiftStartX = 0;
+					var currentShiftEndX = 0;
+
+					var allocationEl;
+
+					// Draw Allocation buttons
+					allocations.forEach( function ( allocation, allocationIndex ) {
+						var allocationContent = getAllocationContent( allocation, 'allocation' );
+						var allocationHour = getAllocationContent( allocation, 'hourOfProduction' );
+
+						if ( allocationContent ) {
+							prevAllocationContent = getAllocationContent( allocations[allocationIndex - 1], 'allocation' );
+							nextAllocationContent = getAllocationContent( allocations[allocationIndex + 1], 'allocation' );
+							
+							var startX = 0;
+							var endX = 1;
+
+							var allocationStartTimestamp = parseInt( allocation.start.format( 'x' ), 10 );
+							var allocationEndTimestamp = parseInt( allocation.end.format( 'x' ), 10 );
+
+							if ( allocation.start.isAfter( borders.start.moment ) ) {
+								startX = ( allocationStartTimestamp - borders.start.timestamp ) / ( borders.end.timestamp - borders.start.timestamp );
+							}
+
+							if ( allocation.end.isBefore( borders.end.moment ) ) {
+								endX = ( allocationEndTimestamp - borders.start.timestamp ) / ( borders.end.timestamp - borders.start.timestamp );
+							}
+
+							if ( useShiftBlocks ) {
+								if ( prevAllocationContent !== allocationContent || allocationHour % 8 === 0 ) {
+									allocationEl = document.createElement( 'div' );
+									allocationEl.classList.add( 'allocation' );
+									allocationEl.setAttribute( 'data-type', allocationContent.toLowerCase() );
+									allocationEl.textContent = allocationContent;
+
+									allocationEl.addEventListener( 'click', function () {
+										showAllocation( allocation, allocations[allocationIndex + 1] );
+									} );
+
+									timelineEl[0].appendChild( allocationEl );
+									
+									currentShiftStartX = startX;
+									currentShiftEndX = startX + 1;
+
+									var leftPercent = mapRange( currentShiftStartX, 0, 1, 0, 100 );
+									allocationEl.style.left = leftPercent + '%';
+								}
+
+								currentShiftEndX = endX;
+
+								var widthPercent = mapRange( currentShiftEndX - currentShiftStartX, 0, 1, 0, 100 );
+
+								allocationEl.style.width = widthPercent + '%';
+
+							} else {
+								allocationEl = document.createElement( 'div' );
+								allocationEl.classList.add( 'allocation' );
+								allocationEl.setAttribute( 'data-type', allocationContent.toLowerCase() );
+								allocationEl.textContent = allocationContent;
+								
+								timelineEl[0].appendChild( allocationEl );
+
+								allocationEl.addEventListener( 'click', function () {
+									showAllocation( allocation, allocations[allocationIndex + 1] );
+								} );
+
+								allocationEl.style.left = ( startX * 100 ) + '%';
+								allocationEl.style.width = ( ( endX - startX ) * 100 ) + '%';
+							}
+
+							if ( allocationContent !== prevAllocationContent ) {
+									allocationEl.classList.add( 'is-first-of-kind' );
+							}
+
+							if ( allocationContent !== nextAllocationContent ) {
+								allocationEl.classList.add( 'is-last-of-kind' );
+							}
+
+							if ( allocation.start.isBefore( now ) && allocation.end.isAfter( now ) ) {
+								allocationEl.classList.add( 'is-current' );
+							}
+
+							if ( allocation.start.isAfter( now ) ) {
+								allocationEl.classList.add( 'is-in-future' );
+							}
+
+							if ( allocation.end.isBefore( now ) ) {
+								allocationEl.classList.add( 'is-in-past' );
+							}
+						}
 					} );
 
-					var startX = 0;
-					var endX = 1;
+					Object.keys( getTimespans() ).forEach( function ( timespan, index ) {
+						var optionEl = timelineEl.find( '[data-timespan="' + timespan + '"]' );
 
-					var allocationStartTimestamp = parseInt( allocation.start.format( 'x' ), 10 );
-					var allocationEndTimestamp = parseInt( allocation.end.format( 'x' ), 10 );
+						if ( ! optionEl.length ) {
+							optionEl = $( '<button class="timeline-option" data-timespan="' + timespan + '">' + timespan + '</button>' );
 
-					if ( allocation.start.isAfter( borders.start.moment ) ) {
-						startX = ( allocationStartTimestamp - borders.start.timestamp ) / ( borders.end.timestamp - borders.start.timestamp );
-					}
+							optionEl.on( 'click', function () {
+								selectTimespan( timespan );
+							} );
 
-					if ( allocation.end.isBefore( borders.end.moment ) ) {
-						endX = ( allocationEndTimestamp - borders.start.timestamp ) / ( borders.end.timestamp - borders.start.timestamp );
-					}
+							optionsEl.append( optionEl );
+						}
 
-					allocationEl.setAttribute( 'data-type', allocation.type );
-					allocationEl.textContent = allocation.title;
-					allocationEl.style.left = ( startX * 100 ) + '%';
-					allocationEl.style.width = ( ( endX - startX ) * 100 ) + '%';
+						if ( timespan === currentTimelineSpanId ) {
+							optionEl.addClass( 'is-selected' );
+						} else {
+							optionEl.removeClass( 'is-selected' );
+						}
+					} );
 
-					if ( allocation.start.isBefore( now ) && allocation.end.isAfter( now ) ) {
-						allocationEl.classList.add( 'is-current' );
-					}
-
-					if ( allocation.start.isAfter( now ) ) {
-						allocationEl.classList.add( 'is-in-future' );
-					}
-
-					if ( allocation.end.isBefore( now ) ) {
-						allocationEl.classList.add( 'is-in-past' );
-					}
-
-					timelineEl[0].appendChild( allocationEl );
-				} );
-
-				Object.keys( timelineData.timespans ).forEach( function ( timespan, index ) {
-					var optionEl = timelineEl.find( '[data-timespan="' + timespan + '"]' );
-
-					if ( ! optionEl.length ) {
-						optionEl = $( '<button class="timeline-option" data-timespan="' + timespan + '">' + timespan + '</button>' );
-
-						optionEl.on( 'click', function () {
-							selectTimespan( timespan );
-						} );
-
-						optionsEl.append( optionEl );
-					}
-
-					if ( timespan === currentTimelineSpanId ) {
-						optionEl.addClass( 'is-selected' );
-					} else {
-						optionEl.removeClass( 'is-selected' );
-					}
-				} );
-
-				var selectedEl = $( '#timeline-timespan-selected', timelineEl );
-				selectedEl.text( currentTimelineSpanId );
+					var selectedEl = $( '#timeline-timespan-selected', timelineEl );
+					selectedEl.text( currentTimelineSpanId );
+				}
 			} );
 		}
 
-		function showAllocation ( allocation ) {
+		function showAllocation ( allocation, nextAllocation ) {
 			var infoEl = $( '#first-row-rohstoffe > .ui-tabs-panel[aria-hidden="false"]' );
+			var wrapperEl = $( '#rohstoffe-recipe', infoEl );
 
-			if ( infoEl.length ){
-				var wrapperEl = $( '#rohstoffe-recipe', infoEl );
-
-				if ( allocation.recipe ) {
-					wrapperEl.addClass( 'is-active' );
-					
-					if ( allocation.recipe.number ) {
-						wrapperEl.addClass( 'is-showing-recipe' );
-						$( '.recipe-number', infoEl ).text( allocation.title );
-					} else {
-						wrapperEl.removeClass( 'is-showing-recipe' );
-					}
-				} else {
-					wrapperEl.removeClass( 'is-active' );
-					wrapperEl.removeClass( 'is-showing-recipe' );
-					$( '.recipe-number', infoEl ).text( allocation.title );
-				}
-
-				var nextEl = $( '.recipe-next', infoEl );
-				nextEl.text( allocation.nextTitle );
+			// FAKE DATA
+			var allocationContent = getAllocationContent( allocation, 'allocation' );
+			var recipe = getAllocationContent( allocation, 'recipe' );
+			
+			// UPDATE RECIPE EL
+			if ( recipe ) {
+				wrapperEl.addClass( 'is-active' );
+				wrapperEl.addClass( 'is-showing-recipe' );
+			} else {
+				wrapperEl.removeClass( 'is-showing-recipe' );
+				wrapperEl.removeClass( 'is-active' );
+				wrapperEl.removeClass( 'is-showing-recipe' );
 			}
 
+			$( '.recipe-number', infoEl ).text( allocationContent );
+
+			if ( nextAllocation ) {
+				var nextAllocationContent = getAllocationContent( nextAllocation, 'allocation' );
+				
+				var nextEl = $( '.recipe-next', infoEl );
+				nextEl.text( nextAllocationContent );
+			}
+
+			// UPDATE BARS
 			var tableEl = $( '.ui-tabs-panel[aria-hidden="false"]' );
+			var rawmaterialBarContainerEls = $( '.rohstoffe-fuellstoff', infoEl );
 
-			var rawmaterialBarContainerEls = $( '.rohstoffe-fuellstaende-uebersicht', infoEl );
+			if ( recipe && recipe.length ) {
+				var barLeft = 0;
 
-			if ( allocation.recipe ) {
 				rawmaterialBarContainerEls.each( function ( index, el ) {
 					var containerEl = $( el );
 					var barEl = $( '.knob', el );
 					var percentEl = $( '.rohstoffe-percent', el );
 					var throughputValueEl = $( '.rohstoffe-value', el );
+					var titleEl = $( '.rohstoffe-title', el );
+					var subtitleEl = $( '.rohstoffe-subtitle', el );
 
-					var value = Math.sin( allocation.recipe.amount );
+					var value = Math.round( recipe[index].throughput.value );
+					var percentage = Math.round( recipe[index].percentage * 100 );
+					var unit = recipe[index].throughput.unit;
 
-					if ( index === 1 ) {
-						value = Math.cos( allocation.recipe.amount );
-					}
+					throughputValueEl.text( value + ' ' + unit );
+					percentEl.text( percentage + '%' );
+					titleEl.text( recipe[index].material.longname );
+					subtitleEl.text( recipe[index].material.title );
+					
+					barEl
+						.css( 'left', barLeft + '%' )
+						.css( 'width', percentage + '%' );
 
-					if ( index === 2 ) {
-						value = ( Math.cos( allocation.recipe.amount ) / 2 ) + ( Math.sin( allocation.recipe.amount ) / 2 );
-					}
-
-					var percentValue = Math.round( mapRange( value, -1, 1, 0, 100 ) );
-					var throughputValue = Math.round( mapRange( value, -1, 1, 0, 2000 ) );
-
-					throughputValueEl.text( throughputValue + ' kg/h' );
-					percentEl.text( percentValue + '%' );
-					barEl.css( 'width', percentValue + '%' );
+					barLeft += percentage;
 				} );
 
 				rawmaterialBarContainerEls.addClass( 'is-active' );
 			} else {
 				rawmaterialBarContainerEls.removeClass( 'is-active' );
 			}
+
+			// TODO HERE:
+			// 1. UPDATE ALL FILL IMAGES
+			// 2. UPDATE TABLE IF COMPONENT IS SELECTED
+			
+			if ( rawTimeline.rawTimelineSelectedComponentId !== -1 ) {
+				allocation.production.data.forEach( function ( allocationData, componentIndex ) {
+					allocationData = allocationData[0];
+					
+					var componentEl = $( '[data-component-id="' + componentIndex + '"]' );
+					
+					if ( componentEl.length && allocationData.layers && allocationData.layers.length ) {
+						
+						var rowCounter = 0;
+						
+						allocationData.layers.forEach( function ( layer, layerIndex ) {
+							layer.forEach( function ( charge, chargeIndes ) {
+								var rowEl = $( 'tr:nth-child(' + ( rowCounter + 2 ) + ')', componentEl );
+							
+								if ( ! rowEl ) {
+									var tableEl = $( '.rohstoffe-fuellstaende', componentEl );
+									var rowStr = '<tr class="rohstoffe-element">';
+									rowStr += '<td class="rohstoffe-bold">Polyethylen</td>';
+									rowStr += '<td data-content="amount"><span class="value">9000</span><span class="unit">kg</span></td>';
+									// rowStr += '<td data-content="materialcode"><span class="value">0093458035</span></td>';
+									rowStr += '<td data-content="losnummer"><span class="value">9023809</span></td>';
+									// rowStr += '<td data-content="lieferant"><span class="value">123456</span></td>';
+									rowStr += '</tr>';
+
+									rowEl = $( rowStr );
+									tableEl.append( rowEl );
+								}
+
+								var titleEl = $( '.rohstoffe-bold', rowEl );
+								titleEl.text( charge.material.longname );
+
+								var amountEl = $( '[data-content="amount"]', rowEl );
+								amountEl.text( allocationData.amount.value + ' ' + allocationData.amount.unit );
+
+								var losnummerEl = $( '[data-content="losnummer"]', rowEl );
+								losnummerEl.text( charge.chargeIndex );
+								
+								rowCounter++;
+							} );
+						} );
+
+						var rowEls = componentEl.find( '.rohstoffe-fuellstaende' );
+
+						if ( rowEls.length > rowCounter ) {
+							console.log( 'YO' );
+							rowEls.each( function ( index, el ) {
+								if ( index >= rowEls.length ) {
+									$( el ).remove();
+								}
+							} );
+						}
+					}
+				} );
+			}
+			// data-component-id="8"
 		}
 
 		function closePopup () {
@@ -160,8 +313,13 @@ var rawTimeline = {
 
 		function selectTimespan ( timespan ) {
 			currentTimelineSpanId = timespan;
+
+			getAllocationsInTimespan( getTimelineBorders() ).then( function ( productionAllocations ) {
+				allocations = productionAllocations;
+				render();
+			} );
+
 			closeSelection();
-			render();
 		}
 
 		function closeSelection () {
@@ -172,10 +330,30 @@ var rawTimeline = {
 			optionsEl.toggleClass( 'is-active' );
 		}
 
+		function getCurrentTimespan () {
+			return getTimespans()[currentTimelineSpanId];
+		}
+
+		function getAllocationContent ( allocation, key ) {
+			var allocationContent = false;
+
+			if (
+				allocation &&
+				allocation.production &&
+				allocation.production.data &&
+				allocation.production.data.length &&
+				allocation.production.data[0] &&
+				allocation.production.data[0][0]
+			) {
+				allocationContent = allocation.production.data[0][0][key];
+			}
+
+			return allocationContent;
+		}
+
 		function getTimelineBorders () {
 			var now = getCurrentMoment();
-
-			var currentTimelineSpan = timelineData.timespans[currentTimelineSpanId];
+			var currentTimelineSpan = getTimespans()[currentTimelineSpanId];
 			var halfTimeSpanSeconds = ~~( currentTimelineSpan.asSeconds() / 2 );
 			
 			var timelineSpanStart = moment( now ).subtract( halfTimeSpanSeconds, 'seconds' );
@@ -205,143 +383,30 @@ var rawTimeline = {
 		}
 
 		function getAllocationsInTimespan ( borders ) {
-			return timelineData.allocations.filter( function ( allocation ) {
-				return (
-					( allocation.start.isBefore( borders.start.moment ) && allocation.end.isAfter( borders.start.moment ) ) ||
-					( allocation.start.isAfter( borders.start.moment ) && allocation.end.isBefore( borders.end.moment ) ) ||
-					( allocation.start.isBefore( borders.end.moment ) && allocation.end.isAfter( borders.end.moment ) )
-				);
+			var productionHours = borders.end.moment.diff( borders.start.moment, 'hours' );
+			var productionDates = [ ];
+
+			for ( var hourIndex = 0; hourIndex < productionHours; ++hourIndex ) {
+				productionDates.push( tableData.getProductionAtHour( hourIndex ) );
+			}
+
+			return Promise.all( productionDates ).then( function ( productionDates ) {
+				return productionDates.map( function ( productionDate, index ) {
+					return {
+						start: moment( borders.start.moment ).add( index, 'hours' ),
+						end: moment( borders.start.moment ).add( index, 'hours' ).add( 59, 'minutes' ).add( 59, 'seconds' ),
+						production: productionDate
+					};
+				} );
 			} );
 		}
 
-		render();
-		setInterval( render, 5000 );
-
-		var currentAllocation = getCurrentAllocation( getTimelineBorders() );
-
-		if ( currentAllocation ) {
-			showAllocation( currentAllocation );
-		}
-
-		function getTimelineData () {
-			var data =  { };
-
-			var startDate = moment().week( 42 ).isoWeekday( 1 ).hour( 0 ).minute( 0 ).second( 0 );
-			var endDate = moment().week( 45 ).isoWeekday( 1 ).hour( 0 ).minute( 0 ).second( 0 );
-
-			var startDateTimestamp = parseInt( startDate.format( 'x' ), 10 );
-			var endDateTimestamp = parseInt( endDate.format( 'x' ), 10 );
-			var completeDuration = endDateTimestamp - startDateTimestamp;
-
-			var allocationCount = 60;
-
-			var allocationTypes = [
-				'setup',
-				'maintenance',
-				'recipe-1',
-				'recipe-2',
-				'recipe-3',
-				'recipe-4'
-			];
-
-			var timelineSpans = {
+		function getTimespans () {
+			return {
 				'week': moment.duration( 1, 'weeks' ),
 				'day': moment.duration( 1, 'days' ),
-				'hour': moment.duration( 1, 'hours' )
+				'shift': moment.duration( 8, 'hours' )
 			};
-
-			var titles = {
-				setup: 'Setup',
-				maintenance: 'Maintenance',
-				'recipe-1': 'A',
-				'recipe-2': 'B',
-				'recipe-3': 'C',
-				'recipe-4': 'D'
-			};
-
-			var recipeData = {
-				'recipe-1': {
-					number: 1,
-					amount: { min: 3023, max: 30232 },
-					material: { min: 2490, max: 23022 },
-					charge: { min: 39203, max: 934230 },
-					vendor: { min: 290, max: 1022 }
-				},
-				'recipe-2': {
-					number: 2,
-					amount: { min: 3023, max: 30232 },
-					material: { min: 2490, max: 23022 },
-					charge: { min: 39203, max: 934230 },
-					vendor: { min: 290, max: 1022 }
-				},
-				'recipe-3': {
-					number: 3,
-					amount: { min: 3023, max: 30232 },
-					material: { min: 2490, max: 23022 },
-					charge: { min: 39203, max: 934230 },
-					vendor: { min: 290, max: 1022 }
-				},
-				'recipe-4': {
-					number: 4,
-					amount: { min: 3023, max: 30232 },
-					material: { min: 2490, max: 23022 },
-					charge: { min: 39203, max: 934230 },
-					vendor: { min: 290, max: 1022 }
-				}
-			};
-
-			var allocations = [ ];
-
-			var lastAllocationEndDate = moment( startDate );
-			// var nextType = allocationTypes[randomNumber( 0, allocationTypes.length - 1, true )];
-			var nextType = getAllocationType( allocations, allocationTypes );
-
-			for ( var allocationIndex = 0; allocationIndex < allocationCount; ++allocationIndex ) {
-				var allocationStartDate = moment( lastAllocationEndDate );
-				var allocationDuration = ~~( completeDuration / allocationCount );
-				var allocationEndDate = moment( allocationStartDate ).add( allocationDuration, 'milliseconds' );
-
-				var type = nextType;
-				// nextType = allocationTypes[randomNumber( 0, allocationTypes.length - 1, true )];
-				nextType = getAllocationType( allocations, allocationTypes );
-
-				var allocation = {
-					start: allocationStartDate,
-					end: allocationEndDate,
-					type: type,
-					next: nextType,
-					id: 'allocation-' + allocationIndex,
-					nextId: 'allocation-' + ( allocationIndex + 1 ),
-					title: titles[type],
-					neextTitle: titles[nextType]
-				};
-
-				if ( recipeData[allocation.type] ) {
-					allocation.recipe = { };
-
-					// fill recipe values
-					Object.keys( recipeData[allocation.type] ).forEach( function ( key, index ) {
-						if ( recipeData[allocation.type][key].min && recipeData[allocation.type][key].max ) {
-							allocation.recipe[key] = randomNumber( recipeData[allocation.type][key].min, recipeData[allocation.type][key].max, true );
-						}
-					} );
-
-					allocation.recipe.number = recipeData[allocation.type].number;
-				}
-
-				allocations.push( allocation );
-
-				lastAllocationEndDate = allocationEndDate;
-			}
-
-			data.allocations = allocations;
-			data.startDate = startDate;
-			data.endDate = endDate;
-			data.timespans = timelineSpans;
-			data.allocationTypes = allocationTypes;
-			data.recipeData = recipeData;
-
-			return data;
 		}
 
 		function getAllocationType ( allocations, types ) {
@@ -368,7 +433,6 @@ var rawTimeline = {
 				min + Math.random() * ( max - min );
 		}
 
-
 		function mapRange ( value, inMin, inMax, outMin, outMax, clampResult ) {
 			var result = ( ( value - inMin ) / ( inMax - inMin ) * ( outMax - outMin ) + outMin );
 
@@ -382,6 +446,10 @@ var rawTimeline = {
 
 			return result;
 		}
+
+		rawTimeline.render = render;
+
+		start();
 	}
 };
 

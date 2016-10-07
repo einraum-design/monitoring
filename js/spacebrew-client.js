@@ -1,4 +1,4 @@
-/*global $ */
+/*global $, Visibility */
 $( document ).ready( function () {
 	var spaceBrewClient;
 
@@ -21,7 +21,7 @@ $( document ).ready( function () {
 	var isMaster = getQueryString( 'master' ) === 'true';
 
 	function initSpacebrew ( config ) {
-		console.log( 'spacebrew', config );
+		// console.log( 'spacebrew', config );
 		spaceBrewClient = new Spacebrew.Client( {
 			server: config.host
 		} );
@@ -54,7 +54,7 @@ $( document ).ready( function () {
 		spaceBrewClient.onClose = function () {
 			isConnecting = false;
 			isConnected = false;
-			console.log( 'DISCONNECTED' );
+			// console.log( 'DISCONNECTED' );
 		};
 	}
 
@@ -69,7 +69,7 @@ $( document ).ready( function () {
 				data.value = value;
 			}
 
-			console.log( 'spacebrew sent', type, JSON.stringify( data ) );
+			// console.log( 'spacebrew sent', type, JSON.stringify( data ) );
 			spaceBrewClient.send( type, 'string', JSON.stringify( data ) );
 		} else {
 			console.log( 'could not send because spacebrew is not connected', type, value );

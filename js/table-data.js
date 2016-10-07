@@ -10,8 +10,17 @@ function tableDataManager () {
 		dynamicTyping: true
 	};
 
-	var filePath = 'data';
-	var fileNames = [ 'materialRegister', 'contentMaterialsByHour', 'contentAmountsPerHour', 'contentMaxAmounts' ];
+	var filePath = 'daten';
+	var fileNames = [
+		'materialRegister',
+		'contentMaterialsByHour',
+		'contentAmountsPerHour',
+		'contentMaxAmounts',
+		'recipePerHour',
+		'recipeComponentComposition',
+		'recipeThroughputPerComponent'
+	];
+
 	var fileUrls = fileNames.map( function ( fileName ) {
 		return filePath + '/' + fileName + '.csv';
 	} );
@@ -26,7 +35,10 @@ function tableDataManager () {
 		beforeStore: {
 			contentMaterialsByHour: contentMaterialsBeforeStoreTransformFn,
 			contentAmountsPerHour: contentAmountsBeforeStoreTransformFn,
-			contentMaxAmounts: contentMaxAmountsBeforeStoreTransformFn
+			contentMaxAmounts: contentMaxAmountsBeforeStoreTransformFn,
+			recipePerHour: recipePerHourBeforeStoreTransformFn,
+			recipeComponentComposition: recipeComponentCompositionTransformFn,
+			recipeThroughputPerComponent: recipeThroughputPerComponentTransformFn,
 		},
 		afterStore: {
 			contentMaterialsByHour: contentMaterialsAfterStoreTransformFn	
@@ -214,16 +226,121 @@ function tableDataManager () {
 		return result;
 	}
 
+	function recipePerHourBeforeStoreTransformFn ( csvData ) {
+		var hourOfProductionRow = 0;
+		var hourOfDayRow = 1;
+		var dayOfProductionRow = 2;
+		var recipeRow = 3;
+
+		var componentIdCol = 0;
+		var componentNameCol = 1;
+		
+		var ignoreColIndices = [ componentIdCol, componentNameCol ];
+
+		var result = csvData[recipeRow]
+				.filter( function ( cell, colIndex ) {
+					return ignoreColIndices.indexOf( colIndex ) === -1;
+				} );
+
+		return result;
+	}
+
+	function recipeComponentCompositionTransformFn ( csvData ) {
+		var recipeRow = 0;
+		var componentCol = 0;
+
+		var ignoreRowIndices = [ recipeRow ];
+		var ignoreColIndices = [ componentCol ];
+		var recipeIds = [ ];
+
+		var result = { };
+
+		csvData.forEach( function ( row, rowIndex ) {
+			if ( rowIndex === recipeRow ) {
+				row.forEach( function ( recipeId, colIndex ) {
+					if ( ignoreColIndices.indexOf( colIndex ) === -1 ) {
+						if ( ! result[recipeId] ) {
+							result[recipeId] = [ ];
+						}
+
+						recipeIds[colIndex] = recipeId;
+					}
+				} );
+			} else {
+
+				row.forEach( function ( recipePercent, colIndex ) {
+					if ( ignoreColIndices.indexOf( colIndex ) === -1 ) {
+						if ( recipePercent ) {
+							var recipeId = recipeIds[colIndex];
+							var materialId = csvData[rowIndex][componentCol];
+							
+							result[recipeId].push( {
+								recipeId: recipeId,
+								materialId: materialId,
+								percentage: recipePercent / 100
+							} );
+						}
+					}
+				} );
+			}
+		} );
+
+		return result;
+	}
+
+	function recipeThroughputPerComponentTransformFn ( csvData ) {
+		var recipeRow = 0;
+		var componentCol = 0;
+
+		var ignoreRowIndices = [ recipeRow ];
+		var ignoreColIndices = [ componentCol ];
+		var recipeIds = [ ];
+
+		var result = { };
+
+		csvData.forEach( function ( row, rowIndex ) {
+			if ( rowIndex === recipeRow ) {
+				row.forEach( function ( recipeId, colIndex ) {
+					if ( ignoreColIndices.indexOf( colIndex ) === -1 ) {
+						if ( ! result[recipeId] ) {
+							result[recipeId] = [ ];
+						}
+
+						recipeIds[colIndex] = recipeId;
+					}
+				} );
+			} else {
+
+				row.forEach( function ( throughput, colIndex ) {
+					if ( ignoreColIndices.indexOf( colIndex ) === -1 ) {
+						if ( throughput ) {
+							var recipeId = recipeIds[colIndex];
+							var materialId = csvData[rowIndex][componentCol];
+
+							result[recipeId].push( {
+								recipeId: recipeId,
+								materialId: materialId,
+								throughput: throughput
+							} );
+						}
+					}
+				} );
+			}
+		} );
+
+		return result;
+	}
+
 	function getMaterialByStr ( chargeStr ) {
 		// layer
 		// material
 		// chargeID
 		return chargeStr.split( '|' ).map( function ( layerId ) {
-			return layerId.split( '#' ).map( getMaterialById ); // material Ids;
+			return layerId.split( '#' ).map( getMaterialByChargeId ); // material Ids;
 		} );
 	}
 
-	function getMaterialById ( id ) {
+	function getMaterialByChargeId ( id ) {
 		var result;
 			
 		if ( data && data.materialRegister ) {
@@ -235,8 +352,8 @@ function tableDataManager () {
 
 			if ( material ) {
 				result = {
-					id: material.id,
-					title: material.title,
+					material: material,
+					materialId: material.id,
 					chargeSize: material.chargeSize,
 					chargeIndex: materialNr - material.chargeIdMin
 				};
@@ -244,6 +361,16 @@ function tableDataManager () {
 		}
 
 		return result;
+	}
+
+	function getMaterialById ( id ) {
+		if ( data && data.materialRegister ) {
+			return data.materialRegister.filter( function ( material ) {
+				return material.id === id;
+			} )[0];
+		} else {
+			return;
+		}
 	}
 
 	// LOADING
@@ -339,6 +466,28 @@ function tableDataManager () {
 					}
 				}
 
+				cell.allocation = false;
+
+				if (
+					data.recipePerHour &&
+					data.recipePerHour[cell.hourOfProduction]
+				) {
+					cell.allocation = data.recipePerHour[cell.hourOfProduction];
+
+					if ( data.recipeComponentComposition[cell.allocation] && data.recipeComponentComposition[cell.allocation] ) {
+						cell.recipe = data.recipeComponentComposition[cell.allocation];
+
+						cell.recipe.map( function ( recipeComponentData, recipeComponentIndex ) {
+							recipeComponentData.throughput = {
+								value: data.recipeThroughputPerComponent[cell.allocation][recipeComponentIndex].throughput,
+								unit: 'kg/h'
+							};
+
+							recipeComponentData.material = getMaterialById( recipeComponentData.materialId );
+						} );
+					}
+				}
+
 				return cell;
 			} );
 		} );
@@ -420,21 +569,3 @@ function tableDataManager () {
 }
 
 var tableData = tableDataManager();
-
-// getProductionAtHour( 2, true ).then( function ( res ) {
-// 	console.log( 'production at hour:', 2, res );
-// } );
-
-// getComponents().then( function ( components ) {
-// 	console.log( 'components:', components );
-// } );
-
-// getComponentTitle( 3 ).then( function ( componentTitle ) {
-// 	console.log( 'component title:', 3, componentTitle );
-// } );
-
-// getHours().then( function ( hours ) {
-// 	console.log( 'hours: ', hours );
-// } );
-
-// loadTableData().then( addUI );
