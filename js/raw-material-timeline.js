@@ -18,13 +18,13 @@ var rawTimeline = {
 	},
 
 	init: function() {
-		var timelineEl = $( '#raw-material-timeline' );
-		var popupEl = $( '#timeline-popup' );
-		var optionsEl = $( '#timeline-timespan-options', timelineEl );
+		var timelineEl = $( '#app-tab2 #raw-material-timeline' );
+		var popupEl = $( '#app-tab2 #timeline-popup' );
+		var optionsEl = $( '#app-tab2 #timeline-timespan-options', timelineEl );
 		var currentTimelineSpanId = Object.keys( getTimespans() )[0];
 
-		popupEl.find( '.timeline-popup-close-button' ).on( 'click', closePopup );
-		timelineEl.find( '#timeline-timespan-selected' ).on( 'click', toggleSelection );
+		popupEl.find( '#app-tab2 .timeline-popup-close-button' ).on( 'click', closePopup );
+		timelineEl.find( '#app-tab2 #timeline-timespan-selected' ).on( 'click', toggleSelection );
 
 		var allocations = [ ];
 
@@ -35,8 +35,10 @@ var rawTimeline = {
 				return productionAllocations;
 			} );
 
+			addFillOverlays();
 			rawTimeline.render();
 			setInterval( rawTimeline.render, 5000 );
+
 
 			// TODO:
 			// - DETECT RESET TO OVERVIEW
@@ -49,6 +51,27 @@ var rawTimeline = {
 			// if ( currentAllocation ) {
 			// 	showAllocation( currentAllocation );
 			// }
+		}
+
+		function addFillOverlays () {
+			var overlayWrapperEl = $( '#app-tab2 #anlage-ansicht-3d .fill-overlays' );
+
+			$( '#app-tab2 [data-component-id]' ).each( function ( index, el ) {
+				var componentEl = $( el );
+				var componentId = componentEl.attr( 'data-component-id' );
+
+				var svgStr = '<svg class="fill-overlay">';
+	            svgStr += '<rect class="fill-layer" x="0" y="0"   width="100%" height="33%" style="fill:rgb(255,255,7);" />';
+	            svgStr += '<rect class="fill-layer" x="0" y="33%" width="100%" height="33%" style="fill:rgb(255,208,7);" />';
+	            svgStr += '<rect class="fill-layer" x="0" y="66%" width="100%" height="33%" style="fill:rgb(255,168,7);" />';
+	            svgStr +='</svg>';
+
+	            var svgEl = $( svgStr );
+	            svgEl.attr( 'fill-overlay-id', componentId );
+
+				overlayWrapperEl.append( svgEl );
+			} );
+			// $( '#anlage-ansicht-3d .fill-overlays' ).append( )
 		}
 
 		function render () {
@@ -184,7 +207,7 @@ var rawTimeline = {
 		}
 
 		function showAllocation ( allocation, nextAllocation ) {
-			var infoEl = $( '#first-row-rohstoffe > .ui-tabs-panel[aria-hidden="false"]' );
+			var infoEl = $( '#app-tab2 #first-row-rohstoffe > .ui-tabs-panel[aria-hidden="false"]' );
 			var wrapperEl = $( '#rohstoffe-recipe', infoEl );
 
 			// FAKE DATA
@@ -211,7 +234,8 @@ var rawTimeline = {
 			}
 
 			// UPDATE BARS
-			var tableEl = $( '.ui-tabs-panel[aria-hidden="false"]' );
+			var tableEl = $( '#app-tab2 .ui-tabs-panel[aria-hidden="false"]' );
+
 			var rawmaterialBarContainerEls = $( '.rohstoffe-fuellstoff', infoEl );
 
 			if ( recipe && recipe.length ) {
@@ -249,12 +273,12 @@ var rawTimeline = {
 			// TODO HERE:
 			// 1. UPDATE ALL FILL IMAGES
 			// 2. UPDATE TABLE IF COMPONENT IS SELECTED
-			
+						
 			if ( rawTimeline.rawTimelineSelectedComponentId !== -1 ) {
 				allocation.production.data.forEach( function ( allocationData, componentIndex ) {
 					allocationData = allocationData[0];
 					
-					var componentEl = $( '[data-component-id="' + componentIndex + '"]' );
+					var componentEl = $( '#app-tab2 [data-component-id="' + componentIndex + '"]' );
 					
 					if ( componentEl.length && allocationData.layers && allocationData.layers.length ) {
 						
@@ -264,7 +288,7 @@ var rawTimeline = {
 							layer.forEach( function ( charge, chargeIndes ) {
 								var rowEl = $( 'tr:nth-child(' + ( rowCounter + 2 ) + ')', componentEl );
 							
-								if ( ! rowEl ) {
+								if ( ! rowEl.length ) {
 									var tableEl = $( '.rohstoffe-fuellstaende', componentEl );
 									var rowStr = '<tr class="rohstoffe-element">';
 									rowStr += '<td class="rohstoffe-bold">Polyethylen</td>';
@@ -291,16 +315,42 @@ var rawTimeline = {
 							} );
 						} );
 
-						var rowEls = componentEl.find( '.rohstoffe-fuellstaende' );
+						var rowEls = componentEl.find( '#app-tab2 .rohstoffe-fuellstaende' );
 
 						if ( rowEls.length > rowCounter ) {
-							console.log( 'YO' );
 							rowEls.each( function ( index, el ) {
-								if ( index >= rowEls.length ) {
+								if ( index >= rowCounter ) {
 									$( el ).remove();
 								}
 							} );
 						}
+					}
+
+					var fillOverlayEl = $( '#app-tab2 [fill-overlay-id="' + componentIndex +'"]' );
+					var layerEls = fillOverlayEl.find( '.fill-layer' );
+
+					if ( fillOverlayEl.length && layerEls ) {
+						
+						layerEls.each( function ( elIndex, el ) {
+							var layerEl = $( el );
+							
+							if ( allocationData.layers && allocationData.layers[elIndex] ) {
+								var maxHeight = allocationData.fillLevel;
+								var layerCount = allocationData.layers.length;
+								var itemHeight = maxHeight / layerCount;
+								var y = itemHeight * elIndex * 100 + '%';
+
+								layerEl.attr( {
+									height: itemHeight * 100 + '%',
+									y: y
+								} );
+							} else {
+								layerEl.attr( {
+									height: 0,
+									y: 0
+								} );
+							}
+						} );
 					}
 				} );
 			}

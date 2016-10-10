@@ -1,1880 +1,1837 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Monitoring App</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width = device-width, initial-scale = 1.0" />
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="img/favicons/apple-touch-icon.png">
-  <link rel="icon" type="image/png" href="img/favicons/favicon-32x32.png" sizes="32x32">
-  <link rel="icon" type="image/png" href="img/favicons/favicon-16x16.png" sizes="16x16">
-  <link rel="mask-icon" href="img/favicons/safari-pinned-tab.svg" color="#5bbad5">
-  <link rel="manifest" href="manifest.json">
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-capable" content="yes">
+	<title>Monitoring App</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width = device-width, initial-scale = 1.0" />
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0">
+	<link rel="apple-touch-icon" sizes="180x180" href="img/favicons/apple-touch-icon.png">
+	<link rel="icon" type="image/png" href="img/favicons/favicon-32x32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="img/favicons/favicon-16x16.png" sizes="16x16">
+	<link rel="mask-icon" href="img/favicons/safari-pinned-tab.svg" color="#5bbad5">
+	<link rel="manifest" href="manifest.json">
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-capable" content="yes">
 
-  <!-- Javascript -->
-  <script src="js/lib/jquery-1.10.2.js"></script>
-  <script src="js/lib/jquery.mobile-1.4.5.min.js"></script>
-  <script src="js/lib/jquery-ui.js"></script>
-  <script src="js/lib/spacebrew-1.4.1.js"></script>
-  <script src="js/lib/visibility.min.js"></script>
-  <script src="js/lib/moment.js"></script>
+	<!-- Javascript -->
+	<script src="js/lib/jquery-1.10.2.js"></script>
+	<script src="js/lib/jquery.mobile-1.4.5.min.js"></script>
+	<script src="js/lib/jquery-ui.js"></script>
+	<script src="js/lib/spacebrew-1.4.1.js"></script>
+	<script src="js/lib/visibility.min.js"></script>
+	<script src="js/lib/moment.js"></script>
+	<script src="js/lib/papaparse.js"></script>
 
-  <!-- Javascript for Content -->
-  <script src="js/dataAttr.js"></script>
-  <script src="js/navigationSwitch.js"></script>
-  <script src="js/imageZoom.js"></script>
-  <script src="js/showPoints.js"></script>
-  <script src="js/firstLinks.js"></script>
-  <script src="js/toggleSwitch.js"></script>
-  <script src="js/table-data.js"></script>
-  <script src="js/timeline.js"></script>
-  <script src="js/raw-material-timeline.js"></script>
+	<!-- Javascript for Content -->
+	<script src="js/dataAttr.js"></script>
+	<script src="js/navigationSwitch.js"></script>
+	<script src="js/imageZoom.js"></script>
+	<script src="js/showPoints.js"></script>
+	<script src="js/firstLinks.js"></script>
+	<script src="js/toggleSwitch.js"></script>
+	<script src="js/table-data.js"></script>
+	<script src="js/timeline.js"></script>
+	<script src="js/raw-material-timeline.js"></script>
 
-  <!-- Spacebrew -->
-  <script src="js/spacebrew-client.js"></script>
+	<!-- Spacebrew -->
+	<script src="js/spacebrew-client.js"></script>
 
-  <!-- HighCharts -->
-  <script src="js/lib/highcharts.js"></script>
-  <script src="js/charts/chartSensors.js"></script>
+	<!-- HighCharts -->
+	<script src="js/lib/highcharts.js"></script>
+	<script src="js/charts/chartSensors.js"></script>
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="css/reset.css" rel="stylesheet" />
-  <link rel="stylesheet" href="css/jquery-ui.css">
-  <link rel="stylesheet" href="css/global.css" rel="stylesheet" />
-  <link rel="stylesheet" href="css/anlage.css" rel="stylesheet" />
-  <link rel="stylesheet" href="css/jquery-mobile.css">
-  <link rel="stylesheet" href="css/rohstoffe.css">
+	<!-- CSS -->
+	<link rel="stylesheet" href="css/reset.css" rel="stylesheet" />
+	<link rel="stylesheet" href="css/jquery-ui.css">
+	<link rel="stylesheet" href="css/global.css" rel="stylesheet" />
+	<link rel="stylesheet" href="css/anlage.css" rel="stylesheet" />
+	<link rel="stylesheet" href="css/jquery-mobile.css">
+	<link rel="stylesheet" href="css/rohstoffe.css">
 
 </head>
 
 <body class="other">
-    <!-- Header Bereich -->
-    <div id="header">
-      <div class="left">
-        <div class="hiddenEvents">
-          <img src="img/coperion_logo.png" width="180">
-          <div class="hiddenError"></div>
-          <div class="hiddenMaintenance"></div>
-        </div>
-      </div>
-      <div class="navigation">
-        <div id="dd" class="change-app" tabindex="1">
-        	<span>Sensoring</span>
-        	<ul class="dropdown">
-        		<li class="give"><a href="#">Sensoring</a></li>
-        		<li><a href="#">Material Tracking</a></li>
-        	</ul>
-        </div>
-      </div>
-      <div class="right">
-        <img id="exitBtn" src="img/Exit_Icon.png">
-      </div>
-    </div>
-
-    <!-- Switch zwischen 2D und 3D -->
-    <div id="toggle-switch">
-      <fieldset>
-        <div data-role="fieldcontain">
-          <select id="select-based-flipswitch" data-role="flipswitch" data-mini="true">
-            <option value="3d"></option>
-            <option value="2d"></option>
-          </select>
-        </div>
-      </fieldset>
-    </div>
-
-
-    <div id="app-tab1" class="app-tab active">
-
-      <!-- Anlagen-Bild --->
-      <div id="page">
-        <div class="anlagen-fade"></div>
-        <div id="anlagen-wrapper">
-
-          <div class="anlagen-bild">
-            <div id="anlage-ansicht-3d">
-              <img class="ansicht-3d" data-src="img/anlage/anlage-3d-01.png">
-              <img class="ansicht-3d" data-src="img/anlage/anlage-3d-02.png">
-              <img class="ansicht-3d" data-src="img/anlage/anlage-3d-03.png">
-              <img class="ansicht-3d" data-src="img/anlage/anlage-3d-04.png">
-              <img class="ansicht-3d" data-src="img/anlage/anlage-3d-05.png">
-           </div>
-
-            <div id="three-di-view">
-              <img class="three-di" data-src="img/anlage/anlage-2d-01.png">
-              <img class="three-di" data-src="img/anlage/anlage-2d-02.png">
-              <img class="three-di" data-src="img/anlage/anlage-2d-03.png">
-              <img class="three-di" data-src="img/anlage/anlage-2d-04.png">
-              <img class="three-di" data-src="img/anlage/anlage-2d-05.png">
-            </div>
-
-              <!-- Links innerhalb von Upstream -->
-              <!--<ul id='rawMaterials'>
-              </ul>-->
-              <div id="upstream-links">
-                <ul>
-                  <li id="filter-1-point" class="auswahl-punkt"><span class="number">1</span></li>
-                  <li id="ati-point" class="auswahl-punkt"><span class="number">2</span></li>
-                  <li id="zxd-point" class="auswahl-punkt"><span class="number">3</span></li>
-                  <li id="hfs-point" class="auswahl-punkt"><span class="number">4</span></li>
-                  <li id="zrd-point" class="auswahl-punkt"><span class="number">5</span></li>
-                </ul>
-              </div>
-
-              <!-- Links innerhalb von Upstream -->
-              <div id="compounding-links">
-                <ul>
-                  <li id="dosierer-1-point" class="auswahl-punkt"><span class="number">6</span></li>
-                  <li id="dosierer-2-point" class="auswahl-punkt"><span class="number">7</span></li>
-                  <li id="dosierer-3-point" class="auswahl-punkt"><span class="number">8</span></li>
-                  <li id="dosierer-4-point" class="auswahl-punkt"><span class="number">9</span></li>
-                  <li id="dosierer-5-point" class="auswahl-punkt"><span class="number">10</span></li>
-                  <li id="zsk-point" class="auswahl-punkt"><span class="number">11</span></li>
-                  <li id="zsb-point" class="auswahl-punkt"><span class="number">12</span></li>
-                  <li id="zs_eg-point" class="auswahl-punkt"><span class="number">13</span></li>
-                  <li id="ssd-point" class="auswahl-punkt"><span class="number">14</span></li>
-                  <li id="sp500-point" class="auswahl-punkt"><span class="number">15</span></li>
-                  <li id="zvb-point" class="auswahl-punkt"><span class="number">16</span></li>
-                  <li id="screener-point" class="auswahl-punkt"><span class="number">17</span></li>
-                </ul>
-              </div>
-
-              <!-- Links Downstream -->
-              <div id="downstream-links">
-                <ul>
-                  <li id="bxc-point" class="auswahl-punkt"><span class="number">18</span></li>
-                  <li id="wzk-point" class="auswahl-punkt"><span class="number">19</span></li>
-                  <li id="ibp250-point" class="auswahl-punkt"><span class="number">20</span></li>
-                  <li id="wet-point" class="auswahl-punkt"><span class="number">21</span></li>
-                </ul>
-              </div>
-
-          </div>
-        </div>
-      <div id="first-row">
-        <ul id="sensoren-hauptnavi">
-          <li id="full-link"><a href="#full"><span></span></a></li>
-          <li id="upstream-link"><a href="#upstream">Raw materials<span class="upstream-arrow"></span></a></li>
-          <li id="compounding-link"><a href="#compounding">Compounding<span class="compounding-arrow"></span></a></li>
-          <li id="downstream-link"><a href="#downstream">Finished products<span class="downstream-arrow"></span></a></li>
-        </ul>
-
-        <!-- Fullview -->
-        <div id="full">
-          <div class="sensoren-titel-in"><p>Houston <span class="blue">Line 1</span></p></div>
-          <div id="sensoring-full-durchsatz" class="graph dummy-1"><p class="graph-title">Durchsatz <span class="blue">kg/h</span></p></div>
-          <div id="sensoring-full-energieverbrauch" class="graph dummy-1"><p class="graph-title">Energieverbrauch <span class="blue">kWh/h</span></p></div>
-          <div id="sensoring-full-drehmoment" class="graph dummy-1"><p class="graph-title">Drehmoment <span class="blue">mm/s</span></p></div>
-        </div>
-
-        <!-- Upstream -->
-        <div id="upstream">
-          <div id="second-row-upstream">
-            <ul class="second-row-navigation">
-              <li class="hidden"><a id="foerderdruck-link-1" href="#foerderdruck-1">Special Link Hidden</a></li>
-              <li><a id="filter-1-link" href="#filter-1"><span>Filter</span></a></li>
-              <li><a id="ati-link" href="#ati"><span>ATI</span></a></li>
-              <li><a id="zxd-link" href="#zxd"><span>ZXD</span></a></li>
-              <li><a id="hfs-link" href="#hfs"><span>HFS</span></a></li>
-              <li><a id="zrd-link" href="#zrd"><span>ZRD</span></a></li>
-            </ul>
-            <div id="foerderdruck-1">
-              <div class="sensoren-titel-in"><p>Feed Pressure</p></div>
-              <div id="foerderdruck-1-graph" class="graph chart-big"><p class="graph-title">Feed Pressure <span class="blue">werte 1</span></p></div>
-            </div>
-
-            <div id="filter-1">
-              <div class="sensoren-titel-in"><p>Filter 1</p></div>
-              <div id="filter-1-graph" class="graph dummy-2"><p class="graph-title">Filter <span class="blue">werte</span></p></div>
-
-              <!--- Anfang Infobox --->
-              <div class="komponenten-infobox zsk-infobox">
-                <h3 class="komponenten-titel"><span class="komponenten-strong">Filter</span> <span class="blue"></span></h3>
-                <p class="komponenten-id">
-                  <span class="product-id"><span class="komponenten-strong">Product ID</span> 12345678</span>
-                  <span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 12.12.09</span>
-                </p>
-                <p class="komponenten-information">
-                  <span class="komponenten-strong">Component Information</span><br />
-                  Coperion filters have a variable separating efficiency to suite the job. Process, aspiration, bin vent or silo filters with pulse-jet cleaning system for high concentrations of dust.
-                </p>
-                <div class="komponenten-bottom">
-                  <div class="komponenten-maintenance grey-box">
-                    <p>
-                      <span class="komponenten-strong">Maintenance Schedule</span></br />
-                      <span class="blue">NEXT Wed 18.01.2017</span><br />
-                      <span class="past-maintenance">LAST Mon 11.04.2017</span>
-                    </p>
-                  </div>
-                  <div class="komponenten-maintenance blue-box">
-                    <p>
-                      <span class="komponenten-strong">Contact</span></br />
-                      <span class="blue">John Doe</span><br />
-                      <span class="past-maintenance">Department 20021</span>
-                    </p>
-                  </div>
-                  <div class="komponenten-maintenance blue-box">
-                    <p>
-                      <span class="komponenten-strong">Contact Coperion</span></br />
-                      <span class="blue">Matt Pattemrrd</span><br />
-                      <span class="past-maintenance">Department 20021</span>
-                    </p>
-                  </div>
-                  <div class="clear"></div>
-                  <div class="kompontenten-replacement">
-                    <span class="komponenten-strong left">Get replacement parts at <span class="blue">MyCoperion</span></span>
-                    <span class="komponenten-order-button">Order</span>
-                  </div>
-                </div>
-              </div>
-              <!-- Ende Infobox --->
-
-            </div>
-
-            <div id="ati">
-              <div class="sensoren-titel-in"><p>ATI</p></div>
-              <div id="ati-chart" class="graph dummy-2"><p class="graph-title">ATI <span class="blue">off</span></p></div>
-              <!--- Anfang Infobox --->
-
-              <div class="komponenten-infobox ati-infobox">
-                <h3 class="komponenten-titel"><span class="komponenten-strong">ATI</span> <span class="blue"></span></h3>
-                <p class="komponenten-id">
-                  <span class="product-id"><span class="komponenten-strong">Product ID</span> 12345678</span>
-                  <span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 12.12.09</span>
-                </p>
-                <p class="komponenten-information">
-                  <span class="komponenten-strong">Component Information</span><br />
-                  Suitable for fluidizable products like fillers and titanium dioxide. Available for silo diameters from 1 to 5 meters.
-
-
-                </p>
-                <div class="komponenten-bottom">
-                  <div class="komponenten-maintenance grey-box">
-                    <p>
-                      <span class="komponenten-strong">Maintenance Schedule</span></br />
-                      <span class="blue">NEXT Wed 18.01.2017</span><br />
-                      <span class="past-maintenance">LAST Mon 11.04.2017</span>
-                    </p>
-                  </div>
-                  <div class="komponenten-maintenance blue-box">
-                    <p>
-                      <span class="komponenten-strong">Contact</span></br />
-                      <span class="blue">John Doe</span><br />
-                      <span class="past-maintenance">Department 20021</span>
-                    </p>
-                  </div>
-                  <div class="komponenten-maintenance blue-box">
-                    <p>
-                      <span class="komponenten-strong">Contact Coperion</span></br />
-                      <span class="blue">Matt Pattemrrd</span><br />
-                      <span class="past-maintenance">Department 20021</span>
-                    </p>
-                  </div>
-                  <div class="clear"></div>
-                  <div class="kompontenten-replacement">
-                    <span class="komponenten-strong left">Get replacement parts at <span class="blue">MyCoperion</span></span>
-                    <span class="komponenten-order-button">Order</span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Ende Infobox --->
-            </div>
-
-            <div id="zxd">
-              <div class="sensoren-titel-in"><p>ZXD</p></div>
-              <div id="zxd-graph" class="graph dummy-2"><p class="graph-title">ZXD <span class="blue">off</span></p></div>
-
-              <!--- Anfang Infobox --->
-
-              <div class="komponenten-infobox zxd-infobox">
-                <h3 class="komponenten-titel"><span class="komponenten-strong">ZXD 250</span> <span class="blue">Rotary Valve for Powder</span></h3>
-                <p class="komponenten-id">
-                  <span class="product-id"><span class="komponenten-strong">Product ID</span> 12345678</span>
-                  <span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 12.12.09</span>
-                </p>
-                <p class="komponenten-information">
-                  <span class="komponenten-strong">Component Information</span><br />
-                  Large inlet for high capacities. For feeding bulk materials into pneumatic conveying
-                  systems at up to 1.5 barg (21psi). Powder with bulk density 1000kg/m³ and d50 > 150 µm, ∆p = 0.8 bar.
-
-                </p>
-                <div class="komponenten-bottom">
-                  <div class="komponenten-maintenance grey-box">
-                    <p>
-                      <span class="komponenten-strong">Maintenance Schedule</span></br />
-                      <span class="blue">NEXT Wed 18.01.2017</span><br />
-                      <span class="past-maintenance">LAST Mon 11.04.2017</span>
-                    </p>
-                  </div>
-                  <div class="komponenten-maintenance blue-box">
-                    <p>
-                      <span class="komponenten-strong">Contact</span></br />
-                      <span class="blue">John Doe</span><br />
-                      <span class="past-maintenance">Department 20021</span>
-                    </p>
-                  </div>
-                  <div class="komponenten-maintenance blue-box">
-                    <p>
-                      <span class="komponenten-strong">Contact Coperion</span></br />
-                      <span class="blue">Matt Pattemrrd</span><br />
-                      <span class="past-maintenance">Department 20021</span>
-                    </p>
-                  </div>
-                  <div class="clear"></div>
-                  <div class="kompontenten-replacement">
-                    <span class="komponenten-strong left">Get replacement parts at <span class="blue">MyCoperion</span></span>
-                    <span class="komponenten-order-button">Order</span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Ende Infobox --->
-
-            </div>
-
-            <div id="hfs">
-              <div class="sensoren-titel-in"><p>HFS</p></div>
-              <div id="hfs-graph" class="graph dummy-2"><p class="graph-title">HFS <span class="blue">off</span></p></div>
-
-              <!--- Anfang Infobox --->
-              <div class="komponenten-infobox">
-                <h3 class="komponenten-titel"><span class="komponenten-strong">HFS</span> <span class="blue">Horizontal Fluidbed Separator</span></h3>
-                <p class="komponenten-id">
-                  <span class="product-id"><span class="komponenten-strong">Product ID</span> 12345678</span>
-                  <span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 12.12.09</span>
-                </p>
-                <p class="komponenten-information">
-                  <span class="komponenten-strong">Component Information</span><br />
-                  Optimal solution for efficient pellet cleaning. With the fluidbed separators it is possible to clean thoroughly and effectively even the most difficult of products, such as brittle, fragile or rubbery bulk materials.
-                </p>
-                <div class="komponenten-bottom">
-                  <div class="komponenten-maintenance grey-box">
-                    <p>
-                      <span class="komponenten-strong">Maintenance Schedule</span></br />
-                      <span class="blue">NEXT Wed 18.01.2017</span><br />
-                      <span class="past-maintenance">LAST Mon 11.04.2017</span>
-                    </p>
-                  </div>
-                  <div class="komponenten-maintenance blue-box">
-                    <p>
-                      <span class="komponenten-strong">Contact</span></br />
-                      <span class="blue">John Doe</span><br />
-                      <span class="past-maintenance">Department 20021</span>
-                    </p>
-                  </div>
-                  <div class="komponenten-maintenance blue-box">
-                    <p>
-                      <span class="komponenten-strong">Contact Coperion</span></br />
-                      <span class="blue">Matt Pattemrrd</span><br />
-                      <span class="past-maintenance">Department 20021</span>
-                    </p>
-                  </div>
-                  <div class="clear"></div>
-                  <div class="kompontenten-replacement">
-                    <span class="komponenten-strong left">Get replacement parts at <span class="blue">MyCoperion</span></span>
-                    <span class="komponenten-order-button">Order</span>
-                  </div>
-                </div>
-              </div>
-              <!-- Ende Infobox --->
-
-            </div>
-
-            <div id="zrd">
-              <div class="sensoren-titel-in"><p>ZRD</p></div>
-              <div id="zrd-chart" class="graph dummy-2"><p class="graph-title">ZRD <span class="blue">off</span></p></div>
-
-              <!--- Anfang Infobox --->
-              <div class="komponenten-infobox">
-                <h3 class="komponenten-titel"><span class="komponenten-strong">ZRD</span> <span class="blue">Rotary Valve</span></h3>
-                <p class="komponenten-id">
-                  <span class="product-id"><span class="komponenten-strong">Product ID</span> 12345678</span>
-                  <span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 12.12.09</span>
-                </p>
-                <p class="komponenten-information">
-                  <span class="komponenten-strong">Component Information</span><br />
-                  Large inlet for high capacities. With feeding shoe also suitable for feeding bulk materials
-                  into pneumatic conveying systems at up to 1.5 barg (21psi). Operation possible without
-                  leakage gas venting.
-                </p>
-                <div class="komponenten-bottom">
-                  <div class="komponenten-maintenance grey-box">
-                    <p>
-                      <span class="komponenten-strong">Maintenance Schedule</span></br />
-                      <span class="blue">NEXT Wed 18.01.2017</span><br />
-                      <span class="past-maintenance">LAST Mon 11.04.2017</span>
-                    </p>
-                  </div>
-                  <div class="komponenten-maintenance blue-box">
-                    <p>
-                      <span class="komponenten-strong">Contact</span></br />
-                      <span class="blue">John Doe</span><br />
-                      <span class="past-maintenance">Department 20021</span>
-                    </p>
-                  </div>
-                  <div class="komponenten-maintenance blue-box">
-                    <p>
-                      <span class="komponenten-strong">Contact Coperion</span></br />
-                      <span class="blue">Matt Pattemrrd</span><br />
-                      <span class="past-maintenance">Department 20021</span>
-                    </p>
-                  </div>
-                  <div class="clear"></div>
-                  <div class="kompontenten-replacement">
-                    <span class="komponenten-strong left">Get replacement parts at <span class="blue">MyCoperion</span></span>
-                    <span class="komponenten-order-button">Order</span>
-                  </div>
-                </div>
-              </div>
-              <!-- Ende Infobox --->
-
-            </div>
-
-          </div>
-        </div>
-
-        <!-- Compounding -->
-        <div id="compounding">
-          <div id="second-row-compounding">
-            <ul class="second-row-navigation scroll">
-              <li class="hidden"><a id="foerderdruck-link-2" href="#foerderdruck-2">Special Link Hidden</a></li>
-              <li><a id="dosierer-1-link" href="#dosierer-1"><span>Feeder 1</span></a></li>
-              <li><a id="dosierer-2-link" href="#dosierer-2"><span>Feeder 2</span></a></li>
-              <li><a id="dosierer-3-link" href="#dosierer-3"><span>Feeder 3</span></a></li>
-              <li><a id="dosierer-4-link" href="#dosierer-4"><span>Feeder 4</span></a></li>
-              <li><a id="dosierer-5-link" href="#dosierer-5"><span>Feeder 5</span></a></li>
-              <li><a id="zsk-link" href="#zsk"><span>ZSK</span></a></li>
-              <li><a id="zsb-link" href="#zsb"><span>ZSB</span></a></li>
-              <li><a id="zs_eg-link" href="#zs_eg"><span>ZS_EG</span></a></li>
-              <li><a id="ssd-link" href="#ssd"><span>ASC</span></a></li>
-              <li><a id="sp-link" href="#sp500"><span>SP 500</span></a></li>
-              <li><a id="zvb-link" href="#zvb"><span>ZVB</span></a></li>
-              <li><a id="screener-link" href="#screener"><span>Screener</span></a></li>
-            </ul>
-            <div id="foerderdruck-2">
-              <div class="sensoren-titel-in"><p>Feed Pressure</p></div>
-              <div id="foerderdruck-2-graph" class="graph chart-big"><p class="graph-title">Feed Pressure <span class="blue">werte 2</span></p></div>
-            </div>
-
-            <div id="dosierer-1">
-              <div class="sensoren-titel-in"><p>Feeder <span class="blue">K-ML-D5-BSP-135</span></p></div>
-              <div id="dosierer-1-chart" class="graph dummy-2"><p class="graph-title">K-ML-D5-BSP-135 <span class="blue">off</span></p></div>
-
-              <!--- Anfang Infobox --->
-              <div class="komponenten-infobox">
-                <h3 class="komponenten-titel"><span class="komponenten-strong">Feeder</span> <span class="blue">K-ML-D5-BSP-135</span></h3>
-                <p class="komponenten-id">
-                  <span class="product-id"><span class="komponenten-strong">Product ID</span> 12345678</span>
-                  <span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 12.12.09</span>
-                </p>
-                <p class="komponenten-information">
-                  <span class="komponenten-strong">Component Information</span><br />
-                  True positive displacement action and linear output over full operating range. Active
-                  discharge (minimal residual material), mechanical and maintenance simplicity. Three models
-                  with feed rates from 2 to 6700 dm³/hr.
-                </p>
-                <div class="komponenten-bottom">
-                  <div class="komponenten-maintenance grey-box">
-                    <p>
-                      <span class="komponenten-strong">Maintenance Schedule</span></br />
-                      <span class="blue">NEXT Wed 18.01.2017</span><br />
-                      <span class="past-maintenance">LAST Mon 11.04.2017</span>
-                    </p>
-                  </div>
-                  <div class="komponenten-maintenance blue-box">
-                    <p>
-                      <span class="komponenten-strong">Contact</span></br />
-                      <span class="blue">John Doe</span><br />
-                      <span class="past-maintenance">Department 20021</span>
-                    </p>
-                  </div>
-                  <div class="komponenten-maintenance blue-box">
-                    <p>
-                      <span class="komponenten-strong">Contact Coperion</span></br />
-                      <span class="blue">Matt Pattemrrd</span><br />
-                      <span class="past-maintenance">Department 20021</span>
-                    </p>
-                  </div>
-                  <div class="clear"></div>
-                  <div class="kompontenten-replacement">
-                    <span class="komponenten-strong left">Get replacement parts at <span class="blue">MyCoperion</span></span>
-                    <span class="komponenten-order-button">Order</span>
-                  </div>
-                </div>
-              </div>
-              <!-- Ende Infobox --->
-
-            </div>
-
-            <div id="dosierer-2">
-              <div class="sensoren-titel-in"><p>Feeder <span class="blue">K2-ML-D5-S60</span></p></div>
-              <div id="dosierer-2-graph" class="graph dummy-2"><p class="graph-title">Feeder <span class="blue">werte</span></p></div>
-
-              <!--- Anfang Infobox --->
-              <div class="komponenten-infobox">
-                <h3 class="komponenten-titel"><span class="komponenten-strong">Feeder</span> <span class="blue">K2-ML-D5-S60</span></h3>
-                <p class="komponenten-id">
-                  <span class="product-id"><span class="komponenten-strong">Product ID</span> 12345678</span>
-                  <span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 12.12.09</span>
-                </p>
-                <p class="komponenten-information">
-                  <span class="komponenten-strong">Component Information</span><br />
-                  Modular feeding design and interchangeable feeding tools. Highly accurate scale and
-                  controls. All product contact parts made from stainless steel and integrated horizontal agitator for
-                  improved material flow. Feed rates from 0.43 to 4500 dm³/hr.
-                </p>
-                <div class="komponenten-bottom">
-                  <div class="komponenten-maintenance grey-box">
-                    <p>
-                      <span class="komponenten-strong">Maintenance Schedule</span></br />
-                      <span class="blue">NEXT Wed 18.01.2017</span><br />
-                      <span class="past-maintenance">LAST Mon 11.04.2017</span>
-                    </p>
-                  </div>
-                  <div class="komponenten-maintenance blue-box">
-                    <p>
-                      <span class="komponenten-strong">Contact</span></br />
-                      <span class="blue">John Doe</span><br />
-                      <span class="past-maintenance">Department 20021</span>
-                    </p>
-                  </div>
-                  <div class="komponenten-maintenance blue-box">
-                    <p>
-                      <span class="komponenten-strong">Contact Coperion</span></br />
-                      <span class="blue">Matt Pattemrrd</span><br />
-                      <span class="past-maintenance">Department 20021</span>
-                    </p>
-                  </div>
-                  <div class="clear"></div>
-                  <div class="kompontenten-replacement">
-                    <span class="komponenten-strong left">Get replacement parts at <span class="blue">MyCoperion</span></span>
-                    <span class="komponenten-order-button">Order</span>
-                  </div>
-                </div>
-              </div>
-              <!-- Ende Infobox --->
-
-            </div>
-
-            <div id="dosierer-3">
-              <div class="sensoren-titel-in"><p>Feeder <span class="blue">K-ML-D5-KT20</span></p></div>
-              <div id="dosierer-3-graph" class="graph dummy-2"><p class="graph-title">Feeder<span class="blue">werte</span></p></div>
-
-              <!--- Anfang Infobox --->
-              <div class="komponenten-infobox">
-                <h3 class="komponenten-titel"><span class="komponenten-strong">Feeder</span> <span class="blue">K-ML-D5-KT20</span></h3>
-                <p class="komponenten-id">
-                  <span class="product-id"><span class="komponenten-strong">Product ID</span> 12345678</span>
-                  <span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 12.12.09</span>
-                </p>
-                <p class="komponenten-information">
-                  <span class="komponenten-strong">Component Information</span><br />
-                  Modular feeding design and interchangeable feeding tools. Highly accurate scale and
-                  controls. All product contact parts made from stainless steel and integrated horizontal agitator for
-                  improved material flow. Feed rates from 0.1 to 200 dm³/hr.
-                </p>
-                <div class="komponenten-bottom">
-                  <div class="komponenten-maintenance grey-box">
-                    <p>
-                      <span class="komponenten-strong">Maintenance Schedule</span></br />
-                      <span class="blue">NEXT Wed 18.01.2017</span><br />
-                      <span class="past-maintenance">LAST Mon 11.04.2017</span>
-                    </p>
-                  </div>
-                  <div class="komponenten-maintenance blue-box">
-                    <p>
-                      <span class="komponenten-strong">Contact</span></br />
-                      <span class="blue">John Doe</span><br />
-                      <span class="past-maintenance">Department 20021</span>
-                    </p>
-                  </div>
-                  <div class="komponenten-maintenance blue-box">
-                    <p>
-                      <span class="komponenten-strong">Contact Coperion</span></br />
-                      <span class="blue">Matt Pattemrrd</span><br />
-                      <span class="past-maintenance">Department 20021</span>
-                    </p>
-                  </div>
-                  <div class="clear"></div>
-                  <div class="kompontenten-replacement">
-                    <span class="komponenten-strong left">Get replacement parts at <span class="blue">MyCoperion</span></span>
-                    <span class="komponenten-order-button">Order</span>
-                  </div>
-                </div>
-              </div>
-              <!-- Ende Infobox --->
-
-            </div>
-
-            <div id="dosierer-4">
-              <div class="sensoren-titel-in"><p>Feeder <span class="blue">K-ML-T60</span></p></div>
-              <div id="dosierer-4-graph" class="graph dummy-2"><p class="graph-title">Component 4 <span class="blue">werte</span></p></div>
-
-              <!--- Anfang Infobox --->
-              <div class="komponenten-infobox">
-                <h3 class="komponenten-titel"><span class="komponenten-strong">Feeder</span> <span class="blue">K2-ML-T60</span></h3>
-                <p class="komponenten-id">
-                  <span class="product-id"><span class="komponenten-strong">Product ID</span> 12345678</span>
-                  <span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 12.12.09</span>
-                </p>
-                <p class="komponenten-information">
-                  <span class="komponenten-strong">Component Information</span><br />
-                  Application: Gravimetric feeding of free flowing to difficult powders (e.g. lumpy, moist or
-                  bridge building materials) as well as fibers, flakes and other bulk materials.
-                </p>
-                <div class="komponenten-bottom">
-                  <div class="komponenten-maintenance grey-box">
-                    <p>
-                      <span class="komponenten-strong">Maintenance Schedule</span></br />
-                      <span class="blue">NEXT Wed 18.01.2017</span><br />
-                      <span class="past-maintenance">LAST Mon 11.04.2017</span>
-                    </p>
-                  </div>
-                  <div class="komponenten-maintenance blue-box">
-                    <p>
-                      <span class="komponenten-strong">Contact</span></br />
-                      <span class="blue">John Doe</span><br />
-                      <span class="past-maintenance">Department 20021</span>
-                    </p>
-                  </div>
-                  <div class="komponenten-maintenance blue-box">
-                    <p>
-                      <span class="komponenten-strong">Contact Coperion</span></br />
-                      <span class="blue">Matt Pattemrrd</span><br />
-                      <span class="past-maintenance">Department 20021</span>
-                    </p>
-                  </div>
-                  <div class="clear"></div>
-                  <div class="kompontenten-replacement">
-                    <span class="komponenten-strong left">Get replacement parts at <span class="blue">MyCoperion</span></span>
-                    <span class="komponenten-order-button">Order</span>
-                  </div>
-                </div>
-              </div>
-              <!-- Ende Infobox --->
-
-            </div>
-
-            <div id="dosierer-5">
-              <div class="sensoren-titel-in"><p>Feeder <span class="blue">K-ML-KV3-F</span></p></div>
-              <div id="dosierer-5-chart" class="graph dummy-2"><p class="graph-title">K-ML-KV3-F <span class="blue">off</span></p></div>
-
-              <!--- Anfang Infobox --->
-              <div class="komponenten-infobox">
-                <h3 class="komponenten-titel"><span class="komponenten-strong">Feeder</span> <span class="blue">K-ML-KV3-F</span></h3>
-                <p class="komponenten-id">
-                  <span class="product-id"><span class="komponenten-strong">Product ID</span> 12345678</span>
-                  <span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 12.12.09</span>
-                </p>
-                <p class="komponenten-information">
-                  <span class="komponenten-strong">Component Information</span><br />
-                  Application: Gravimetric feeding of fibers. Especially suited for the feeding of glass fibers with length of 3 to 6 mm
-                </p>
-                <div class="komponenten-bottom">
-                  <div class="komponenten-maintenance grey-box">
-                    <p>
-                      <span class="komponenten-strong">Maintenance Schedule</span></br />
-                      <span class="blue">NEXT Wed 18.01.2017</span><br />
-                      <span class="past-maintenance">LAST Mon 11.04.2017</span>
-                    </p>
-                  </div>
-                  <div class="komponenten-maintenance blue-box">
-                    <p>
-                      <span class="komponenten-strong">Contact</span></br />
-                      <span class="blue">John Doe</span><br />
-                      <span class="past-maintenance">Department 20021</span>
-                    </p>
-                  </div>
-                  <div class="komponenten-maintenance blue-box">
-                    <p>
-                      <span class="komponenten-strong">Contact Coperion</span></br />
-                      <span class="blue">Matt Pattemrrd</span><br />
-                      <span class="past-maintenance">Department 20021</span>
-                    </p>
-                  </div>
-                  <div class="clear"></div>
-                  <div class="kompontenten-replacement">
-                    <span class="komponenten-strong left">Get replacement parts at <span class="blue">MyCoperion</span></span>
-                    <span class="komponenten-order-button">Order</span>
-                  </div>
-                </div>
-              </div>
-              <!-- Ende Infobox --->
-
-
-            </div>
-
-            <div id="zsk">
-              <div class="sensoren-titel-in"><p>ZSK</p></div>
-              <div class="more-graphs">
-                <div id="zsk-graph-01" class="graph graph-thin"><p class="graph-title">ZSK <span class="blue">werte</span></p></div>
-                <div id="zsk-graph-02" class="graph graph-thin"><p class="graph-title">ZSK <span class="blue">werte</span></p></div>
-                <div id="zsk-graph-03" class="graph graph-thin"><p class="graph-title">ZSK <span class="blue">werte</span></p></div>
-                <div id="zsk-graph-04" class="graph graph-thin"><p class="graph-title">ZSK <span class="blue">werte</span></p></div>
-              </div>
-              <!--- Anfang Infobox --->
-              <div class="komponenten-infobox zsk-infobox">
-                <h3 class="komponenten-titel"><span class="komponenten-strong">ZSK</span> <span class="blue"></span></h3>
-                <p class="komponenten-id">
-                  <span class="product-id"><span class="komponenten-strong">Product ID</span> 12345678</span>
-                  <span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 12.12.09</span>
-                </p>
-                <p class="komponenten-information">
-                  <span class="komponenten-strong">Component Information</span><br />
-                  Increases in throughput up to 30%. Maximum operating safety up to a vacuum of 50 mBar.
-                  Easy handling due to quick-release locks of assembly and disassembly. Maximum efficiency
-                  of the compounding plant.
-                </p>
-                <div class="komponenten-bottom">
-                  <div class="komponenten-maintenance grey-box">
-                    <p>
-                      <span class="komponenten-strong">Maintenance Schedule</span></br />
-                      <span class="blue">NEXT Wed 18.01.2017</span><br />
-                      <span class="past-maintenance">LAST Mon 11.04.2017</span>
-                    </p>
-                  </div>
-                  <div class="komponenten-maintenance blue-box">
-                    <p>
-                      <span class="komponenten-strong">Contact</span></br />
-                      <span class="blue">John Doe</span><br />
-                      <span class="past-maintenance">Department 20021</span>
-                    </p>
-                  </div>
-                  <div class="komponenten-maintenance blue-box">
-                    <p>
-                      <span class="komponenten-strong">Contact Coperion</span></br />
-                      <span class="blue">Matt Pattemrrd</span><br />
-                      <span class="past-maintenance">Department 20021</span>
-                    </p>
-                  </div>
-                  <div class="clear"></div>
-                  <div class="kompontenten-replacement">
-                    <span class="komponenten-strong left">Get replacement parts at <span class="blue">MyCoperion</span></span>
-                    <span class="komponenten-order-button">Order</span>
-                  </div>
-                </div>
-              </div>
-              <!-- Ende Infobox --->
-
-            </div>
-
-            <div id="zsb">
-              <div class="sensoren-titel-in"><p>ZSB</p></div>
-
-              <div class="more-graphs">
-                <div id="zsb-graph-01" class="graph graph-thin"><p class="graph-title">ZSK <span class="blue">werte</span></p></div>
-                <div id="zsb-graph-02" class="graph graph-thin"><p class="graph-title">ZSK <span class="blue">werte</span></p></div>
-                <div id="zsb-graph-03" class="graph graph-thin"><p class="graph-title">ZSK <span class="blue">werte</span></p></div>
-                <div id="zsb-graph-04" class="graph graph-thin"><p class="graph-title">ZSK <span class="blue">werte</span></p></div>
-              </div>
-
-              <!--- Anfang Infobox --->
-              <div class="komponenten-infobox zsk-infobox">
-                <h3 class="komponenten-titel"><span class="komponenten-strong">ZSB</span> <span class="blue"></span></h3>
-                <p class="komponenten-id">
-                  <span class="product-id"><span class="komponenten-strong">Product ID</span> 12345678</span>
-                  <span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 12.12.09</span>
-                </p>
-                <p class="komponenten-information">
-                  <span class="komponenten-strong">Component Information</span><br />
-                  Increases in throughput up to 30%. Maximum operating safety up to a vacuum of 50 mBar.
-                  Easy handling due to quick-release locks of assembly and disassembly. Maximum efficiency
-                  of the compounding plant.
-                </p>
-                <div class="komponenten-bottom">
-                  <div class="komponenten-maintenance grey-box">
-                    <p>
-                      <span class="komponenten-strong">Maintenance Schedule</span></br />
-                      <span class="blue">NEXT Wed 18.01.2017</span><br />
-                      <span class="past-maintenance">LAST Mon 11.04.2017</span>
-                    </p>
-                  </div>
-                  <div class="komponenten-maintenance blue-box">
-                    <p>
-                      <span class="komponenten-strong">Contact</span></br />
-                      <span class="blue">John Doe</span><br />
-                      <span class="past-maintenance">Department 20021</span>
-                    </p>
-                  </div>
-                  <div class="komponenten-maintenance blue-box">
-                    <p>
-                      <span class="komponenten-strong">Contact Coperion</span></br />
-                      <span class="blue">Matt Pattemrrd</span><br />
-                      <span class="past-maintenance">Department 20021</span>
-                    </p>
-                  </div>
-                  <div class="clear"></div>
-                  <div class="kompontenten-replacement">
-                    <span class="komponenten-strong left">Get replacement parts at <span class="blue">MyCoperion</span></span>
-                    <span class="komponenten-order-button">Order</span>
-                  </div>
-                </div>
-              </div>
-              <!-- Ende Infobox --->
-
-            </div>
-
-            <div id="zs_eg">
-              <div class="sensoren-titel-in"><p>ZS_EG</p></div>
-
-                <div class="more-graphs">
-                  <div id="zs_eg-graph-01" class="graph graph-thin"><p class="graph-title">ZSK <span class="blue">werte</span></p></div>
-                  <div id="zs_eg-graph-02" class="graph graph-thin"><p class="graph-title">ZSK <span class="blue">werte</span></p></div>
-                  <div id="zs_eg-graph-03" class="graph graph-thin"><p class="graph-title">ZSK <span class="blue">werte</span></p></div>
-                  <div id="zs_eg-graph-04" class="graph graph-thin"><p class="graph-title">ZSK <span class="blue">werte</span></p></div>
-                </div>
-
-              <!--- Anfang Infobox --->
-              <div class="komponenten-infobox">
-                <h3 class="komponenten-titel"><span class="komponenten-strong">ZS-EG</span> <span class="blue">Twin screw side degassing</span></h3>
-                <p class="komponenten-id">
-                  <span class="product-id"><span class="komponenten-strong">Product ID</span> 12345678</span>
-                  <span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 12.12.09</span>
-                </p>
-                <p class="komponenten-information">
-                  <span class="komponenten-strong">Component Information</span><br />
-                  The ZS-EG twin screw side degassing from Coperion provides the solution. With its large free cross section for the devolatilization, it keeps the melt in the processing section without product escape even at maximum specific torque of the extruder.
-                </p>
-                <div class="komponenten-bottom">
-                  <div class="komponenten-maintenance grey-box">
-                    <p>
-                      <span class="komponenten-strong">Maintenance Schedule</span></br />
-                      <span class="blue">NEXT Wed 18.01.2017</span><br />
-                      <span class="past-maintenance">LAST Mon 11.04.2017</span>
-                    </p>
-                  </div>
-                  <div class="komponenten-maintenance blue-box">
-                    <p>
-                      <span class="komponenten-strong">Contact</span></br />
-                      <span class="blue">John Doe</span><br />
-                      <span class="past-maintenance">Department 20021</span>
-                    </p>
-                  </div>
-                  <div class="komponenten-maintenance blue-box">
-                    <p>
-                      <span class="komponenten-strong">Contact Coperion</span></br />
-                      <span class="blue">Matt Pattemrrd</span><br />
-                      <span class="past-maintenance">Department 20021</span>
-                    </p>
-                  </div>
-                  <div class="clear"></div>
-                  <div class="kompontenten-replacement">
-                    <span class="komponenten-strong left">Get replacement parts at <span class="blue">MyCoperion</span></span>
-                    <span class="komponenten-order-button">Order</span>
-                  </div>
-                </div>
-              </div>
-              <!-- Ende Infobox --->
-
-            </div>
-
-            <div id="ssd">
-              <div class="sensoren-titel-in"><p>ASC</p></div>
-
-              <div class="more-graphs">
-                <div id="ssd-graph-01" class="graph graph-thin"><p class="graph-title">ZSK <span class="blue">werte</span></p></div>
-                <div id="ssd-graph-02" class="graph graph-thin"><p class="graph-title">ZSK <span class="blue">werte</span></p></div>
-                <div id="ssd-graph-03" class="graph graph-thin"><p class="graph-title">ZSK <span class="blue">werte</span></p></div>
-                <div id="ssd-graph-04" class="graph graph-thin"><p class="graph-title">ZSK <span class="blue">werte</span></p></div>
-              </div>
-              <!--- Anfang Infobox --->
-              <div class="komponenten-infobox">
-                <h3 class="komponenten-titel"><span class="komponenten-strong">ASC</span> <span class="blue">Automatic Strand Conveying System</span></h3>
-                <p class="komponenten-id">
-                  <span class="product-id"><span class="komponenten-strong">Product ID</span> 12345678</span>
-                  <span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 12.12.09</span>
-                </p>
-                <p class="komponenten-information">
-                  <span class="komponenten-strong">Component Information</span><br />
-                  The ASC ensures fully automatic transfer from die head to pelletizer. The conveying system automatically guides the extruded strands via a cooling water chute and downstream conveyor belt into the feed mechanism of the pelletizer.
-                </p>
-                <div class="komponenten-bottom">
-                  <div class="komponenten-maintenance grey-box">
-                    <p>
-                      <span class="komponenten-strong">Maintenance Schedule</span></br />
-                      <span class="blue">NEXT Wed 18.01.2017</span><br />
-                      <span class="past-maintenance">LAST Mon 11.04.2017</span>
-                    </p>
-                  </div>
-                  <div class="komponenten-maintenance blue-box">
-                    <p>
-                      <span class="komponenten-strong">Contact</span></br />
-                      <span class="blue">John Doe</span><br />
-                      <span class="past-maintenance">Department 20021</span>
-                    </p>
-                  </div>
-                  <div class="komponenten-maintenance blue-box">
-                    <p>
-                      <span class="komponenten-strong">Contact Coperion</span></br />
-                      <span class="blue">Matt Pattemrrd</span><br />
-                      <span class="past-maintenance">Department 20021</span>
-                    </p>
-                  </div>
-                  <div class="clear"></div>
-                  <div class="kompontenten-replacement">
-                    <span class="komponenten-strong left">Get replacement parts at <span class="blue">MyCoperion</span></span>
-                    <span class="komponenten-order-button">Order</span>
-                  </div>
-                </div>
-              </div>
-              <!-- Ende Infobox --->
-
-
-            </div>
-
-            <div id="sp500">
-              <div class="sensoren-titel-in"><p>SP500</p></div>
-              <div id="sensoring-full-durchsatz" class="graph dummy-2"><p class="graph-title">SP500 HD <span class="blue">werte</span></p></div>
-
-              <!--- Anfang Infobox --->
-              <div class="komponenten-infobox">
-                <h3 class="komponenten-titel"><span class="komponenten-strong">SP500 HD</span> <span class="blue">Strand pelletizer</span></h3>
-                <p class="komponenten-id">
-                  <span class="product-id"><span class="komponenten-strong">Product ID</span> 12345678</span>
-                  <span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 12.12.09</span>
-                </p>
-                <p class="komponenten-information">
-                  <span class="komponenten-strong">Component Information</span><br />
-                  The dual side bearings for the strand pelletizer SP500 HD provides maximum sturdity of cutting gap and high cutting qualiy even under highest work load. The working width amounts 500 mm and the throughput is up to 6,300 kg/h.
-                </p>
-                <div class="komponenten-bottom">
-                  <div class="komponenten-maintenance grey-box">
-                    <p>
-                      <span class="komponenten-strong">Maintenance Schedule</span></br />
-                      <span class="blue">NEXT Wed 18.01.2017</span><br />
-                      <span class="past-maintenance">LAST Mon 11.04.2017</span>
-                    </p>
-                  </div>
-                  <div class="komponenten-maintenance blue-box">
-                    <p>
-                      <span class="komponenten-strong">Contact</span></br />
-                      <span class="blue">John Doe</span><br />
-                      <span class="past-maintenance">Department 20021</span>
-                    </p>
-                  </div>
-                  <div class="komponenten-maintenance blue-box">
-                    <p>
-                      <span class="komponenten-strong">Contact Coperion</span></br />
-                      <span class="blue">Matt Pattemrrd</span><br />
-                      <span class="past-maintenance">Department 20021</span>
-                    </p>
-                  </div>
-                  <div class="clear"></div>
-                  <div class="kompontenten-replacement">
-                    <span class="komponenten-strong left">Get replacement parts at <span class="blue">MyCoperion</span></span>
-                    <span class="komponenten-order-button">Order</span>
-                  </div>
-                </div>
-              </div>
-              <!-- Ende Infobox --->
-
-            </div>
-
-            <div id="zvb">
-              <div class="sensoren-titel-in"><p>ZVB</p></div>
-              <div id="zvb-graph" class="graph dummy-2"><p class="graph-title">ZVB <span class="blue">werte</span></p></div>
-
-              <!--- Anfang Infobox --->
-              <div class="komponenten-infobox zvb-infobox">
-                <h3 class="komponenten-titel"><span class="komponenten-strong">ZVB</span> <span class="blue"></span></h3>
-                <p class="komponenten-id">
-                  <span class="product-id"><span class="komponenten-strong">Product ID</span> 12345678</span>
-                  <span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 12.12.09</span>
-                </p>
-                <p class="komponenten-information">
-                  <span class="komponenten-strong">Component Information</span><br />
-                  Special intel geometry designed for gentle pellet handling. With feeding shoe also suitable
-                  for feeding bulk materials into pneumatic conveying systems at up to 1.5 barg (21psi).
-                  PE/PP Pellet with bulk density 520 kg/m³ particle size 3 mm, ∆p = 0.8 bar.
-                </p>
-                <div class="komponenten-bottom">
-                  <div class="komponenten-maintenance grey-box">
-                    <p>
-                      <span class="komponenten-strong">Maintenance Schedule</span></br />
-                      <span class="blue">NEXT Wed 18.01.2017</span><br />
-                      <span class="past-maintenance">LAST Mon 11.04.2017</span>
-                    </p>
-                  </div>
-                  <div class="komponenten-maintenance blue-box">
-                    <p>
-                      <span class="komponenten-strong">Contact</span></br />
-                      <span class="blue">John Doe</span><br />
-                      <span class="past-maintenance">Department 20021</span>
-                    </p>
-                  </div>
-                  <div class="komponenten-maintenance blue-box">
-                    <p>
-                      <span class="komponenten-strong">Contact Coperion</span></br />
-                      <span class="blue">Matt Pattemrrd</span><br />
-                      <span class="past-maintenance">Department 20021</span>
-                    </p>
-                  </div>
-                  <div class="clear"></div>
-                  <div class="kompontenten-replacement">
-                    <span class="komponenten-strong left">Get replacement parts at <span class="blue">MyCoperion</span></span>
-                    <span class="komponenten-order-button">Order</span>
-                  </div>
-                </div>
-              </div>
-              <!-- Ende Infobox --->
-
-
-            </div>
-
-            <div id="screener">
-              <div class="sensoren-titel-in"><p>Screener</p></div>
-              <div id="sensoring-full-durchsatz" class="graph dummy-2"><p class="graph-title">Screener <span class="blue"></span></p></div>
-
-              <!--- Anfang Infobox --->
-              <div class="komponenten-infobox">
-                <h3 class="komponenten-titel"><span class="komponenten-strong">Screener</span> <span class="blue">Vibrating Screen Type VS</span></h3>
-                <p class="komponenten-id">
-                  <span class="product-id"><span class="komponenten-strong">Product ID</span> 12345678</span>
-                  <span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 12.12.09</span>
-                </p>
-                <p class="komponenten-information">
-                  <span class="komponenten-strong">Component Information</span><br />
-                  Within the vibrating process a screen trough is vibrating by means of an oscillator device. The applied product ripples along that trough assisted by inclination and vibration. In the bottom of the trough are holes (two hole sizes), which separate the product into three fractions.
-                </p>
-                <div class="komponenten-bottom">
-                  <div class="komponenten-maintenance grey-box">
-                    <p>
-                      <span class="komponenten-strong">Maintenance Schedule</span></br />
-                      <span class="blue">NEXT Wed 18.01.2017</span><br />
-                      <span class="past-maintenance">LAST Mon 11.04.2017</span>
-                    </p>
-                  </div>
-                  <div class="komponenten-maintenance blue-box">
-                    <p>
-                      <span class="komponenten-strong">Contact</span></br />
-                      <span class="blue">John Doe</span><br />
-                      <span class="past-maintenance">Department 20021</span>
-                    </p>
-                  </div>
-                  <div class="komponenten-maintenance blue-box">
-                    <p>
-                      <span class="komponenten-strong">Contact Coperion</span></br />
-                      <span class="blue">Matt Pattemrrd</span><br />
-                      <span class="past-maintenance">Department 20021</span>
-                    </p>
-                  </div>
-                  <div class="clear"></div>
-                  <div class="kompontenten-replacement">
-                    <span class="komponenten-strong left">Get replacement parts at <span class="blue">MyCoperion</span></span>
-                    <span class="komponenten-order-button">Order</span>
-                  </div>
-                </div>
-              </div>
-              <!-- Ende Infobox --->
-
-            </div>
-
-          </div>
-        </div>
-
-        <!-- Downstream -->
-        <div id="downstream">
-          <div id="second-row-downstream">
-            <ul class="second-row-navigation">
-              <li class="hidden"><a id="foerderdruck-link-3" href="#foerderdruck-3">Special Link Hidden</a></li>
-              <li><a id="bxc-link" href="#bxc-component"><span>BXC</span></a></li>
-              <li><a id="wzk-link" href="#wzk-box"><span>WZK</span></a></li>
-              <li><a id="ibp-link" href="#ibp250"><span>IBP250</span></a></li>
-              <li><a id="wet-link" href="#wet"><span>WET</span></a></li>
-            </ul>
-            <div id="foerderdruck-3">
-              <div class="sensoren-titel-in"><p>Feed Pressure</p></div>
-              <div id="foerderdruck-3-graph" class="graph chart-big"><p class="graph-title">Feed Pressure <span class="blue">werte 3</span></p></div>
-            </div>
-
-            <div id="bxc-component">
-              <div class="sensoren-titel-in"><p>BXC</p></div>
-              <div id="bxc-graph" class="graph dummy-2"><p class="graph-title">BXC <span class="blue"></span></p></div>
-
-              <!--- Anfang Infobox --->
-              <div class="komponenten-infobox">
-                <h3 class="komponenten-titel"><span class="komponenten-strong">BXC</span> <span class="blue">»BULK-X-CHANGE«</span></h3>
-                <p class="komponenten-id">
-                  <span class="product-id"><span class="komponenten-strong">Product ID</span> 12345678</span>
-                  <span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 12.12.09</span>
-                </p>
-                <p class="komponenten-information">
-                  <span class="komponenten-strong">Component Information</span><br />
-                  The original design with the designation BULK-X-CHANGE® "Gravity" was developed for free-flowing coarse powders and pellets. The bulk material flows from top to bottom due to gravitational forces th rough the vertical tubes which are surrounded by a heating or cooling medium on the shell side.
-
-                </p>
-                <div class="komponenten-bottom">
-                  <div class="komponenten-maintenance grey-box">
-                    <p>
-                      <span class="komponenten-strong">Maintenance Schedule</span></br />
-                      <span class="blue">NEXT Wed 18.01.2017</span><br />
-                      <span class="past-maintenance">LAST Mon 11.04.2017</span>
-                    </p>
-                  </div>
-                  <div class="komponenten-maintenance blue-box">
-                    <p>
-                      <span class="komponenten-strong">Contact</span></br />
-                      <span class="blue">John Doe</span><br />
-                      <span class="past-maintenance">Department 20021</span>
-                    </p>
-                  </div>
-                  <div class="komponenten-maintenance blue-box">
-                    <p>
-                      <span class="komponenten-strong">Contact Coperion</span></br />
-                      <span class="blue">Matt Pattemrrd</span><br />
-                      <span class="past-maintenance">Department 20021</span>
-                    </p>
-                  </div>
-                  <div class="clear"></div>
-                  <div class="kompontenten-replacement">
-                    <span class="komponenten-strong left">Get replacement parts at <span class="blue">MyCoperion</span></span>
-                    <span class="komponenten-order-button">Order</span>
-                  </div>
-                </div>
-              </div>
-              <!-- Ende Infobox --->
-
-            </div>
-
-            <div id="wzk-box">
-              <div class="sensoren-titel-in"><p>WZK</p></div>
-              <div id="wzk-graph" class="graph dummy-2 in-betrieb"><p class="graph-title">WZK <span class="blue">on</span></p></div>
-
-              <!--- Anfang Infobox --->
-              <div class="komponenten-infobox">
-                <h3 class="komponenten-titel"><span class="komponenten-strong">WZK</span> <span class="blue"></span></h3>
-                <p class="komponenten-id">
-                  <span class="product-id"><span class="komponenten-strong">Product ID</span> 12345678</span>
-                  <span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 12.12.09</span>
-                </p>
-                <p class="komponenten-information">
-                  <span class="komponenten-strong">Component Information</span><br />
-                  Suitable for fluid group 2 according to PED. Applicable in Ex-zones with additional accessories.
-                  Reinforced actuator, wear protection and various seal materials. Signal box on right-hand side or left-hand
-                  side. Quick cleaning and high temperature execution.
-                </p>
-                <div class="komponenten-bottom">
-                  <div class="komponenten-maintenance grey-box">
-                    <p>
-                      <span class="komponenten-strong">Maintenance Schedule</span></br />
-                      <span class="blue">NEXT Wed 18.01.2017</span><br />
-                      <span class="past-maintenance">LAST Mon 11.04.2017</span>
-                    </p>
-                  </div>
-                  <div class="komponenten-maintenance blue-box">
-                    <p>
-                      <span class="komponenten-strong">Contact</span></br />
-                      <span class="blue">John Doe</span><br />
-                      <span class="past-maintenance">Department 20021</span>
-                    </p>
-                  </div>
-                  <div class="komponenten-maintenance blue-box">
-                    <p>
-                      <span class="komponenten-strong">Contact Coperion</span></br />
-                      <span class="blue">Matt Pattemrrd</span><br />
-                      <span class="past-maintenance">Department 20021</span>
-                    </p>
-                  </div>
-                  <div class="clear"></div>
-                  <div class="kompontenten-replacement">
-                    <span class="komponenten-strong left">Get replacement parts at <span class="blue">MyCoperion</span></span>
-                    <span class="komponenten-order-button">Order</span>
-                  </div>
-                </div>
-              </div>
-              <!-- Ende Infobox --->
-
-            </div>
-
-            <div id="ibp250">
-              <div class="sensoren-titel-in"><p>IBP 250</p></div>
-              <div id="ibp250-graph" class="graph dummy-2 nicht-in-betrieb"><p class="graph-title">IBP250 <span class="blue">off</span></p></div>
-
-              <!--- Anfang Infobox --->
-              <div class="komponenten-infobox">
-                <h3 class="komponenten-titel"><span class="komponenten-strong">IBP250</span> <span class="blue"></span></h3>
-                <p class="komponenten-id">
-                  <span class="product-id"><span class="komponenten-strong">Product ID</span> 12345678</span>
-                  <span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 12.12.09</span>
-                </p>
-                <p class="komponenten-information">
-                  <span class="komponenten-strong">Component Information</span><br />
-                  Flexible and with all required functions in a single package. Capable to operate with standard or barrier film.
-                  Automatic self cleaning function. Few touch on the operator panel to change set up and simple
-                  to operate and maintain. Connectability to external data acquisition systems.
-                </p>
-                <div class="komponenten-bottom">
-                  <div class="komponenten-maintenance grey-box">
-                    <p>
-                      <span class="komponenten-strong">Maintenance Schedule</span></br />
-                      <span class="blue">NEXT Wed 18.01.2017</span><br />
-                      <span class="past-maintenance">LAST Mon 11.04.2017</span>
-                    </p>
-                  </div>
-                  <div class="komponenten-maintenance blue-box">
-                    <p>
-                      <span class="komponenten-strong">Contact</span></br />
-                      <span class="blue">John Doe</span><br />
-                      <span class="past-maintenance">Department 20021</span>
-                    </p>
-                  </div>
-                  <div class="komponenten-maintenance blue-box">
-                    <p>
-                      <span class="komponenten-strong">Contact Coperion</span></br />
-                      <span class="blue">Matt Pattemrrd</span><br />
-                      <span class="past-maintenance">Department 20021</span>
-                    </p>
-                  </div>
-                  <div class="clear"></div>
-                  <div class="kompontenten-replacement">
-                    <span class="komponenten-strong left">Get replacement parts at <span class="blue">MyCoperion</span></span>
-                    <span class="komponenten-order-button">Order</span>
-                  </div>
-                </div>
-              </div>
-              <!-- Ende Infobox --->
-
-            </div>
-
-            <div id="wet">
-              <div class="sensoren-titel-in"><p>WET</p></div>
-              <div id="wet-graph" class="graph dummy-2 in-betrieb"><p class="graph-title">WET <span class="blue">on</span></p></div>
-
-              <!--- Anfang Infobox --->
-              <div class="komponenten-infobox">
-                <h3 class="komponenten-titel"><span class="komponenten-strong">WET</span> <span class="blue"></span></h3>
-                <p class="komponenten-id">
-                  <span class="product-id"><span class="komponenten-strong">Product ID</span> 12345678</span>
-                  <span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 12.12.09</span>
-                </p>
-                <p class="komponenten-information">
-                  <span class="komponenten-strong">Component Information</span><br />
-                  Suitable for fluidgroup 1 and 2 according PED	Applicable in Ex-zones with additional
-                  accessories. Cross seal between the outlets, product wetted parts, hard coated or
-                  out of stainless steel. Quick-clean design, switchable with product and
-                  higher temperature execution.
-                </p>
-                <div class="komponenten-bottom">
-                  <div class="komponenten-maintenance grey-box">
-                    <p>
-                      <span class="komponenten-strong">Maintenance Schedule</span></br />
-                      <span class="blue">NEXT Wed 18.01.2017</span><br />
-                      <span class="past-maintenance">LAST Mon 11.04.2017</span>
-                    </p>
-                  </div>
-                  <div class="komponenten-maintenance blue-box">
-                    <p>
-                      <span class="komponenten-strong">Contact</span></br />
-                      <span class="blue">John Doe</span><br />
-                      <span class="past-maintenance">Department 20021</span>
-                    </p>
-                  </div>
-                  <div class="komponenten-maintenance blue-box">
-                    <p>
-                      <span class="komponenten-strong">Contact Coperion</span></br />
-                      <span class="blue">Matt Pattemrrd</span><br />
-                      <span class="past-maintenance">Department 20021</span>
-                    </p>
-                  </div>
-                  <div class="clear"></div>
-                  <div class="kompontenten-replacement">
-                    <span class="komponenten-strong left">Get replacement parts at <span class="blue">MyCoperion</span></span>
-                    <span class="komponenten-order-button">Order</span>
-                  </div>
-                </div>
-              </div>
-              <!-- Ende Infobox --->
-
-            </div>
-
-          </div>
-        </div>
-
-      </div>
-      </div>
-
-      <!-- Timeline -->
-      <div id="timeline">
-        <a id="legende-button"></a>
-        <div id="timeline-legende">
-          <span class="selbstoptimierung">Optimization</span>
-          <span class="warnung">Warning</span>
-          <span class="stoerung">Error</span>
-          <span class="wartung">Maintenance</span>
-        </div>
-        <div id="timeline-popup">
-          <div id="timline-data-type-bar"></div>
-          <button class="timeline-popup-close-button">x</button>
-          <div class="timeline-popup-text">
-            <div class="timeline-image">
-              <img id="timeline-popup-image" src="" />
-            </div>
-
-            <div class="timeline-content">
-              <p id="timeline-date"><time id="timeline-popup-time">.....</time></p>
-              <h1 id="timeline-popup-title">.....</h1>
-              <p id="timeline-popup-description">.....</p>
-            </div>
-          </div>
-          <div class="timeline-popup-arrow"></div>
-        </div>
-        <div class="timeline-events">
-        </div>
-        <div id="timeline-timespan-options">
-        </div>
-        <button id="timeline-timespan-selected">
-        </button>
-      </div>
-
-      <div class="hiddenEventPopups">
-
-        <div class="hiddenMaintenance">
-          <div class="hiddenMaintenance-Message">
-            <div class="text"></div>
-            <div class="buttons">
-              <div class="accept btn">Bestätigen</div>
-              <div class="decline btn">Ablehnen</div>
-              <div class="clear"></div>
-            </div>
-          </div>
-          <div class="hiddenMaintenance-Response">
-            <div class="text"></div>
-          </div>
-        </div>
-
-        <div class="hiddenError">
-          <div class="hiddenError-Message">
-            <div class="hiddenErrorHeader">
-              <div class="title"></div>
-            </div>
-            <div class="text"></div>
-            <div class="buttons">
-              <div class="intern btn">Process internally</div>
-              <div class="coperion btn">Forward to Coperion</div>
-              <div class="clear"></div>
-            </div>
-          </div>
-          <div class="hiddenError-Forwarding">
-            <div class="hiddenErrorHeader">
-              <div class="title"></div>
-            </div>
-            <div class="text"></div>
-            <div class="loader">
-              <div class="knob"></div>
-            </div>
-          </div>
-          <div class="hiddenError-Response">
-            <div class="hiddenErrorHeader">
-              <div class="title"></div>
-            </div>
-            <div class="text"></div>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-
-    <div id="app-tab2" class="app-tab">
-
-      <!-- Anlagen-Bild --->
-      <div id="page">
-        <div class="anlagen-fade"></div>
-        <div id="anlagen-wrapper">
-
-          <div class="anlagen-bild">
-            <div id="anlage-ansicht-3d">
-              <img class="ansicht-3d" data-src="img/anlage/anlage-3d-rohstoffe-01.png">
-              <img class="ansicht-3d" data-src="img/anlage/anlage-3d-rohstoffe-02.png">
-              <img class="ansicht-3d" data-src="img/anlage/anlage-3d-rohstoffe-03.png">
-              <img class="ansicht-3d" data-src="img/anlage/anlage-3d-rohstoffe-04.png">
-              <img class="ansicht-3d" data-src="img/anlage/anlage-3d-rohstoffe-05.png">
-           </div>
-
-           <div id="three-di-view">
-             <img class="three-di" data-src="img/anlage/anlage-2d-01.png">
-             <img class="three-di" data-src="img/anlage/anlage-2d-02.png">
-             <img class="three-di" data-src="img/anlage/anlage-2d-03.png">
-             <img class="three-di" data-src="img/anlage/anlage-2d-04.png">
-             <img class="three-di" data-src="img/anlage/anlage-2d-05.png">
-           </div>
-
-              <!-- Links Downstream -->
-              <div id="downstream-links">
-                <ul>
-
-                </ul>
-              </div>
-
-          </div>
-        </div>
-      <div id="first-row-rohstoffe">
-        <ul id="sensoren-hauptnavi">
-          <li id="full-link" class="full-link-spacebrew"><a href="#full"><span></span></a></li>
-          <li id="upstream-link" class="upstream-spacebrew"><a href="#upstream">Raw materials<span class="upstream-arrow"></span></a></li>
-          <li id="compounding-link" class="compounding-spacebrew"><a href="#compounding">Compounding<span class="compounding-arrow"></span></a></li>
-          <li id="downstream-link" class="downstream-spacebrew"><a href="#downstream">Downstream<span class="downstream-arrow"></span></a></li>
-        </ul>
-
-        <!-- Fullview -->
-        <div id="full">
-          <div class="sensoren-titel-in"><p>Houston <span class="blue">Line 1</span></p></div>
-
-          <div id="rohstoffe-recipe">
-            <span class="recipe-title">Recipe</span><br />
-            <span class="recipe-number">A</span> <!-- Nur A, B oder C -->
-
-            <div class="recipe-next">Next 2</div>
-            <!--<div class="recipe-scale"></div>-->
-          </div>
-
-          <!-- Rohstoff Übersicht 1-->
-          <div class="rohstoffe-fuellstaende-uebersicht" id="rohstoff-fuellstand-0">
-            <div class="rohstoffe-fuellstoff-01 rohstoffe-fuellstand-container">
-              <div class="knob"></div>
-              <div class="rohstoffe-text">
-                <h3 class="rohstoffe-title">Polyethylene</h3>
-                <p class="rohstoffe-subtitle">PE</p>
-              </div>
-              <div class="rohstoffe-values">
-                <h3 class="rohstoffe-percent">67%</h3>
-                <p class="rohstoffe-value">1675 kg/h</p>
-              </div>
-            </div>
-          </div>
-          <!-- Ende Rohstoff Übersicht 1 -->
-
-          <!-- Rohstoff Übersicht 2-->
-          <div class="rohstoffe-fuellstaende-uebersicht" id="rohstoff-fuellstand-1">
-            <div class="rohstoffe-fuellstoff-02 rohstoffe-fuellstand-container">
-              <div class="knob"></div>
-              <div class="rohstoffe-text">
-                <h3 class="rohstoffe-title">Additives</h3>
-                <p class="rohstoffe-subtitle">Additive (Powder) + Yellow (Pellets)</p>
-              </div>
-              <div class="rohstoffe-values">
-                <h3 class="rohstoffe-percent">67%</h3>
-                <p class="rohstoffe-value">1675 kg/h</p>
-              </div>
-            </div>
-          </div>
-          <!-- Ende Rohstoff Übersicht 2 -->
-          <!-- Rohstoff Übersicht 1-->
-          <div class="rohstoffe-fuellstaende-uebersicht" id="rohstoff-fuellstand-2">
-            <div class="rohstoffe-fuellstoff-03 rohstoffe-fuellstand-container">
-              <div class="knob"></div>
-              <div class="rohstoffe-text">
-                <h3 class="rohstoffe-title">Filler</h3>
-                <p class="rohstoffe-subtitle">CaCO3</p>
-              </div>
-              <div class="rohstoffe-values">
-                <h3 class="rohstoffe-percent">67%</h3>
-                <p class="rohstoffe-value">1675 kg/h</p>
-              </div>
-            </div>
-          </div>
-          <!-- Ende Rohstoff Übersicht 1 -->
-
-        </div>
-
-        <!-- Upstream -->
-        <div id="upstream">
-          <div id="second-row-upstream-rohstoffe">
-            <ul class="second-row-navigation">
-              <li><a id="silo-1-link" href="#silo-1"><span>Silo 1</span></a></li>
-              <li><a id="silo-2-link" href="#silo-2"><span>Silo 2</span></a></li>
-              <li><a id="bigbag-link" href="#bigbag"><span>Big Bag</span></a></li>
-            </ul>
-
-            <div id="silo-1" data-component-id="0">
-              <div class="sensoren-titel-in"><p>Silo 1</p></div>
-              <table class="rohstoffe-fuellstaende">
-                <tr class="rohstoffe-title">
-                  <td>Material</td>
-                  <td>Quantity</td>
-                  <td>Material code</td>
-                  <td>Batch number</td>
-                  <td>Order number</td>
-                </tr>
-              </table>
-            </div>
-
-            <div id="silo-2" data-component-id="2">
-              <div class="sensoren-titel-in"><p>Silo 2</p></div>
-              <table class="rohstoffe-fuellstaende">
-                <tr class="rohstoffe-title">
-                  <td>Material</td>
-                  <td>Quantity</td>
-                  <td>Material code</td>
-                  <td>Batch number</td>
-                  <td>Order number</td>
-                </tr>
-              </table>
-            </div>
-
-            <div id="bigbag" data-component-id="14">
-              <div class="sensoren-titel-in"><p>Big Bag</p></div>
-              <table class="rohstoffe-fuellstaende">
-                <tr class="rohstoffe-title">
-                  <td>Material</td>
-                  <td>Quantity</td>
-                  <td>Material code</td>
-                  <td>Batch number</td>
-                  <td>Order number</td>
-                </tr>
-              </table>
-            </div>
-
-          </div>
-        </div>
-
-        <!-- Compounding -->
-        <div id="compounding">
-          <div id="second-row-compounding-rohstoffe">
-            <ul class="second-row-navigation scroll">
-              <li><a id="tagessilo-1-link" href="#tagessilo-1"><span>Day silo 1</span></a></li>
-              <li><a id="dosierer-1-r-link" href="#dosierer-1-r"><span>Doser 1</span></a></li>
-              <li><a id="tagessilo-2-link" href="#tagessilo-2"><span>Day silo 2</span></a></li>
-              <li><a id="dosierer-2-r-link" href="#dosierer-2-r"><span>Doser 2</span></a></li>
-              <li><a id="hopper-link" href="#hopper"><span>Hopper</span></a></li>
-              <li><a id="dosierer-3-r-link" href="#dosierer-3-r"><span>Doser 3</span></a></li>
-              <li><a id="bigbag2-link" href="#bigbag2"><span>Big Bag 2</span></a></li>
-              <li><a id="dosierer-4-r-link" href="#dosierer-4-r"><span>Doser 4</span></a></li>
-              <li><a id="tagessilo-3-link" href="#tagessilo-3"><span>Day silo 3</span></a></li>
-              <li><a id="dosierer-5-r-link" href="#dosierer-5-r"><span>Doser 5</span></a></li>
-            </ul>
-
-            <div id="tagessilo-1" data-component-id="8">
-              <div class="sensoren-titel-in"><p>Tagessilo 1</p></div>
-              <table class="rohstoffe-fuellstaende">
-                <tr class="rohstoffe-title">
-                  <td>Material</td>
-                  <td>Quantity</td>
-                  <td>Material code</td>
-                  <td>Batch number</td>
-                  <td>Order number</td>
-                </tr>
-              </table>
-            </div>
-
-            <div id="dosierer-1-r" data-component-id="9">
-              <div class="sensoren-titel-in"><p>Dosierer 1</p></div>
-              <table class="rohstoffe-fuellstaende">
-                <tr class="rohstoffe-title">
-                  <td>Material</td>
-                  <td>Quantity</td>
-                  <td>Material code</td>
-                  <td>Batch number</td>
-                  <td>Order number</td>
-                </tr>
-              </table>
-            </div>
-
-            <div id="tagessilo-2" data-component-id="10">
-              <div class="sensoren-titel-in"><p>Tagessilo 2</p></div>
-              <table class="rohstoffe-fuellstaende">
-                <tr class="rohstoffe-title">
-                  <td>Material</td>
-                  <td>Quantity</td>
-                  <td>Material code</td>
-                  <td>Batch number</td>
-                  <td>Order number</td>
-                </tr>
-              </table>
-            </div>
-
-            <div id="dosierer-2-r" data-component-id="11">
-              <div class="sensoren-titel-in"><p>Dosierer 2</p></div>
-              <table class="rohstoffe-fuellstaende">
-                <tr class="rohstoffe-title">
-                  <td>Material</td>
-                  <td>Quantity</td>
-                  <td>Material code</td>
-                  <td>Batch number</td>
-                  <td>Order number</td>
-                </tr>
-              </table>
-
-            </div>
-
-            <div id="hopper" data-component-id="12">
-              <div class="sensoren-titel-in"><p>Hopper</p></div>
-              <table class="rohstoffe-fuellstaende">
-                <tr class="rohstoffe-title">
-                  <td>Material</td>
-                  <td>Quantity</td>
-                  <td>Material code</td>
-                  <td>Batch number</td>
-                  <td>Order number</td>
-                </tr>
-              </table>
-            </div>
-
-            <div id="dosierer-3-r" data-component-id="13">
-              <div class="sensoren-titel-in"><p>Dosierer 3</p></div>
-              <table class="rohstoffe-fuellstaende">
-                <tr class="rohstoffe-title">
-                  <td>Material</td>
-                  <td>Quantity</td>
-                  <td>Material code</td>
-                  <td>Batch number</td>
-                  <td>Order number</td>
-                </tr>
-              </table>
-
-            </div>
-
-            <div id="bigbag2" data-component-id="14">
-              <div class="sensoren-titel-in"><p>Big Bag 2</p></div>
-              <table class="rohstoffe-fuellstaende">
-                <tr class="rohstoffe-title">
-                  <td>Material</td>
-                  <td>Quantity</td>
-                  <td>Material code</td>
-                  <td>Batch number</td>
-                  <td>Order number</td>
-                </tr>
-              </table>
-            </div>
-
-            <div id="dosierer-4-r" data-component-id="15">
-              <div class="sensoren-titel-in"><p>Dosierer 4</p></div>
-              <table class="rohstoffe-fuellstaende">
-                <tr class="rohstoffe-title">
-                  <td>Material</td>
-                  <td>Quantity</td>
-                  <td>Material code</td>
-                  <td>Batch number</td>
-                  <td>Order number</td>
-                </tr>
-              </table>
-            </div>
-
-            <div id="tagessilo-3" data-component-id="16">
-              <div class="sensoren-titel-in"><p>Tagessilo 3</p></div>
-              <table class="rohstoffe-fuellstaende">
-                <tr class="rohstoffe-title">
-                  <td>Material</td>
-                  <td>Quantity</td>
-                  <td>Material code</td>
-                  <td>Batch number</td>
-                  <td>Order number</td>
-                </tr>
-              </table>
-            </div>
-
-            <div id="dosierer-5-r" data-component-id="17">
-              <div class="sensoren-titel-in"><p>Dosierer 5</p></div>
-              <table class="rohstoffe-fuellstaende">
-                <tr class="rohstoffe-title">
-                  <td>Material</td>
-                  <td>Quantity</td>
-                  <td>Material code</td>
-                  <td>Batch number</td>
-                  <td>Order number</td>
-                </tr>
-              </table>
-            </div>
-
-          </div>
-        </div>
-
-        <!-- Downstream -->
-        <div id="downstream">
-          <div id="second-row-downstream-rohstoffe">
-            <ul class="second-row-navigation">
-              <li><a id="silo-3-link" href="#silo-3"><span>Silo 3</span></a></li>
-              <li><a id="wzk-r-link" href="#wzk-r"><span>WZK</span></a></li>
-              <li><a id="ibp-r-link" href="#ibp250-r"><span>IBP250</span></a></li>
-              <li><a id="silo-4-link" href="#silo-4"><span>Silo 4</span></a></li>
-              <li><a id="silo-5-link" href="#silo-5"><span>Silo 5</span></a></li>
-              <li><a id="silo-6-link" href="#silo-6"><span>Silo 6</span></a></li>
-              <li><a id="silo-7-link" href="#silo-7"><span>Silo 7</span></a></li>
-              <li><a id="silo-8-link" href="#silo-8"><span>Silo 8</span></a></li>
-              <!--
-              <li><a id="wet-link" href="#silo-9"><span>Silo 9</span></a></li>
-              <li><a id="wet-link" href="#silo-10"><span>Silo 10</span></a></li>
-              <li><a id="wet-link" href="#silo-11"><span>Silo 11</span></a></li>
-              <li><a id="wet-link" href="#silo-12"><span>Silo 12</span></a></li>
-            -->
-            </ul>
-
-            <div id="silo-3" data-component-id="28">
-              <div class="sensoren-titel-in"><p>Silo 3</p></div>
-              <table class="rohstoffe-fuellstaende">
-                <tr class="rohstoffe-title">
-                  <td>Material</td>
-                  <td>Quantity</td>
-                  <td>Material code</td>
-                  <td>Batch number</td>
-                  <td>Order number</td>
-                </tr>
-              </table>
-            </div>
-
-            <div id="wzk-r" data-component-id="26">
-              <div class="sensoren-titel-in"><p>WZK</p></div>
-              <table class="rohstoffe-fuellstaende">
-                <tr class="rohstoffe-title">
-                  <td>Material</td>
-                  <td>Quantity</td>
-                  <td>Material code</td>
-                  <td>Batch number</td>
-                  <td>Order number</td>
-                </tr>
-              </table>
-            </div>
-
-            <div id="ibp250-r" data-component-id="30">
-              <div class="sensoren-titel-in"><p>IBP 250</p></div>
-              <table class="rohstoffe-fuellstaende">
-                <tr class="rohstoffe-title">
-                  <td>Material</td>
-                  <td>Quantity</td>
-                  <td>Material code</td>
-                  <td>Batch number</td>
-                  <td>Order number</td>
-                </tr>
-              </table>
-            </div>
-
-            <div id="silo-4" data-component-id="29">
-              <div class="sensoren-titel-in"><p>Silo 4</p></div>
-              <table class="rohstoffe-fuellstaende">
-                <tr class="rohstoffe-title">
-                  <td>Material</td>
-                  <td>Quantity</td>
-                  <td>Material code</td>
-                  <td>Batch number</td>
-                  <td>Order number</td>
-                </tr>
-              </table>
-            </div>
-
-            <div id="silo-5" data-component-id="32">
-              <div class="sensoren-titel-in"><p>Silo 5</p></div>
-              <table class="rohstoffe-fuellstaende">
-                <tr class="rohstoffe-title">
-                  <td>Material</td>
-                  <td>Quantity</td>
-                  <td>Material code</td>
-                  <td>Batch number</td>
-                  <td>Order number</td>
-                </tr>
-              </table>
-            </div>
-
-            <div id="silo-6" data-component-id="33">
-              <div class="sensoren-titel-in"><p>Silo 6</p></div>
-              <table class="rohstoffe-fuellstaende">
-                <tr class="rohstoffe-title">
-                  <td>Material</td>
-                  <td>Quantity</td>
-                  <td>Material code</td>
-                  <td>Batch number</td>
-                  <td>Order number</td>
-                </tr>
-              </table>
-            </div>
-
-            <div id="silo-7" data-component-id="34">
-              <div class="sensoren-titel-in"><p>Silo 7</p></div>
-              <table class="rohstoffe-fuellstaende">
-                <tr class="rohstoffe-title">
-                  <td>Material</td>
-                  <td>Quantity</td>
-                  <td>Material code</td>
-                  <td>Batch number</td>
-                  <td>Order number</td>
-                </tr>
-              </table>
-            </div>
-
-            <div id="silo-8" data-component-id="35">
-              <div class="sensoren-titel-in"><p>Silo 8</p></div>
-              <table class="rohstoffe-fuellstaende">
-                <tr class="rohstoffe-title">
-                  <td>Material</td>
-                  <td>Quantity</td>
-                  <td>Material code</td>
-                  <td>Batch number</td>
-                  <td>Order number</td>
-                </tr>
-              </table>
-            </div>
-
-            <!--
-            <div id="silo-9">
-              <div class="sensoren-titel-in"><p>Silo 9</p></div>
-              <img class="rohstoff-dummy" src="img/rohstoffe-1.jpg" />
-            </div>
-
-            <div id="silo-10">
-              <div class="sensoren-titel-in"><p>Silo 10</p></div>
-              <img class="rohstoff-dummy" src="img/rohstoffe-1.jpg" />
-            </div>
-
-            <div id="silo-11">
-              <div class="sensoren-titel-in"><p>Silo 11</p></div>
-              <img class="rohstoff-dummy" src="img/rohstoffe-1.jpg" />
-            </div>
-
-            <div id="silo-12">
-              <div class="sensoren-titel-in"><p>Silo 12</p></div>
-              <img class="rohstoff-dummy" src="img/rohstoffe-1.jpg" />
-            </div>
-            -->
-          </div>
-        </div>
-
-      </div>
-      </div>
-
-      <!-- Timeline -->
-      <div id="raw-material-timeline">
-        <div id="timeline-timespan-options">
-        </div>
-        <button id="timeline-timespan-selected">
-        </button>
-      </div>
-
-    </div>
+		<!-- Header Bereich -->
+		<div id="header">
+			<div class="left">
+				<div class="hiddenEvents">
+					<img src="img/coperion_logo.png" width="180">
+					<div class="hiddenError"></div>
+					<div class="hiddenMaintenance"></div>
+				</div>
+			</div>
+			<div class="navigation">
+				<div id="dd" class="change-app" tabindex="1">
+					<span>Sensoring</span>
+					<ul class="dropdown">
+						<li class="give"><a href="#">Sensoring</a></li>
+						<li><a href="#">Material Tracking</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="right">
+				<img id="exitBtn" src="img/Exit_Icon.png">
+			</div>
+		</div>
+
+		<!-- Switch zwischen 2D und 3D -->
+		<div id="toggle-switch">
+			<fieldset>
+				<div data-role="fieldcontain">
+					<select id="select-based-flipswitch" data-role="flipswitch" data-mini="true">
+						<option value="3d"></option>
+						<option value="2d"></option>
+					</select>
+				</div>
+			</fieldset>
+		</div>
+
+
+		<div id="app-tab1" class="app-tab active">
+
+			<!-- Anlagen-Bild -->
+			<div id="page">
+				<div class="anlagen-fade"></div>
+				<div id="anlagen-wrapper">
+
+					<div class="anlagen-bild">
+						<div id="anlage-ansicht-3d">
+							<img class="ansicht-3d" data-src="img/anlage/anlage-3d-01.png" />
+							<img class="ansicht-3d" data-src="img/anlage/anlage-3d-02.png" />
+							<img class="ansicht-3d" data-src="img/anlage/anlage-3d-03.png" />
+							<img class="ansicht-3d" data-src="img/anlage/anlage-3d-04.png" />
+							<img class="ansicht-3d" data-src="img/anlage/anlage-3d-05.png" />
+					 	</div>
+
+						<div id="three-di-view">
+							<img class="three-di" data-src="img/anlage/anlage-2d-01.png">
+							<img class="three-di" data-src="img/anlage/anlage-2d-02.png">
+							<img class="three-di" data-src="img/anlage/anlage-2d-03.png">
+							<img class="three-di" data-src="img/anlage/anlage-2d-04.png">
+							<img class="three-di" data-src="img/anlage/anlage-2d-05.png">
+						</div>
+
+							<!-- Links innerhalb von Upstream -->
+							<!--<ul id='rawMaterials'>
+							</ul>-->
+							<div id="upstream-links">
+								<ul>
+									<li id="filter-1-point" class="auswahl-punkt"><span class="number">1</span></li>
+									<li id="ati-point" class="auswahl-punkt"><span class="number">2</span></li>
+									<li id="zxd-point" class="auswahl-punkt"><span class="number">3</span></li>
+									<li id="hfs-point" class="auswahl-punkt"><span class="number">4</span></li>
+									<li id="zrd-point" class="auswahl-punkt"><span class="number">5</span></li>
+								</ul>
+							</div>
+
+							<!-- Links innerhalb von Upstream -->
+							<div id="compounding-links">
+								<ul>
+									<li id="dosierer-1-point" class="auswahl-punkt"><span class="number">6</span></li>
+									<li id="dosierer-2-point" class="auswahl-punkt"><span class="number">7</span></li>
+									<li id="dosierer-3-point" class="auswahl-punkt"><span class="number">8</span></li>
+									<li id="dosierer-4-point" class="auswahl-punkt"><span class="number">9</span></li>
+									<li id="dosierer-5-point" class="auswahl-punkt"><span class="number">10</span></li>
+									<li id="zsk-point" class="auswahl-punkt"><span class="number">11</span></li>
+									<li id="zsb-point" class="auswahl-punkt"><span class="number">12</span></li>
+									<li id="zs_eg-point" class="auswahl-punkt"><span class="number">13</span></li>
+									<li id="ssd-point" class="auswahl-punkt"><span class="number">14</span></li>
+									<li id="sp500-point" class="auswahl-punkt"><span class="number">15</span></li>
+									<li id="zvb-point" class="auswahl-punkt"><span class="number">16</span></li>
+									<li id="screener-point" class="auswahl-punkt"><span class="number">17</span></li>
+								</ul>
+							</div>
+
+							<!-- Links Downstream -->
+							<div id="downstream-links">
+								<ul>
+									<li id="bxc-point" class="auswahl-punkt"><span class="number">18</span></li>
+									<li id="wzk-point" class="auswahl-punkt"><span class="number">19</span></li>
+									<li id="ibp250-point" class="auswahl-punkt"><span class="number">20</span></li>
+									<li id="wet-point" class="auswahl-punkt"><span class="number">21</span></li>
+								</ul>
+							</div>
+
+					</div>
+				</div>
+			<div id="first-row">
+				<ul id="sensoren-hauptnavi">
+					<li id="full-link"><a href="#full"><span></span></a></li>
+					<li id="upstream-link"><a href="#upstream">Raw materials<span class="upstream-arrow"></span></a></li>
+					<li id="compounding-link"><a href="#compounding">Compounding<span class="compounding-arrow"></span></a></li>
+					<li id="downstream-link"><a href="#downstream">Finished products<span class="downstream-arrow"></span></a></li>
+				</ul>
+
+				<!-- Fullview -->
+				<div id="full">
+					<div class="sensoren-titel-in"><p>Houston <span class="blue">Line 1</span></p></div>
+					<div id="sensoring-full-durchsatz" class="graph dummy-1"><p class="graph-title">Durchsatz <span class="blue">kg/h</span></p></div>
+					<div id="sensoring-full-energieverbrauch" class="graph dummy-1"><p class="graph-title">Energieverbrauch <span class="blue">kWh/h</span></p></div>
+					<div id="sensoring-full-drehmoment" class="graph dummy-1"><p class="graph-title">Drehmoment <span class="blue">mm/s</span></p></div>
+				</div>
+
+				<!-- Upstream -->
+				<div id="upstream">
+					<div id="second-row-upstream">
+						<ul class="second-row-navigation">
+							<li class="hidden"><a id="foerderdruck-link-1" href="#foerderdruck-1">Special Link Hidden</a></li>
+							<li><a id="filter-1-link" href="#filter-1"><span>Filter</span></a></li>
+							<li><a id="ati-link" href="#ati"><span>ATI</span></a></li>
+							<li><a id="zxd-link" href="#zxd"><span>ZXD</span></a></li>
+							<li><a id="hfs-link" href="#hfs"><span>HFS</span></a></li>
+							<li><a id="zrd-link" href="#zrd"><span>ZRD</span></a></li>
+						</ul>
+						<div id="foerderdruck-1">
+							<div class="sensoren-titel-in"><p>Feed Pressure</p></div>
+							<div id="foerderdruck-1-graph" class="graph chart-big"><p class="graph-title">Feed Pressure <span class="blue">werte 1</span></p></div>
+						</div>
+
+						<div id="filter-1">
+							<div class="sensoren-titel-in"><p>Filter 1</p></div>
+							<div id="filter-1-graph" class="graph dummy-2"><p class="graph-title">Filter <span class="blue">werte</span></p></div>
+
+							<!--- Anfang Infobox -->
+							<div class="komponenten-infobox zsk-infobox">
+								<h3 class="komponenten-titel"><span class="komponenten-strong">Filter</span> <span class="blue"></span></h3>
+								<p class="komponenten-id">
+									<span class="product-id"><span class="komponenten-strong">Product ID</span> 12345678</span>
+									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 12.12.09</span>
+								</p>
+								<p class="komponenten-information">
+									<span class="komponenten-strong">Component Information</span><br />
+									Coperion filters have a variable separating efficiency to suite the job. Process, aspiration, bin vent or silo filters with pulse-jet cleaning system for high concentrations of dust.
+								</p>
+								<div class="komponenten-bottom">
+									<div class="komponenten-maintenance grey-box">
+										<p>
+											<span class="komponenten-strong">Maintenance Schedule</span></br />
+											<span class="blue">NEXT Wed 18.01.2017</span><br />
+											<span class="past-maintenance">LAST Mon 11.04.2017</span>
+										</p>
+									</div>
+									<div class="komponenten-maintenance blue-box">
+										<p>
+											<span class="komponenten-strong">Contact</span></br />
+											<span class="blue">John Doe</span><br />
+											<span class="past-maintenance">Department 20021</span>
+										</p>
+									</div>
+									<div class="komponenten-maintenance blue-box">
+										<p>
+											<span class="komponenten-strong">Contact Coperion</span></br />
+											<span class="blue">Matt Pattemrrd</span><br />
+											<span class="past-maintenance">Department 20021</span>
+										</p>
+									</div>
+									<div class="clear"></div>
+									<div class="kompontenten-replacement">
+										<span class="komponenten-strong left">Get replacement parts at <span class="blue">MyCoperion</span></span>
+										<span class="komponenten-order-button">Order</span>
+									</div>
+								</div>
+							</div>
+							<!-- Ende Infobox -->
+
+						</div>
+
+						<div id="ati">
+							<div class="sensoren-titel-in"><p>ATI</p></div>
+							<div id="ati-chart" class="graph dummy-2"><p class="graph-title">ATI <span class="blue">off</span></p></div>
+							<!--- Anfang Infobox -->
+
+							<div class="komponenten-infobox ati-infobox">
+								<h3 class="komponenten-titel"><span class="komponenten-strong">ATI</span> <span class="blue"></span></h3>
+								<p class="komponenten-id">
+									<span class="product-id"><span class="komponenten-strong">Product ID</span> 12345678</span>
+									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 12.12.09</span>
+								</p>
+								<p class="komponenten-information">
+									<span class="komponenten-strong">Component Information</span><br />
+									Suitable for fluidizable products like fillers and titanium dioxide. Available for silo diameters from 1 to 5 meters.
+
+
+								</p>
+								<div class="komponenten-bottom">
+									<div class="komponenten-maintenance grey-box">
+										<p>
+											<span class="komponenten-strong">Maintenance Schedule</span></br />
+											<span class="blue">NEXT Wed 18.01.2017</span><br />
+											<span class="past-maintenance">LAST Mon 11.04.2017</span>
+										</p>
+									</div>
+									<div class="komponenten-maintenance blue-box">
+										<p>
+											<span class="komponenten-strong">Contact</span></br />
+											<span class="blue">John Doe</span><br />
+											<span class="past-maintenance">Department 20021</span>
+										</p>
+									</div>
+									<div class="komponenten-maintenance blue-box">
+										<p>
+											<span class="komponenten-strong">Contact Coperion</span></br />
+											<span class="blue">Matt Pattemrrd</span><br />
+											<span class="past-maintenance">Department 20021</span>
+										</p>
+									</div>
+									<div class="clear"></div>
+									<div class="kompontenten-replacement">
+										<span class="komponenten-strong left">Get replacement parts at <span class="blue">MyCoperion</span></span>
+										<span class="komponenten-order-button">Order</span>
+									</div>
+								</div>
+							</div>
+
+							<!-- Ende Infobox -->
+						</div>
+
+						<div id="zxd">
+							<div class="sensoren-titel-in"><p>ZXD</p></div>
+							<div id="zxd-graph" class="graph dummy-2"><p class="graph-title">ZXD <span class="blue">off</span></p></div>
+
+							<!--- Anfang Infobox -->
+
+							<div class="komponenten-infobox zxd-infobox">
+								<h3 class="komponenten-titel"><span class="komponenten-strong">ZXD 250</span> <span class="blue">Rotary Valve for Powder</span></h3>
+								<p class="komponenten-id">
+									<span class="product-id"><span class="komponenten-strong">Product ID</span> 12345678</span>
+									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 12.12.09</span>
+								</p>
+								<p class="komponenten-information">
+									<span class="komponenten-strong">Component Information</span><br />
+									Large inlet for high capacities. For feeding bulk materials into pneumatic conveying
+									systems at up to 1.5 barg (21psi). Powder with bulk density 1000kg/m³ and d50 > 150 µm, ∆p = 0.8 bar.
+
+								</p>
+								<div class="komponenten-bottom">
+									<div class="komponenten-maintenance grey-box">
+										<p>
+											<span class="komponenten-strong">Maintenance Schedule</span></br />
+											<span class="blue">NEXT Wed 18.01.2017</span><br />
+											<span class="past-maintenance">LAST Mon 11.04.2017</span>
+										</p>
+									</div>
+									<div class="komponenten-maintenance blue-box">
+										<p>
+											<span class="komponenten-strong">Contact</span></br />
+											<span class="blue">John Doe</span><br />
+											<span class="past-maintenance">Department 20021</span>
+										</p>
+									</div>
+									<div class="komponenten-maintenance blue-box">
+										<p>
+											<span class="komponenten-strong">Contact Coperion</span></br />
+											<span class="blue">Matt Pattemrrd</span><br />
+											<span class="past-maintenance">Department 20021</span>
+										</p>
+									</div>
+									<div class="clear"></div>
+									<div class="kompontenten-replacement">
+										<span class="komponenten-strong left">Get replacement parts at <span class="blue">MyCoperion</span></span>
+										<span class="komponenten-order-button">Order</span>
+									</div>
+								</div>
+							</div>
+
+							<!-- Ende Infobox -->
+
+						</div>
+
+						<div id="hfs">
+							<div class="sensoren-titel-in"><p>HFS</p></div>
+							<div id="hfs-graph" class="graph dummy-2"><p class="graph-title">HFS <span class="blue">off</span></p></div>
+
+							<!--- Anfang Infobox -->
+							<div class="komponenten-infobox">
+								<h3 class="komponenten-titel"><span class="komponenten-strong">HFS</span> <span class="blue">Horizontal Fluidbed Separator</span></h3>
+								<p class="komponenten-id">
+									<span class="product-id"><span class="komponenten-strong">Product ID</span> 12345678</span>
+									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 12.12.09</span>
+								</p>
+								<p class="komponenten-information">
+									<span class="komponenten-strong">Component Information</span><br />
+									Optimal solution for efficient pellet cleaning. With the fluidbed separators it is possible to clean thoroughly and effectively even the most difficult of products, such as brittle, fragile or rubbery bulk materials.
+								</p>
+								<div class="komponenten-bottom">
+									<div class="komponenten-maintenance grey-box">
+										<p>
+											<span class="komponenten-strong">Maintenance Schedule</span></br />
+											<span class="blue">NEXT Wed 18.01.2017</span><br />
+											<span class="past-maintenance">LAST Mon 11.04.2017</span>
+										</p>
+									</div>
+									<div class="komponenten-maintenance blue-box">
+										<p>
+											<span class="komponenten-strong">Contact</span></br />
+											<span class="blue">John Doe</span><br />
+											<span class="past-maintenance">Department 20021</span>
+										</p>
+									</div>
+									<div class="komponenten-maintenance blue-box">
+										<p>
+											<span class="komponenten-strong">Contact Coperion</span></br />
+											<span class="blue">Matt Pattemrrd</span><br />
+											<span class="past-maintenance">Department 20021</span>
+										</p>
+									</div>
+									<div class="clear"></div>
+									<div class="kompontenten-replacement">
+										<span class="komponenten-strong left">Get replacement parts at <span class="blue">MyCoperion</span></span>
+										<span class="komponenten-order-button">Order</span>
+									</div>
+								</div>
+							</div>
+							<!-- Ende Infobox -->
+
+						</div>
+
+						<div id="zrd">
+							<div class="sensoren-titel-in"><p>ZRD</p></div>
+							<div id="zrd-chart" class="graph dummy-2"><p class="graph-title">ZRD <span class="blue">off</span></p></div>
+
+							<!--- Anfang Infobox -->
+							<div class="komponenten-infobox">
+								<h3 class="komponenten-titel"><span class="komponenten-strong">ZRD</span> <span class="blue">Rotary Valve</span></h3>
+								<p class="komponenten-id">
+									<span class="product-id"><span class="komponenten-strong">Product ID</span> 12345678</span>
+									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 12.12.09</span>
+								</p>
+								<p class="komponenten-information">
+									<span class="komponenten-strong">Component Information</span><br />
+									Large inlet for high capacities. With feeding shoe also suitable for feeding bulk materials
+									into pneumatic conveying systems at up to 1.5 barg (21psi). Operation possible without
+									leakage gas venting.
+								</p>
+								<div class="komponenten-bottom">
+									<div class="komponenten-maintenance grey-box">
+										<p>
+											<span class="komponenten-strong">Maintenance Schedule</span></br />
+											<span class="blue">NEXT Wed 18.01.2017</span><br />
+											<span class="past-maintenance">LAST Mon 11.04.2017</span>
+										</p>
+									</div>
+									<div class="komponenten-maintenance blue-box">
+										<p>
+											<span class="komponenten-strong">Contact</span></br />
+											<span class="blue">John Doe</span><br />
+											<span class="past-maintenance">Department 20021</span>
+										</p>
+									</div>
+									<div class="komponenten-maintenance blue-box">
+										<p>
+											<span class="komponenten-strong">Contact Coperion</span></br />
+											<span class="blue">Matt Pattemrrd</span><br />
+											<span class="past-maintenance">Department 20021</span>
+										</p>
+									</div>
+									<div class="clear"></div>
+									<div class="kompontenten-replacement">
+										<span class="komponenten-strong left">Get replacement parts at <span class="blue">MyCoperion</span></span>
+										<span class="komponenten-order-button">Order</span>
+									</div>
+								</div>
+							</div>
+							<!-- Ende Infobox -->
+
+						</div>
+
+					</div>
+				</div>
+
+				<!-- Compounding -->
+				<div id="compounding">
+					<div id="second-row-compounding">
+						<ul class="second-row-navigation scroll">
+							<li class="hidden"><a id="foerderdruck-link-2" href="#foerderdruck-2">Special Link Hidden</a></li>
+							<li><a id="dosierer-1-link" href="#dosierer-1"><span>Feeder 1</span></a></li>
+							<li><a id="dosierer-2-link" href="#dosierer-2"><span>Feeder 2</span></a></li>
+							<li><a id="dosierer-3-link" href="#dosierer-3"><span>Feeder 3</span></a></li>
+							<li><a id="dosierer-4-link" href="#dosierer-4"><span>Feeder 4</span></a></li>
+							<li><a id="dosierer-5-link" href="#dosierer-5"><span>Feeder 5</span></a></li>
+							<li><a id="zsk-link" href="#zsk"><span>ZSK</span></a></li>
+							<li><a id="zsb-link" href="#zsb"><span>ZSB</span></a></li>
+							<li><a id="zs_eg-link" href="#zs_eg"><span>ZS_EG</span></a></li>
+							<li><a id="ssd-link" href="#ssd"><span>ASC</span></a></li>
+							<li><a id="sp-link" href="#sp500"><span>SP 500</span></a></li>
+							<li><a id="zvb-link" href="#zvb"><span>ZVB</span></a></li>
+							<li><a id="screener-link" href="#screener"><span>Screener</span></a></li>
+						</ul>
+						<div id="foerderdruck-2">
+							<div class="sensoren-titel-in"><p>Feed Pressure</p></div>
+							<div id="foerderdruck-2-graph" class="graph chart-big"><p class="graph-title">Feed Pressure <span class="blue">werte 2</span></p></div>
+						</div>
+
+						<div id="dosierer-1">
+							<div class="sensoren-titel-in"><p>Feeder <span class="blue">K-ML-D5-BSP-135</span></p></div>
+							<div id="dosierer-1-chart" class="graph dummy-2"><p class="graph-title">K-ML-D5-BSP-135 <span class="blue">off</span></p></div>
+
+							<!--- Anfang Infobox -->
+							<div class="komponenten-infobox">
+								<h3 class="komponenten-titel"><span class="komponenten-strong">Feeder</span> <span class="blue">K-ML-D5-BSP-135</span></h3>
+								<p class="komponenten-id">
+									<span class="product-id"><span class="komponenten-strong">Product ID</span> 12345678</span>
+									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 12.12.09</span>
+								</p>
+								<p class="komponenten-information">
+									<span class="komponenten-strong">Component Information</span><br />
+									True positive displacement action and linear output over full operating range. Active
+									discharge (minimal residual material), mechanical and maintenance simplicity. Three models
+									with feed rates from 2 to 6700 dm³/hr.
+								</p>
+								<div class="komponenten-bottom">
+									<div class="komponenten-maintenance grey-box">
+										<p>
+											<span class="komponenten-strong">Maintenance Schedule</span></br />
+											<span class="blue">NEXT Wed 18.01.2017</span><br />
+											<span class="past-maintenance">LAST Mon 11.04.2017</span>
+										</p>
+									</div>
+									<div class="komponenten-maintenance blue-box">
+										<p>
+											<span class="komponenten-strong">Contact</span></br />
+											<span class="blue">John Doe</span><br />
+											<span class="past-maintenance">Department 20021</span>
+										</p>
+									</div>
+									<div class="komponenten-maintenance blue-box">
+										<p>
+											<span class="komponenten-strong">Contact Coperion</span></br />
+											<span class="blue">Matt Pattemrrd</span><br />
+											<span class="past-maintenance">Department 20021</span>
+										</p>
+									</div>
+									<div class="clear"></div>
+									<div class="kompontenten-replacement">
+										<span class="komponenten-strong left">Get replacement parts at <span class="blue">MyCoperion</span></span>
+										<span class="komponenten-order-button">Order</span>
+									</div>
+								</div>
+							</div>
+							<!-- Ende Infobox -->
+
+						</div>
+
+						<div id="dosierer-2">
+							<div class="sensoren-titel-in"><p>Feeder <span class="blue">K2-ML-D5-S60</span></p></div>
+							<div id="dosierer-2-graph" class="graph dummy-2"><p class="graph-title">Feeder <span class="blue">werte</span></p></div>
+
+							<!--- Anfang Infobox -->
+							<div class="komponenten-infobox">
+								<h3 class="komponenten-titel"><span class="komponenten-strong">Feeder</span> <span class="blue">K2-ML-D5-S60</span></h3>
+								<p class="komponenten-id">
+									<span class="product-id"><span class="komponenten-strong">Product ID</span> 12345678</span>
+									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 12.12.09</span>
+								</p>
+								<p class="komponenten-information">
+									<span class="komponenten-strong">Component Information</span><br />
+									Modular feeding design and interchangeable feeding tools. Highly accurate scale and
+									controls. All product contact parts made from stainless steel and integrated horizontal agitator for
+									improved material flow. Feed rates from 0.43 to 4500 dm³/hr.
+								</p>
+								<div class="komponenten-bottom">
+									<div class="komponenten-maintenance grey-box">
+										<p>
+											<span class="komponenten-strong">Maintenance Schedule</span></br />
+											<span class="blue">NEXT Wed 18.01.2017</span><br />
+											<span class="past-maintenance">LAST Mon 11.04.2017</span>
+										</p>
+									</div>
+									<div class="komponenten-maintenance blue-box">
+										<p>
+											<span class="komponenten-strong">Contact</span></br />
+											<span class="blue">John Doe</span><br />
+											<span class="past-maintenance">Department 20021</span>
+										</p>
+									</div>
+									<div class="komponenten-maintenance blue-box">
+										<p>
+											<span class="komponenten-strong">Contact Coperion</span></br />
+											<span class="blue">Matt Pattemrrd</span><br />
+											<span class="past-maintenance">Department 20021</span>
+										</p>
+									</div>
+									<div class="clear"></div>
+									<div class="kompontenten-replacement">
+										<span class="komponenten-strong left">Get replacement parts at <span class="blue">MyCoperion</span></span>
+										<span class="komponenten-order-button">Order</span>
+									</div>
+								</div>
+							</div>
+							<!-- Ende Infobox -->
+
+						</div>
+
+						<div id="dosierer-3">
+							<div class="sensoren-titel-in"><p>Feeder <span class="blue">K-ML-D5-KT20</span></p></div>
+							<div id="dosierer-3-graph" class="graph dummy-2"><p class="graph-title">Feeder<span class="blue">werte</span></p></div>
+
+							<!--- Anfang Infobox -->
+							<div class="komponenten-infobox">
+								<h3 class="komponenten-titel"><span class="komponenten-strong">Feeder</span> <span class="blue">K-ML-D5-KT20</span></h3>
+								<p class="komponenten-id">
+									<span class="product-id"><span class="komponenten-strong">Product ID</span> 12345678</span>
+									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 12.12.09</span>
+								</p>
+								<p class="komponenten-information">
+									<span class="komponenten-strong">Component Information</span><br />
+									Modular feeding design and interchangeable feeding tools. Highly accurate scale and
+									controls. All product contact parts made from stainless steel and integrated horizontal agitator for
+									improved material flow. Feed rates from 0.1 to 200 dm³/hr.
+								</p>
+								<div class="komponenten-bottom">
+									<div class="komponenten-maintenance grey-box">
+										<p>
+											<span class="komponenten-strong">Maintenance Schedule</span></br />
+											<span class="blue">NEXT Wed 18.01.2017</span><br />
+											<span class="past-maintenance">LAST Mon 11.04.2017</span>
+										</p>
+									</div>
+									<div class="komponenten-maintenance blue-box">
+										<p>
+											<span class="komponenten-strong">Contact</span></br />
+											<span class="blue">John Doe</span><br />
+											<span class="past-maintenance">Department 20021</span>
+										</p>
+									</div>
+									<div class="komponenten-maintenance blue-box">
+										<p>
+											<span class="komponenten-strong">Contact Coperion</span></br />
+											<span class="blue">Matt Pattemrrd</span><br />
+											<span class="past-maintenance">Department 20021</span>
+										</p>
+									</div>
+									<div class="clear"></div>
+									<div class="kompontenten-replacement">
+										<span class="komponenten-strong left">Get replacement parts at <span class="blue">MyCoperion</span></span>
+										<span class="komponenten-order-button">Order</span>
+									</div>
+								</div>
+							</div>
+							<!-- Ende Infobox -->
+
+						</div>
+
+						<div id="dosierer-4">
+							<div class="sensoren-titel-in"><p>Feeder <span class="blue">K-ML-T60</span></p></div>
+							<div id="dosierer-4-graph" class="graph dummy-2"><p class="graph-title">Component 4 <span class="blue">werte</span></p></div>
+
+							<!--- Anfang Infobox -->
+							<div class="komponenten-infobox">
+								<h3 class="komponenten-titel"><span class="komponenten-strong">Feeder</span> <span class="blue">K2-ML-T60</span></h3>
+								<p class="komponenten-id">
+									<span class="product-id"><span class="komponenten-strong">Product ID</span> 12345678</span>
+									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 12.12.09</span>
+								</p>
+								<p class="komponenten-information">
+									<span class="komponenten-strong">Component Information</span><br />
+									Application: Gravimetric feeding of free flowing to difficult powders (e.g. lumpy, moist or
+									bridge building materials) as well as fibers, flakes and other bulk materials.
+								</p>
+								<div class="komponenten-bottom">
+									<div class="komponenten-maintenance grey-box">
+										<p>
+											<span class="komponenten-strong">Maintenance Schedule</span></br />
+											<span class="blue">NEXT Wed 18.01.2017</span><br />
+											<span class="past-maintenance">LAST Mon 11.04.2017</span>
+										</p>
+									</div>
+									<div class="komponenten-maintenance blue-box">
+										<p>
+											<span class="komponenten-strong">Contact</span></br />
+											<span class="blue">John Doe</span><br />
+											<span class="past-maintenance">Department 20021</span>
+										</p>
+									</div>
+									<div class="komponenten-maintenance blue-box">
+										<p>
+											<span class="komponenten-strong">Contact Coperion</span></br />
+											<span class="blue">Matt Pattemrrd</span><br />
+											<span class="past-maintenance">Department 20021</span>
+										</p>
+									</div>
+									<div class="clear"></div>
+									<div class="kompontenten-replacement">
+										<span class="komponenten-strong left">Get replacement parts at <span class="blue">MyCoperion</span></span>
+										<span class="komponenten-order-button">Order</span>
+									</div>
+								</div>
+							</div>
+							<!-- Ende Infobox -->
+
+						</div>
+
+						<div id="dosierer-5">
+							<div class="sensoren-titel-in"><p>Feeder <span class="blue">K-ML-KV3-F</span></p></div>
+							<div id="dosierer-5-chart" class="graph dummy-2"><p class="graph-title">K-ML-KV3-F <span class="blue">off</span></p></div>
+
+							<!--- Anfang Infobox -->
+							<div class="komponenten-infobox">
+								<h3 class="komponenten-titel"><span class="komponenten-strong">Feeder</span> <span class="blue">K-ML-KV3-F</span></h3>
+								<p class="komponenten-id">
+									<span class="product-id"><span class="komponenten-strong">Product ID</span> 12345678</span>
+									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 12.12.09</span>
+								</p>
+								<p class="komponenten-information">
+									<span class="komponenten-strong">Component Information</span><br />
+									Application: Gravimetric feeding of fibers. Especially suited for the feeding of glass fibers with length of 3 to 6 mm
+								</p>
+								<div class="komponenten-bottom">
+									<div class="komponenten-maintenance grey-box">
+										<p>
+											<span class="komponenten-strong">Maintenance Schedule</span></br />
+											<span class="blue">NEXT Wed 18.01.2017</span><br />
+											<span class="past-maintenance">LAST Mon 11.04.2017</span>
+										</p>
+									</div>
+									<div class="komponenten-maintenance blue-box">
+										<p>
+											<span class="komponenten-strong">Contact</span></br />
+											<span class="blue">John Doe</span><br />
+											<span class="past-maintenance">Department 20021</span>
+										</p>
+									</div>
+									<div class="komponenten-maintenance blue-box">
+										<p>
+											<span class="komponenten-strong">Contact Coperion</span></br />
+											<span class="blue">Matt Pattemrrd</span><br />
+											<span class="past-maintenance">Department 20021</span>
+										</p>
+									</div>
+									<div class="clear"></div>
+									<div class="kompontenten-replacement">
+										<span class="komponenten-strong left">Get replacement parts at <span class="blue">MyCoperion</span></span>
+										<span class="komponenten-order-button">Order</span>
+									</div>
+								</div>
+							</div>
+							<!-- Ende Infobox -->
+
+
+						</div>
+
+						<div id="zsk">
+							<div class="sensoren-titel-in"><p>ZSK</p></div>
+							<div class="more-graphs">
+								<div id="zsk-graph-01" class="graph graph-thin"><p class="graph-title">ZSK <span class="blue">werte</span></p></div>
+								<div id="zsk-graph-02" class="graph graph-thin"><p class="graph-title">ZSK <span class="blue">werte</span></p></div>
+								<div id="zsk-graph-03" class="graph graph-thin"><p class="graph-title">ZSK <span class="blue">werte</span></p></div>
+								<div id="zsk-graph-04" class="graph graph-thin"><p class="graph-title">ZSK <span class="blue">werte</span></p></div>
+							</div>
+							<!--- Anfang Infobox -->
+							<div class="komponenten-infobox zsk-infobox">
+								<h3 class="komponenten-titel"><span class="komponenten-strong">ZSK</span> <span class="blue"></span></h3>
+								<p class="komponenten-id">
+									<span class="product-id"><span class="komponenten-strong">Product ID</span> 12345678</span>
+									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 12.12.09</span>
+								</p>
+								<p class="komponenten-information">
+									<span class="komponenten-strong">Component Information</span><br />
+									Increases in throughput up to 30%. Maximum operating safety up to a vacuum of 50 mBar.
+									Easy handling due to quick-release locks of assembly and disassembly. Maximum efficiency
+									of the compounding plant.
+								</p>
+								<div class="komponenten-bottom">
+									<div class="komponenten-maintenance grey-box">
+										<p>
+											<span class="komponenten-strong">Maintenance Schedule</span></br />
+											<span class="blue">NEXT Wed 18.01.2017</span><br />
+											<span class="past-maintenance">LAST Mon 11.04.2017</span>
+										</p>
+									</div>
+									<div class="komponenten-maintenance blue-box">
+										<p>
+											<span class="komponenten-strong">Contact</span></br />
+											<span class="blue">John Doe</span><br />
+											<span class="past-maintenance">Department 20021</span>
+										</p>
+									</div>
+									<div class="komponenten-maintenance blue-box">
+										<p>
+											<span class="komponenten-strong">Contact Coperion</span></br />
+											<span class="blue">Matt Pattemrrd</span><br />
+											<span class="past-maintenance">Department 20021</span>
+										</p>
+									</div>
+									<div class="clear"></div>
+									<div class="kompontenten-replacement">
+										<span class="komponenten-strong left">Get replacement parts at <span class="blue">MyCoperion</span></span>
+										<span class="komponenten-order-button">Order</span>
+									</div>
+								</div>
+							</div>
+							<!-- Ende Infobox -->
+
+						</div>
+
+						<div id="zsb">
+							<div class="sensoren-titel-in"><p>ZSB</p></div>
+
+							<div class="more-graphs">
+								<div id="zsb-graph-01" class="graph graph-thin"><p class="graph-title">ZSK <span class="blue">werte</span></p></div>
+								<div id="zsb-graph-02" class="graph graph-thin"><p class="graph-title">ZSK <span class="blue">werte</span></p></div>
+								<div id="zsb-graph-03" class="graph graph-thin"><p class="graph-title">ZSK <span class="blue">werte</span></p></div>
+								<div id="zsb-graph-04" class="graph graph-thin"><p class="graph-title">ZSK <span class="blue">werte</span></p></div>
+							</div>
+
+							<!--- Anfang Infobox -->
+							<div class="komponenten-infobox zsk-infobox">
+								<h3 class="komponenten-titel"><span class="komponenten-strong">ZSB</span> <span class="blue"></span></h3>
+								<p class="komponenten-id">
+									<span class="product-id"><span class="komponenten-strong">Product ID</span> 12345678</span>
+									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 12.12.09</span>
+								</p>
+								<p class="komponenten-information">
+									<span class="komponenten-strong">Component Information</span><br />
+									Increases in throughput up to 30%. Maximum operating safety up to a vacuum of 50 mBar.
+									Easy handling due to quick-release locks of assembly and disassembly. Maximum efficiency
+									of the compounding plant.
+								</p>
+								<div class="komponenten-bottom">
+									<div class="komponenten-maintenance grey-box">
+										<p>
+											<span class="komponenten-strong">Maintenance Schedule</span></br />
+											<span class="blue">NEXT Wed 18.01.2017</span><br />
+											<span class="past-maintenance">LAST Mon 11.04.2017</span>
+										</p>
+									</div>
+									<div class="komponenten-maintenance blue-box">
+										<p>
+											<span class="komponenten-strong">Contact</span></br />
+											<span class="blue">John Doe</span><br />
+											<span class="past-maintenance">Department 20021</span>
+										</p>
+									</div>
+									<div class="komponenten-maintenance blue-box">
+										<p>
+											<span class="komponenten-strong">Contact Coperion</span></br />
+											<span class="blue">Matt Pattemrrd</span><br />
+											<span class="past-maintenance">Department 20021</span>
+										</p>
+									</div>
+									<div class="clear"></div>
+									<div class="kompontenten-replacement">
+										<span class="komponenten-strong left">Get replacement parts at <span class="blue">MyCoperion</span></span>
+										<span class="komponenten-order-button">Order</span>
+									</div>
+								</div>
+							</div>
+							<!-- Ende Infobox -->
+
+						</div>
+
+						<div id="zs_eg">
+							<div class="sensoren-titel-in"><p>ZS_EG</p></div>
+
+								<div class="more-graphs">
+									<div id="zs_eg-graph-01" class="graph graph-thin"><p class="graph-title">ZSK <span class="blue">werte</span></p></div>
+									<div id="zs_eg-graph-02" class="graph graph-thin"><p class="graph-title">ZSK <span class="blue">werte</span></p></div>
+									<div id="zs_eg-graph-03" class="graph graph-thin"><p class="graph-title">ZSK <span class="blue">werte</span></p></div>
+									<div id="zs_eg-graph-04" class="graph graph-thin"><p class="graph-title">ZSK <span class="blue">werte</span></p></div>
+								</div>
+
+							<!--- Anfang Infobox -->
+							<div class="komponenten-infobox">
+								<h3 class="komponenten-titel"><span class="komponenten-strong">ZS-EG</span> <span class="blue">Twin screw side degassing</span></h3>
+								<p class="komponenten-id">
+									<span class="product-id"><span class="komponenten-strong">Product ID</span> 12345678</span>
+									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 12.12.09</span>
+								</p>
+								<p class="komponenten-information">
+									<span class="komponenten-strong">Component Information</span><br />
+									The ZS-EG twin screw side degassing from Coperion provides the solution. With its large free cross section for the devolatilization, it keeps the melt in the processing section without product escape even at maximum specific torque of the extruder.
+								</p>
+								<div class="komponenten-bottom">
+									<div class="komponenten-maintenance grey-box">
+										<p>
+											<span class="komponenten-strong">Maintenance Schedule</span></br />
+											<span class="blue">NEXT Wed 18.01.2017</span><br />
+											<span class="past-maintenance">LAST Mon 11.04.2017</span>
+										</p>
+									</div>
+									<div class="komponenten-maintenance blue-box">
+										<p>
+											<span class="komponenten-strong">Contact</span></br />
+											<span class="blue">John Doe</span><br />
+											<span class="past-maintenance">Department 20021</span>
+										</p>
+									</div>
+									<div class="komponenten-maintenance blue-box">
+										<p>
+											<span class="komponenten-strong">Contact Coperion</span></br />
+											<span class="blue">Matt Pattemrrd</span><br />
+											<span class="past-maintenance">Department 20021</span>
+										</p>
+									</div>
+									<div class="clear"></div>
+									<div class="kompontenten-replacement">
+										<span class="komponenten-strong left">Get replacement parts at <span class="blue">MyCoperion</span></span>
+										<span class="komponenten-order-button">Order</span>
+									</div>
+								</div>
+							</div>
+							<!-- Ende Infobox -->
+
+						</div>
+
+						<div id="ssd">
+							<div class="sensoren-titel-in"><p>ASC</p></div>
+
+							<div class="more-graphs">
+								<div id="ssd-graph-01" class="graph graph-thin"><p class="graph-title">ZSK <span class="blue">werte</span></p></div>
+								<div id="ssd-graph-02" class="graph graph-thin"><p class="graph-title">ZSK <span class="blue">werte</span></p></div>
+								<div id="ssd-graph-03" class="graph graph-thin"><p class="graph-title">ZSK <span class="blue">werte</span></p></div>
+								<div id="ssd-graph-04" class="graph graph-thin"><p class="graph-title">ZSK <span class="blue">werte</span></p></div>
+							</div>
+							<!--- Anfang Infobox -->
+							<div class="komponenten-infobox">
+								<h3 class="komponenten-titel"><span class="komponenten-strong">ASC</span> <span class="blue">Automatic Strand Conveying System</span></h3>
+								<p class="komponenten-id">
+									<span class="product-id"><span class="komponenten-strong">Product ID</span> 12345678</span>
+									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 12.12.09</span>
+								</p>
+								<p class="komponenten-information">
+									<span class="komponenten-strong">Component Information</span><br />
+									The ASC ensures fully automatic transfer from die head to pelletizer. The conveying system automatically guides the extruded strands via a cooling water chute and downstream conveyor belt into the feed mechanism of the pelletizer.
+								</p>
+								<div class="komponenten-bottom">
+									<div class="komponenten-maintenance grey-box">
+										<p>
+											<span class="komponenten-strong">Maintenance Schedule</span></br />
+											<span class="blue">NEXT Wed 18.01.2017</span><br />
+											<span class="past-maintenance">LAST Mon 11.04.2017</span>
+										</p>
+									</div>
+									<div class="komponenten-maintenance blue-box">
+										<p>
+											<span class="komponenten-strong">Contact</span></br />
+											<span class="blue">John Doe</span><br />
+											<span class="past-maintenance">Department 20021</span>
+										</p>
+									</div>
+									<div class="komponenten-maintenance blue-box">
+										<p>
+											<span class="komponenten-strong">Contact Coperion</span></br />
+											<span class="blue">Matt Pattemrrd</span><br />
+											<span class="past-maintenance">Department 20021</span>
+										</p>
+									</div>
+									<div class="clear"></div>
+									<div class="kompontenten-replacement">
+										<span class="komponenten-strong left">Get replacement parts at <span class="blue">MyCoperion</span></span>
+										<span class="komponenten-order-button">Order</span>
+									</div>
+								</div>
+							</div>
+							<!-- Ende Infobox -->
+
+
+						</div>
+
+						<div id="sp500">
+							<div class="sensoren-titel-in"><p>SP500</p></div>
+							<div id="sensoring-full-durchsatz" class="graph dummy-2"><p class="graph-title">SP500 HD <span class="blue">werte</span></p></div>
+
+							<!--- Anfang Infobox -->
+							<div class="komponenten-infobox">
+								<h3 class="komponenten-titel"><span class="komponenten-strong">SP500 HD</span> <span class="blue">Strand pelletizer</span></h3>
+								<p class="komponenten-id">
+									<span class="product-id"><span class="komponenten-strong">Product ID</span> 12345678</span>
+									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 12.12.09</span>
+								</p>
+								<p class="komponenten-information">
+									<span class="komponenten-strong">Component Information</span><br />
+									The dual side bearings for the strand pelletizer SP500 HD provides maximum sturdity of cutting gap and high cutting qualiy even under highest work load. The working width amounts 500 mm and the throughput is up to 6,300 kg/h.
+								</p>
+								<div class="komponenten-bottom">
+									<div class="komponenten-maintenance grey-box">
+										<p>
+											<span class="komponenten-strong">Maintenance Schedule</span></br />
+											<span class="blue">NEXT Wed 18.01.2017</span><br />
+											<span class="past-maintenance">LAST Mon 11.04.2017</span>
+										</p>
+									</div>
+									<div class="komponenten-maintenance blue-box">
+										<p>
+											<span class="komponenten-strong">Contact</span></br />
+											<span class="blue">John Doe</span><br />
+											<span class="past-maintenance">Department 20021</span>
+										</p>
+									</div>
+									<div class="komponenten-maintenance blue-box">
+										<p>
+											<span class="komponenten-strong">Contact Coperion</span></br />
+											<span class="blue">Matt Pattemrrd</span><br />
+											<span class="past-maintenance">Department 20021</span>
+										</p>
+									</div>
+									<div class="clear"></div>
+									<div class="kompontenten-replacement">
+										<span class="komponenten-strong left">Get replacement parts at <span class="blue">MyCoperion</span></span>
+										<span class="komponenten-order-button">Order</span>
+									</div>
+								</div>
+							</div>
+							<!-- Ende Infobox -->
+
+						</div>
+
+						<div id="zvb">
+							<div class="sensoren-titel-in"><p>ZVB</p></div>
+							<div id="zvb-graph" class="graph dummy-2"><p class="graph-title">ZVB <span class="blue">werte</span></p></div>
+
+							<!--- Anfang Infobox -->
+							<div class="komponenten-infobox zvb-infobox">
+								<h3 class="komponenten-titel"><span class="komponenten-strong">ZVB</span> <span class="blue"></span></h3>
+								<p class="komponenten-id">
+									<span class="product-id"><span class="komponenten-strong">Product ID</span> 12345678</span>
+									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 12.12.09</span>
+								</p>
+								<p class="komponenten-information">
+									<span class="komponenten-strong">Component Information</span><br />
+									Special intel geometry designed for gentle pellet handling. With feeding shoe also suitable
+									for feeding bulk materials into pneumatic conveying systems at up to 1.5 barg (21psi).
+									PE/PP Pellet with bulk density 520 kg/m³ particle size 3 mm, ∆p = 0.8 bar.
+								</p>
+								<div class="komponenten-bottom">
+									<div class="komponenten-maintenance grey-box">
+										<p>
+											<span class="komponenten-strong">Maintenance Schedule</span></br />
+											<span class="blue">NEXT Wed 18.01.2017</span><br />
+											<span class="past-maintenance">LAST Mon 11.04.2017</span>
+										</p>
+									</div>
+									<div class="komponenten-maintenance blue-box">
+										<p>
+											<span class="komponenten-strong">Contact</span></br />
+											<span class="blue">John Doe</span><br />
+											<span class="past-maintenance">Department 20021</span>
+										</p>
+									</div>
+									<div class="komponenten-maintenance blue-box">
+										<p>
+											<span class="komponenten-strong">Contact Coperion</span></br />
+											<span class="blue">Matt Pattemrrd</span><br />
+											<span class="past-maintenance">Department 20021</span>
+										</p>
+									</div>
+									<div class="clear"></div>
+									<div class="kompontenten-replacement">
+										<span class="komponenten-strong left">Get replacement parts at <span class="blue">MyCoperion</span></span>
+										<span class="komponenten-order-button">Order</span>
+									</div>
+								</div>
+							</div>
+							<!-- Ende Infobox -->
+
+
+						</div>
+
+						<div id="screener">
+							<div class="sensoren-titel-in"><p>Screener</p></div>
+							<div id="sensoring-full-durchsatz" class="graph dummy-2"><p class="graph-title">Screener <span class="blue"></span></p></div>
+
+							<!--- Anfang Infobox -->
+							<div class="komponenten-infobox">
+								<h3 class="komponenten-titel"><span class="komponenten-strong">Screener</span> <span class="blue">Vibrating Screen Type VS</span></h3>
+								<p class="komponenten-id">
+									<span class="product-id"><span class="komponenten-strong">Product ID</span> 12345678</span>
+									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 12.12.09</span>
+								</p>
+								<p class="komponenten-information">
+									<span class="komponenten-strong">Component Information</span><br />
+									Within the vibrating process a screen trough is vibrating by means of an oscillator device. The applied product ripples along that trough assisted by inclination and vibration. In the bottom of the trough are holes (two hole sizes), which separate the product into three fractions.
+								</p>
+								<div class="komponenten-bottom">
+									<div class="komponenten-maintenance grey-box">
+										<p>
+											<span class="komponenten-strong">Maintenance Schedule</span></br />
+											<span class="blue">NEXT Wed 18.01.2017</span><br />
+											<span class="past-maintenance">LAST Mon 11.04.2017</span>
+										</p>
+									</div>
+									<div class="komponenten-maintenance blue-box">
+										<p>
+											<span class="komponenten-strong">Contact</span></br />
+											<span class="blue">John Doe</span><br />
+											<span class="past-maintenance">Department 20021</span>
+										</p>
+									</div>
+									<div class="komponenten-maintenance blue-box">
+										<p>
+											<span class="komponenten-strong">Contact Coperion</span></br />
+											<span class="blue">Matt Pattemrrd</span><br />
+											<span class="past-maintenance">Department 20021</span>
+										</p>
+									</div>
+									<div class="clear"></div>
+									<div class="kompontenten-replacement">
+										<span class="komponenten-strong left">Get replacement parts at <span class="blue">MyCoperion</span></span>
+										<span class="komponenten-order-button">Order</span>
+									</div>
+								</div>
+							</div>
+							<!-- Ende Infobox -->
+
+						</div>
+
+					</div>
+				</div>
+
+				<!-- Downstream -->
+				<div id="downstream">
+					<div id="second-row-downstream">
+						<ul class="second-row-navigation">
+							<li class="hidden"><a id="foerderdruck-link-3" href="#foerderdruck-3">Special Link Hidden</a></li>
+							<li><a id="bxc-link" href="#bxc-component"><span>BXC</span></a></li>
+							<li><a id="wzk-link" href="#wzk-box"><span>WZK</span></a></li>
+							<li><a id="ibp-link" href="#ibp250"><span>IBP250</span></a></li>
+							<li><a id="wet-link" href="#wet"><span>WET</span></a></li>
+						</ul>
+						<div id="foerderdruck-3">
+							<div class="sensoren-titel-in"><p>Feed Pressure</p></div>
+							<div id="foerderdruck-3-graph" class="graph chart-big"><p class="graph-title">Feed Pressure <span class="blue">werte 3</span></p></div>
+						</div>
+
+						<div id="bxc-component">
+							<div class="sensoren-titel-in"><p>BXC</p></div>
+							<div id="bxc-graph" class="graph dummy-2"><p class="graph-title">BXC <span class="blue"></span></p></div>
+
+							<!--- Anfang Infobox -->
+							<div class="komponenten-infobox">
+								<h3 class="komponenten-titel"><span class="komponenten-strong">BXC</span> <span class="blue">»BULK-X-CHANGE«</span></h3>
+								<p class="komponenten-id">
+									<span class="product-id"><span class="komponenten-strong">Product ID</span> 12345678</span>
+									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 12.12.09</span>
+								</p>
+								<p class="komponenten-information">
+									<span class="komponenten-strong">Component Information</span><br />
+									The original design with the designation BULK-X-CHANGE® "Gravity" was developed for free-flowing coarse powders and pellets. The bulk material flows from top to bottom due to gravitational forces th rough the vertical tubes which are surrounded by a heating or cooling medium on the shell side.
+
+								</p>
+								<div class="komponenten-bottom">
+									<div class="komponenten-maintenance grey-box">
+										<p>
+											<span class="komponenten-strong">Maintenance Schedule</span></br />
+											<span class="blue">NEXT Wed 18.01.2017</span><br />
+											<span class="past-maintenance">LAST Mon 11.04.2017</span>
+										</p>
+									</div>
+									<div class="komponenten-maintenance blue-box">
+										<p>
+											<span class="komponenten-strong">Contact</span></br />
+											<span class="blue">John Doe</span><br />
+											<span class="past-maintenance">Department 20021</span>
+										</p>
+									</div>
+									<div class="komponenten-maintenance blue-box">
+										<p>
+											<span class="komponenten-strong">Contact Coperion</span></br />
+											<span class="blue">Matt Pattemrrd</span><br />
+											<span class="past-maintenance">Department 20021</span>
+										</p>
+									</div>
+									<div class="clear"></div>
+									<div class="kompontenten-replacement">
+										<span class="komponenten-strong left">Get replacement parts at <span class="blue">MyCoperion</span></span>
+										<span class="komponenten-order-button">Order</span>
+									</div>
+								</div>
+							</div>
+							<!-- Ende Infobox -->
+
+						</div>
+
+						<div id="wzk-box">
+							<div class="sensoren-titel-in"><p>WZK</p></div>
+							<div id="wzk-graph" class="graph dummy-2 in-betrieb"><p class="graph-title">WZK <span class="blue">on</span></p></div>
+
+							<!--- Anfang Infobox -->
+							<div class="komponenten-infobox">
+								<h3 class="komponenten-titel"><span class="komponenten-strong">WZK</span> <span class="blue"></span></h3>
+								<p class="komponenten-id">
+									<span class="product-id"><span class="komponenten-strong">Product ID</span> 12345678</span>
+									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 12.12.09</span>
+								</p>
+								<p class="komponenten-information">
+									<span class="komponenten-strong">Component Information</span><br />
+									Suitable for fluid group 2 according to PED. Applicable in Ex-zones with additional accessories.
+									Reinforced actuator, wear protection and various seal materials. Signal box on right-hand side or left-hand
+									side. Quick cleaning and high temperature execution.
+								</p>
+								<div class="komponenten-bottom">
+									<div class="komponenten-maintenance grey-box">
+										<p>
+											<span class="komponenten-strong">Maintenance Schedule</span></br />
+											<span class="blue">NEXT Wed 18.01.2017</span><br />
+											<span class="past-maintenance">LAST Mon 11.04.2017</span>
+										</p>
+									</div>
+									<div class="komponenten-maintenance blue-box">
+										<p>
+											<span class="komponenten-strong">Contact</span></br />
+											<span class="blue">John Doe</span><br />
+											<span class="past-maintenance">Department 20021</span>
+										</p>
+									</div>
+									<div class="komponenten-maintenance blue-box">
+										<p>
+											<span class="komponenten-strong">Contact Coperion</span></br />
+											<span class="blue">Matt Pattemrrd</span><br />
+											<span class="past-maintenance">Department 20021</span>
+										</p>
+									</div>
+									<div class="clear"></div>
+									<div class="kompontenten-replacement">
+										<span class="komponenten-strong left">Get replacement parts at <span class="blue">MyCoperion</span></span>
+										<span class="komponenten-order-button">Order</span>
+									</div>
+								</div>
+							</div>
+							<!-- Ende Infobox -->
+
+						</div>
+
+						<div id="ibp250">
+							<div class="sensoren-titel-in"><p>IBP 250</p></div>
+							<div id="ibp250-graph" class="graph dummy-2 nicht-in-betrieb"><p class="graph-title">IBP250 <span class="blue">off</span></p></div>
+
+							<!--- Anfang Infobox -->
+							<div class="komponenten-infobox">
+								<h3 class="komponenten-titel"><span class="komponenten-strong">IBP250</span> <span class="blue"></span></h3>
+								<p class="komponenten-id">
+									<span class="product-id"><span class="komponenten-strong">Product ID</span> 12345678</span>
+									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 12.12.09</span>
+								</p>
+								<p class="komponenten-information">
+									<span class="komponenten-strong">Component Information</span><br />
+									Flexible and with all required functions in a single package. Capable to operate with standard or barrier film.
+									Automatic self cleaning function. Few touch on the operator panel to change set up and simple
+									to operate and maintain. Connectability to external data acquisition systems.
+								</p>
+								<div class="komponenten-bottom">
+									<div class="komponenten-maintenance grey-box">
+										<p>
+											<span class="komponenten-strong">Maintenance Schedule</span></br />
+											<span class="blue">NEXT Wed 18.01.2017</span><br />
+											<span class="past-maintenance">LAST Mon 11.04.2017</span>
+										</p>
+									</div>
+									<div class="komponenten-maintenance blue-box">
+										<p>
+											<span class="komponenten-strong">Contact</span></br />
+											<span class="blue">John Doe</span><br />
+											<span class="past-maintenance">Department 20021</span>
+										</p>
+									</div>
+									<div class="komponenten-maintenance blue-box">
+										<p>
+											<span class="komponenten-strong">Contact Coperion</span></br />
+											<span class="blue">Matt Pattemrrd</span><br />
+											<span class="past-maintenance">Department 20021</span>
+										</p>
+									</div>
+									<div class="clear"></div>
+									<div class="kompontenten-replacement">
+										<span class="komponenten-strong left">Get replacement parts at <span class="blue">MyCoperion</span></span>
+										<span class="komponenten-order-button">Order</span>
+									</div>
+								</div>
+							</div>
+							<!-- Ende Infobox -->
+
+						</div>
+
+						<div id="wet">
+							<div class="sensoren-titel-in"><p>WET</p></div>
+							<div id="wet-graph" class="graph dummy-2 in-betrieb"><p class="graph-title">WET <span class="blue">on</span></p></div>
+
+							<!--- Anfang Infobox -->
+							<div class="komponenten-infobox">
+								<h3 class="komponenten-titel"><span class="komponenten-strong">WET</span> <span class="blue"></span></h3>
+								<p class="komponenten-id">
+									<span class="product-id"><span class="komponenten-strong">Product ID</span> 12345678</span>
+									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 12.12.09</span>
+								</p>
+								<p class="komponenten-information">
+									<span class="komponenten-strong">Component Information</span><br />
+									Suitable for fluidgroup 1 and 2 according PED	Applicable in Ex-zones with additional
+									accessories. Cross seal between the outlets, product wetted parts, hard coated or
+									out of stainless steel. Quick-clean design, switchable with product and
+									higher temperature execution.
+								</p>
+								<div class="komponenten-bottom">
+									<div class="komponenten-maintenance grey-box">
+										<p>
+											<span class="komponenten-strong">Maintenance Schedule</span></br />
+											<span class="blue">NEXT Wed 18.01.2017</span><br />
+											<span class="past-maintenance">LAST Mon 11.04.2017</span>
+										</p>
+									</div>
+									<div class="komponenten-maintenance blue-box">
+										<p>
+											<span class="komponenten-strong">Contact</span></br />
+											<span class="blue">John Doe</span><br />
+											<span class="past-maintenance">Department 20021</span>
+										</p>
+									</div>
+									<div class="komponenten-maintenance blue-box">
+										<p>
+											<span class="komponenten-strong">Contact Coperion</span></br />
+											<span class="blue">Matt Pattemrrd</span><br />
+											<span class="past-maintenance">Department 20021</span>
+										</p>
+									</div>
+									<div class="clear"></div>
+									<div class="kompontenten-replacement">
+										<span class="komponenten-strong left">Get replacement parts at <span class="blue">MyCoperion</span></span>
+										<span class="komponenten-order-button">Order</span>
+									</div>
+								</div>
+							</div>
+							<!-- Ende Infobox -->
+
+						</div>
+
+					</div>
+				</div>
+
+			</div>
+			</div>
+
+			<!-- Timeline -->
+			<div id="timeline">
+				<a id="legende-button"></a>
+				<div id="timeline-legende">
+					<span class="selbstoptimierung">Optimization</span>
+					<span class="warnung">Warning</span>
+					<span class="stoerung">Error</span>
+					<span class="wartung">Maintenance</span>
+				</div>
+				<div id="timeline-popup">
+					<div id="timline-data-type-bar"></div>
+					<button class="timeline-popup-close-button">x</button>
+					<div class="timeline-popup-text">
+						<div class="timeline-image">
+							<img id="timeline-popup-image" src="" />
+						</div>
+
+						<div class="timeline-content">
+							<p id="timeline-date"><time id="timeline-popup-time">.....</time></p>
+							<h1 id="timeline-popup-title">.....</h1>
+							<p id="timeline-popup-description">.....</p>
+						</div>
+					</div>
+					<div class="timeline-popup-arrow"></div>
+				</div>
+				<div class="timeline-events">
+				</div>
+				<div id="timeline-timespan-options">
+				</div>
+				<button id="timeline-timespan-selected">
+				</button>
+			</div>
+
+			<div class="hiddenEventPopups">
+
+				<div class="hiddenMaintenance">
+					<div class="hiddenMaintenance-Message">
+						<div class="text"></div>
+						<div class="buttons">
+							<div class="accept btn">Bestätigen</div>
+							<div class="decline btn">Ablehnen</div>
+							<div class="clear"></div>
+						</div>
+					</div>
+					<div class="hiddenMaintenance-Response">
+						<div class="text"></div>
+					</div>
+				</div>
+
+				<div class="hiddenError">
+					<div class="hiddenError-Message">
+						<div class="hiddenErrorHeader">
+							<div class="title"></div>
+						</div>
+						<div class="text"></div>
+						<div class="buttons">
+							<div class="intern btn">Process internally</div>
+							<div class="coperion btn">Forward to Coperion</div>
+							<div class="clear"></div>
+						</div>
+					</div>
+					<div class="hiddenError-Forwarding">
+						<div class="hiddenErrorHeader">
+							<div class="title"></div>
+						</div>
+						<div class="text"></div>
+						<div class="loader">
+							<div class="knob"></div>
+						</div>
+					</div>
+					<div class="hiddenError-Response">
+						<div class="hiddenErrorHeader">
+							<div class="title"></div>
+						</div>
+						<div class="text"></div>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+
+		<div id="app-tab2" class="app-tab">
+
+			<!-- Anlagen-Bild -->
+			<div id="page">
+				<div class="anlagen-fade"></div>
+				<div id="anlagen-wrapper">
+
+					<div class="anlagen-bild">
+						<div id="anlage-ansicht-3d">
+							<img class="ansicht-3d" data-src="img/anlage/anlage-3d-01.png">
+							<img class="ansicht-3d" data-src="img/anlage/anlage-3d-02.png">
+							<img class="ansicht-3d" data-src="img/anlage/anlage-3d-03.png">
+							<img class="ansicht-3d" data-src="img/anlage/anlage-3d-04.png">
+							<img class="ansicht-3d" data-src="img/anlage/anlage-3d-05.png">
+							<div class="fill-overlays">
+							</div>
+					 	</div>
+
+						<div id="three-di-view">
+							<img class="three-di" data-src="img/anlage/anlage-2d-01.png">
+							<img class="three-di" data-src="img/anlage/anlage-2d-02.png">
+							<img class="three-di" data-src="img/anlage/anlage-2d-03.png">
+							<img class="three-di" data-src="img/anlage/anlage-2d-04.png">
+							<img class="three-di" data-src="img/anlage/anlage-2d-05.png">
+						</div>
+
+						<!-- Links Downstream -->
+						<div id="downstream-links">
+							<ul>
+
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div id="first-row-rohstoffe">
+					<ul id="sensoren-hauptnavi">
+						<li id="full-link" class="full-link-spacebrew"><a href="#full"><span></span></a></li>
+						<li id="upstream-link" class="upstream-spacebrew"><a href="#upstream">Raw materials<span class="upstream-arrow"></span></a></li>
+						<li id="compounding-link" class="compounding-spacebrew"><a href="#compounding">Compounding<span class="compounding-arrow"></span></a></li>
+						<li id="downstream-link" class="downstream-spacebrew"><a href="#downstream">Downstream<span class="downstream-arrow"></span></a></li>
+					</ul>
+
+					<!-- Fullview -->
+					<div id="full">
+						<div class="sensoren-titel-in"><p>Houston <span class="blue">Line 1</span></p></div>
+
+						<div id="rohstoffe-recipe">
+							<span class="recipe-title">Recipe</span><br />
+							<span class="recipe-number">A</span> <!-- Nur A, B oder C -->
+
+							<div class="recipe-next">Next 2</div>
+							<!--<div class="recipe-scale"></div>-->
+						</div>
+
+						<!-- Rohstoff Übersicht 1-->
+						<div id="rohstoffe-fuellstaende-uebersicht">
+							<div class="rohstoffe-fuellstoff-01 rohstoffe-fuellstoff">
+								<div class="knob"></div>
+								<div class="rohstoffe-text">
+									<h3 class="rohstoffe-title">Polyethylene</h3>
+									<p class="rohstoffe-subtitle">PE</p>
+								</div>
+								<div class="rohstoffe-values">
+									<h3 class="rohstoffe-percent">67%</h3>
+									<p class="rohstoffe-value">1675 kg/h</p>
+								</div>
+							</div>
+						</div>
+						<!-- Ende Rohstoff Übersicht 1 -->
+
+						<!-- Rohstoff Übersicht 2-->
+						<div id="rohstoffe-fuellstaende-uebersicht">
+							<div class="rohstoffe-fuellstoff-02 rohstoffe-fuellstoff">
+								<div class="knob"></div>
+								<div class="rohstoffe-text">
+									<h3 class="rohstoffe-title">Additives</h3>
+									<p class="rohstoffe-subtitle">Additive (Powder) + Yellow (Pellets)</p>
+								</div>
+								<div class="rohstoffe-values">
+									<h3 class="rohstoffe-percent">67%</h3>
+									<p class="rohstoffe-value">1675 kg/h</p>
+								</div>
+							</div>
+						</div>
+						<!-- Ende Rohstoff Übersicht 2 -->
+						<!-- Rohstoff Übersicht 1-->
+						<div id="rohstoffe-fuellstaende-uebersicht">
+							<div class="rohstoffe-fuellstoff-03 rohstoffe-fuellstoff">
+								<div class="knob"></div>
+								<div class="rohstoffe-text">
+									<h3 class="rohstoffe-title">Filler</h3>
+									<p class="rohstoffe-subtitle">CaCO3</p>
+								</div>
+								<div class="rohstoffe-values">
+									<h3 class="rohstoffe-percent">67%</h3>
+									<p class="rohstoffe-value">1675 kg/h</p>
+								</div>
+							</div>
+						</div>
+						<!-- Ende Rohstoff Übersicht 1 -->
+
+					</div>
+
+					<!-- Upstream -->
+					<div id="upstream">
+						<div id="second-row-upstream-rohstoffe">
+							<ul class="second-row-navigation">
+								<li><a id="silo-1-link" href="#silo-1"><span>Silo 1</span></a></li>
+								<li><a id="silo-2-link" href="#silo-2"><span>Silo 2</span></a></li>
+								<li><a id="bigbag-link" href="#bigbag"><span>Big Bag</span></a></li>
+							</ul>
+
+							<div id="silo-1" data-component-id="0">
+								<div class="sensoren-titel-in"><p>Silo 1</p></div>
+								<table class="rohstoffe-fuellstaende">
+									<tr class="rohstoffe-title">
+										<td>Material</td>
+										<td>Quantity</td>
+										<td>Batch number</td>
+									</tr>
+								</table>
+							</div>
+
+							<div id="silo-2" data-component-id="2">
+								<div class="sensoren-titel-in"><p>Silo 2</p></div>
+								<table class="rohstoffe-fuellstaende">
+									<tr class="rohstoffe-title">
+										<td>Material</td>
+										<td>Quantity</td>
+										<td>Batch number</td>
+									</tr>
+								</table>
+							</div>
+
+							<div id="bigbag" data-component-id="14">
+								<div class="sensoren-titel-in"><p>Big Bag</p></div>
+								<table class="rohstoffe-fuellstaende">
+									<tr class="rohstoffe-title">
+										<td>Material</td>
+										<td>Quantity</td>
+										<td>Batch number</td>
+									</tr>
+								</table>
+							</div>
+
+						</div>
+					</div>
+
+					<!-- Compounding -->
+					<div id="compounding">
+						<div id="second-row-compounding-rohstoffe">
+							<ul class="second-row-navigation scroll">
+								<li><a id="tagessilo-1-link" href="#tagessilo-1"><span>Tagessilo 1</span></a></li>
+								<li><a id="dosierer-1-r-link" href="#dosierer-1-r"><span>Dosierer 1</span></a></li>
+								<li><a id="tagessilo-2-link" href="#tagessilo-2"><span>Tagessilo 2</span></a></li>
+								<li><a id="dosierer-2-r-link" href="#dosierer-2-r"><span>Dosierer 2</span></a></li>
+								<li><a id="hopper-link" href="#hopper"><span>Hopper</span></a></li>
+								<li><a id="dosierer-3-r-link" href="#dosierer-3-r"><span>Dosierer 3</span></a></li>
+								<li><a id="bigbag2-link" href="#bigbag2"><span>Big Bag 2</span></a></li>
+								<li><a id="dosierer-4-r-link" href="#dosierer-4-r"><span>Dosierer 4</span></a></li>
+								<li><a id="tagessilo-3-link" href="#tagessilo-3"><span>Tagessilo 3</span></a></li>
+								<li><a id="dosierer-5-r-link" href="#dosierer-5-r"><span>Dosierer-5</span></a></li>
+							</ul>
+
+							<div id="tagessilo-1" data-component-id="8">
+								<div class="sensoren-titel-in"><p>Tagessilo 1</p></div>
+								<table class="rohstoffe-fuellstaende">
+									<tr class="rohstoffe-title">
+										<td>Material</td>
+										<td>Quantity</td>
+										<td>Batch number</td>
+									</tr>
+								</table>
+							</div>
+
+							<div id="dosierer-1-r" data-component-id="9">
+								<div class="sensoren-titel-in"><p>Dosierer 1</p></div>
+								<table class="rohstoffe-fuellstaende">
+									<tr class="rohstoffe-title">
+										<td>Material</td>
+										<td>Quantity</td>
+										<td>Batch number</td>
+									</tr>
+								</table>
+							</div>
+
+							<div id="tagessilo-2" data-component-id="10">
+								<div class="sensoren-titel-in"><p>Tagessilo 2</p></div>
+								<table class="rohstoffe-fuellstaende">
+									<tr class="rohstoffe-title">
+										<td>Material</td>
+										<td>Quantity</td>
+										<td>Batch number</td>
+									</tr>
+								</table>
+							</div>
+
+							<div id="dosierer-2-r" data-component-id="11">
+								<div class="sensoren-titel-in"><p>Dosierer 2</p></div>
+								<table class="rohstoffe-fuellstaende">
+									<tr class="rohstoffe-title">
+										<td>Material</td>
+										<td>Quantity</td>
+										<td>Batch number</td>
+									</tr>
+								</table>
+							</div>
+
+							<div id="hopper" data-component-id="12">
+								<div class="sensoren-titel-in"><p>Hopper</p></div>
+								<table class="rohstoffe-fuellstaende">
+									<tr class="rohstoffe-title">
+										<td>Material</td>
+										<td>Quantity</td>
+										<td>Batch number</td>
+									</tr>
+								</table>
+							</div>
+
+							<div id="dosierer-3-r" data-component-id="13">
+								<div class="sensoren-titel-in"><p>Dosierer 3</p></div>
+								<table class="rohstoffe-fuellstaende">
+									<tr class="rohstoffe-title">
+										<td>Material</td>
+										<td>Quantity</td>
+										<td>Batch number</td>
+									</tr>
+								</table>
+							</div>
+
+							<div id="bigbag2" data-component-id="14">
+								<div class="sensoren-titel-in"><p>Big Bag 2</p></div>
+								<table class="rohstoffe-fuellstaende">
+									<tr class="rohstoffe-title">
+										<td>Material</td>
+										<td>Quantity</td>
+										<td>Batch number</td>
+									</tr>
+								</table>
+							</div>
+
+							<div id="dosierer-4-r" data-component-id="15">
+								<div class="sensoren-titel-in"><p>Dosierer 4</p></div>
+								<table class="rohstoffe-fuellstaende">
+									<tr class="rohstoffe-title">
+										<td>Material</td>
+										<td>Quantity</td>
+										<td>Batch number</td>
+									</tr>
+								</table>
+							</div>
+
+							<div id="tagessilo-3" data-component-id="16">
+								<div class="sensoren-titel-in"><p>Tagessilo 3</p></div>
+								<table class="rohstoffe-fuellstaende">
+									<tr class="rohstoffe-title">
+										<td>Material</td>
+										<td>Quantity</td>
+										<td>Batch number</td>
+									</tr>
+								</table>
+							</div>
+
+							<div id="dosierer-5-r" data-component-id="17">
+								<div class="sensoren-titel-in"><p>Dosierer 5</p></div>
+								<table class="rohstoffe-fuellstaende">
+									<tr class="rohstoffe-title">
+										<td>Material</td>
+										<td>Quantity</td>
+										<td>Batch number</td>
+									</tr>
+								</table>
+							</div>
+						</div>
+					</div>
+
+					<!-- Downstream -->
+					<div id="downstream">
+						<div id="second-row-downstream-rohstoffe">
+							<ul class="second-row-navigation">
+								<li><a id="silo-3-link" href="#silo-3"><span>Silo 3</span></a></li>
+								<li><a id="wzk-r-link" href="#wzk-r"><span>WZK</span></a></li>
+								<li><a id="ibp-r-link" href="#ibp250-r"><span>IBP250</span></a></li>
+								<li><a id="silo-4-link" href="#silo-4"><span>Silo 4</span></a></li>
+								<li><a id="silo-5-link" href="#silo-5"><span>Silo 5</span></a></li>
+								<li><a id="silo-6-link" href="#silo-6"><span>Silo 6</span></a></li>
+								<li><a id="silo-7-link" href="#silo-7"><span>Silo 7</span></a></li>
+								<li><a id="silo-8-link" href="#silo-8"><span>Silo 8</span></a></li>
+								<!--
+								<li><a id="wet-link" href="#silo-9"><span>Silo 9</span></a></li>
+								<li><a id="wet-link" href="#silo-10"><span>Silo 10</span></a></li>
+								<li><a id="wet-link" href="#silo-11"><span>Silo 11</span></a></li>
+								<li><a id="wet-link" href="#silo-12"><span>Silo 12</span></a></li>
+								-->
+							</ul>
+
+							<div id="silo-3" data-component-id="28">
+								<div class="sensoren-titel-in"><p>Silo 3</p></div>
+								<table class="rohstoffe-fuellstaende">
+									<tr class="rohstoffe-title">
+										<td>Material</td>
+										<td>Quantity</td>
+										<td>Batch number</td>
+									</tr>
+								</table>
+							</div>
+
+							<div id="wzk-r" data-component-id="26">
+								<div class="sensoren-titel-in"><p>WZK</p></div>
+								<table class="rohstoffe-fuellstaende">
+									<tr class="rohstoffe-title">
+										<td>Material</td>
+										<td>Quantity</td>
+										<td>Batch number</td>
+									</tr>
+								</table>
+							</div>
+
+							<div id="ibp250-r" data-component-id="30">
+								<div class="sensoren-titel-in"><p>IBP 250</p></div>
+								<table class="rohstoffe-fuellstaende">
+									<tr class="rohstoffe-title">
+										<td>Material</td>
+										<td>Quantity</td>
+										<td>Batch number</td>
+									</tr>
+								</table>
+							</div>
+
+							<div id="silo-4" data-component-id="29">
+								<div class="sensoren-titel-in"><p>Silo 4</p></div>
+								<table class="rohstoffe-fuellstaende">
+									<tr class="rohstoffe-title">
+										<td>Material</td>
+										<td>Quantity</td>
+										<td>Batch number</td>
+									</tr>
+								</table>
+							</div>
+
+							<div id="silo-5" data-component-id="32">
+								<div class="sensoren-titel-in"><p>Silo 5</p></div>
+								<table class="rohstoffe-fuellstaende">
+									<tr class="rohstoffe-title">
+										<td>Material</td>
+										<td>Quantity</td>
+										<td>Batch number</td>
+									</tr>
+								</table>
+							</div>
+
+							<div id="silo-6" data-component-id="33">
+								<div class="sensoren-titel-in"><p>Silo 6</p></div>
+								<table class="rohstoffe-fuellstaende">
+									<tr class="rohstoffe-title">
+										<td>Material</td>
+										<td>Quantity</td>
+										<td>Batch number</td>
+									</tr>
+								</table>
+							</div>
+
+							<div id="silo-7" data-component-id="34">
+								<div class="sensoren-titel-in"><p>Silo 7</p></div>
+								<table class="rohstoffe-fuellstaende">
+									<tr class="rohstoffe-title">
+										<td>Material</td>
+										<td>Quantity</td>
+										<td>Batch number</td>
+									</tr>
+								</table>
+							</div>
+
+							<div id="silo-8" data-component-id="35">
+								<div class="sensoren-titel-in"><p>Silo 8</p></div>
+								<table class="rohstoffe-fuellstaende">
+									<tr class="rohstoffe-title">
+										<td>Material</td>
+										<td>Quantity</td>
+										<td>Batch number</td>
+									</tr>
+								</table>
+							</div>
+
+							<!--
+							<div id="silo-9">
+								<div class="sensoren-titel-in"><p>Silo 9</p></div>
+								<img class="rohstoff-dummy" src="img/rohstoffe-1.jpg" />
+							</div>
+
+							<div id="silo-10">
+								<div class="sensoren-titel-in"><p>Silo 10</p></div>
+								<img class="rohstoff-dummy" src="img/rohstoffe-1.jpg" />
+							</div>
+
+							<div id="silo-11">
+								<div class="sensoren-titel-in"><p>Silo 11</p></div>
+								<img class="rohstoff-dummy" src="img/rohstoffe-1.jpg" />
+							</div>
+
+							<div id="silo-12">
+								<div class="sensoren-titel-in"><p>Silo 12</p></div>
+								<img class="rohstoff-dummy" src="img/rohstoffe-1.jpg" />
+							</div>
+							-->
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+			<!-- Timeline -->
+			<div id="raw-material-timeline">
+				<div id="timeline-timespan-options">
+				</div>
+				<button id="timeline-timespan-selected">
+				</button>
+			</div>
+
+		</div>
 
 <script>
-  $("#first-row").tabs();
-  $("#second-row-downstream").tabs({show: 'fade', hide: 'fade'});
-  $("#second-row-upstream").tabs({show: 'fade', hide: 'fade'});
-  $("#second-row-compounding").tabs({show: 'fade', hide: 'fade'});
+	$("#first-row").tabs();
+	$("#second-row-downstream").tabs({show: 'fade', hide: 'fade'});
+	$("#second-row-upstream").tabs({show: 'fade', hide: 'fade'});
+	$("#second-row-compounding").tabs({show: 'fade', hide: 'fade'});
 
-  $("#first-row-rohstoffe").tabs();
-  $("#second-row-downstream-rohstoffe").tabs({show: 'fade', hide: 'fade', active: 0});
-  $("#second-row-upstream-rohstoffe").tabs({show: 'fade', hide: 'fade', active: 0});
-  $("#second-row-compounding-rohstoffe").tabs({show: 'fade', hide: 'fade', active: 0});
+	$("#first-row-rohstoffe").tabs();
+	$("#second-row-downstream-rohstoffe").tabs({show: 'fade', hide: 'fade', active: 0});
+	$("#second-row-upstream-rohstoffe").tabs({show: 'fade', hide: 'fade', active: 0});
+	$("#second-row-compounding-rohstoffe").tabs({show: 'fade', hide: 'fade', active: 0});
 
-  $(document).ready(function(){
+	$(document).ready(function(){
 
-    $(".three-di").css('display','none');
+		$(".three-di").css('display','none');
 
-    $(".ansicht-3d").css({opacity:0});
-    $(".ansicht-3d").delay(200).each(function(i){$(this).delay(120*i).animate({"opacity":1},500);});
-    $(".two-di").css({opacity:0});
-    $(".two-di").delay(200).each(function(i){$(this).delay(120*i).animate({"opacity":1},500);});
+		$(".ansicht-3d").css({opacity:0});
+		$(".ansicht-3d").delay(200).each(function(i){$(this).delay(120*i).animate({"opacity":1},500);});
+		$(".two-di").css({opacity:0});
+		$(".two-di").delay(200).each(function(i){$(this).delay(120*i).animate({"opacity":1},500);});
 
-    // mm: Close WebApp
-    $("#exitBtn").on("click", function(){
-      /*if ( window.sendSpacebrewMessage ) {
-        window.sendSpacebrewMessage( 'appCloses' );
-      }*/
+		// mm: Close WebApp
+		$("#exitBtn").on("click", function(){
+			/*if ( window.sendSpacebrewMessage ) {
+				window.sendSpacebrewMessage( 'appCloses' );
+			}*/
 
-      setTimeout( function () {
-        window.close();
-      }, 150 );
-    
-    })
-  });
+			setTimeout( function () {
+				window.close();
+			}, 150 );
+		
+		})
+	});
 </script>
 
 </body>
