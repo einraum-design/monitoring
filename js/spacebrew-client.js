@@ -69,7 +69,7 @@ $( document ).ready( function () {
 				data.value = value;
 			}
 
-			// console.log( 'spacebrew sent', type, JSON.stringify( data ) );
+			console.log( 'spacebrew sent', type, JSON.stringify( data ) );
 			spaceBrewClient.send( type, 'string', JSON.stringify( data ) );
 		} else {
 			console.log( 'could not send because spacebrew is not connected', type, value );
