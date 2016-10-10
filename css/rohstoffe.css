@@ -101,6 +101,23 @@
   position: relative;;
 }
 
+.rohstoffe-fuellstoff {
+  position: relative;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.rohstoffe-fuellstoff.is-active {
+  opacity: 1;
+}
+
+.rohstoffe-fuellstoff .knob {
+  transition: all 0.6s ease;
+  height: 91px;
+  position: absolute;
+  z-index: 0;
+}
+
 .rohstoffe-fuellstoff-01, .rohstoffe-fuellstoff-02, .rohstoffe-fuellstoff-03 {
   background-color: #f7f7f7;
   height: 91px;
@@ -109,25 +126,20 @@
 .rohstoffe-fuellstoff-01 .knob{
   background-color: #809dbc;
   width: 55%;
-  height: 91px;
-  position: absolute;
-  z-index: 0;
+  
+  transition-delay: 0.2s;
 }
 
 .rohstoffe-fuellstoff-02 .knob{
   background-color: #bfcee0;
   width: 40%;
-  height: 91px;
-  position: absolute;
-  z-index: 0;
+  transition-delay: 0.4s;
 }
 
 .rohstoffe-fuellstoff-03 .knob{
   background-color: #cbcbcb;
   width: 20%;
-  height: 91px;
-  position: absolute;
-  z-index: 0;
+  transition-delay: 0.6s;
 }
 
 h3.rohstoffe-title {

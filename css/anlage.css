@@ -59,6 +59,61 @@
 	top: 100px;
 }
 
+.fill-overlays {
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+.fill-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: none;
+	transform: rotate(-180deg);
+}
+
+.fill-overlay rect {
+	transition: all 0.3s ease;
+}
+
+.fill-overlay rect {
+	transition: all 0.3s ease;
+}
+
+.fill-overlay rect:nth-child(2) {
+	transition-delay: 0.1s;
+}
+
+.fill-overlay rect:nth-child(3) {
+	transition-delay: 0.2s;
+
+}
+
+.fill-overlay[fill-overlay-id="0"] {
+	top: 98px;
+	left: 180px;
+	width: 26px;
+	height: 66px;
+	display: block;
+}
+
+.fill-overlay[fill-overlay-id="2"] {
+	display: block;
+	left: 247px;
+	top: 98px;
+	height: 66px;
+	width: 24px;
+}
+
+.fill-overlay[fill-overlay-id="10"] {
+	display: block;
+	left: 324px;
+	top: 151px;
+	height: 11px;
+	width: 10px;
+}
+
 .three-di-view{
 	position: fixed;
 	left: 0px;

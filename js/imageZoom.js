@@ -472,23 +472,27 @@ $(document).ready(function(){
     $('#upstream-link, #compounding-link, #downstream-link, #full-link').click(function() {
       $("#second-row-downstream, #second-row-compounding, #second-row-upstream").tabs({ active: 0 });
       $("#sensoren-hauptnavi").tabs({ active: 0 });
-
+      window.rawTimeline.setOverview( true );
     })
 
     // MATERIAL TRACKING
 
     $('.upstream-spacebrew').on('click', function(){
+      console.log( 'i was clicked', 'upstream' );
       $(".anlagen-bild").css({'transform':'translate(830px, -150px) scale(3.3)'});
+      window.rawTimeline.setSelectedComponent( 0 );
     });
 
     $('.compounding-spacebrew').on('click', function(){
-      console.log('i was clicked');
+      console.log('i was clicked compinding');
       $(".anlagen-bild").css({'transform':'translate(300px, -220px) scale(6.3)'});
+      window.rawTimeline.setSelectedComponent( 8 );
     });
 
     $('.downstream-spacebrew').on('click', function(){
-      console.log('i was clicked');
+      console.log('i was clicked downstream');
       $(".anlagen-bild").css({'transform':'translate(-400px, -65px) scale(1.7)'});
+      window.rawTimeline.setSelectedComponent( 16 );
     });
 
     // SILO 1
@@ -502,6 +506,8 @@ $(document).ready(function(){
           rohstoffTracking: true
         });
 
+        window.rawTimeline.setSelectedComponent( 0 );
+        window.rawTimeline.setOverview( false );
     })
 
     // SILO 2
@@ -515,6 +521,8 @@ $(document).ready(function(){
           rohstoffTracking: true
         });
 
+        window.rawTimeline.setSelectedComponent( 2 );
+        window.rawTimeline.setOverview( false );
     })
 
     // BIG BAG
@@ -528,6 +536,8 @@ $(document).ready(function(){
           rohstoffTracking: true
         });
 
+        window.rawTimeline.setSelectedComponent( 5 );
+        window.rawTimeline.setOverview( false );
     })
 
     // TAGESSILO 1
@@ -541,6 +551,8 @@ $(document).ready(function(){
           rohstoffTracking: true
         });
 
+        window.rawTimeline.setSelectedComponent( 8 );
+        window.rawTimeline.setOverview( false );
     })
 
     // DOSIERER 1
@@ -554,6 +566,8 @@ $(document).ready(function(){
           rohstoffTracking: true
         });
 
+        window.rawTimeline.setSelectedComponent( 9 );
+        window.rawTimeline.setOverview( false );
     })
 
     // TAGESSILO 2
@@ -567,6 +581,8 @@ $(document).ready(function(){
           rohstoffTracking: true
         });
 
+        window.rawTimeline.setSelectedComponent( 10 );
+        window.rawTimeline.setOverview( false );
     })
 
     // DOSIERER 2
@@ -580,6 +596,8 @@ $(document).ready(function(){
           rohstoffTracking: true
         });
 
+        window.rawTimeline.setSelectedComponent( 11 );
+        window.rawTimeline.setOverview( false );
     })
 
     // HOPPER
@@ -593,6 +611,8 @@ $(document).ready(function(){
           rohstoffTracking: true
         });
 
+        window.rawTimeline.setSelectedComponent( 12 );
+        window.rawTimeline.setOverview( false );
     })
 
     // DOSIERER 3
@@ -606,6 +626,8 @@ $(document).ready(function(){
           rohstoffTracking: true
         });
 
+        window.rawTimeline.setSelectedComponent( 13 );
+        window.rawTimeline.setOverview( false );
     })
 
     // BIG BAG 2
@@ -619,6 +641,8 @@ $(document).ready(function(){
           rohstoffTracking: true
         });
 
+        window.rawTimeline.setSelectedComponent( 14 );
+        window.rawTimeline.setOverview( false );
     })
 
     // DOSIERER 4
@@ -632,6 +656,8 @@ $(document).ready(function(){
           rohstoffTracking: true
         });
 
+        window.rawTimeline.setSelectedComponent( 15 );
+        window.rawTimeline.setOverview( false );
     })
 
     // TAGESSILO 3
@@ -645,6 +671,8 @@ $(document).ready(function(){
           rohstoffTracking: true
         });
 
+        window.rawTimeline.setSelectedComponent( 16 );
+        window.rawTimeline.setOverview( false );
     })
 
     // DOSIERER 5
@@ -658,6 +686,8 @@ $(document).ready(function(){
           rohstoffTracking: true
         });
 
+        window.rawTimeline.setSelectedComponent( 17 );
+        window.rawTimeline.setOverview( false );
     })
 
     // WZK
@@ -671,6 +701,8 @@ $(document).ready(function(){
           rohstoffTracking: true
         });
 
+        window.rawTimeline.setSelectedComponent( 26 );
+        window.rawTimeline.setOverview( false );
     })
 
     // IBP250
@@ -684,6 +716,8 @@ $(document).ready(function(){
           rohstoffTracking: true
         });
 
+        window.rawTimeline.setSelectedComponent( 30 );
+        window.rawTimeline.setOverview( false );
     })
 
 
@@ -698,6 +732,9 @@ $(document).ready(function(){
           componentName: 'Silo_3',
           rohstoffTracking: true
         });
+
+        window.rawTimeline.setSelectedComponent( 28 );
+        window.rawTimeline.setOverview( false );
     })
 
     // SILO 4
@@ -711,6 +748,8 @@ $(document).ready(function(){
           rohstoffTracking: true
         });
 
+        window.rawTimeline.setSelectedComponent( 29 );
+        window.rawTimeline.setOverview( false );
     })
 
     // SILO 5
@@ -723,6 +762,9 @@ $(document).ready(function(){
           componentName: 'Silo_5',
           rohstoffTracking: true
         });
+
+        window.rawTimeline.setSelectedComponent( 32 );
+        window.rawTimeline.setOverview( false );
 
     })
 
@@ -737,6 +779,8 @@ $(document).ready(function(){
           rohstoffTracking: true
         });
 
+        window.rawTimeline.setSelectedComponent( 33 );
+        window.rawTimeline.setOverview( false );
     })
 
     // SILO 7
@@ -750,6 +794,8 @@ $(document).ready(function(){
           rohstoffTracking: true
         });
 
+        window.rawTimeline.setSelectedComponent( 34 );
+        window.rawTimeline.setOverview( false );
     })
 
     // SILO 8
@@ -763,6 +809,8 @@ $(document).ready(function(){
           rohstoffTracking: true
         });
 
+        window.rawTimeline.setSelectedComponent( 35 );
+        window.rawTimeline.setOverview( false );
     })
 
 

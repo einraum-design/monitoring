@@ -1,4 +1,4 @@
-/*global $ */
+/*global $, Visibility */
 $( document ).ready( function () {
 	var spaceBrewClient;
 
@@ -21,7 +21,7 @@ $( document ).ready( function () {
 	var isMaster = getQueryString( 'master' ) === 'true';
 
 	function initSpacebrew ( config ) {
-		console.log( 'spacebrew', config );
+		// console.log( 'spacebrew', config );
 		spaceBrewClient = new Spacebrew.Client( {
 			server: config.host
 		} );
@@ -54,7 +54,7 @@ $( document ).ready( function () {
 		spaceBrewClient.onClose = function () {
 			isConnecting = false;
 			isConnected = false;
-			console.log( 'DISCONNECTED' );
+			// console.log( 'DISCONNECTED' );
 		};
 	}
 

@@ -63,7 +63,7 @@
 	top: 50%;
 	height: 12px;
 	overflow: hidden;
-	border-radius: 30px;
+	/* border-radius: 30px; */
 	transform: translateY(-50%);
 	background-color: #ccc;
 	cursor: pointer;
@@ -89,6 +89,16 @@
 @-webkit-keyframes blink {
   0% { background-color: #a1a1a1; }
   100% { background-color: #333; }
+}
+
+#raw-material-timeline .allocation.is-first-of-kind {
+	border-top-left-radius: 3px;
+	border-bottom-left-radius: 3px;
+}
+
+#raw-material-timeline .allocation.is-last-of-kind {
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;
 }
 
 #raw-material-timeline .allocation.is-current {
