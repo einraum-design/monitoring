@@ -38,19 +38,19 @@ var rawTimeline = {
 			addFillOverlays();
 			rawTimeline.render();
 			setInterval( rawTimeline.render, 5000 );
-
-
-			// TODO:
-			// - DETECT RESET TO OVERVIEW
-			// - SHOW RECIPE CONTENT BARS ON OVERVIEW
-			// - UPDATE TABLE ON DETAIL SELECT
-			// - UPDATE FILL LEVELS ON ALL COMPONENTS ON DETAIL SELECT
-
-			// var currentAllocation = getCurrentAllocation( getTimelineBorders() );
-
-			// if ( currentAllocation ) {
-			// 	showAllocation( currentAllocation );
-			// }
+			
+			getAllocationsInTimespan( getTimelineBorders() ).then( function ( allocations ) {
+				return getCurrentAllocation( getTimelineBorders() ).then( function ( currentAllocation ) {
+					return {
+						currentAllocation: currentAllocation,
+						allocations: allocations
+					};
+				} );
+			} ).then( function ( allocationData ) {
+				if ( allocationData.currentAllocation ) {
+					showAllocation( allocationData.currentAllocation, allocationData.allocations[allocationData.currentAllocation.index + 1] );
+				}
+			} );
 		}
 
 		function addFillOverlays () {
@@ -61,9 +61,9 @@ var rawTimeline = {
 				var componentId = componentEl.attr( 'data-component-id' );
 
 				var svgStr = '<svg class="fill-overlay">';
-	            svgStr += '<rect class="fill-layer" x="0" y="0"   width="100%" height="33%" style="fill:rgb(255,255,7);" />';
+	            svgStr += '<rect class="fill-layer" x="0" y="0"   width="100%" height="33%" style="fill:rgb(255,168,7);" />';
 	            svgStr += '<rect class="fill-layer" x="0" y="33%" width="100%" height="33%" style="fill:rgb(255,208,7);" />';
-	            svgStr += '<rect class="fill-layer" x="0" y="66%" width="100%" height="33%" style="fill:rgb(255,168,7);" />';
+	            svgStr += '<rect class="fill-layer" x="0" y="66%" width="100%" height="33%" style="fill:rgb(255,255,7);" />';
 	            svgStr +='</svg>';
 
 	            var svgEl = $( svgStr );
@@ -168,6 +168,7 @@ var rawTimeline = {
 
 							if ( allocation.start.isBefore( now ) && allocation.end.isAfter( now ) ) {
 								allocationEl.classList.add( 'is-current' );
+								allocationEl.setAttribute( 'data-index', allocationIndex );
 							}
 
 							if ( allocation.start.isAfter( now ) ) {
@@ -269,92 +270,88 @@ var rawTimeline = {
 			} else {
 				rawmaterialBarContainerEls.removeClass( 'is-active' );
 			}
+									
+			allocation.production.data.forEach( function ( allocationData, componentIndex ) {
+				allocationData = allocationData[0];
+				
+				var componentEl = $( '#app-tab2 [data-component-id="' + componentIndex + '"]' );
+				
+				if ( componentEl.length && allocationData.layers && allocationData.layers.length ) {
+					
+					var rowCounter = 0;
+					
+					allocationData.layers.forEach( function ( layer, layerIndex ) {
+						layer.forEach( function ( charge, chargeIndes ) {
+							var rowEl = $( 'tr:nth-child(' + ( rowCounter + 2 ) + ')', componentEl );
+						
+							if ( ! rowEl.length ) {
+								var tableEl = $( '.rohstoffe-fuellstaende', componentEl );
+								var rowStr = '<tr class="rohstoffe-element">';
+								rowStr += '<td class="rohstoffe-bold">Polyethylen</td>';
+								rowStr += '<td data-content="amount"><span class="value">9000</span><span class="unit">kg</span></td>';
+								// rowStr += '<td data-content="materialcode"><span class="value">0093458035</span></td>';
+								rowStr += '<td data-content="losnummer"><span class="value">9023809</span></td>';
+								// rowStr += '<td data-content="lieferant"><span class="value">123456</span></td>';
+								rowStr += '</tr>';
 
-			// TODO HERE:
-			// 1. UPDATE ALL FILL IMAGES
-			// 2. UPDATE TABLE IF COMPONENT IS SELECTED
-						
-			if ( rawTimeline.rawTimelineSelectedComponentId !== -1 ) {
-				allocation.production.data.forEach( function ( allocationData, componentIndex ) {
-					allocationData = allocationData[0];
-					
-					var componentEl = $( '#app-tab2 [data-component-id="' + componentIndex + '"]' );
-					
-					if ( componentEl.length && allocationData.layers && allocationData.layers.length ) {
-						
-						var rowCounter = 0;
-						
-						allocationData.layers.forEach( function ( layer, layerIndex ) {
-							layer.forEach( function ( charge, chargeIndes ) {
-								var rowEl = $( 'tr:nth-child(' + ( rowCounter + 2 ) + ')', componentEl );
+								rowEl = $( rowStr );
+								tableEl.append( rowEl );
+							}
+
+							var titleEl = $( '.rohstoffe-bold', rowEl );
+							titleEl.text( charge.material.longname );
+
+							var amountEl = $( '[data-content="amount"]', rowEl );
+							amountEl.text( allocationData.amount.value + ' ' + allocationData.amount.unit );
+
+							var losnummerEl = $( '[data-content="losnummer"]', rowEl );
+							losnummerEl.text( charge.chargeIndex );
 							
-								if ( ! rowEl.length ) {
-									var tableEl = $( '.rohstoffe-fuellstaende', componentEl );
-									var rowStr = '<tr class="rohstoffe-element">';
-									rowStr += '<td class="rohstoffe-bold">Polyethylen</td>';
-									rowStr += '<td data-content="amount"><span class="value">9000</span><span class="unit">kg</span></td>';
-									// rowStr += '<td data-content="materialcode"><span class="value">0093458035</span></td>';
-									rowStr += '<td data-content="losnummer"><span class="value">9023809</span></td>';
-									// rowStr += '<td data-content="lieferant"><span class="value">123456</span></td>';
-									rowStr += '</tr>';
-
-									rowEl = $( rowStr );
-									tableEl.append( rowEl );
-								}
-
-								var titleEl = $( '.rohstoffe-bold', rowEl );
-								titleEl.text( charge.material.longname );
-
-								var amountEl = $( '[data-content="amount"]', rowEl );
-								amountEl.text( allocationData.amount.value + ' ' + allocationData.amount.unit );
-
-								var losnummerEl = $( '[data-content="losnummer"]', rowEl );
-								losnummerEl.text( charge.chargeIndex );
-								
-								rowCounter++;
-							} );
+							rowCounter++;
 						} );
+					} );
 
-						var rowEls = componentEl.find( '#app-tab2 .rohstoffe-fuellstaende' );
+					var rowEls = componentEl.find( '#app-tab2 .rohstoffe-fuellstaende' );
 
-						if ( rowEls.length > rowCounter ) {
-							rowEls.each( function ( index, el ) {
-								if ( index >= rowCounter ) {
-									$( el ).remove();
-								}
-							} );
-						}
-					}
-
-					var fillOverlayEl = $( '#app-tab2 [fill-overlay-id="' + componentIndex +'"]' );
-					var layerEls = fillOverlayEl.find( '.fill-layer' );
-
-					if ( fillOverlayEl.length && layerEls ) {
-						
-						layerEls.each( function ( elIndex, el ) {
-							var layerEl = $( el );
-							
-							if ( allocationData.layers && allocationData.layers[elIndex] ) {
-								var maxHeight = allocationData.fillLevel;
-								var layerCount = allocationData.layers.length;
-								var itemHeight = maxHeight / layerCount;
-								var y = itemHeight * elIndex * 100 + '%';
-
-								layerEl.attr( {
-									height: itemHeight * 100 + '%',
-									y: y
-								} );
-							} else {
-								layerEl.attr( {
-									height: 0,
-									y: 0
-								} );
+					if ( rowEls.length > rowCounter ) {
+						rowEls.each( function ( index, el ) {
+							if ( index >= rowCounter ) {
+								$( el ).remove();
 							}
 						} );
 					}
-				} );
-			}
-			// data-component-id="8"
+				}
+
+				var fillOverlayEl = $( '#app-tab2 [fill-overlay-id="' + componentIndex +'"]' );
+				var layerEls = fillOverlayEl.find( '.fill-layer' );
+
+				if ( fillOverlayEl.length && layerEls ) {
+					
+					layerEls.each( function ( elIndex, el ) {
+						var layerEl = $( el );
+						var elIndex = layerEls.length - elIndex - 1;
+						
+						if ( allocationData.layers && allocationData.layers[elIndex] ) {
+							var maxHeight = allocationData.fillLevel;
+							var layerCount = allocationData.layers.length;
+							var itemHeight = maxHeight / layerCount;
+							var y = itemHeight * elIndex * 100 + '%';
+
+							layerEl.attr( {
+								height: itemHeight * 100 + '%',
+								y: y,
+								opacity: 1
+							} );
+						} else {
+							layerEl.attr( {
+								height: 0,
+								y: 0,
+								opacity: 0
+							} );
+						}
+					} );
+				}
+			} );
 		}
 
 		function closePopup () {
@@ -427,9 +424,13 @@ var rawTimeline = {
 		function getCurrentAllocation ( borders ) {
 			var now = getCurrentMoment();
 
-			return getAllocationsInTimespan( borders ).filter( function ( allocation ) {
-				return allocation.start.isBefore( now ) && allocation.end.isAfter( now );
-			} )[0];
+			return getAllocationsInTimespan( borders ).then( function ( allocations ) {
+				var currentAllocations = allocations.filter( function ( allocation, index ) {
+					return ( ( allocation.start.isBefore( now ) || allocation.start.isSame( now ) ) && ( allocation.end.isAfter( now ) || allocation.end.isSame( now ) ) );
+				} );
+
+				return currentAllocations[0];
+			} );
 		}
 
 		function getAllocationsInTimespan ( borders ) {
@@ -441,11 +442,12 @@ var rawTimeline = {
 			}
 
 			return Promise.all( productionDates ).then( function ( productionDates ) {
-				return productionDates.map( function ( productionDate, index ) {
+				return productionDates.map( function ( productionData, index ) {
 					return {
 						start: moment( borders.start.moment ).add( index, 'hours' ),
 						end: moment( borders.start.moment ).add( index, 'hours' ).add( 59, 'minutes' ).add( 59, 'seconds' ),
-						production: productionDate
+						production: productionData,
+						index: index
 					};
 				} );
 			} );
