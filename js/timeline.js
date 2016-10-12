@@ -3,8 +3,8 @@
 // moment.js wird benutzt für alle datums variablen: http://momentjs.com/docs/#/displaying/format/
 
 
-var startWeek = 38;
-var endWeek = 43;
+var startWeek = 42;
+var endWeek = 47;
 
 $(document).ready( function () {
 	var timelineEl = $( '#timeline' );
@@ -113,6 +113,7 @@ $(document).ready( function () {
 	function selectTimespan ( timespan ) {
 		currentTimelineSpanId = timespan;
 		closeSelection();
+		closePopup();
 		render();
 	}
 
@@ -230,10 +231,12 @@ function getTimelineData () {
 	// 	}
 	// ]
 
+
+
 	var events = [
 		{
 			id:'event-1',
-			date: moment( '2016-10-01 09:30:26' ),
+			date: moment( startDate ).hours( 9 ).minutes( 30 ).seconds( 26 ),
 			type: 'maintenance',
 			title: 'Maintenance: ZXD',
 			description: 'Bearings and Sealings on ZXD- rotary valve below XXXX have been replaced during Inspection after 8.000 operating hours.',
@@ -242,7 +245,7 @@ function getTimelineData () {
 
 		{
 			id:'event-2',
-			date: moment( '2016-10-02 09:30:26' ),
+			date: moment( startDate ).add( 1, 'day' ).hours( 9 ).minutes( 30 ).seconds( 26 ),
 			type: 'error',
 			title: 'Error #0246',
 			description: 'Analysis revealed: Suction conveying line was blocked. Conveying pressure = - 500 mbar.',
@@ -250,7 +253,7 @@ function getTimelineData () {
 		},
 		{
 			id:'event-3',
-			date: moment( '2016-09-30 15:30:26' ),
+			date: moment( startDate ).add( 2, 'days' ).hours( 15 ).minutes( 30 ).seconds( 26 ),// moment( '2016-09-30 15:30:26' ),
 			type: 'setup',
 			title: 'Leakage in Conveying System / Wear in Rotary Valve',
 			description: 'Conveying pressure constantly increasing for 5 hours. Solution: Performance was increased.',
@@ -258,7 +261,7 @@ function getTimelineData () {
 		},
 		{
 			id:'event-121312',
-			date: moment( '2016-09-26 14:30:26' ),
+			date: moment( startDate ).add( 3, 'days' ).hours( 14 ).minutes( 30 ).seconds( 26 ),//moment( '2016-09-26 14:30:26' ),
 			type: 'error',
 			title: 'Störmeldung #0248: Zu geringer Drehmoment',
 			description: 'Analyse ergab: Geringer Druck aufgrund niedriger Drehzahl.',
@@ -266,7 +269,7 @@ function getTimelineData () {
 		},
 		{
 			id:'event-121312',
-			date: moment( '2016-09-26 19:30:26' ),
+			date: moment( startDate ).add( 4, 'days' ).hours( 15 ).minutes( 30 ).seconds( 26 ),//moment( '2016-09-26 19:30:26' ),
 			type: 'error',
 			title: 'Störmeldung #0249: Maschine XY schaltet sich bei laufender Dosierung ab',
 			description: 'Analyse ergab: Leerlaufmoment war zu hoch eingestellt.',
@@ -274,7 +277,7 @@ function getTimelineData () {
 		},
 		{
 			id:'event-121312',
-			date: moment( '2016-09-26 19:30:26' ),
+			date: moment( startDate ).add( 5, 'days' ).hours( 15 ).minutes( 30 ).seconds( 26 ),//moment( '2016-09-26 19:30:26' ),
 			type: 'error',
 			title: 'Störmeldung #0249: Maschine XY schaltet sich bei laufender Dosierung ab',
 			description: 'Analyse ergab: Leerlaufmoment war zu hoch eingestellt.',
