@@ -11,8 +11,8 @@ $(document).ready(function(){
     this.val = '';
     this.index = 0;
     this.initEvents();
-
   }
+
   DropDown.prototype = {
 
     initEvents : function() {
@@ -33,10 +33,11 @@ $(document).ready(function(){
       $('#dd li:first-child').on('click',function(){
         $("#app-tab1").addClass("active");
         $("#app-tab2").removeClass("active");
+        
         window.sendSpacebrewMessage('componentActivated', {
-        componentId: 90,
-        componentName: 'Switch to Sensoring',
-        rohstoffTracking: false
+          componentId: 90,
+          componentName: 'Switch to Sensoring',
+          rohstoffTracking: false
         });
 
         resetPlantView();
@@ -47,9 +48,9 @@ $(document).ready(function(){
         $("#app-tab2").addClass("active");
         $("#app-tab1").removeClass("active");
         window.sendSpacebrewMessage('componentActivated', {
-        componentId: 89,
-        componentName: 'Switch to Material Tracking',
-        rohstoffTracking: true
+          componentId: 89,
+          componentName: 'Switch to Material Tracking',
+          rohstoffTracking: true
         });
 
         resetPlantView();

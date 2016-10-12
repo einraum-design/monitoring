@@ -194,7 +194,7 @@ img[data-src] {
 /* Sensoring: Filter 1*/
 .other #filter-1-point{
 	position: absolute;
-	left: 215px;
+	left: 280px;
 	top: 170px;
 }
 /* Akiver Punkt*/
@@ -216,7 +216,7 @@ a#filter-1-point .active-dot{
 /* Sensoring: ATI */
 .other #ati-point{
 	position: absolute;
-	left: 215px;
+	left: 280px;
 	top: 235px;
 }
 /* Akiver Punkt*/
@@ -227,7 +227,7 @@ a#filter-1-point .active-dot{
 /* Sensoring: ZXD */
 .other #zxd-point{
 	position: absolute;
-	left: 215px;
+	left: 280px;
 	top: 258px;
 }
 /* Akiver Punkt*/
@@ -466,7 +466,7 @@ a#filter-1-point .active-dot{
 
 .auswahl-punkt .number {
 
-  display: inline;
+  display: none;
   font-size: 5px;
   font-family: "Gotham", sans-serif;
   color: #333;

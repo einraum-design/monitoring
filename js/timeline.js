@@ -3,11 +3,12 @@
 // moment.js wird benutzt für alle datums variablen: http://momentjs.com/docs/#/displaying/format/
 
 
-var startWeek = 38;
-var endWeek = 43;
+var startWeek = 42;
+var endWeek = 47;
 
 $(document).ready( function () {
 	var timelineEl = $( '#timeline' );
+	var scaleEl = $( '.timeline-scale', timelineEl );
 	var popupEl = $( '#timeline-popup' );
 	var optionsEl = $( '#timeline-timespan-options', timelineEl );
 	var timelineData = getTimelineData();
@@ -80,10 +81,41 @@ $(document).ready( function () {
 
 			var selectedEl = $( '#timeline-timespan-selected', timelineEl );
 			selectedEl.text( currentTimelineSpanId );
+
+			// update scale
+			scaleEl.find( '.scale-item' ).remove();
+			
+			var scaleItemDurationInSeconds = moment.duration( 1, 'hour' ).asMilliseconds();
+			var scaleFormat = 'HH:mm';
+
+			if ( currentTimelineSpanId.toLowerCase() === 'week' ) {
+				scaleItemDurationInSeconds = moment.duration( 1, 'day' ).asMilliseconds();
+				scaleFormat = 'ddd, MMM Do';
+			}
+
+			if ( currentTimelineSpanId.toLowerCase() === 'hour' ) {
+				scaleItemDurationInSeconds = moment.duration( 5, 'minutes' ).asMilliseconds();
+				scaleFormat = 'HH:mm';
+			}
+
+			var times = ~~( timelineSpanStartTimestamp / scaleItemDurationInSeconds ) + 1;
+			var scaleStartSec = ( scaleItemDurationInSeconds * times );
+			var scaleItemWidth = scaleItemDurationInSeconds / ( timelineSpanEndTimestamp - timelineSpanStartTimestamp );
+
+			for ( var secondsInTimeline = scaleStartSec; secondsInTimeline < timelineSpanEndTimestamp; secondsInTimeline += scaleItemDurationInSeconds ) {
+				var scaleItemX = ( secondsInTimeline - timelineSpanStartTimestamp ) / ( timelineSpanEndTimestamp - timelineSpanStartTimestamp );
+				var scaleItemText = moment( secondsInTimeline, 'x' ).format( scaleFormat );
+				var scaleItemEl = $( '<div class="scale-item">' + scaleItemText + '</div>' );
+				
+				scaleItemEl.css( {
+					width: ( scaleItemWidth * 100 ) + '%',
+					left: ( scaleItemX * 100 ) + '%'
+				} );
+
+				scaleEl.append( scaleItemEl );
+			}
 		} );
 	}
-
-
 
 	function openDetailPopup ( eventData, eventX, isEventInPast ) {
 		popupEl[isEventInPast ? 'addClass' : 'removeClass']( 'is-in-past' );
@@ -113,6 +145,7 @@ $(document).ready( function () {
 	function selectTimespan ( timespan ) {
 		currentTimelineSpanId = timespan;
 		closeSelection();
+		closePopup();
 		render();
 	}
 
@@ -233,7 +266,7 @@ function getTimelineData () {
 	var events = [
 		{
 			id:'event-1',
-			date: moment( '2016-10-01 09:30:26' ),
+			date: moment( startDate ).hours( 9 ).minutes( 30 ).seconds( 26 ),
 			type: 'maintenance',
 			title: 'Maintenance: ZXD',
 			description: 'Bearings and Sealings on ZXD- rotary valve below XXXX have been replaced during Inspection after 8.000 operating hours.',
@@ -242,7 +275,7 @@ function getTimelineData () {
 
 		{
 			id:'event-2',
-			date: moment( '2016-10-02 09:30:26' ),
+			date: moment( startDate ).add( 1, 'day' ).hours( 9 ).minutes( 30 ).seconds( 26 ),
 			type: 'error',
 			title: 'Error #0246',
 			description: 'Analysis revealed: Suction conveying line was blocked. Conveying pressure = - 500 mbar.',
@@ -250,7 +283,7 @@ function getTimelineData () {
 		},
 		{
 			id:'event-3',
-			date: moment( '2016-09-30 15:30:26' ),
+			date: moment( startDate ).add( 2, 'days' ).hours( 15 ).minutes( 30 ).seconds( 26 ),// moment( '2016-09-30 15:30:26' ),
 			type: 'setup',
 			title: 'Leakage in Conveying System / Wear in Rotary Valve',
 			description: 'Conveying pressure constantly increasing for 5 hours. Solution: Performance was increased.',
@@ -258,7 +291,7 @@ function getTimelineData () {
 		},
 		{
 			id:'event-121312',
-			date: moment( '2016-09-26 14:30:26' ),
+			date: moment( startDate ).add( 3, 'days' ).hours( 14 ).minutes( 30 ).seconds( 26 ),//moment( '2016-09-26 14:30:26' ),
 			type: 'error',
 			title: 'Störmeldung #0248: Zu geringer Drehmoment',
 			description: 'Analyse ergab: Geringer Druck aufgrund niedriger Drehzahl.',
@@ -266,7 +299,7 @@ function getTimelineData () {
 		},
 		{
 			id:'event-121312',
-			date: moment( '2016-09-26 19:30:26' ),
+			date: moment( startDate ).add( 4, 'days' ).hours( 15 ).minutes( 30 ).seconds( 26 ),//moment( '2016-09-26 19:30:26' ),
 			type: 'error',
 			title: 'Störmeldung #0249: Maschine XY schaltet sich bei laufender Dosierung ab',
 			description: 'Analyse ergab: Leerlaufmoment war zu hoch eingestellt.',
@@ -274,7 +307,7 @@ function getTimelineData () {
 		},
 		{
 			id:'event-121312',
-			date: moment( '2016-09-26 19:30:26' ),
+			date: moment( startDate ).add( 5, 'days' ).hours( 15 ).minutes( 30 ).seconds( 26 ),//moment( '2016-09-26 19:30:26' ),
 			type: 'error',
 			title: 'Störmeldung #0249: Maschine XY schaltet sich bei laufender Dosierung ab',
 			description: 'Analyse ergab: Leerlaufmoment war zu hoch eingestellt.',
@@ -282,26 +315,6 @@ function getTimelineData () {
 		}
 	];
 
-
-/*
-	// generate a few random events. we should probably use actual data instead of random items
-	for ( var eventIndex = 0; eventIndex < eventCount; ++eventIndex ) {
-		var eventPosition = Math.random();
-
-		// event date, calculated by using linux timestamps as reference
-		var eventTimestamp = startDateTimestamp + ~~( endDateTimestamp - startDateTimestamp * eventPosition );
-		var eventDate = moment( eventTimestamp, 'x' );
-
-		events[eventIndex] = {
-			id: 'event-' + eventIndex,
-			date: eventDate,
-			type: eventTypes[randomNumber(0, eventTypes.length - 1, true)],
-			title: 'EVENT ' + ( eventIndex + 1 ),
-			description: 'lorem ipsum dolor',
-			image: 'img/events/testImage.svg'
-		};
-	}
-*/
 	data.events = events;
 	data.startDate = startDate;
 	data.endDate = endDate;

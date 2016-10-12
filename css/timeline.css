@@ -60,63 +60,79 @@
 
 #raw-material-timeline .allocation {
 	position: absolute;
-	top: 50%;
-	height: 12px;
+	top: 0;
+	left: 0;
+	height: 100%;
+	
 	overflow: hidden;
 	/* border-radius: 30px; */
-	transform: translateY(-50%);
-	background-color: #ccc;
+	
+	
 	cursor: pointer;
+
+}
+
+#raw-material-timeline .allocation span {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	left: 0;
+	background-color: #809dbc;
 	text-align: center;
 	color: #fff;
 	box-shadow: 0 1px 3px rgba(0, 0, 0, .15);
+	height: 12px;
 	font-size: 9px;
 	line-height: 1.6em;
+	display: block;
+	width: 100%;
 }
 
-#raw-material-timeline .allocation.is-in-future {
+
+#raw-material-timeline .allocation.is-in-future span {
 	opacity: 0.9;
 }
 
-#raw-material-timeline .allocation.is-in-past {
+#raw-material-timeline .allocation.is-in-past span {
 	opacity: 0.4;
 }
 
 @keyframes blink {
-  0% { background-color: #a1a1a1; }
-  100% { background-color: #333; }
+  0% { background-color: #809dbc; }
+  100% { background-color: #bfcee0; }
 }
 @-webkit-keyframes blink {
-  0% { background-color: #a1a1a1; }
-  100% { background-color: #333; }
+  0% { background-color: #809dbc; }
+  100% { background-color: #bfcee0; }
 }
 
-#raw-material-timeline .allocation.is-first-of-kind {
+#raw-material-timeline .allocation.is-first-of-kind span {
 	border-top-left-radius: 3px;
 	border-bottom-left-radius: 3px;
 }
 
-#raw-material-timeline .allocation.is-last-of-kind {
+#raw-material-timeline .allocation.is-last-of-kind span {
 	border-top-right-radius: 3px;
 	border-bottom-right-radius: 3px;
 }
 
-#raw-material-timeline .allocation.is-current {
-	-webkit-animation: blink 1s linear infinite;
-	-moz-animation: blink 1s linear infinite;
-	animation: blink 1s linear infinite;
+#raw-material-timeline .allocation.is-current span {
+	opacity: 1;
+	-webkit-animation: blink 1s linear infinite alternate;
+	-moz-animation: blink 1s linear infinite alternate;
+	animation: blink 1s linear infinite alternate;
 }
 
-#raw-material-timeline .allocation[data-type^="recipe"] {
-	background-color: #333;
+#raw-material-timeline .allocation[data-type^="recipe"] span {
+	background-color: #809dbc;
 }
 
-#raw-material-timeline .allocation[data-type="maintenance"] {
-	background-color: orange;
+#raw-material-timeline .allocation[data-type="maintenance"] span {
+	background-color: #cbcbcb;
 }
 
-#raw-material-timeline .allocation[data-type^="setup"] {
-	background-color: blue;
+#raw-material-timeline .allocation[data-type^="setup"] span {
+	background-color: #cbcbcb;
 }
 
 #timeline-popup {
@@ -374,4 +390,33 @@ span.wartung::before {
 
 #timeline-legende.active{
 	display: block;
+}
+
+.timeline-scale {
+	position: absolute;
+	width: 100%;
+	top: 0;
+	height: 100%;
+}
+
+.timeline-scale .scale-item {
+	position: absolute;
+	height: 100%;
+	top: 0;
+	padding-left: 4px;
+	font-size: 10px;
+	display: flex;
+	align-items: flex-end;
+}
+
+.timeline-scale .scale-item::before {
+	content: '';
+	left: 0;
+	top: 0;
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+	background-color: #ccc;
+	width: 1px;
 }
