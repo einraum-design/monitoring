@@ -158,11 +158,9 @@ var rawTimeline = {
 								allocationEl.style.width = widthPercent + '%';
 
 							} else {
-								allocationEl = document.createElement( 'div' );
-								allocationEl.classList.add( 'allocation' );
+								allocationEl = $( '<div class="allocation"><span class="allocation-text">' + allocationContent + '</span></div>' )[0];
 								allocationEl.setAttribute( 'data-type', allocationContent.toLowerCase() );
-								allocationEl.textContent = allocationContent;
-								
+																
 								timelineEl[0].appendChild( allocationEl );
 
 								allocationEl.addEventListener( 'click', function () {
