@@ -41,7 +41,7 @@ var rawTimeline = {
 
 			addFillOverlays();
 			rawTimeline.render();
-			// setInterval( rawTimeline.render, 5000 );
+			setInterval( rawTimeline.render, 5000 );
 			
 			getAllocationsInTimespan( getTimelineBorders() ).then( function ( allocations ) {
 				return getCurrentAllocation( getTimelineBorders() ).then( function ( currentAllocation ) {
