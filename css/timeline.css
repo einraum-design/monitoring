@@ -375,3 +375,32 @@ span.wartung::before {
 #timeline-legende.active{
 	display: block;
 }
+
+.timeline-scale {
+	position: absolute;
+	width: 100%;
+	top: 0;
+	height: 100%;
+}
+
+.timeline-scale .scale-item {
+	position: absolute;
+	height: 100%;
+	top: 0;
+	padding-left: 4px;
+	font-size: 10px;
+	display: flex;
+	align-items: flex-end;
+}
+
+.timeline-scale .scale-item::before {
+	content: '';
+	left: 0;
+	top: 0;
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+	background-color: #ccc;
+	width: 1px;
+}

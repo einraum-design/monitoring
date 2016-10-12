@@ -8,6 +8,7 @@ var endWeek = 47;
 
 $(document).ready( function () {
 	var timelineEl = $( '#timeline' );
+	var scaleEl = $( '#timeline .timeline-scale' );
 	var popupEl = $( '#timeline-popup' );
 	var optionsEl = $( '#timeline-timespan-options', timelineEl );
 	var timelineData = getTimelineData();
@@ -80,10 +81,40 @@ $(document).ready( function () {
 
 			var selectedEl = $( '#timeline-timespan-selected', timelineEl );
 			selectedEl.text( currentTimelineSpanId );
+
+			scaleEl.find( '.scale-item' ).remove();
+			
+			var scaleItemDurationInSeconds = moment.duration( 1, 'hour' ).asMilliseconds();
+			var scaleFormat = 'HH:mm';
+
+			if ( currentTimelineSpanId.toLowerCase() === 'week' ) {
+				scaleItemDurationInSeconds = moment.duration( 1, 'day' ).asMilliseconds();
+				scaleFormat = 'ddd, MMM Do';
+			}
+
+			if ( currentTimelineSpanId.toLowerCase() === 'hour' ) {
+				scaleItemDurationInSeconds = moment.duration( 5, 'minutes' ).asMilliseconds();
+				scaleFormat = 'HH:mm';
+			}
+
+			var times = ~~( timelineSpanStartTimestamp / scaleItemDurationInSeconds ) + 1;
+			var scaleStartSec = ( scaleItemDurationInSeconds * times );
+			var scaleItemWidth = scaleItemDurationInSeconds / ( timelineSpanEndTimestamp - timelineSpanStartTimestamp );
+
+			for ( var secondsInTimeline = scaleStartSec; secondsInTimeline < timelineSpanEndTimestamp; secondsInTimeline += scaleItemDurationInSeconds ) {
+				var scaleItemX = ( secondsInTimeline - timelineSpanStartTimestamp ) / ( timelineSpanEndTimestamp - timelineSpanStartTimestamp );
+				var scaleItemText = moment( secondsInTimeline, 'x' ).format( scaleFormat );
+				var scaleItemEl = $( '<div class="scale-item">' + scaleItemText + '</div>' );
+				
+				scaleItemEl.css( {
+					width: ( scaleItemWidth * 100 ) + '%',
+					left: ( scaleItemX * 100 ) + '%'
+				} );
+
+				scaleEl.append( scaleItemEl );
+			}
 		} );
 	}
-
-
 
 	function openDetailPopup ( eventData, eventX, isEventInPast ) {
 		popupEl[isEventInPast ? 'addClass' : 'removeClass']( 'is-in-past' );
@@ -231,8 +262,6 @@ function getTimelineData () {
 	// 	}
 	// ]
 
-
-
 	var events = [
 		{
 			id:'event-1',
@@ -285,26 +314,6 @@ function getTimelineData () {
 		}
 	];
 
-
-/*
-	// generate a few random events. we should probably use actual data instead of random items
-	for ( var eventIndex = 0; eventIndex < eventCount; ++eventIndex ) {
-		var eventPosition = Math.random();
-
-		// event date, calculated by using linux timestamps as reference
-		var eventTimestamp = startDateTimestamp + ~~( endDateTimestamp - startDateTimestamp * eventPosition );
-		var eventDate = moment( eventTimestamp, 'x' );
-
-		events[eventIndex] = {
-			id: 'event-' + eventIndex,
-			date: eventDate,
-			type: eventTypes[randomNumber(0, eventTypes.length - 1, true)],
-			title: 'EVENT ' + ( eventIndex + 1 ),
-			description: 'lorem ipsum dolor',
-			image: 'img/events/testImage.svg'
-		};
-	}
-*/
 	data.events = events;
 	data.startDate = startDate;
 	data.endDate = endDate;
