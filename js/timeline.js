@@ -8,7 +8,7 @@ var endWeek = 47;
 
 $(document).ready( function () {
 	var timelineEl = $( '#timeline' );
-	var scaleEl = $( '#timeline .timeline-scale' );
+	var scaleEl = $( '.timeline-scale', timelineEl );
 	var popupEl = $( '#timeline-popup' );
 	var optionsEl = $( '#timeline-timespan-options', timelineEl );
 	var timelineData = getTimelineData();
@@ -82,6 +82,7 @@ $(document).ready( function () {
 			var selectedEl = $( '#timeline-timespan-selected', timelineEl );
 			selectedEl.text( currentTimelineSpanId );
 
+			// update scale
 			scaleEl.find( '.scale-item' ).remove();
 			
 			var scaleItemDurationInSeconds = moment.duration( 1, 'hour' ).asMilliseconds();

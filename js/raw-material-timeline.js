@@ -19,12 +19,16 @@ var rawTimeline = {
 
 	init: function() {
 		var timelineEl = $( '#app-tab2 #raw-material-timeline' );
+		var scaleEl = $( '.timeline-scale', timelineEl );
 		var popupEl = $( '#app-tab2 #timeline-popup' );
-		var optionsEl = $( '#app-tab2 #timeline-timespan-options', timelineEl );
+		var optionsEl = $( '#timeline-timespan-options', timelineEl );
 		var currentTimelineSpanId = Object.keys( getTimespans() )[0];
 
 		popupEl.find( '#app-tab2 .timeline-popup-close-button' ).on( 'click', closePopup );
-		timelineEl.find( '#app-tab2 #timeline-timespan-selected' ).on( 'click', toggleSelection );
+
+		var selectionButtonEl = timelineEl.find( '#timeline-timespan-selected' );
+
+		selectionButtonEl.on( 'click', toggleSelection );
 
 		var allocations = [ ];
 
@@ -37,7 +41,7 @@ var rawTimeline = {
 
 			addFillOverlays();
 			rawTimeline.render();
-			setInterval( rawTimeline.render, 5000 );
+			// setInterval( rawTimeline.render, 5000 );
 			
 			getAllocationsInTimespan( getTimelineBorders() ).then( function ( allocations ) {
 				return getCurrentAllocation( getTimelineBorders() ).then( function ( currentAllocation ) {
@@ -107,21 +111,32 @@ var rawTimeline = {
 
 							var allocationStartTimestamp = parseInt( allocation.start.format( 'x' ), 10 );
 							var allocationEndTimestamp = parseInt( allocation.end.format( 'x' ), 10 );
+							
+							var spanStartTimestamp = borders.start.timestamp;
+							var spanEndTimestamp = borders.end.timestamp;
+							var spanDuration = spanEndTimestamp - spanStartTimestamp;
+
+							var allocationDuration = moment.duration( 1, 'hour' ).asMilliseconds();
+
+							if ( currentTimelineSpanId.toLowerCase() === 'week' ) {
+								allocationDuration = moment.duration( 1, 'day' ).asMilliseconds();
+							}
+
+							var times = ~~( spanStartTimestamp / allocationDuration ) + 1;
+							var delta = ( allocationDuration * times ) - spanStartTimestamp;
 
 							if ( allocation.start.isAfter( borders.start.moment ) ) {
-								startX = ( allocationStartTimestamp - borders.start.timestamp ) / ( borders.end.timestamp - borders.start.timestamp );
+								startX = ( allocationStartTimestamp - spanStartTimestamp + delta ) / spanDuration;
 							}
 
 							if ( allocation.end.isBefore( borders.end.moment ) ) {
-								endX = ( allocationEndTimestamp - borders.start.timestamp ) / ( borders.end.timestamp - borders.start.timestamp );
+								endX = ( allocationEndTimestamp - spanStartTimestamp + delta ) / spanDuration;
 							}
 
 							if ( useShiftBlocks ) {
 								if ( prevAllocationContent !== allocationContent || allocationHour % 8 === 0 ) {
-									allocationEl = document.createElement( 'div' );
-									allocationEl.classList.add( 'allocation' );
+									allocationEl = $( '<div class="allocation"><span class="allocation-text">' + allocationContent + '</span></div>' )[0];
 									allocationEl.setAttribute( 'data-type', allocationContent.toLowerCase() );
-									allocationEl.textContent = allocationContent;
 
 									allocationEl.addEventListener( 'click', function () {
 										showAllocation( allocation, allocations[allocationIndex + 1] );
@@ -159,7 +174,7 @@ var rawTimeline = {
 							}
 
 							if ( allocationContent !== prevAllocationContent ) {
-									allocationEl.classList.add( 'is-first-of-kind' );
+								allocationEl.classList.add( 'is-first-of-kind' );
 							}
 
 							if ( allocationContent !== nextAllocationContent ) {
@@ -203,6 +218,42 @@ var rawTimeline = {
 
 					var selectedEl = $( '#timeline-timespan-selected', timelineEl );
 					selectedEl.text( currentTimelineSpanId );
+
+					// update scale;
+					
+					var timelineSpanStartTimestamp = borders.start.timestamp;
+					var timelineSpanEndTimestamp = borders.end.timestamp;
+					scaleEl.find( '.scale-item' ).remove();
+			
+					var scaleItemDurationInSeconds = moment.duration( 1, 'hour' ).asMilliseconds();
+					var scaleFormat = 'HH:mm';
+
+					if ( currentTimelineSpanId.toLowerCase() === 'week' ) {
+						scaleItemDurationInSeconds = moment.duration( 1, 'day' ).asMilliseconds();
+						scaleFormat = 'ddd, MMM Do';
+					}
+
+					if ( currentTimelineSpanId.toLowerCase() === 'shift' ) {
+						scaleItemDurationInSeconds = moment.duration( 1, 'hour' ).asMilliseconds();
+						scaleFormat = 'HH:mm';
+					}
+
+					var times = ~~( timelineSpanStartTimestamp / scaleItemDurationInSeconds ) + 1;
+					var scaleStartSec = ( scaleItemDurationInSeconds * times );
+					var scaleItemWidth = scaleItemDurationInSeconds / ( timelineSpanEndTimestamp - timelineSpanStartTimestamp );
+
+					for ( var secondsInTimeline = scaleStartSec; secondsInTimeline < timelineSpanEndTimestamp; secondsInTimeline += scaleItemDurationInSeconds ) {
+						var scaleItemX = ( secondsInTimeline - timelineSpanStartTimestamp ) / ( timelineSpanEndTimestamp - timelineSpanStartTimestamp );
+						var scaleItemText = moment( secondsInTimeline, 'x' ).format( scaleFormat );
+						var scaleItemEl = $( '<div class="scale-item">' + scaleItemText + '</div>' );
+						
+						scaleItemEl.css( {
+							width: ( scaleItemWidth * 100 ) + '%',
+							left: ( scaleItemX * 100 ) + '%'
+						} );
+
+						scaleEl.append( scaleItemEl );
+					}
 				}
 			} );
 		}
