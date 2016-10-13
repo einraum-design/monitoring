@@ -63,6 +63,11 @@
 	position: absolute;
 	left: 0;
 	top: 0;
+	transition: all 0.6s ease;
+}
+
+body:not(.other) .fill-overlays {
+	opacity: 0;
 }
 
 .fill-overlay {
@@ -92,8 +97,8 @@
 
 .fill-overlay[fill-overlay-id="0"] {
 	top: 98px;
-	left: 180px;
-	width: 26px;
+	left: 182px;
+	width: 24px;
 	height: 66px;
 	display: block;
 }

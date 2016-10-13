@@ -65,9 +65,9 @@ var rawTimeline = {
 				var componentId = componentEl.attr( 'data-component-id' );
 
 				var svgStr = '<svg class="fill-overlay">';
-	            svgStr += '<rect class="fill-layer" x="0" y="0"   width="100%" height="33%" style="fill:rgb(255,168,7);" />';
-	            svgStr += '<rect class="fill-layer" x="0" y="33%" width="100%" height="33%" style="fill:rgb(255,208,7);" />';
-	            svgStr += '<rect class="fill-layer" x="0" y="66%" width="100%" height="33%" style="fill:rgb(255,255,7);" />';
+	            svgStr += '<rect class="fill-layer" x="0" y="0"   width="100%" height="33%" style="fill:#d6ba18;" />';
+	            svgStr += '<rect class="fill-layer" x="0" y="33%" width="100%" height="33%" style="fill:#ebcd15;" />';
+	            svgStr += '<rect class="fill-layer" x="0" y="66%" width="100%" height="33%" style="fill:#f9d817;" />';
 	            svgStr +='</svg>';
 
 	            var svgEl = $( svgStr );
@@ -328,8 +328,14 @@ var rawTimeline = {
 				if ( componentEl.length && allocationData.layers && allocationData.layers.length ) {
 					
 					var rowCounter = 0;
+
+					var layers = [ ];
+
+					if ( allocationData.amount.value ) {
+						layers = allocationData.layers;
+					}
 					
-					allocationData.layers.forEach( function ( layer, layerIndex ) {
+					layers.forEach( function ( layer, layerIndex ) {
 						layer.forEach( function ( charge, chargeIndes ) {
 							var rowEl = $( 'tr:nth-child(' + ( rowCounter + 2 ) + ')', componentEl );
 						
