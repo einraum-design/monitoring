@@ -65,9 +65,9 @@ var rawTimeline = {
 				var componentId = componentEl.attr( 'data-component-id' );
 
 				var svgStr = '<svg class="fill-overlay">';
-	            svgStr += '<rect class="fill-layer" x="0" y="0"   width="100%" height="33%" style="fill:#d6ba18;" />';
-	            svgStr += '<rect class="fill-layer" x="0" y="33%" width="100%" height="33%" style="fill:#ebcd15;" />';
-	            svgStr += '<rect class="fill-layer" x="0" y="66%" width="100%" height="33%" style="fill:#f9d817;" />';
+	            svgStr += '<rect class="fill-layer" x="0" y="100%" width="100%" height="0%" style="fill:#f9d817;" />';
+	            svgStr += '<rect class="fill-layer" x="0" y="100%" width="100%" height="0%" style="fill:#ebcd15;" />';
+	            svgStr += '<rect class="fill-layer" x="0" y="100%" width="100%" height="0%" style="fill:;#d6ba18" />';
 	            svgStr +='</svg>';
 
 	            var svgEl = $( svgStr );
@@ -384,23 +384,23 @@ var rawTimeline = {
 					
 					layerEls.each( function ( elIndex, el ) {
 						var layerEl = $( el );
-						var elIndex = layerEls.length - elIndex - 1;
+						// var elIndex = layerEls.length - elIndex - 1;
 						
 						if ( allocationData.layers && allocationData.layers[elIndex] ) {
 							var maxHeight = allocationData.fillLevel;
 							var layerCount = allocationData.layers.length;
-							var itemHeight = maxHeight / layerCount;
-							var y = itemHeight * elIndex * 100 + '%';
+							var layerHeight = maxHeight / layerCount;
+							var y = ( 1 - layerHeight ) - ( layerHeight * elIndex );
 
 							layerEl.attr( {
-								height: itemHeight * 100 + '%',
-								y: y,
+								height: layerHeight * 100 + '%',
+								y: y * 100 + '%',
 								opacity: 1
 							} );
 						} else {
 							layerEl.attr( {
 								height: 0,
-								y: 0,
+								y: '100%',
 								opacity: 0
 							} );
 						}

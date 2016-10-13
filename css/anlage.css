@@ -75,7 +75,8 @@ body:not(.other) .fill-overlays {
 	top: 0;
 	left: 0;
 	display: none;
-	transform: rotate(-180deg);
+	opacity: 0.8;
+	/* transform: rotate(-180deg); */
 }
 
 .fill-overlay rect {
@@ -99,24 +100,27 @@ body:not(.other) .fill-overlays {
 	top: 98px;
 	left: 182px;
 	width: 24px;
-	height: 66px;
+	height: 82px;
 	display: block;
+	-webkit-clip-path: polygon(0px 65px, 3px 65px,12px 82px,13px 82px,22px 65px,24px 65px,25px 0px,0px 0px);
 }
 
 .fill-overlay[fill-overlay-id="2"] {
 	display: block;
 	left: 247px;
 	top: 98px;
-	height: 66px;
 	width: 24px;
+	height: 82px;
+	-webkit-clip-path: polygon(0px 65px, 3px 65px,12px 82px,13px 82px,22px 65px,24px 65px,25px 0px,0px 0px);
 }
 
 .fill-overlay[fill-overlay-id="10"] {
 	display: block;
 	left: 324px;
 	top: 151px;
-	height: 11px;
+	height: 18px;
 	width: 10px;
+	-webkit-clip-path: polygon(0px 0px, 0px 11px, 2px 11px, 2px 15px, 5px 19px, 8px 14px, 8px 11px, 10px 11px, 10px 0px);
 }
 
 .three-di-view{
