@@ -174,7 +174,7 @@ $(function() {
             enabled: false
           },
           title: {
-            text: 'Temperature <span class="blue">mm/s</span>',
+            text: 'Temperature <span class="blue">°C</span>',
             align: 'left',
             floating: true,
               style: {
@@ -300,7 +300,7 @@ $(function() {
             enabled: false
           },
           title: {
-            text: 'Energy consumption <span class="blue">C</span>',
+            text: 'Energy consumption <span class="blue">kW/h</span>',
             align: 'left',
             floating: true,
               style: {
@@ -680,7 +680,7 @@ $(function() {
             enabled: false
           },
           title: {
-            text: 'Temperature <span class="blue">mm/s</span>',
+            text: 'Temperature <span class="blue">°C</span>',
             align: 'left',
             floating: true,
               style: {
@@ -806,7 +806,7 @@ $(function() {
             enabled: false
           },
           title: {
-            text: 'Energy consumption <span class="blue">C</span>',
+            text: 'Energy consumption <span class="blue">kW/h</span>',
             align: 'left',
             floating: true,
               style: {
@@ -1312,7 +1312,7 @@ $(function() {
             enabled: false
           },
           title: {
-            text: 'Energy consumption <span class="blue">C</span>',
+            text: 'Energy consumption <span class="blue">kW/h</span>',
             align: 'left',
             floating: true,
               style: {
@@ -1817,7 +1817,7 @@ $(function() {
             enabled: false
           },
           title: {
-            text: 'Energy consumption <span class="blue">C</span>',
+            text: 'Energy consumption <span class="blue">kW/h</span>',
             align: 'left',
             floating: true,
               style: {
@@ -3830,7 +3830,7 @@ $(function() {
             enabled: false
           },
           title: {
-            text: 'Energy Consumption <span class="blue">kW</span>',
+            text: 'Energy consumption <span class="blue">kW/h</span>',
             align: 'left',
             floating: true,
               style: {
@@ -3955,7 +3955,7 @@ $(function() {
             enabled: false
           },
           title: {
-            text: 'Torque <span class="blue">%</span>',
+            text: 'Torque <span class="blue">Nm/cm<sup>3</sup></span>',
             align: 'left',
             floating: true,
               style: {
@@ -4223,7 +4223,7 @@ $(function() {
     $('#').highcharts({
 
       title: {
-        text: 'Energy consumption <span class="blue">kW</span>',
+        text: 'Energy consumption <span class="blue">kW/h</span>',
         align: 'left',
         zIndex: 100,
         floating: true,
@@ -4352,7 +4352,7 @@ $(function() {
     $('').highcharts({
 
       title: {
-        text: 'Torque <span class="blue">%</span>',
+        text: 'Torque <span class="blue">Nm/cm<sup>3</sup></span>',
         align: 'left',
         floating: true,
           style: {
