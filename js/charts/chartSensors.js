@@ -2949,7 +2949,7 @@ $(function() {
             enabled: false
           },
           title: {
-            text: 'Feed pressure <span class="blue">kg/h</span>',
+            text: 'Conveying pressure <span class="blue">kg/h</span>',
             align: 'left',
             floating: true,
               style: {
@@ -3075,7 +3075,7 @@ $(function() {
             enabled: false
           },
           title: {
-            text: 'Feed pressure <span class="blue">kg/h</span>',
+            text: 'Conveying pressure <span class="blue">kg/h</span>',
             align: 'left',
             floating: true,
               style: {
@@ -3578,7 +3578,7 @@ $(function() {
             enabled: false
           },
           title: {
-            text: 'Feed pressure <span class="blue">kg/h</span>',
+            text: 'Conveying pressure <span class="blue">kg/h</span>',
             align: 'left',
             floating: true,
               style: {
