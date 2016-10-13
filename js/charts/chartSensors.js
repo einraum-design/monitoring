@@ -3830,7 +3830,7 @@ $(function() {
             enabled: false
           },
           title: {
-            text: 'Energy Consumption <span class="blue">kWh/h</span>',
+            text: 'Energy Consumption <span class="blue">kW</span>',
             align: 'left',
             floating: true,
               style: {
@@ -4223,7 +4223,7 @@ $(function() {
     $('#').highcharts({
 
       title: {
-        text: 'Energy consumption <span class="blue">kWh/h</span>',
+        text: 'Energy consumption <span class="blue">kW</span>',
         align: 'left',
         zIndex: 100,
         floating: true,
