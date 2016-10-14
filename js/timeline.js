@@ -93,6 +93,11 @@ $(document).ready( function () {
 				scaleFormat = 'ddd, MMM Do';
 			}
 
+			if ( currentTimelineSpanId.toLowerCase() === 'month' ) {
+				scaleItemDurationInSeconds = moment.duration( 1, 'day' ).asMilliseconds();
+				scaleFormat = 'M/D';
+			}
+
 			if ( currentTimelineSpanId.toLowerCase() === 'hour' ) {
 				scaleItemDurationInSeconds = moment.duration( 5, 'minutes' ).asMilliseconds();
 				scaleFormat = 'HH:mm';
@@ -239,7 +244,8 @@ function getTimelineData () {
 	var timelineSpans = {
 		'Week': moment.duration( 1, 'weeks' ),
 		'Day': moment.duration( 1, 'days' ),
-		'Hour': moment.duration( 1, 'hours' )
+		'Hour': moment.duration( 1, 'hours' ),
+		'Month': moment.duration( 1, 'month' ),
 	};
 
 	var events = [ ];
@@ -460,7 +466,7 @@ var hiddenEvents = {
 
 						setTimeout(function(){
 							$(".hiddenError-Response").removeClass("active");
-						}, 2000);
+						}, 5000);
 
 						hiddenEvents.sendError(data);
 
@@ -483,7 +489,7 @@ var hiddenEvents = {
 
 						setTimeout(function(){
 							$(".hiddenError-Response").removeClass("active");
-						}, 2000);
+						}, 5000);
 
 						hiddenEvents.sendError(data);
 
