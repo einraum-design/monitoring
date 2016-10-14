@@ -260,9 +260,14 @@ var rawTimeline = {
 			var infoEl = $( '#app-tab2 #first-row-rohstoffe > .ui-tabs-panel[aria-hidden="false"]' );
 			var wrapperEl = $( '#rohstoffe-recipe', infoEl );
 
+
+
 			// FAKE DATA
 			var allocationContent = getAllocationContent( allocation, 'allocation' );
 			var recipe = getAllocationContent( allocation, 'recipe' );
+
+			wrapperEl.attr( 'data-recipe', allocationContent.toLowerCase() );
+
 			
 			// UPDATE RECIPE EL
 			if ( recipe ) {
@@ -279,7 +284,7 @@ var rawTimeline = {
 			if ( nextAllocation ) {
 				var nextAllocationContent = getAllocationContent( nextAllocation, 'allocation' );
 				
-				var nextEl = $( '.recipe-next', infoEl );
+				var nextEl = $( '.recipe-next-text', infoEl );
 				nextEl.text( nextAllocationContent );
 			}
 

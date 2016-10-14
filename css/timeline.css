@@ -123,12 +123,14 @@
 }
 
 @keyframes blink {
-  0% { background-color: #809dbc; }
-  100% { background-color: #bfcee0; }
+	0% { opacity: 1; }
+	50% { opacity: 0.5; }
+	100% { opacity: 1; }
 }
 @-webkit-keyframes blink {
-  0% { background-color: #809dbc; }
-  100% { background-color: #bfcee0; }
+	0% { opacity: 1; }
+	50% { opacity: 0.5; }
+	100% { opacity: 1; }
 }
 
 #raw-material-timeline .allocation.is-first-of-kind span {
@@ -142,10 +144,23 @@
 }
 
 #raw-material-timeline .allocation.is-current span {
-	opacity: 1;
-	-webkit-animation: blink 1s linear infinite alternate;
-	-moz-animation: blink 1s linear infinite alternate;
-	animation: blink 1s linear infinite alternate;
+	-webkit-animation: blink 4s linear infinite alternate;
+	animation: blink 4s linear infinite alternate;
+}
+
+#raw-material-timeline .allocation[data-type="a"] span,
+#rohstoffe-recipe[data-recipe="a"] {
+	background-color: #333333;
+}
+
+#raw-material-timeline .allocation[data-type="b"] span,
+#rohstoffe-recipe[data-recipe="b"] {
+	background-color: #7C9CBB;
+}
+
+#raw-material-timeline .allocation[data-type="c"] span,
+#rohstoffe-recipe[data-recipe="c"] {
+	background-color: #808080;
 }
 
 #raw-material-timeline .allocation[data-type^="recipe"] span {
