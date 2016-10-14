@@ -466,7 +466,7 @@ var hiddenEvents = {
 
 						setTimeout(function(){
 							$(".hiddenError-Response").removeClass("active");
-						}, 5000);
+						}, 7000);
 
 						hiddenEvents.sendError(data);
 
@@ -489,7 +489,7 @@ var hiddenEvents = {
 
 						setTimeout(function(){
 							$(".hiddenError-Response").removeClass("active");
-						}, 5000);
+						}, 7000);
 
 						hiddenEvents.sendError(data);
 
