@@ -67,7 +67,7 @@ var rawTimeline = {
 				var svgStr = '<svg class="fill-overlay">';
 	            svgStr += '<rect class="fill-layer" x="0" y="100%" width="100%" height="0%" style="fill:#f9d817;" />';
 	            svgStr += '<rect class="fill-layer" x="0" y="100%" width="100%" height="0%" style="fill:#ebcd15;" />';
-	            svgStr += '<rect class="fill-layer" x="0" y="100%" width="100%" height="0%" style="fill:;#d6ba18" />';
+	            svgStr += '<rect class="fill-layer" x="0" y="100%" width="100%" height="0%" style="fill:#d6ba18" />';
 	            svgStr +='</svg>';
 
 	            var svgEl = $( svgStr );
@@ -323,7 +323,7 @@ var rawTimeline = {
 			} else {
 				rawmaterialBarContainerEls.removeClass( 'is-active' );
 			}
-									
+															
 			allocation.production.data.forEach( function ( allocationData, componentIndex ) {
 				allocationData = allocationData[0];
 				
@@ -338,7 +338,7 @@ var rawTimeline = {
 					if ( allocationData.amount.value ) {
 						layers = allocationData.layers;
 					}
-					
+
 					layers.forEach( function ( layer, layerIndex ) {
 						layer.forEach( function ( charge, chargeIndes ) {
 							var rowEl = $( 'tr:nth-child(' + ( rowCounter + 2 ) + ')', componentEl );
