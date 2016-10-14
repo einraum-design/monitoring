@@ -1451,3 +1451,51 @@ a#sensor-2 .3d-ansicht .anlagen-bild{
 	font-size: 18px;
 	color: #7c9cbb;
 }
+
+.mycoperion {
+	position: absolute;
+	top: 60px;
+	background-color: #fff;
+	height: calc(100% - 120px);
+	width: 100%;
+	display: none;
+	align-content: center;
+	align-items: center;
+	justify-content: center;
+	transition: all 0.3s ease;
+	z-index: 99;
+	opacity: 0;
+}
+
+.mycoperion.is-active {
+	display: flex;
+}
+
+.mycoperion.is-visible {
+	opacity: 1;
+}
+
+.mycoperion .login {
+	max-width: 405px;
+}
+
+.mycoperion .ui-btn {
+	position: absolute;
+	top: 30px;
+	right: 30px;
+	border: none;
+	padding: 0;
+	width: 45px;
+	height: 45px;
+	background-color: transparent;
+	background-image: url(../img/popup-close.svg);
+	background-size: 20px;
+	cursor: pointer;
+	background-repeat: no-repeat;
+	background-position: center;
+	/* box-shadow: none; */
+	overflow: hidden;
+	text-indent: -5000px;
+	border-radius: 50px !important;
+}
+
