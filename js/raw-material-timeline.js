@@ -134,7 +134,7 @@ var rawTimeline = {
 							}
 
 							if ( useShiftBlocks ) {
-								if ( prevAllocationContent !== allocationContent || allocationHour % 8 === 0 ) {
+								if ( prevAllocationContent !== allocationContent ) {
 									allocationEl = $( '<div class="allocation"><span class="allocation-text">' + allocationContent + '</span></div>' )[0];
 									allocationEl.setAttribute( 'data-type', allocationContent.toLowerCase() );
 
