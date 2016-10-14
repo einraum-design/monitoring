@@ -59,6 +59,35 @@
 	top: 100px;
 }
 
+#anlage-ansicht-3d .ansicht-3d {
+	position: absolute;
+}
+
+.ansicht-3d-image-1 {
+	top: 0;
+	left: 0;
+}
+
+.ansicht-3d-image-2 {
+	top: 0;
+	left: 209px;
+}
+
+.ansicht-3d-image-3 {
+	top: 0;
+	left: 456px;
+}
+
+.ansicht-3d-image-4 {
+	top: 0;
+	left: 703px;
+}
+
+.ansicht-3d-image-5 {
+	top: 0;
+	left: 820px;
+}
+
 .fill-overlays {
 	position: absolute;
 	left: 0;
@@ -484,4 +513,8 @@ a#filter-1-point .active-dot{
 .active-auswahl-punkt .number {
 
   display: none;
+}
+
+body:not(.other) .auswahl-punkt {
+	opacity: 0 !important;
 }
