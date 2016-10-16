@@ -32,6 +32,8 @@
 	<script src="js/table-data.js"></script>
 	<script src="js/timeline.js"></script>
 	<script src="js/raw-material-timeline.js"></script>
+	<script src="js/clock.js"></script>
+	<script src="js/orderbtn.js"></script>
 
 	<!-- Spacebrew -->
 	<script src="js/spacebrew-client.js"></script>
@@ -51,6 +53,39 @@
 </head>
 
 <body class="other">
+
+<svg style="position: absolute; width:0; height: 0;" width="0" height="0">
+    <defs>
+        <clippath id="clipPath15" clipPathUnits="objectBoundingBox">
+			<polygon points="0.00271704889032 0.0130789620536 0.474829890323 0.942975725 0.788841987097 0.942975725 0.995707851613 0.0130789620536"/>
+        </clippath>
+		<clippath id="clipPath8" clipPathUnits="objectBoundingBox">
+			<polygon points="0.100949754902 0.057462177619 0.100949754902 0.532496511111 0.398246017647 0.804881190476 0.398246017647 1 0.595210154902 1 0.595210154902 0.804881190476 0.897441788235 0.532496511111 0.897441788235 0.057462177619"></polygon>
+        </clippath>
+		<clippath id="clipPath9" clipPathUnits="objectBoundingBox">
+			<polygon points="0.0621659128947 0 0.606830797368 0.971421186275 0.891199847368 0.971421186275 0.891199847368 0"></polygon>
+		</clippath>
+		<clippath id="clipPath10" clipPathUnits="objectBoundingBox">
+			<polygon points="0.027078683 0.0161812145652 0.027078683 0.612774347826 0.373660714286 0.772010869565 0.373660714286 0.973543747826 0.598801384286 0.973543747826 0.598801384286 0.772010869565 0.94125279 0.612774347826 0.94125279 0.0161812145652"></polygon>
+		</clippath>
+		<clippath id="clipPath11" clipPathUnits="objectBoundingBox">
+			<polygon points="-0.0024566650375 0.0262215598246 0.324310303125 0.913848342105 0.607499503125 0.913848342105 0.962905884375 		0.0262215598246"></polygon>
+		</clippath>
+		<clippath id="clipPath12" clipPathUnits="objectBoundingBox">
+			<polygon points="0.105263157895 0.400371476471 0.411980880263 0.99150294902 0.585532740789 0.99150294902 0.888324938158 0.400371476471 0.888324938158 0 0.105263157895 0"></polygon>
+		</clippath>
+		<clippath id="clipPath13" clipPathUnits="objectBoundingBox">
+			<polygon points="0.0769230769231 0 0.284367488077 0.902478671053 0.666090746154 0.902478671053 0.878136269231 0"></polygon>
+		</clippath>
+		<clippath id="clipPath17" clipPathUnits="objectBoundingBox">
+			<polygon points="0.132634943182 0.0570901538095 0.150612570909 0.8874938 0.210293856591 0.988188244444 0.48828125 0.988188244444 0.561035156818 0.8874938 0.561035156818 0.792356460317 0.880215731818 0.271918403175 0.880215731818 0.0532459077778"></polygon>
+		</clippath>
+		<clippath id="clipPath28" clipPathUnits="objectBoundingBox">
+			<polygon points="0.0139457889024 0.00308470031174 0.0139457889024 0.775057186235 0.106386873537 0.775057186235 0.466153773171 0.982155 0.555526956098 0.982155 0.910394436585 0.775057186235 0.995087357317 0.775057186235 0.995087357317 0.00308470031174"></polygon>
+		</clippath>
+    </defs>
+</svg>
+
 		<!-- Header Bereich -->
 		<div id="header">
 			<div class="left">
@@ -76,6 +111,7 @@
 
 		<!-- Switch zwischen 2D und 3D -->
 		<div id="toggle-switch">
+			<span>3D</span>
 			<fieldset>
 				<div data-role="fieldcontain">
 					<select id="select-based-flipswitch" data-role="flipswitch" data-mini="true">
@@ -84,6 +120,7 @@
 					</select>
 				</div>
 			</fieldset>
+			<span>2D</span>
 		</div>
 
 
@@ -96,19 +133,18 @@
 
 					<div class="anlagen-bild">
 						<div id="anlage-ansicht-3d">
-							<img class="ansicht-3d" data-src="img/anlage/anlage-3d-01.png" />
-							<img class="ansicht-3d" data-src="img/anlage/anlage-3d-02.png" />
-							<img class="ansicht-3d" data-src="img/anlage/anlage-3d-03.png" />
-							<img class="ansicht-3d" data-src="img/anlage/anlage-3d-04.png" />
-							<img class="ansicht-3d" data-src="img/anlage/anlage-3d-05.png" />
+							<img class="ansicht-3d ansicht-3d-image-1" data-src="img/anlage/anlage-3d-01.png" />
+							<img class="ansicht-3d ansicht-3d-image-2" data-src="img/anlage/anlage-3d-02.png" />
+							<img class="ansicht-3d ansicht-3d-image-3" data-src="img/anlage/anlage-3d-03.png" />
+							<img class="ansicht-3d ansicht-3d-image-4" data-src="img/anlage/anlage-3d-04.png" />
 					 	</div>
 
 						<div id="three-di-view">
-							<img class="three-di" data-src="img/anlage/anlage-2d-01.png">
-							<img class="three-di" data-src="img/anlage/anlage-2d-02.png">
-							<img class="three-di" data-src="img/anlage/anlage-2d-03.png">
-							<img class="three-di" data-src="img/anlage/anlage-2d-04.png">
-							<img class="three-di" data-src="img/anlage/anlage-2d-05.png">
+							<img class="three-di ansicht-2d-image-1" data-src="img/anlage/anlage-2d-01.png">
+							<img class="three-di ansicht-2d-image-2" data-src="img/anlage/anlage-2d-02.png">
+							<img class="three-di ansicht-2d-image-3" data-src="img/anlage/anlage-2d-03.png">
+							<img class="three-di ansicht-2d-image-4" data-src="img/anlage/anlage-2d-04.png">
+							<img class="three-di ansicht-2d-image-5" data-src="img/anlage/anlage-2d-05.png">
 						</div>
 
 							<!-- Links innerhalb von Upstream -->
@@ -182,20 +218,20 @@
 							<li><a id="zrd-link" href="#zrd"><span>ZRD</span></a></li>
 						</ul>
 						<div id="foerderdruck-1">
-							<div class="sensoren-titel-in"><p>Feed Pressure</p></div>
-							<div id="foerderdruck-1-graph" class="graph chart-big"><p class="graph-title">Feed Pressure <span class="blue">werte 1</span></p></div>
+							<div class="sensoren-titel-in"><p>Conveying Pressure</p></div>
+							<div id="foerderdruck-1-graph" class="graph chart-big"><p class="graph-title">Conveying Pressure <span class="blue">values 1</span></p></div>
 						</div>
 
 						<div id="filter-1">
 							<div class="sensoren-titel-in"><p>Filter 1</p></div>
-							<div id="filter-1-graph" class="graph dummy-2"><p class="graph-title">Filter <span class="blue">werte</span></p></div>
+							<div id="filter-1-graph" class="graph dummy-2"><p class="graph-title">Filter <span class="blue">values</span></p></div>
 
 							<!--- Anfang Infobox -->
 							<div class="komponenten-infobox zsk-infobox">
 								<h3 class="komponenten-titel"><span class="komponenten-strong">Filter</span> <span class="blue"></span></h3>
 								<p class="komponenten-id">
-									<span class="product-id"><span class="komponenten-strong">Product ID</span> 12345678</span>
-									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 12.12.09</span>
+									<span class="product-id"><span class="komponenten-strong">Product ID</span> 64758395</span>
+									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 12.12.2009</span>
 								</p>
 								<p class="komponenten-information">
 									<span class="komponenten-strong">Component Information</span><br />
@@ -206,21 +242,21 @@
 										<p>
 											<span class="komponenten-strong">Maintenance Schedule</span></br />
 											<span class="blue">NEXT Wed 18.01.2017</span><br />
-											<span class="past-maintenance">LAST Mon 11.04.2017</span>
+											<span class="past-maintenance">LAST Wed 11.02.2015</span>
 										</p>
 									</div>
 									<div class="komponenten-maintenance blue-box">
 										<p>
-											<span class="komponenten-strong">Contact</span></br />
+											<span class="komponenten-strong">Contact Maintenance</span></br />
 											<span class="blue">John Doe</span><br />
-											<span class="past-maintenance">Department 20021</span>
+											<span class="past-maintenance">Service Department</span>
 										</p>
 									</div>
 									<div class="komponenten-maintenance blue-box">
 										<p>
 											<span class="komponenten-strong">Contact Coperion</span></br />
-											<span class="blue">Matt Pattemrrd</span><br />
-											<span class="past-maintenance">Department 20021</span>
+											<span class="blue">Christian Soretz</span><br />
+											<span class="past-maintenance">Coperion HQ</span>
 										</p>
 									</div>
 									<div class="clear"></div>
@@ -236,14 +272,14 @@
 
 						<div id="ati">
 							<div class="sensoren-titel-in"><p>ATI</p></div>
-							<div id="ati-chart" class="graph dummy-2"><p class="graph-title">ATI <span class="blue">off</span></p></div>
+							<div id="ati-chart" class="graph dummy-2"><p class="graph-title">ATI <span class="blue">Currently not needed for Operation</span></p></div>
 							<!--- Anfang Infobox -->
 
 							<div class="komponenten-infobox ati-infobox">
 								<h3 class="komponenten-titel"><span class="komponenten-strong">ATI</span> <span class="blue"></span></h3>
 								<p class="komponenten-id">
-									<span class="product-id"><span class="komponenten-strong">Product ID</span> 12345678</span>
-									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 12.12.09</span>
+									<span class="product-id"><span class="komponenten-strong">Product ID</span> 74628595</span>
+									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 20.02.2009</span>
 								</p>
 								<p class="komponenten-information">
 									<span class="komponenten-strong">Component Information</span><br />
@@ -255,22 +291,22 @@
 									<div class="komponenten-maintenance grey-box">
 										<p>
 											<span class="komponenten-strong">Maintenance Schedule</span></br />
-											<span class="blue">NEXT Wed 18.01.2017</span><br />
-											<span class="past-maintenance">LAST Mon 11.04.2017</span>
+											<span class="blue">NEXT Wed 18.04.2018</span><br />
+											<span class="past-maintenance">LAST Mon 11.04.2016</span>
 										</p>
 									</div>
 									<div class="komponenten-maintenance blue-box">
 										<p>
-											<span class="komponenten-strong">Contact</span></br />
+											<span class="komponenten-strong">Contact Maintenance</span></br />
 											<span class="blue">John Doe</span><br />
-											<span class="past-maintenance">Department 20021</span>
+											<span class="past-maintenance">Service Department</span>
 										</p>
 									</div>
 									<div class="komponenten-maintenance blue-box">
 										<p>
 											<span class="komponenten-strong">Contact Coperion</span></br />
-											<span class="blue">Matt Pattemrrd</span><br />
-											<span class="past-maintenance">Department 20021</span>
+											<span class="blue">Jürgen Rumschick</span><br />
+											<span class="past-maintenance">Coperion HQ</span>
 										</p>
 									</div>
 									<div class="clear"></div>
@@ -286,42 +322,42 @@
 
 						<div id="zxd">
 							<div class="sensoren-titel-in"><p>ZXD</p></div>
-							<div id="zxd-graph" class="graph dummy-2"><p class="graph-title">ZXD <span class="blue">off</span></p></div>
+							<div id="zxd-graph" class="graph dummy-2"><p class="graph-title">ZXD <span class="blue">Currently not needed for Operation</span></p></div>
 
 							<!--- Anfang Infobox -->
 
 							<div class="komponenten-infobox zxd-infobox">
 								<h3 class="komponenten-titel"><span class="komponenten-strong">ZXD 250</span> <span class="blue">Rotary Valve for Powder</span></h3>
 								<p class="komponenten-id">
-									<span class="product-id"><span class="komponenten-strong">Product ID</span> 12345678</span>
-									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 12.12.09</span>
+									<span class="product-id"><span class="komponenten-strong">Product ID</span> 25478394</span>
+									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 20.10.2007</span>
 								</p>
 								<p class="komponenten-information">
 									<span class="komponenten-strong">Component Information</span><br />
 									Large inlet for high capacities. For feeding bulk materials into pneumatic conveying
-									systems at up to 1.5 barg (21psi). Powder with bulk density 1000kg/m³ and d50 > 150 µm, ∆p = 0.8 bar.
+									systems at up to 1.5 barg (21psi). Powder with bulk density 1,000 kg/m³ and d50 > 150 µm, ∆p = 0.8 bar.
 
 								</p>
 								<div class="komponenten-bottom">
 									<div class="komponenten-maintenance grey-box">
 										<p>
 											<span class="komponenten-strong">Maintenance Schedule</span></br />
-											<span class="blue">NEXT Wed 18.01.2017</span><br />
-											<span class="past-maintenance">LAST Mon 11.04.2017</span>
+											<span class="blue">NEXT Mon 31.07.2017</span><br />
+											<span class="past-maintenance">LAST Fri 15.07.2016</span>
 										</p>
 									</div>
 									<div class="komponenten-maintenance blue-box">
 										<p>
-											<span class="komponenten-strong">Contact</span></br />
+											<span class="komponenten-strong">Contact Maintenance</span></br />
 											<span class="blue">John Doe</span><br />
-											<span class="past-maintenance">Department 20021</span>
+											<span class="past-maintenance">Service Department</span>
 										</p>
 									</div>
 									<div class="komponenten-maintenance blue-box">
 										<p>
 											<span class="komponenten-strong">Contact Coperion</span></br />
-											<span class="blue">Matt Pattemrrd</span><br />
-											<span class="past-maintenance">Department 20021</span>
+											<span class="blue">Fernando Ricart</span><br />
+											<span class="past-maintenance">Coperion HQ</span>
 										</p>
 									</div>
 									<div class="clear"></div>
@@ -338,14 +374,14 @@
 
 						<div id="hfs">
 							<div class="sensoren-titel-in"><p>HFS</p></div>
-							<div id="hfs-graph" class="graph dummy-2"><p class="graph-title">HFS <span class="blue">off</span></p></div>
+							<div id="hfs-graph" class="graph dummy-2"><p class="graph-title">HFS <span class="blue">Currently not needed for Operation</span></p></div>
 
 							<!--- Anfang Infobox -->
 							<div class="komponenten-infobox">
 								<h3 class="komponenten-titel"><span class="komponenten-strong">HFS</span> <span class="blue">Horizontal Fluidbed Separator</span></h3>
 								<p class="komponenten-id">
-									<span class="product-id"><span class="komponenten-strong">Product ID</span> 12345678</span>
-									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 12.12.09</span>
+									<span class="product-id"><span class="komponenten-strong">Product ID</span> 74839484</span>
+									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 02.04.2008</span>
 								</p>
 								<p class="komponenten-information">
 									<span class="komponenten-strong">Component Information</span><br />
@@ -355,22 +391,22 @@
 									<div class="komponenten-maintenance grey-box">
 										<p>
 											<span class="komponenten-strong">Maintenance Schedule</span></br />
-											<span class="blue">NEXT Wed 18.01.2017</span><br />
-											<span class="past-maintenance">LAST Mon 11.04.2017</span>
+											<span class="blue">NEXT Wed 15.03.2017</span><br />
+											<span class="past-maintenance">LAST Mon 28.03.2016</span>
 										</p>
 									</div>
 									<div class="komponenten-maintenance blue-box">
 										<p>
-											<span class="komponenten-strong">Contact</span></br />
+											<span class="komponenten-strong">Contact Maintenance</span></br />
 											<span class="blue">John Doe</span><br />
-											<span class="past-maintenance">Department 20021</span>
+											<span class="past-maintenance">Service Department</span>
 										</p>
 									</div>
 									<div class="komponenten-maintenance blue-box">
 										<p>
 											<span class="komponenten-strong">Contact Coperion</span></br />
-											<span class="blue">Matt Pattemrrd</span><br />
-											<span class="past-maintenance">Department 20021</span>
+											<span class="blue">Olaf Hustert</span><br />
+											<span class="past-maintenance">Coperion HQ</span>
 										</p>
 									</div>
 									<div class="clear"></div>
@@ -386,14 +422,14 @@
 
 						<div id="zrd">
 							<div class="sensoren-titel-in"><p>ZRD</p></div>
-							<div id="zrd-chart" class="graph dummy-2"><p class="graph-title">ZRD <span class="blue">off</span></p></div>
+							<div id="zrd-chart" class="graph dummy-2"><p class="graph-title">ZRD <span class="blue">Currently not needed for Operation</span></p></div>
 
 							<!--- Anfang Infobox -->
 							<div class="komponenten-infobox">
 								<h3 class="komponenten-titel"><span class="komponenten-strong">ZRD</span> <span class="blue">Rotary Valve</span></h3>
 								<p class="komponenten-id">
-									<span class="product-id"><span class="komponenten-strong">Product ID</span> 12345678</span>
-									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 12.12.09</span>
+									<span class="product-id"><span class="komponenten-strong">Product ID</span> 64742849</span>
+									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 05.08.2009</span>
 								</p>
 								<p class="komponenten-information">
 									<span class="komponenten-strong">Component Information</span><br />
@@ -405,22 +441,22 @@
 									<div class="komponenten-maintenance grey-box">
 										<p>
 											<span class="komponenten-strong">Maintenance Schedule</span></br />
-											<span class="blue">NEXT Wed 18.01.2017</span><br />
-											<span class="past-maintenance">LAST Mon 11.04.2017</span>
+											<span class="blue">NEXT Mon 19.12.2016</span><br />
+											<span class="past-maintenance">LAST Mon 07.12.2015</span>
 										</p>
 									</div>
 									<div class="komponenten-maintenance blue-box">
 										<p>
-											<span class="komponenten-strong">Contact</span></br />
+											<span class="komponenten-strong">Contact Maintenance</span></br />
 											<span class="blue">John Doe</span><br />
-											<span class="past-maintenance">Department 20021</span>
+											<span class="past-maintenance">Service Department</span>
 										</p>
 									</div>
 									<div class="komponenten-maintenance blue-box">
 										<p>
 											<span class="komponenten-strong">Contact Coperion</span></br />
-											<span class="blue">Matt Pattemrrd</span><br />
-											<span class="past-maintenance">Department 20021</span>
+											<span class="blue">Fernando Ricart</span><br />
+											<span class="past-maintenance">Coperion HQ</span>
 										</p>
 									</div>
 									<div class="clear"></div>
@@ -448,55 +484,55 @@
 							<li><a id="dosierer-4-link" href="#dosierer-4"><span>Feeder 4</span></a></li>
 							<li><a id="dosierer-5-link" href="#dosierer-5"><span>Feeder 5</span></a></li>
 							<li><a id="zsk-link" href="#zsk"><span>ZSK</span></a></li>
-							<li><a id="zsb-link" href="#zsb"><span>ZSB</span></a></li>
-							<li><a id="zs_eg-link" href="#zs_eg"><span>ZS_EG</span></a></li>
+							<li><a id="zsb-link" href="#zsb"><span>ZS-B</span></a></li>
+							<li><a id="zs_eg-link" href="#zs_eg"><span>ZS-EG</span></a></li>
 							<li><a id="ssd-link" href="#ssd"><span>ASC</span></a></li>
 							<li><a id="sp-link" href="#sp500"><span>SP 500</span></a></li>
 							<li><a id="zvb-link" href="#zvb"><span>ZVB</span></a></li>
 							<li><a id="screener-link" href="#screener"><span>Screener</span></a></li>
 						</ul>
 						<div id="foerderdruck-2">
-							<div class="sensoren-titel-in"><p>Feed Pressure</p></div>
-							<div id="foerderdruck-2-graph" class="graph chart-big"><p class="graph-title">Feed Pressure <span class="blue">werte 2</span></p></div>
+							<div class="sensoren-titel-in"><p>Conveying Pressure</p></div>
+							<div id="foerderdruck-2-graph" class="graph chart-big"><p class="graph-title">Conveying Pressure <span class="blue">values 2</span></p></div>
 						</div>
 
 						<div id="dosierer-1">
 							<div class="sensoren-titel-in"><p>Feeder <span class="blue">K-ML-D5-BSP-135</span></p></div>
-							<div id="dosierer-1-chart" class="graph dummy-2"><p class="graph-title">K-ML-D5-BSP-135 <span class="blue">off</span></p></div>
+							<div id="dosierer-1-chart" class="graph dummy-2"><p class="graph-title">K-ML-D5-BSP-135 <span class="blue">Currently not needed for Operation</span></p></div>
 
 							<!--- Anfang Infobox -->
 							<div class="komponenten-infobox">
 								<h3 class="komponenten-titel"><span class="komponenten-strong">Feeder</span> <span class="blue">K-ML-D5-BSP-135</span></h3>
 								<p class="komponenten-id">
-									<span class="product-id"><span class="komponenten-strong">Product ID</span> 12345678</span>
-									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 12.12.09</span>
+									<span class="product-id"><span class="komponenten-strong">Product ID</span> 35478695</span>
+									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 10.11.2009</span>
 								</p>
 								<p class="komponenten-information">
 									<span class="komponenten-strong">Component Information</span><br />
 									True positive displacement action and linear output over full operating range. Active
 									discharge (minimal residual material), mechanical and maintenance simplicity. Three models
-									with feed rates from 2 to 6700 dm³/hr.
+									with feed rates from 2 to 6,700 dm³/hr.
 								</p>
 								<div class="komponenten-bottom">
 									<div class="komponenten-maintenance grey-box">
 										<p>
 											<span class="komponenten-strong">Maintenance Schedule</span></br />
-											<span class="blue">NEXT Wed 18.01.2017</span><br />
-											<span class="past-maintenance">LAST Mon 11.04.2017</span>
+											<span class="blue">NEXT Thu 05.01.2017</span><br />
+											<span class="past-maintenance">LAST Mon 04.10.2016</span>
 										</p>
 									</div>
 									<div class="komponenten-maintenance blue-box">
 										<p>
-											<span class="komponenten-strong">Contact</span></br />
+											<span class="komponenten-strong">Contact Maintenance</span></br />
 											<span class="blue">John Doe</span><br />
-											<span class="past-maintenance">Department 20021</span>
+											<span class="past-maintenance">Service Department</span>
 										</p>
 									</div>
 									<div class="komponenten-maintenance blue-box">
 										<p>
 											<span class="komponenten-strong">Contact Coperion</span></br />
-											<span class="blue">Matt Pattemrrd</span><br />
-											<span class="past-maintenance">Department 20021</span>
+											<span class="blue">Max Patternman</span><br />
+											<span class="past-maintenance">Coperion HQ</span>
 										</p>
 									</div>
 									<div class="clear"></div>
@@ -512,41 +548,41 @@
 
 						<div id="dosierer-2">
 							<div class="sensoren-titel-in"><p>Feeder <span class="blue">K2-ML-D5-S60</span></p></div>
-							<div id="dosierer-2-graph" class="graph dummy-2"><p class="graph-title">Feeder <span class="blue">werte</span></p></div>
+							<div id="dosierer-2-graph" class="graph dummy-2"><p class="graph-title">Feeder <span class="blue">values</span></p></div>
 
 							<!--- Anfang Infobox -->
 							<div class="komponenten-infobox">
 								<h3 class="komponenten-titel"><span class="komponenten-strong">Feeder</span> <span class="blue">K2-ML-D5-S60</span></h3>
 								<p class="komponenten-id">
-									<span class="product-id"><span class="komponenten-strong">Product ID</span> 12345678</span>
-									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 12.12.09</span>
+									<span class="product-id"><span class="komponenten-strong">Product ID</span> 84637383</span>
+									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 03.07.2009</span>
 								</p>
 								<p class="komponenten-information">
 									<span class="komponenten-strong">Component Information</span><br />
 									Modular feeding design and interchangeable feeding tools. Highly accurate scale and
 									controls. All product contact parts made from stainless steel and integrated horizontal agitator for
-									improved material flow. Feed rates from 0.43 to 4500 dm³/hr.
+									improved material flow. Feed rates from 0.43 to 4,500 dm³/hr.
 								</p>
 								<div class="komponenten-bottom">
 									<div class="komponenten-maintenance grey-box">
 										<p>
 											<span class="komponenten-strong">Maintenance Schedule</span></br />
-											<span class="blue">NEXT Wed 18.01.2017</span><br />
-											<span class="past-maintenance">LAST Mon 11.04.2017</span>
+											<span class="blue">NEXT Mon 19.12.2016</span><br />
+											<span class="past-maintenance">LAST Tue 20.09.2016</span>
 										</p>
 									</div>
 									<div class="komponenten-maintenance blue-box">
 										<p>
-											<span class="komponenten-strong">Contact</span></br />
+											<span class="komponenten-strong">Contact Maintenance</span></br />
 											<span class="blue">John Doe</span><br />
-											<span class="past-maintenance">Department 20021</span>
+											<span class="past-maintenance">Service Department</span>
 										</p>
 									</div>
 									<div class="komponenten-maintenance blue-box">
 										<p>
 											<span class="komponenten-strong">Contact Coperion</span></br />
-											<span class="blue">Matt Pattemrrd</span><br />
-											<span class="past-maintenance">Department 20021</span>
+											<span class="blue">Max Patternman</span><br />
+											<span class="past-maintenance">Coperion HQ</span>
 										</p>
 									</div>
 									<div class="clear"></div>
@@ -562,14 +598,14 @@
 
 						<div id="dosierer-3">
 							<div class="sensoren-titel-in"><p>Feeder <span class="blue">K-ML-D5-KT20</span></p></div>
-							<div id="dosierer-3-graph" class="graph dummy-2"><p class="graph-title">Feeder<span class="blue">werte</span></p></div>
+							<div id="dosierer-3-graph" class="graph dummy-2"><p class="graph-title">Feeder<span class="blue">values</span></p></div>
 
 							<!--- Anfang Infobox -->
 							<div class="komponenten-infobox">
 								<h3 class="komponenten-titel"><span class="komponenten-strong">Feeder</span> <span class="blue">K-ML-D5-KT20</span></h3>
 								<p class="komponenten-id">
-									<span class="product-id"><span class="komponenten-strong">Product ID</span> 12345678</span>
-									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 12.12.09</span>
+									<span class="product-id"><span class="komponenten-strong">Product ID</span> 84958374</span>
+									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 17.02.2008</span>
 								</p>
 								<p class="komponenten-information">
 									<span class="komponenten-strong">Component Information</span><br />
@@ -581,22 +617,22 @@
 									<div class="komponenten-maintenance grey-box">
 										<p>
 											<span class="komponenten-strong">Maintenance Schedule</span></br />
-											<span class="blue">NEXT Wed 18.01.2017</span><br />
-											<span class="past-maintenance">LAST Mon 11.04.2017</span>
+											<span class="blue">NEXT Mon 12.12.2016</span><br />
+											<span class="past-maintenance">LAST Mon 12.09.2016</span>
 										</p>
 									</div>
 									<div class="komponenten-maintenance blue-box">
 										<p>
-											<span class="komponenten-strong">Contact</span></br />
+											<span class="komponenten-strong">Contact Maintenance</span></br />
 											<span class="blue">John Doe</span><br />
-											<span class="past-maintenance">Department 20021</span>
+											<span class="past-maintenance">Service Department</span>
 										</p>
 									</div>
 									<div class="komponenten-maintenance blue-box">
 										<p>
 											<span class="komponenten-strong">Contact Coperion</span></br />
-											<span class="blue">Matt Pattemrrd</span><br />
-											<span class="past-maintenance">Department 20021</span>
+											<span class="blue">Max Patternman</span><br />
+											<span class="past-maintenance">Coperion HQ</span>
 										</p>
 									</div>
 									<div class="clear"></div>
@@ -612,14 +648,14 @@
 
 						<div id="dosierer-4">
 							<div class="sensoren-titel-in"><p>Feeder <span class="blue">K-ML-T60</span></p></div>
-							<div id="dosierer-4-graph" class="graph dummy-2"><p class="graph-title">Component 4 <span class="blue">werte</span></p></div>
+							<div id="dosierer-4-graph" class="graph dummy-2"><p class="graph-title">Component 4 <span class="blue">values</span></p></div>
 
 							<!--- Anfang Infobox -->
 							<div class="komponenten-infobox">
 								<h3 class="komponenten-titel"><span class="komponenten-strong">Feeder</span> <span class="blue">K2-ML-T60</span></h3>
 								<p class="komponenten-id">
-									<span class="product-id"><span class="komponenten-strong">Product ID</span> 12345678</span>
-									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 12.12.09</span>
+									<span class="product-id"><span class="komponenten-strong">Product ID</span> 26374953</span>
+									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 23.05.2009</span>
 								</p>
 								<p class="komponenten-information">
 									<span class="komponenten-strong">Component Information</span><br />
@@ -630,22 +666,22 @@
 									<div class="komponenten-maintenance grey-box">
 										<p>
 											<span class="komponenten-strong">Maintenance Schedule</span></br />
-											<span class="blue">NEXT Wed 18.01.2017</span><br />
-											<span class="past-maintenance">LAST Mon 11.04.2017</span>
+											<span class="blue">NEXT Fri 18.11.2016</span><br />
+											<span class="past-maintenance">LAST Tue 23.08.2016</span>
 										</p>
 									</div>
 									<div class="komponenten-maintenance blue-box">
 										<p>
-											<span class="komponenten-strong">Contact</span></br />
+											<span class="komponenten-strong">Contact Maintenance</span></br />
 											<span class="blue">John Doe</span><br />
-											<span class="past-maintenance">Department 20021</span>
+											<span class="past-maintenance">Service Department</span>
 										</p>
 									</div>
 									<div class="komponenten-maintenance blue-box">
 										<p>
 											<span class="komponenten-strong">Contact Coperion</span></br />
-											<span class="blue">Matt Pattemrrd</span><br />
-											<span class="past-maintenance">Department 20021</span>
+											<span class="blue">Max Patternman</span><br />
+											<span class="past-maintenance">Coperion HQ</span>
 										</p>
 									</div>
 									<div class="clear"></div>
@@ -661,14 +697,14 @@
 
 						<div id="dosierer-5">
 							<div class="sensoren-titel-in"><p>Feeder <span class="blue">K-ML-KV3-F</span></p></div>
-							<div id="dosierer-5-chart" class="graph dummy-2"><p class="graph-title">K-ML-KV3-F <span class="blue">off</span></p></div>
+							<div id="dosierer-5-chart" class="graph dummy-2"><p class="graph-title">K-ML-KV3-F <span class="blue">Currently not needed for Operation</span></p></div>
 
 							<!--- Anfang Infobox -->
 							<div class="komponenten-infobox">
 								<h3 class="komponenten-titel"><span class="komponenten-strong">Feeder</span> <span class="blue">K-ML-KV3-F</span></h3>
 								<p class="komponenten-id">
-									<span class="product-id"><span class="komponenten-strong">Product ID</span> 12345678</span>
-									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 12.12.09</span>
+									<span class="product-id"><span class="komponenten-strong">Product ID</span> 74648485</span>
+									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 22.02.2007</span>
 								</p>
 								<p class="komponenten-information">
 									<span class="komponenten-strong">Component Information</span><br />
@@ -678,22 +714,22 @@
 									<div class="komponenten-maintenance grey-box">
 										<p>
 											<span class="komponenten-strong">Maintenance Schedule</span></br />
-											<span class="blue">NEXT Wed 18.01.2017</span><br />
-											<span class="past-maintenance">LAST Mon 11.04.2017</span>
+											<span class="blue">NEXT Mon 09.01.2017</span><br />
+											<span class="past-maintenance">LAST Tue 04.10.2016</span>
 										</p>
 									</div>
 									<div class="komponenten-maintenance blue-box">
 										<p>
-											<span class="komponenten-strong">Contact</span></br />
+											<span class="komponenten-strong">Contact Maintenance</span></br />
 											<span class="blue">John Doe</span><br />
-											<span class="past-maintenance">Department 20021</span>
+											<span class="past-maintenance">Service Department</span>
 										</p>
 									</div>
 									<div class="komponenten-maintenance blue-box">
 										<p>
 											<span class="komponenten-strong">Contact Coperion</span></br />
-											<span class="blue">Matt Pattemrrd</span><br />
-											<span class="past-maintenance">Department 20021</span>
+											<span class="blue">Max Patternman</span><br />
+											<span class="past-maintenance">Coperion HQ</span>
 										</p>
 									</div>
 									<div class="clear"></div>
@@ -711,17 +747,17 @@
 						<div id="zsk">
 							<div class="sensoren-titel-in"><p>ZSK</p></div>
 							<div class="more-graphs">
-								<div id="zsk-graph-01" class="graph graph-thin"><p class="graph-title">ZSK <span class="blue">werte</span></p></div>
-								<div id="zsk-graph-02" class="graph graph-thin"><p class="graph-title">ZSK <span class="blue">werte</span></p></div>
-								<div id="zsk-graph-03" class="graph graph-thin"><p class="graph-title">ZSK <span class="blue">werte</span></p></div>
-								<div id="zsk-graph-04" class="graph graph-thin"><p class="graph-title">ZSK <span class="blue">werte</span></p></div>
+								<div id="zsk-graph-01" class="graph graph-thin"><p class="graph-title">ZSK <span class="blue">values</span></p></div>
+								<div id="zsk-graph-02" class="graph graph-thin"><p class="graph-title">ZSK <span class="blue">values</span></p></div>
+								<div id="zsk-graph-03" class="graph graph-thin"><p class="graph-title">ZSK <span class="blue">values</span></p></div>
+								<div id="zsk-graph-04" class="graph graph-thin"><p class="graph-title">ZSK <span class="blue">values</span></p></div>
 							</div>
 							<!--- Anfang Infobox -->
 							<div class="komponenten-infobox zsk-infobox">
 								<h3 class="komponenten-titel"><span class="komponenten-strong">ZSK</span> <span class="blue"></span></h3>
 								<p class="komponenten-id">
-									<span class="product-id"><span class="komponenten-strong">Product ID</span> 12345678</span>
-									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 12.12.09</span>
+									<span class="product-id"><span class="komponenten-strong">Product ID</span> 74839404</span>
+									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 04.07.2010</span>
 								</p>
 								<p class="komponenten-information">
 									<span class="komponenten-strong">Component Information</span><br />
@@ -734,21 +770,21 @@
 										<p>
 											<span class="komponenten-strong">Maintenance Schedule</span></br />
 											<span class="blue">NEXT Wed 18.01.2017</span><br />
-											<span class="past-maintenance">LAST Mon 11.04.2017</span>
+											<span class="past-maintenance">LAST Mon 11.04.2016</span>
 										</p>
 									</div>
 									<div class="komponenten-maintenance blue-box">
 										<p>
-											<span class="komponenten-strong">Contact</span></br />
+											<span class="komponenten-strong">Contact Maintenance</span></br />
 											<span class="blue">John Doe</span><br />
-											<span class="past-maintenance">Department 20021</span>
+											<span class="past-maintenance">Service Department</span>
 										</p>
 									</div>
 									<div class="komponenten-maintenance blue-box">
 										<p>
 											<span class="komponenten-strong">Contact Coperion</span></br />
-											<span class="blue">Matt Pattemrrd</span><br />
-											<span class="past-maintenance">Department 20021</span>
+											<span class="blue">Frank Mack</span><br />
+											<span class="past-maintenance">Coperion HQ</span>
 										</p>
 									</div>
 									<div class="clear"></div>
@@ -763,21 +799,21 @@
 						</div>
 
 						<div id="zsb">
-							<div class="sensoren-titel-in"><p>ZSB</p></div>
+							<div class="sensoren-titel-in"><p>ZS-B</p></div>
 
 							<div class="more-graphs">
-								<div id="zsb-graph-01" class="graph graph-thin"><p class="graph-title">ZSK <span class="blue">werte</span></p></div>
-								<div id="zsb-graph-02" class="graph graph-thin"><p class="graph-title">ZSK <span class="blue">werte</span></p></div>
-								<div id="zsb-graph-03" class="graph graph-thin"><p class="graph-title">ZSK <span class="blue">werte</span></p></div>
-								<div id="zsb-graph-04" class="graph graph-thin"><p class="graph-title">ZSK <span class="blue">werte</span></p></div>
+								<div id="zsb-graph-01" class="graph graph-thin"><p class="graph-title">ZSK <span class="blue">values</span></p></div>
+								<div id="zsb-graph-02" class="graph graph-thin"><p class="graph-title">ZSK <span class="blue">values</span></p></div>
+								<div id="zsb-graph-03" class="graph graph-thin"><p class="graph-title">ZSK <span class="blue">values</span></p></div>
+								<div id="zsb-graph-04" class="graph graph-thin"><p class="graph-title">ZSK <span class="blue">values</span></p></div>
 							</div>
 
 							<!--- Anfang Infobox -->
 							<div class="komponenten-infobox zsk-infobox">
-								<h3 class="komponenten-titel"><span class="komponenten-strong">ZSB</span> <span class="blue"></span></h3>
+								<h3 class="komponenten-titel"><span class="komponenten-strong">ZS-B</span> <span class="blue"></span></h3>
 								<p class="komponenten-id">
-									<span class="product-id"><span class="komponenten-strong">Product ID</span> 12345678</span>
-									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 12.12.09</span>
+									<span class="product-id"><span class="komponenten-strong">Product ID</span> 57456789</span>
+									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 10.03.2009</span>
 								</p>
 								<p class="komponenten-information">
 									<span class="komponenten-strong">Component Information</span><br />
@@ -790,21 +826,21 @@
 										<p>
 											<span class="komponenten-strong">Maintenance Schedule</span></br />
 											<span class="blue">NEXT Wed 18.01.2017</span><br />
-											<span class="past-maintenance">LAST Mon 11.04.2017</span>
+											<span class="past-maintenance">LAST Mon 11.04.2016</span>
 										</p>
 									</div>
 									<div class="komponenten-maintenance blue-box">
 										<p>
-											<span class="komponenten-strong">Contact</span></br />
+											<span class="komponenten-strong">Contact Maintenance</span></br />
 											<span class="blue">John Doe</span><br />
-											<span class="past-maintenance">Department 20021</span>
+											<span class="past-maintenance">Service Department</span>
 										</p>
 									</div>
 									<div class="komponenten-maintenance blue-box">
 										<p>
 											<span class="komponenten-strong">Contact Coperion</span></br />
-											<span class="blue">Matt Pattemrrd</span><br />
-											<span class="past-maintenance">Department 20021</span>
+											<span class="blue">Thorsten Stirner</span><br />
+											<span class="past-maintenance">Coperion HQ</span>
 										</p>
 									</div>
 									<div class="clear"></div>
@@ -822,18 +858,18 @@
 							<div class="sensoren-titel-in"><p>ZS_EG</p></div>
 
 								<div class="more-graphs">
-									<div id="zs_eg-graph-01" class="graph graph-thin"><p class="graph-title">ZSK <span class="blue">werte</span></p></div>
-									<div id="zs_eg-graph-02" class="graph graph-thin"><p class="graph-title">ZSK <span class="blue">werte</span></p></div>
-									<div id="zs_eg-graph-03" class="graph graph-thin"><p class="graph-title">ZSK <span class="blue">werte</span></p></div>
-									<div id="zs_eg-graph-04" class="graph graph-thin"><p class="graph-title">ZSK <span class="blue">werte</span></p></div>
+									<div id="zs_eg-graph-01" class="graph graph-thin"><p class="graph-title">ZSK <span class="blue">values</span></p></div>
+									<div id="zs_eg-graph-02" class="graph graph-thin"><p class="graph-title">ZSK <span class="blue">values</span></p></div>
+									<div id="zs_eg-graph-03" class="graph graph-thin"><p class="graph-title">ZSK <span class="blue">values</span></p></div>
+									<div id="zs_eg-graph-04" class="graph graph-thin"><p class="graph-title">ZSK <span class="blue">values</span></p></div>
 								</div>
 
 							<!--- Anfang Infobox -->
 							<div class="komponenten-infobox">
 								<h3 class="komponenten-titel"><span class="komponenten-strong">ZS-EG</span> <span class="blue">Twin screw side degassing</span></h3>
 								<p class="komponenten-id">
-									<span class="product-id"><span class="komponenten-strong">Product ID</span> 12345678</span>
-									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 12.12.09</span>
+									<span class="product-id"><span class="komponenten-strong">Product ID</span> 84927483</span>
+									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 02.06.2015</span>
 								</p>
 								<p class="komponenten-information">
 									<span class="komponenten-strong">Component Information</span><br />
@@ -844,21 +880,21 @@
 										<p>
 											<span class="komponenten-strong">Maintenance Schedule</span></br />
 											<span class="blue">NEXT Wed 18.01.2017</span><br />
-											<span class="past-maintenance">LAST Mon 11.04.2017</span>
+											<span class="past-maintenance">LAST Mon 11.04.2016</span>
 										</p>
 									</div>
 									<div class="komponenten-maintenance blue-box">
 										<p>
-											<span class="komponenten-strong">Contact</span></br />
+											<span class="komponenten-strong">Contact Maintenance</span></br />
 											<span class="blue">John Doe</span><br />
-											<span class="past-maintenance">Department 20021</span>
+											<span class="past-maintenance">Service Department</span>
 										</p>
 									</div>
 									<div class="komponenten-maintenance blue-box">
 										<p>
 											<span class="komponenten-strong">Contact Coperion</span></br />
-											<span class="blue">Matt Pattemrrd</span><br />
-											<span class="past-maintenance">Department 20021</span>
+											<span class="blue">Marina Matta</span><br />
+											<span class="past-maintenance">Coperion HQ</span>
 										</p>
 									</div>
 									<div class="clear"></div>
@@ -876,17 +912,17 @@
 							<div class="sensoren-titel-in"><p>ASC</p></div>
 
 							<div class="more-graphs">
-								<div id="ssd-graph-01" class="graph graph-thin"><p class="graph-title">ZSK <span class="blue">werte</span></p></div>
-								<div id="ssd-graph-02" class="graph graph-thin"><p class="graph-title">ZSK <span class="blue">werte</span></p></div>
-								<div id="ssd-graph-03" class="graph graph-thin"><p class="graph-title">ZSK <span class="blue">werte</span></p></div>
-								<div id="ssd-graph-04" class="graph graph-thin"><p class="graph-title">ZSK <span class="blue">werte</span></p></div>
+								<div id="ssd-graph-01" class="graph graph-thin"><p class="graph-title">ZSK <span class="blue">values</span></p></div>
+								<div id="ssd-graph-02" class="graph graph-thin"><p class="graph-title">ZSK <span class="blue">values</span></p></div>
+								<div id="ssd-graph-03" class="graph graph-thin"><p class="graph-title">ZSK <span class="blue">values</span></p></div>
+								<div id="ssd-graph-04" class="graph graph-thin"><p class="graph-title">ZSK <span class="blue">values</span></p></div>
 							</div>
 							<!--- Anfang Infobox -->
 							<div class="komponenten-infobox">
 								<h3 class="komponenten-titel"><span class="komponenten-strong">ASC</span> <span class="blue">Automatic Strand Conveying System</span></h3>
 								<p class="komponenten-id">
-									<span class="product-id"><span class="komponenten-strong">Product ID</span> 12345678</span>
-									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 12.12.09</span>
+									<span class="product-id"><span class="komponenten-strong">Product ID</span> 76543456</span>
+									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 04.06.2012</span>
 								</p>
 								<p class="komponenten-information">
 									<span class="komponenten-strong">Component Information</span><br />
@@ -897,21 +933,21 @@
 										<p>
 											<span class="komponenten-strong">Maintenance Schedule</span></br />
 											<span class="blue">NEXT Wed 18.01.2017</span><br />
-											<span class="past-maintenance">LAST Mon 11.04.2017</span>
+											<span class="past-maintenance">LAST Mon 11.04.2016</span>
 										</p>
 									</div>
 									<div class="komponenten-maintenance blue-box">
 										<p>
-											<span class="komponenten-strong">Contact</span></br />
+											<span class="komponenten-strong">Contact Maintenance</span></br />
 											<span class="blue">John Doe</span><br />
-											<span class="past-maintenance">Department 20021</span>
+											<span class="past-maintenance">Service Department</span>
 										</p>
 									</div>
 									<div class="komponenten-maintenance blue-box">
 										<p>
 											<span class="komponenten-strong">Contact Coperion</span></br />
-											<span class="blue">Matt Pattemrrd</span><br />
-											<span class="past-maintenance">Department 20021</span>
+											<span class="blue">Raphael Strehle</span><br />
+											<span class="past-maintenance">Coperion HQ</span>
 										</p>
 									</div>
 									<div class="clear"></div>
@@ -927,19 +963,19 @@
 						</div>
 
 						<div id="sp500">
-							<div class="sensoren-titel-in"><p>SP500</p></div>
-							<div id="sensoring-full-durchsatz" class="graph dummy-2"><p class="graph-title">SP500 HD <span class="blue">werte</span></p></div>
+							<div class="sensoren-titel-in"><p>SP 500</p></div>
+							<div id="sensoring-full-durchsatz" class="graph dummy-2"><p class="graph-title">SP 500 HD <span class="blue">values</span></p></div>
 
 							<!--- Anfang Infobox -->
 							<div class="komponenten-infobox">
-								<h3 class="komponenten-titel"><span class="komponenten-strong">SP500 HD</span> <span class="blue">Strand pelletizer</span></h3>
+								<h3 class="komponenten-titel"><span class="komponenten-strong">SP 500 HD</span> <span class="blue">Strand pelletizer</span></h3>
 								<p class="komponenten-id">
-									<span class="product-id"><span class="komponenten-strong">Product ID</span> 12345678</span>
-									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 12.12.09</span>
+									<span class="product-id"><span class="komponenten-strong">Product ID</span> 37485973</span>
+									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 15.03.2012</span>
 								</p>
 								<p class="komponenten-information">
 									<span class="komponenten-strong">Component Information</span><br />
-									The dual side bearings for the strand pelletizer SP500 HD provides maximum sturdity of cutting gap and high cutting qualiy even under highest work load. The working width amounts 500 mm and the throughput is up to 6,300 kg/h.
+									The dual side bearings for the strand pelletizer SP 500 HD provides maximum sturdity of cutting gap and high cutting qualiy even under highest work load. The working width amounts 500 mm and the throughput is up to 6,300 kg/h.
 								</p>
 								<div class="komponenten-bottom">
 									<div class="komponenten-maintenance grey-box">
@@ -951,16 +987,16 @@
 									</div>
 									<div class="komponenten-maintenance blue-box">
 										<p>
-											<span class="komponenten-strong">Contact</span></br />
+											<span class="komponenten-strong">Contact Maintenance</span></br />
 											<span class="blue">John Doe</span><br />
-											<span class="past-maintenance">Department 20021</span>
+											<span class="past-maintenance">Service Department</span>
 										</p>
 									</div>
 									<div class="komponenten-maintenance blue-box">
 										<p>
 											<span class="komponenten-strong">Contact Coperion</span></br />
-											<span class="blue">Matt Pattemrrd</span><br />
-											<span class="past-maintenance">Department 20021</span>
+											<span class="blue">Raphael Strehle</span><br />
+											<span class="past-maintenance">Coperion HQ</span>
 										</p>
 									</div>
 									<div class="clear"></div>
@@ -976,14 +1012,14 @@
 
 						<div id="zvb">
 							<div class="sensoren-titel-in"><p>ZVB</p></div>
-							<div id="zvb-graph" class="graph dummy-2"><p class="graph-title">ZVB <span class="blue">werte</span></p></div>
+							<div id="zvb-graph" class="graph dummy-2"><p class="graph-title">ZVB <span class="blue">values</span></p></div>
 
 							<!--- Anfang Infobox -->
 							<div class="komponenten-infobox zvb-infobox">
 								<h3 class="komponenten-titel"><span class="komponenten-strong">ZVB</span> <span class="blue"></span></h3>
 								<p class="komponenten-id">
-									<span class="product-id"><span class="komponenten-strong">Product ID</span> 12345678</span>
-									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 12.12.09</span>
+									<span class="product-id"><span class="komponenten-strong">Product ID</span> 46378299</span>
+									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 10.04.2011</span>
 								</p>
 								<p class="komponenten-information">
 									<span class="komponenten-strong">Component Information</span><br />
@@ -995,22 +1031,22 @@
 									<div class="komponenten-maintenance grey-box">
 										<p>
 											<span class="komponenten-strong">Maintenance Schedule</span></br />
-											<span class="blue">NEXT Wed 18.01.2017</span><br />
-											<span class="past-maintenance">LAST Mon 11.04.2017</span>
+											<span class="blue">NEXT Wed 10.02.2017</span><br />
+											<span class="past-maintenance">LAST Fri 29.01.2016</span>
 										</p>
 									</div>
 									<div class="komponenten-maintenance blue-box">
 										<p>
-											<span class="komponenten-strong">Contact</span></br />
+											<span class="komponenten-strong">Contact Maintenance</span></br />
 											<span class="blue">John Doe</span><br />
-											<span class="past-maintenance">Department 20021</span>
+											<span class="past-maintenance">Service Department</span>
 										</p>
 									</div>
 									<div class="komponenten-maintenance blue-box">
 										<p>
 											<span class="komponenten-strong">Contact Coperion</span></br />
-											<span class="blue">Matt Pattemrrd</span><br />
-											<span class="past-maintenance">Department 20021</span>
+											<span class="blue">Fernando Ricart</span><br />
+											<span class="past-maintenance">Coperion HQ</span>
 										</p>
 									</div>
 									<div class="clear"></div>
@@ -1027,14 +1063,14 @@
 
 						<div id="screener">
 							<div class="sensoren-titel-in"><p>Screener</p></div>
-							<div id="sensoring-full-durchsatz" class="graph dummy-2"><p class="graph-title">Screener <span class="blue"></span></p></div>
+							<div id="screener-graph" class="graph dummy-2"><p class="graph-title">Screener <span class="blue"></span></p></div>
 
 							<!--- Anfang Infobox -->
 							<div class="komponenten-infobox">
 								<h3 class="komponenten-titel"><span class="komponenten-strong">Screener</span> <span class="blue">Vibrating Screen Type VS</span></h3>
 								<p class="komponenten-id">
-									<span class="product-id"><span class="komponenten-strong">Product ID</span> 12345678</span>
-									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 12.12.09</span>
+									<span class="product-id"><span class="komponenten-strong">Product ID</span> 78394732</span>
+									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 12.10.2012</span>
 								</p>
 								<p class="komponenten-information">
 									<span class="komponenten-strong">Component Information</span><br />
@@ -1045,21 +1081,21 @@
 										<p>
 											<span class="komponenten-strong">Maintenance Schedule</span></br />
 											<span class="blue">NEXT Wed 18.01.2017</span><br />
-											<span class="past-maintenance">LAST Mon 11.04.2017</span>
+											<span class="past-maintenance">LAST Mon 11.04.2016</span>
 										</p>
 									</div>
 									<div class="komponenten-maintenance blue-box">
 										<p>
-											<span class="komponenten-strong">Contact</span></br />
+											<span class="komponenten-strong">Contact Maintenance</span></br />
 											<span class="blue">John Doe</span><br />
-											<span class="past-maintenance">Department 20021</span>
+											<span class="past-maintenance">Service Department</span>
 										</p>
 									</div>
 									<div class="komponenten-maintenance blue-box">
 										<p>
 											<span class="komponenten-strong">Contact Coperion</span></br />
-											<span class="blue">Matt Pattemrrd</span><br />
-											<span class="past-maintenance">Department 20021</span>
+											<span class="blue">Daniel Stockton</span><br />
+											<span class="past-maintenance">Coperion HQ</span>
 										</p>
 									</div>
 									<div class="clear"></div>
@@ -1083,24 +1119,24 @@
 							<li class="hidden"><a id="foerderdruck-link-3" href="#foerderdruck-3">Special Link Hidden</a></li>
 							<li><a id="bxc-link" href="#bxc-component"><span>BXC</span></a></li>
 							<li><a id="wzk-link" href="#wzk-box"><span>WZK</span></a></li>
-							<li><a id="ibp-link" href="#ibp250"><span>IBP250</span></a></li>
+							<li><a id="ibp-link" href="#ibp250"><span>IBP 250</span></a></li>
 							<li><a id="wet-link" href="#wet"><span>WET</span></a></li>
 						</ul>
 						<div id="foerderdruck-3">
-							<div class="sensoren-titel-in"><p>Feed Pressure</p></div>
-							<div id="foerderdruck-3-graph" class="graph chart-big"><p class="graph-title">Feed Pressure <span class="blue">werte 3</span></p></div>
+							<div class="sensoren-titel-in"><p>Conveying Pressure</p></div>
+							<div id="foerderdruck-3-graph" class="graph chart-big"><p class="graph-title">Conveying Pressure <span class="blue">values 3</span></p></div>
 						</div>
 
 						<div id="bxc-component">
 							<div class="sensoren-titel-in"><p>BXC</p></div>
-							<div id="bxc-graph" class="graph dummy-2"><p class="graph-title">BXC <span class="blue"></span></p></div>
+							<div id="bxc-graph" class="graph dummy-2 in-betrieb"><p class="graph-title">BXC <span class="blue"></span></p></div>
 
 							<!--- Anfang Infobox -->
 							<div class="komponenten-infobox">
 								<h3 class="komponenten-titel"><span class="komponenten-strong">BXC</span> <span class="blue">»BULK-X-CHANGE«</span></h3>
 								<p class="komponenten-id">
-									<span class="product-id"><span class="komponenten-strong">Product ID</span> 12345678</span>
-									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 12.12.09</span>
+									<span class="product-id"><span class="komponenten-strong">Product ID</span> 84792347</span>
+									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 07.05.2011</span>
 								</p>
 								<p class="komponenten-information">
 									<span class="komponenten-strong">Component Information</span><br />
@@ -1112,21 +1148,21 @@
 										<p>
 											<span class="komponenten-strong">Maintenance Schedule</span></br />
 											<span class="blue">NEXT Wed 18.01.2017</span><br />
-											<span class="past-maintenance">LAST Mon 11.04.2017</span>
+											<span class="past-maintenance">LAST Mon 11.04.2016</span>
 										</p>
 									</div>
 									<div class="komponenten-maintenance blue-box">
 										<p>
-											<span class="komponenten-strong">Contact</span></br />
+											<span class="komponenten-strong">Contact Maintenance</span></br />
 											<span class="blue">John Doe</span><br />
-											<span class="past-maintenance">Department 20021</span>
+											<span class="past-maintenance">Service Department</span>
 										</p>
 									</div>
 									<div class="komponenten-maintenance blue-box">
 										<p>
 											<span class="komponenten-strong">Contact Coperion</span></br />
-											<span class="blue">Matt Pattemrrd</span><br />
-											<span class="past-maintenance">Department 20021</span>
+											<span class="blue">Olaf Hustert</span><br />
+											<span class="past-maintenance">Coperion HQ</span>
 										</p>
 									</div>
 									<div class="clear"></div>
@@ -1142,14 +1178,14 @@
 
 						<div id="wzk-box">
 							<div class="sensoren-titel-in"><p>WZK</p></div>
-							<div id="wzk-graph" class="graph dummy-2 in-betrieb"><p class="graph-title">WZK <span class="blue">on</span></p></div>
+							<div id="wzk-graph" class="graph dummy-2 in-betrieb"><p class="graph-title">WZK <span class="blue"></span></p></div>
 
 							<!--- Anfang Infobox -->
 							<div class="komponenten-infobox">
 								<h3 class="komponenten-titel"><span class="komponenten-strong">WZK</span> <span class="blue"></span></h3>
 								<p class="komponenten-id">
-									<span class="product-id"><span class="komponenten-strong">Product ID</span> 12345678</span>
-									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 12.12.09</span>
+									<span class="product-id"><span class="komponenten-strong">Product ID</span> 64839487</span>
+									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 26.04.2011</span>
 								</p>
 								<p class="komponenten-information">
 									<span class="komponenten-strong">Component Information</span><br />
@@ -1161,22 +1197,22 @@
 									<div class="komponenten-maintenance grey-box">
 										<p>
 											<span class="komponenten-strong">Maintenance Schedule</span></br />
-											<span class="blue">NEXT Wed 18.01.2017</span><br />
-											<span class="past-maintenance">LAST Mon 11.04.2017</span>
+											<span class="blue">NEXT Wed 11.01.2017</span><br />
+											<span class="past-maintenance">LAST Mon 11.07.2016</span>
 										</p>
 									</div>
 									<div class="komponenten-maintenance blue-box">
 										<p>
-											<span class="komponenten-strong">Contact</span></br />
+											<span class="komponenten-strong">Contact Maintenance</span></br />
 											<span class="blue">John Doe</span><br />
-											<span class="past-maintenance">Department 20021</span>
+											<span class="past-maintenance">Service Department</span>
 										</p>
 									</div>
 									<div class="komponenten-maintenance blue-box">
 										<p>
 											<span class="komponenten-strong">Contact Coperion</span></br />
-											<span class="blue">Matt Pattemrrd</span><br />
-											<span class="past-maintenance">Department 20021</span>
+											<span class="blue">Markus Locher</span><br />
+											<span class="past-maintenance">Coperion HQ</span>
 										</p>
 									</div>
 									<div class="clear"></div>
@@ -1192,14 +1228,14 @@
 
 						<div id="ibp250">
 							<div class="sensoren-titel-in"><p>IBP 250</p></div>
-							<div id="ibp250-graph" class="graph dummy-2 nicht-in-betrieb"><p class="graph-title">IBP250 <span class="blue">off</span></p></div>
+							<div id="ibp250-graph" class="graph dummy-2 nicht-in-betrieb"><p class="graph-title">IBP 250 <span class="blue">Currently not needed for Operation</span></p></div>
 
 							<!--- Anfang Infobox -->
 							<div class="komponenten-infobox">
-								<h3 class="komponenten-titel"><span class="komponenten-strong">IBP250</span> <span class="blue"></span></h3>
+								<h3 class="komponenten-titel"><span class="komponenten-strong">IBP 250</span> <span class="blue"></span></h3>
 								<p class="komponenten-id">
-									<span class="product-id"><span class="komponenten-strong">Product ID</span> 12345678</span>
-									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 12.12.09</span>
+									<span class="product-id"><span class="komponenten-strong">Product ID</span> 24568374</span>
+									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 22.11.2009</span>
 								</p>
 								<p class="komponenten-information">
 									<span class="komponenten-strong">Component Information</span><br />
@@ -1211,22 +1247,22 @@
 									<div class="komponenten-maintenance grey-box">
 										<p>
 											<span class="komponenten-strong">Maintenance Schedule</span></br />
-											<span class="blue">NEXT Wed 18.01.2017</span><br />
-											<span class="past-maintenance">LAST Mon 11.04.2017</span>
+											<span class="blue">NEXT Wed 28.12.2016</span><br />
+											<span class="past-maintenance">LAST Fri 30.09.2016</span>
 										</p>
 									</div>
 									<div class="komponenten-maintenance blue-box">
 										<p>
-											<span class="komponenten-strong">Contact</span></br />
+											<span class="komponenten-strong">Contact Maintenance</span></br />
 											<span class="blue">John Doe</span><br />
-											<span class="past-maintenance">Department 20021</span>
+											<span class="past-maintenance">Service Department</span>
 										</p>
 									</div>
 									<div class="komponenten-maintenance blue-box">
 										<p>
 											<span class="komponenten-strong">Contact Coperion</span></br />
-											<span class="blue">Matt Pattemrrd</span><br />
-											<span class="past-maintenance">Department 20021</span>
+											<span class="blue">Alessandro Pesso</span><br />
+											<span class="past-maintenance">Coperion HQ</span>
 										</p>
 									</div>
 									<div class="clear"></div>
@@ -1242,14 +1278,14 @@
 
 						<div id="wet">
 							<div class="sensoren-titel-in"><p>WET</p></div>
-							<div id="wet-graph" class="graph dummy-2 in-betrieb"><p class="graph-title">WET <span class="blue">on</span></p></div>
+							<div id="wet-graph" class="graph dummy-2 in-betrieb"><p class="graph-title">WET <span class="blue"></span></p></div>
 
 							<!--- Anfang Infobox -->
 							<div class="komponenten-infobox">
 								<h3 class="komponenten-titel"><span class="komponenten-strong">WET</span> <span class="blue"></span></h3>
 								<p class="komponenten-id">
-									<span class="product-id"><span class="komponenten-strong">Product ID</span> 12345678</span>
-									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 12.12.09</span>
+									<span class="product-id"><span class="komponenten-strong">Product ID</span> 74893847</span>
+									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 04.09.2012</span>
 								</p>
 								<p class="komponenten-information">
 									<span class="komponenten-strong">Component Information</span><br />
@@ -1263,21 +1299,21 @@
 										<p>
 											<span class="komponenten-strong">Maintenance Schedule</span></br />
 											<span class="blue">NEXT Wed 18.01.2017</span><br />
-											<span class="past-maintenance">LAST Mon 11.04.2017</span>
+											<span class="past-maintenance">LAST Mon 11.04.2016</span>
 										</p>
 									</div>
 									<div class="komponenten-maintenance blue-box">
 										<p>
-											<span class="komponenten-strong">Contact</span></br />
+											<span class="komponenten-strong">Contact Maintenance</span></br />
 											<span class="blue">John Doe</span><br />
-											<span class="past-maintenance">Department 20021</span>
+											<span class="past-maintenance">Service Department</span>
 										</p>
 									</div>
 									<div class="komponenten-maintenance blue-box">
 										<p>
 											<span class="komponenten-strong">Contact Coperion</span></br />
-											<span class="blue">Matt Pattemrrd</span><br />
-											<span class="past-maintenance">Department 20021</span>
+											<span class="blue">Markus Locher</span><br />
+											<span class="past-maintenance">Coperion HQ</span>
 										</p>
 									</div>
 									<div class="clear"></div>
@@ -1330,6 +1366,7 @@
 				</button>
 				<div class="timeline-scale">
 				</div>
+				<div class="timeline-gradient"></div>
 			</div>
 
 			<div class="hiddenEventPopups">
@@ -1390,11 +1427,10 @@
 
 					<div class="anlagen-bild">
 						<div id="anlage-ansicht-3d">
-							<img class="ansicht-3d" data-src="img/anlage/anlage-3d-01.png">
-							<img class="ansicht-3d" data-src="img/anlage/anlage-3d-02.png">
-							<img class="ansicht-3d" data-src="img/anlage/anlage-3d-03.png">
-							<img class="ansicht-3d" data-src="img/anlage/anlage-3d-04.png">
-							<img class="ansicht-3d" data-src="img/anlage/anlage-3d-05.png">
+							<img class="ansicht-3d ansicht-3d-image-1" data-src="img/anlage/anlage-3d-01.png">
+							<img class="ansicht-3d ansicht-3d-image-2" data-src="img/anlage/anlage-3d-02.png">
+							<img class="ansicht-3d ansicht-3d-image-3" data-src="img/anlage/anlage-3d-03.png">
+							<img class="ansicht-3d ansicht-3d-image-4" data-src="img/anlage/anlage-3d-04.png">
 							<div class="fill-overlays">
 							</div>
 					 	</div>
@@ -1420,7 +1456,7 @@
 						<li id="full-link" class="full-link-spacebrew"><a href="#full"><span></span></a></li>
 						<li id="upstream-link" class="upstream-spacebrew"><a href="#upstream">Raw materials<span class="upstream-arrow"></span></a></li>
 						<li id="compounding-link" class="compounding-spacebrew"><a href="#compounding">Compounding<span class="compounding-arrow"></span></a></li>
-						<li id="downstream-link" class="downstream-spacebrew"><a href="#downstream">Downstream<span class="downstream-arrow"></span></a></li>
+						<li id="downstream-link" class="downstream-spacebrew"><a href="#downstream">Finished products<span class="downstream-arrow"></span></a></li>
 					</ul>
 
 					<!-- Fullview -->
@@ -1431,7 +1467,7 @@
 							<span class="recipe-title">Recipe</span><br />
 							<span class="recipe-number">A</span> <!-- Nur A, B oder C -->
 
-							<div class="recipe-next">Next 2</div>
+							<div class="recipe-next">Next: <span class="recipe-next-text">2</span></div>
 							<!--<div class="recipe-scale"></div>-->
 						</div>
 
@@ -1533,20 +1569,20 @@
 					<div id="compounding">
 						<div id="second-row-compounding-rohstoffe">
 							<ul class="second-row-navigation scroll">
-								<li><a id="tagessilo-1-link" href="#tagessilo-1"><span>Tagessilo 1</span></a></li>
-								<li><a id="dosierer-1-r-link" href="#dosierer-1-r"><span>Dosierer 1</span></a></li>
-								<li><a id="tagessilo-2-link" href="#tagessilo-2"><span>Tagessilo 2</span></a></li>
-								<li><a id="dosierer-2-r-link" href="#dosierer-2-r"><span>Dosierer 2</span></a></li>
+								<li><a id="tagessilo-1-link" href="#tagessilo-1"><span>Daybin 1</span></a></li>
+								<li><a id="dosierer-1-r-link" href="#dosierer-1-r"><span>Feeder 1</span></a></li>
+								<li><a id="tagessilo-2-link" href="#tagessilo-2"><span>Daybin 2</span></a></li>
+								<li><a id="dosierer-2-r-link" href="#dosierer-2-r"><span>Feeder 2</span></a></li>
 								<li><a id="hopper-link" href="#hopper"><span>Hopper</span></a></li>
-								<li><a id="dosierer-3-r-link" href="#dosierer-3-r"><span>Dosierer 3</span></a></li>
+								<li><a id="dosierer-3-r-link" href="#dosierer-3-r"><span>Feeder 3</span></a></li>
 								<li><a id="bigbag2-link" href="#bigbag2"><span>Big Bag 2</span></a></li>
-								<li><a id="dosierer-4-r-link" href="#dosierer-4-r"><span>Dosierer 4</span></a></li>
-								<li><a id="tagessilo-3-link" href="#tagessilo-3"><span>Tagessilo 3</span></a></li>
-								<li><a id="dosierer-5-r-link" href="#dosierer-5-r"><span>Dosierer-5</span></a></li>
+								<li><a id="dosierer-4-r-link" href="#dosierer-4-r"><span>Feeder 4</span></a></li>
+								<li><a id="tagessilo-3-link" href="#tagessilo-3"><span>Daybin 3</span></a></li>
+								<li><a id="dosierer-5-r-link" href="#dosierer-5-r"><span>Feeder 5</span></a></li>
 							</ul>
 
 							<div id="tagessilo-1" data-component-id="8">
-								<div class="sensoren-titel-in"><p>Tagessilo 1</p></div>
+								<div class="sensoren-titel-in"><p>Daybin 1</p></div>
 								<table class="rohstoffe-fuellstaende">
 									<tr class="rohstoffe-title">
 										<td>Material</td>
@@ -1557,7 +1593,7 @@
 							</div>
 
 							<div id="dosierer-1-r" data-component-id="9">
-								<div class="sensoren-titel-in"><p>Dosierer 1</p></div>
+								<div class="sensoren-titel-in"><p>Feeder 1</p></div>
 								<table class="rohstoffe-fuellstaende">
 									<tr class="rohstoffe-title">
 										<td>Material</td>
@@ -1568,7 +1604,7 @@
 							</div>
 
 							<div id="tagessilo-2" data-component-id="10">
-								<div class="sensoren-titel-in"><p>Tagessilo 2</p></div>
+								<div class="sensoren-titel-in"><p>Daybin 2</p></div>
 								<table class="rohstoffe-fuellstaende">
 									<tr class="rohstoffe-title">
 										<td>Material</td>
@@ -1579,7 +1615,7 @@
 							</div>
 
 							<div id="dosierer-2-r" data-component-id="11">
-								<div class="sensoren-titel-in"><p>Dosierer 2</p></div>
+								<div class="sensoren-titel-in"><p>Feeder 2</p></div>
 								<table class="rohstoffe-fuellstaende">
 									<tr class="rohstoffe-title">
 										<td>Material</td>
@@ -1601,7 +1637,7 @@
 							</div>
 
 							<div id="dosierer-3-r" data-component-id="13">
-								<div class="sensoren-titel-in"><p>Dosierer 3</p></div>
+								<div class="sensoren-titel-in"><p>Feeder 3</p></div>
 								<table class="rohstoffe-fuellstaende">
 									<tr class="rohstoffe-title">
 										<td>Material</td>
@@ -1623,7 +1659,7 @@
 							</div>
 
 							<div id="dosierer-4-r" data-component-id="15">
-								<div class="sensoren-titel-in"><p>Dosierer 4</p></div>
+								<div class="sensoren-titel-in"><p>Feeder 4</p></div>
 								<table class="rohstoffe-fuellstaende">
 									<tr class="rohstoffe-title">
 										<td>Material</td>
@@ -1634,7 +1670,7 @@
 							</div>
 
 							<div id="tagessilo-3" data-component-id="16">
-								<div class="sensoren-titel-in"><p>Tagessilo 3</p></div>
+								<div class="sensoren-titel-in"><p>Daybin 3</p></div>
 								<table class="rohstoffe-fuellstaende">
 									<tr class="rohstoffe-title">
 										<td>Material</td>
@@ -1645,7 +1681,7 @@
 							</div>
 
 							<div id="dosierer-5-r" data-component-id="17">
-								<div class="sensoren-titel-in"><p>Dosierer 5</p></div>
+								<div class="sensoren-titel-in"><p>Feeder 5</p></div>
 								<table class="rohstoffe-fuellstaende">
 									<tr class="rohstoffe-title">
 										<td>Material</td>
@@ -1663,7 +1699,7 @@
 							<ul class="second-row-navigation">
 								<li><a id="silo-3-link" href="#silo-3"><span>Silo 3</span></a></li>
 								<li><a id="wzk-r-link" href="#wzk-r"><span>WZK</span></a></li>
-								<li><a id="ibp-r-link" href="#ibp250-r"><span>IBP250</span></a></li>
+								<li><a id="ibp-r-link" href="#ibp250-r"><span>IBP 250</span></a></li>
 								<li><a id="silo-4-link" href="#silo-4"><span>Silo 4</span></a></li>
 								<li><a id="silo-5-link" href="#silo-5"><span>Silo 5</span></a></li>
 								<li><a id="silo-6-link" href="#silo-6"><span>Silo 6</span></a></li>
@@ -1800,10 +1836,14 @@
 				</button>
 				<div class="timeline-scale">
 				</div>
+				<div class="timeline-gradient"></div>
 			</div>
 
 		</div>
-
+<div class="mycoperion">
+	<button class="mycoperion-close-button">x</button>
+	<img src="img/mycoprerion.png" class="login" />
+</div>
 <script>
 	$("#first-row").tabs();
 	$("#second-row-downstream").tabs({show: 'fade', hide: 'fade'});
@@ -1833,7 +1873,7 @@
 			setTimeout( function () {
 				window.close();
 			}, 150 );
-		
+
 		})
 	});
 </script>

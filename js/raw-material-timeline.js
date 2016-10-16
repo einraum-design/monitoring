@@ -65,9 +65,9 @@ var rawTimeline = {
 				var componentId = componentEl.attr( 'data-component-id' );
 
 				var svgStr = '<svg class="fill-overlay">';
-	            svgStr += '<rect class="fill-layer" x="0" y="0"   width="100%" height="33%" style="fill:rgb(255,168,7);" />';
-	            svgStr += '<rect class="fill-layer" x="0" y="33%" width="100%" height="33%" style="fill:rgb(255,208,7);" />';
-	            svgStr += '<rect class="fill-layer" x="0" y="66%" width="100%" height="33%" style="fill:rgb(255,255,7);" />';
+	            svgStr += '<rect class="fill-layer" x="0" y="100%" width="100%" height="0%" style="fill:#f9d817;" />';
+	            svgStr += '<rect class="fill-layer" x="0" y="100%" width="100%" height="0%" style="fill:#ebcd15;" />';
+	            svgStr += '<rect class="fill-layer" x="0" y="100%" width="100%" height="0%" style="fill:#d6ba18" />';
 	            svgStr +='</svg>';
 
 	            var svgEl = $( svgStr );
@@ -134,7 +134,7 @@ var rawTimeline = {
 							}
 
 							if ( useShiftBlocks ) {
-								if ( prevAllocationContent !== allocationContent || allocationHour % 8 === 0 ) {
+								if ( prevAllocationContent !== allocationContent ) {
 									allocationEl = $( '<div class="allocation"><span class="allocation-text">' + allocationContent + '</span></div>' )[0];
 									allocationEl.setAttribute( 'data-type', allocationContent.toLowerCase() );
 
@@ -260,9 +260,13 @@ var rawTimeline = {
 			var infoEl = $( '#app-tab2 #first-row-rohstoffe > .ui-tabs-panel[aria-hidden="false"]' );
 			var wrapperEl = $( '#rohstoffe-recipe', infoEl );
 
-			// FAKE DATA
 			var allocationContent = getAllocationContent( allocation, 'allocation' );
 			var recipe = getAllocationContent( allocation, 'recipe' );
+
+			wrapperEl.attr( 'data-recipe', allocationContent.toLowerCase() );
+
+			// IF ALLOCATION == SETUP: => NEXT RECIPE!
+			console.log( );
 			
 			// UPDATE RECIPE EL
 			if ( recipe ) {
@@ -279,7 +283,7 @@ var rawTimeline = {
 			if ( nextAllocation ) {
 				var nextAllocationContent = getAllocationContent( nextAllocation, 'allocation' );
 				
-				var nextEl = $( '.recipe-next', infoEl );
+				var nextEl = $( '.recipe-next-text', infoEl );
 				nextEl.text( nextAllocationContent );
 			}
 
@@ -319,7 +323,7 @@ var rawTimeline = {
 			} else {
 				rawmaterialBarContainerEls.removeClass( 'is-active' );
 			}
-									
+															
 			allocation.production.data.forEach( function ( allocationData, componentIndex ) {
 				allocationData = allocationData[0];
 				
@@ -328,8 +332,14 @@ var rawTimeline = {
 				if ( componentEl.length && allocationData.layers && allocationData.layers.length ) {
 					
 					var rowCounter = 0;
-					
-					allocationData.layers.forEach( function ( layer, layerIndex ) {
+
+					var layers = [ ];
+
+					if ( allocationData.amount.value ) {
+						layers = allocationData.layers;
+					}
+
+					layers.forEach( function ( layer, layerIndex ) {
 						layer.forEach( function ( charge, chargeIndes ) {
 							var rowEl = $( 'tr:nth-child(' + ( rowCounter + 2 ) + ')', componentEl );
 						
@@ -378,23 +388,23 @@ var rawTimeline = {
 					
 					layerEls.each( function ( elIndex, el ) {
 						var layerEl = $( el );
-						var elIndex = layerEls.length - elIndex - 1;
+						// var elIndex = layerEls.length - elIndex - 1;
 						
 						if ( allocationData.layers && allocationData.layers[elIndex] ) {
 							var maxHeight = allocationData.fillLevel;
 							var layerCount = allocationData.layers.length;
-							var itemHeight = maxHeight / layerCount;
-							var y = itemHeight * elIndex * 100 + '%';
+							var layerHeight = maxHeight / layerCount;
+							var y = ( 1 - layerHeight ) - ( layerHeight * elIndex );
 
 							layerEl.attr( {
-								height: itemHeight * 100 + '%',
-								y: y,
+								height: layerHeight * 100 + '%',
+								y: y * 100 + '%',
 								opacity: 1
 							} );
 						} else {
 							layerEl.attr( {
 								height: 0,
-								y: 0,
+								y: '100%',
 								opacity: 0
 							} );
 						}

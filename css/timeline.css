@@ -22,6 +22,31 @@
 	z-index: 999;
 }
 
+#timeline::before,
+#raw-material-timeline::before {
+	content:  '';
+	width:  20px;
+	height: 10px;
+	position: absolute;
+	background-image: url('../img/timeline-arrow.svg');
+	background-size: 20px;
+	background-repeat: no-repeat;
+	background-position: center;
+	top: -1px;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 2;
+}
+
+.timeline-gradient {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width:  50%;
+	height: 100%;
+	background: linear-gradient(45deg, rgba(124,156,187,0) 0%,rgba(124,156,187,0.3) 100%);
+}
+
 #timeline-events {
 	position: absolute;
 	top: 0;
@@ -98,12 +123,14 @@
 }
 
 @keyframes blink {
-  0% { background-color: #809dbc; }
-  100% { background-color: #bfcee0; }
+	0% { opacity: 1; }
+	50% { opacity: 0.5; }
+	100% { opacity: 1; }
 }
 @-webkit-keyframes blink {
-  0% { background-color: #809dbc; }
-  100% { background-color: #bfcee0; }
+	0% { opacity: 1; }
+	50% { opacity: 0.5; }
+	100% { opacity: 1; }
 }
 
 #raw-material-timeline .allocation.is-first-of-kind span {
@@ -117,10 +144,23 @@
 }
 
 #raw-material-timeline .allocation.is-current span {
-	opacity: 1;
-	-webkit-animation: blink 1s linear infinite alternate;
-	-moz-animation: blink 1s linear infinite alternate;
-	animation: blink 1s linear infinite alternate;
+	-webkit-animation: blink 4s linear infinite alternate;
+	animation: blink 4s linear infinite alternate;
+}
+
+#raw-material-timeline .allocation[data-type="a"] span,
+#rohstoffe-recipe[data-recipe="a"] {
+	background-color: #333333;
+}
+
+#raw-material-timeline .allocation[data-type="b"] span,
+#rohstoffe-recipe[data-recipe="b"] {
+	background-color: #7C9CBB;
+}
+
+#raw-material-timeline .allocation[data-type="c"] span,
+#rohstoffe-recipe[data-recipe="c"] {
+	background-color: #808080;
 }
 
 #raw-material-timeline .allocation[data-type^="recipe"] span {
@@ -174,15 +214,26 @@
   margin: 0px;
 	box-shadow: 0px !important;
 	-webkit-box-shadow: 0px !important;
+	background-image: url('../img/popup-close.svg');
+	background-size: 16px;
+	background-position: center;
+	background-repeat: no-repeat;
+	text-indent: -5000px;
+	overflow: hidden;
 }
 
 .timeline-popup-arrow {
 	position: absolute;
 	height: 20px;
-	width: 1px;
-	bottom: 0;
+	width: 30px;
+	height: 15px;
+	background-image: url('../img/popup-arrow.svg');
+	background-size: 30px;
+	background-repeat: no-repeat;
+	background-position: center;
+	bottom: 1px;
 	transform: translateX(-50%) translateY(100%);
-	background-color: #333;
+	/* background-color: #333; */
 }
 
 #timeline-popup[data-type="maintenance"] #timeline-timespan-selected {
