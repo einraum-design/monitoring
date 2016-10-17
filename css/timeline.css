@@ -88,11 +88,11 @@
 	top: 0;
 	left: 0;
 	height: 100%;
-	
+
 	overflow: hidden;
 	/* border-radius: 30px; */
-	
-	
+
+
 	cursor: pointer;
 
 }
@@ -197,8 +197,8 @@
 
 #timeline-popup .timeline-popup-close-button {
   position: absolute;
-  top: 15px;
-  right: 20px;
+	top: 13px;
+	right: 12px;
   width: 30px;
   height: 30px;
   overflow: hidden;
@@ -212,8 +212,7 @@
   font-family: 'Gotham';
   padding: 0px;
   margin: 0px;
-	box-shadow: 0px !important;
-	-webkit-box-shadow: 0px !important;
+  -webkit-box-shadow: 0 0px 0px rgba(0, 0, 0, .15);
 	background-image: url('../img/popup-close.svg');
 	background-size: 16px;
 	background-position: center;

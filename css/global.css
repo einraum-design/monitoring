@@ -1505,13 +1505,13 @@ a#sensor-2 .3d-ansicht .anlagen-bild{
 
 .mycoperion .ui-btn {
 	position: absolute;
-	top: 30px;
-	right: 30px;
+	top: 20px;
+	right: 20px;
 	border: none;
 	padding: 0;
 	width: 45px;
 	height: 45px;
-	background-color: transparent;
+	background-color: transparent !important;
 	background-image: url(../img/popup-close.svg);
 	background-size: 20px;
 	cursor: pointer;
@@ -1521,4 +1521,5 @@ a#sensor-2 .3d-ansicht .anlagen-bild{
 	overflow: hidden;
 	text-indent: -5000px;
 	border-radius: 50px !important;
+	-webkit-box-shadow: 0 0px 0px rgba(0, 0, 0, .15);
 }
