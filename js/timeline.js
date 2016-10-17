@@ -344,7 +344,7 @@ function getTimelineData () {
 
 	
 
-	return fetch ( 'daten/timeline/events.json' )
+	return fetch( 'daten/timeline/events.json' )
 		.then( function ( res ) {
 			return res.json();
 		} )
