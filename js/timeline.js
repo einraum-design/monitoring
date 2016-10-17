@@ -344,7 +344,7 @@ function getTimelineData () {
 
 	
 
-	return fetch ( 'daten/timeline/events.json' )
+	return fetch( 'daten/timeline/events.json' )
 		.then( function ( res ) {
 			return res.json();
 		} )
@@ -418,81 +418,90 @@ var hiddenEvents = {
 
 	loadData: function() {
 
-		$.ajax({
-			dataType: "json",
-			url : "daten/_hiddenEvents/events.json",
-			success : function (data) {
-					hiddenEvents.data = data;
-					// console.log(hiddenEvents.data);
-			}
-		});
+		// $.ajax({
+		// 	dataType: "json",
+		// 	url : "daten/_hiddenEvents/events.json",
+		// 	success : function (data) {
+		// 			hiddenEvents.data = data;
+		// 			// console.log(hiddenEvents.data);
+		// 	}
+		// });
+
+		fetch( 'daten/timeline/push-messages.json' )
+			.then( function ( res ) {
+				return res.json();
+			} )
+			.then( function ( pushMessages ) {
+				hiddenEvents.pushMessages = pushMessages;
+			} );
+
+		fetch( 'daten/timeline/errors.json' )
+			.then( function ( res ) {
+				return res.json();
+			} )
+			.then( function ( errorMessages ) {
+				hiddenEvents.errorMessages = errorMessages;
+			} );
 
 	},
 
 	maintenance: function() {
 
-		if (hiddenEvents.data.maintenance) {
-			if (hiddenEvents.data.maintenance.length > 0) {
+		if (hiddenEvents.pushMessages && hiddenEvents.pushMessages.length > 0) {
 
-				var size = hiddenEvents.data.maintenance.length;
-				var rand = Math.random() * (size - 1) + 1;
-				var data = hiddenEvents.data.maintenance[parseInt(rand)];
+			var size = hiddenEvents.pushMessages.length;
+			var rand = Math.random() * (size - 1) + 1;
+			var data = hiddenEvents.pushMessages[parseInt(rand)];
 
-				$(".hiddenEventPopups .hiddenMaintenance-Message .text").html(data.alertText);
-				$(".hiddenEventPopups .hiddenMaintenance-Response .text").html(data.alertResponse);
+			$(".hiddenEventPopups .hiddenMaintenance-Message .text").html('<b>' + data.title + '</b><br /></br>' + data.description + '<br /></br>' + data.question + '</br></br>');
+			$(".hiddenEventPopups .hiddenMaintenance-Response .text").html( data.response );
 
-				$(".hiddenMaintenance-Message").addClass("active");
+			$(".hiddenMaintenance-Message").addClass("active");
 
 
-					$(".hiddenMaintenance-Message .decline").on('click', function() {
-						$(".hiddenMaintenance-Message").removeClass("active");
-					});
+			$(".hiddenMaintenance-Message .decline").on('click', function() {
+				$(".hiddenMaintenance-Message").removeClass("active");
+			});
 
-					$(".hiddenMaintenance-Message .accept").on('click', function() {
-						$(".hiddenMaintenance-Message").removeClass("active");
-						$(".hiddenMaintenance-Response").addClass("active");
+			$(".hiddenMaintenance-Message .accept").on('click', function() {
+				$(".hiddenMaintenance-Message").removeClass("active");
+				$(".hiddenMaintenance-Response").addClass("active");
 
-						// var tempDate = moment().format("YYYY-MM-DD hh:mm:ss");
-						// console.log(data.eventDate);
-						// console.log(moment( data.eventDate ));
+				// EIN EVENT AUF DER TIMELINE HINZUFÜGEN:
+				addTimelineEvent( {
+						id: data.id,
+						date: moment( data.date ),
+						type: data.maintenance,
+						title: data.title,
+						description: data.description,
+						image: data.image
+					},
+					// nach 3 sekunden wieder runternehmen von der timeline
+					1200000
+				);
 
-						// EIN EVENT AUF DER TIMELINE HINZUFÜGEN:
-						addTimelineEvent( {
-							id: data.eventTitle,
-							date: moment( data.eventDate ),
-							type: "maintenance",
-							title: data.eventTitle,
-							description: data.eventDescription,
-							image: data.eventImage
-						},
-						// nach 3 sekunden wieder runternehmen von der timeline
-						1200000 );
-
-						setTimeout(function(){
-						  $(".hiddenMaintenance-Response").removeClass("active");
-						}, 2000);
-
-					});
-
-			}
+				setTimeout( function () {
+					$(".hiddenMaintenance-Response").removeClass("active");
+				}, 2000);
+			} );
 		}
 
 	},
 
 	error: function() {
 
-		if (hiddenEvents.data.errors) {
-			if (hiddenEvents.data.errors.length > 0) {
+		if (hiddenEvents.errorMessages && hiddenEvents.errorMessages.length > 0) {
+			
 
-				var size = hiddenEvents.data.errors.length;
+				var size = hiddenEvents.errorMessages.length;
 				var rand = Math.random() * (size - 1) + 1;
-				var data = hiddenEvents.data.errors[parseInt(rand)];
+				var data = hiddenEvents.errorMessages[parseInt(rand)];
 
-				$(".hiddenEventPopups .hiddenError-Message .title").html(data.title);
+				$(".hiddenEventPopups .hiddenError-Message .title").html( data.title );
 				$('.hiddenEventPopups .hiddenError-Message .hiddenErrorHeader').css("background-image", "url("+data.image+")");
 				$('.hiddenEventPopups .hiddenError-Response .hiddenErrorHeader').css("background-image", "url("+data.image+")");
 				$('.hiddenEventPopups .hiddenError-Forwarding .hiddenErrorHeader').css("background-image", "url("+data.image+")");
-				$(".hiddenEventPopups .hiddenError-Message .text").html(data.error);
+				$(".hiddenEventPopups .hiddenError-Message .text").html( '<p>' + data.description + '</p>' );
 				$(".hiddenEventPopups .hiddenError-Forwarding .title").html(data.title);
 				$(".hiddenEventPopups .hiddenError-Response .title").html(data.title);
 				$(".hiddenError-Message").addClass("active");
@@ -553,10 +562,6 @@ var hiddenEvents = {
 					// $(".hiddenMaintenance-Message .decline").on('click', function() {
 					// 	$(".hiddenMaintenance-Message").removeClass("active");
 					// });
-
-
-
-			}
 		}
 
 	},
@@ -568,9 +573,9 @@ var hiddenEvents = {
 			id: data.title,
 			date: moment(),
 			type: "error",
-			title: data.eventTitle,
-			description: data.eventError,
-			image: data.eventImage
+			title: data.title,
+			description: data.description,
+			image: data.image
 		},
 		// nach 3 sekunden wieder runternehmen von der timeline
 		1200000 );

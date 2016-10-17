@@ -93,4 +93,28 @@
 	"title": "WZK diverter valve",
 	"description": "Visual check has been done on WZK diverter valve during inspection after 4.000 operating hours.",
 	"image": "img/timeline/events/Meldungen_8.WZK.png"
+}, {
+	"id": "error-red-01",
+	"date": "2016-10-10 12:56:10",
+	"type": "error",
+	"title": "Error #1285",
+	"popUpTitle": "Barrel #6 cannot be heated over 90°C!",
+	"description": "Barrel #6 // HEATING // In progress. <br />Result: Malfunctioning cooling valve. Error has been solved.",
+	"image": "img/timeline/events/Stoermeldung_1.barrel_small.png"
+}, {
+	"id": "error-red-04",
+	"date": "2016-10-18 09:21:42",
+	"type": "error",
+	"title": "Error #1874",
+	"popUpTitle": "Start up not possible due to faults.",
+	"description": "Start up not possible due to faults. <br />Result: hydraulic cylinder malfunction due to leakage. Start up has been interlocked by malfunctioning hydraulic cylinder. Spare part installed by Jim Smith.",
+	"image": "img/timeline/events/Stoermeldung_4.startup_small.png"
+}, {
+	"id": "error-red-05",
+	"date": "2016-10-23 16:40:31",
+	"type": "error",
+	"title": "Error #2065",
+	"popUpTitle": "Start up has been blocked by temperature controller … Start up not possible.",
+	"description": "Start up has been blocked by temperature controller … Start up not possible. <br />Result: Start up has been interlocked due to malfunction in temperature controller. Controller exchanged.",
+	"image": "img/timeline/events/Stoermeldung_5.temperaturecontroller_small.png"
 } ]
