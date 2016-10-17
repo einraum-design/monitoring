@@ -114,7 +114,17 @@ $(function() {
             gridLineWidth: 0,
             minorGridLineWidth: 0,
             minPadding: 0,
-            maxPadding: 0
+            maxPadding: 0,
+lineWidth: 0,
+            labels: {
+              align: 'left',
+              x: 0,
+                style: {
+                  fontWeight: 'bold',
+                  fontFamily: 'Gotham',
+                  fontColor: '#c3c3c3',
+                },
+            },
           },
           yAxis: {
             gridLineWidth: 0,
@@ -125,7 +135,12 @@ $(function() {
             tickLength: 0,
             labels: {
               align: 'right',
-              x: 42
+              x: 42,
+                style: {
+                  fontWeight: 'light',
+                  fontFamily: 'Gotham',
+                  fontColor: '#c3c3c3',
+                },
             },
             title: {
               text: ''
@@ -243,7 +258,17 @@ $(function() {
             gridLineWidth: 0,
             minorGridLineWidth: 0,
             minPadding: 0,
-            maxPadding: 0
+            maxPadding: 0,
+lineWidth: 0,
+            labels: {
+              align: 'left',
+              x: 0,
+                style: {
+                  fontWeight: 'bold',
+                  fontFamily: 'Gotham',
+                  fontColor: '#c3c3c3',
+                },
+            },
           },
 
           yAxis: {
@@ -255,7 +280,12 @@ $(function() {
             tickLength: 0,
             labels: {
               align: 'right',
-              x: 42
+              x: 42,
+                style: {
+                  fontWeight: 'light',
+                  fontFamily: 'Gotham',
+                  fontColor: '#c3c3c3',
+                },
             },
             title: {
               text: ''
@@ -374,7 +404,17 @@ $(function() {
             gridLineWidth: 0,
             minorGridLineWidth: 0,
             minPadding: 0,
-            maxPadding: 0
+            maxPadding: 0,
+lineWidth: 0,
+            labels: {
+              align: 'left',
+              x: 0,
+                style: {
+                  fontWeight: 'bold',
+                  fontFamily: 'Gotham',
+                  fontColor: '#c3c3c3',
+                },
+            },
           },
 
           yAxis: {
@@ -386,7 +426,12 @@ $(function() {
             tickLength: 0,
             labels: {
               align: 'right',
-              x: 42
+              x: 42,
+                style: {
+                  fontWeight: 'light',
+                  fontFamily: 'Gotham',
+                  fontColor: '#c3c3c3',
+                },
             },
             title: {
               text: ''
@@ -504,7 +549,17 @@ $(function() {
             gridLineWidth: 0,
             minorGridLineWidth: 0,
             minPadding: 0,
-            maxPadding: 0
+            maxPadding: 0,
+lineWidth: 0,
+            labels: {
+              align: 'left',
+              x: 0,
+                style: {
+                  fontWeight: 'bold',
+                  fontFamily: 'Gotham',
+                  fontColor: '#c3c3c3',
+                },
+            },
           },
 
           yAxis: {
@@ -516,7 +571,12 @@ $(function() {
             tickLength: 0,
             labels: {
               align: 'right',
-              x: 42
+              x: 42,
+                style: {
+                  fontWeight: 'light',
+                  fontFamily: 'Gotham',
+                  fontColor: '#c3c3c3',
+                },
             },
             title: {
               text: ''
@@ -634,7 +694,17 @@ $(function() {
             gridLineWidth: 0,
             minorGridLineWidth: 0,
             minPadding: 0,
-            maxPadding: 0
+            maxPadding: 0,
+lineWidth: 0,
+            labels: {
+              align: 'left',
+              x: 0,
+                style: {
+                  fontWeight: 'bold',
+                  fontFamily: 'Gotham',
+                  fontColor: '#c3c3c3',
+                },
+            },
           },
 
           yAxis: {
@@ -648,7 +718,12 @@ $(function() {
             tickLength: 0,
             labels: {
               align: 'right',
-              x: 42
+              x: 42,
+                style: {
+                  fontWeight: 'light',
+                  fontFamily: 'Gotham',
+                  fontColor: '#c3c3c3',
+                },
             },
             title: {
               text: ''
@@ -767,7 +842,17 @@ $(function() {
             gridLineWidth: 0,
             minorGridLineWidth: 0,
             minPadding: 0,
-            maxPadding: 0
+            maxPadding: 0,
+lineWidth: 0,
+            labels: {
+              align: 'left',
+              x: 0,
+                style: {
+                  fontWeight: 'bold',
+                  fontFamily: 'Gotham',
+                  fontColor: '#c3c3c3',
+                },
+            },
           },
 
           yAxis: {
@@ -779,7 +864,12 @@ $(function() {
             tickLength: 0,
             labels: {
               align: 'right',
-              x: 42
+              x: 42,
+                style: {
+                  fontWeight: 'light',
+                  fontFamily: 'Gotham',
+                  fontColor: '#c3c3c3',
+                },
             },
             title: {
               text: ''
@@ -898,7 +988,17 @@ $(function() {
             gridLineWidth: 0,
             minorGridLineWidth: 0,
             minPadding: 0,
-            maxPadding: 0
+            maxPadding: 0,
+lineWidth: 0,
+            labels: {
+              align: 'left',
+              x: 0,
+                style: {
+                  fontWeight: 'bold',
+                  fontFamily: 'Gotham',
+                  fontColor: '#c3c3c3',
+                },
+            },
           },
 
           yAxis: {
@@ -910,7 +1010,12 @@ $(function() {
             tickLength: 0,
             labels: {
               align: 'right',
-              x: 42
+              x: 42,
+                style: {
+                  fontWeight: 'light',
+                  fontFamily: 'Gotham',
+                  fontColor: '#c3c3c3',
+                },
             },
             title: {
               text: ''
@@ -1028,7 +1133,17 @@ $(function() {
             gridLineWidth: 0,
             minorGridLineWidth: 0,
             minPadding: 0,
-            maxPadding: 0
+            maxPadding: 0,
+lineWidth: 0,
+            labels: {
+              align: 'left',
+              x: 0,
+                style: {
+                  fontWeight: 'bold',
+                  fontFamily: 'Gotham',
+                  fontColor: '#c3c3c3',
+                },
+            },
           },
 
           yAxis: {
@@ -1040,7 +1155,12 @@ $(function() {
             tickLength: 0,
             labels: {
               align: 'right',
-              x: 42
+              x: 42,
+                style: {
+                  fontWeight: 'light',
+                  fontFamily: 'Gotham',
+                  fontColor: '#c3c3c3',
+                },
             },
             title: {
               text: ''
@@ -1158,7 +1278,17 @@ $(function() {
             gridLineWidth: 0,
             minorGridLineWidth: 0,
             minPadding: 0,
-            maxPadding: 0
+            maxPadding: 0,
+            lineWidth: 0,
+            labels: {
+              align: 'left',
+              x: 0,
+                style: {
+                  fontWeight: 'bold',
+                  fontFamily: 'Gotham',
+                  fontColor: '#c3c3c3',
+                },
+            },
           },
 
           yAxis: {
@@ -1172,7 +1302,12 @@ $(function() {
             tickLength: 0,
             labels: {
               align: 'right',
-              x: 42
+              x: 42,
+                style: {
+                  fontWeight: 'light',
+                  fontFamily: 'Gotham',
+                  fontColor: '#c3c3c3',
+                },
             },
             title: {
               text: ''
@@ -1180,7 +1315,7 @@ $(function() {
             plotLines: [{
               value: 0,
               width: 0,
-              color: '#808080'
+              color: ''
             }],
             plotBands: [{
               from: 0,
@@ -1290,7 +1425,17 @@ $(function() {
             gridLineWidth: 0,
             minorGridLineWidth: 0,
             minPadding: 0,
-            maxPadding: 0
+            maxPadding: 0,
+lineWidth: 0,
+            labels: {
+              align: 'left',
+              x: 0,
+                style: {
+                  fontWeight: 'bold',
+                  fontFamily: 'Gotham',
+                  fontColor: '#c3c3c3',
+                },
+            },
           },
 
           yAxis: {
@@ -1302,7 +1447,12 @@ $(function() {
             tickLength: 0,
             labels: {
               align: 'right',
-              x: 42
+              x: 42,
+                style: {
+                  fontWeight: 'light',
+                  fontFamily: 'Gotham',
+                  fontColor: '#c3c3c3',
+                },
             },
             title: {
               text: ''
@@ -1421,7 +1571,17 @@ $(function() {
             gridLineWidth: 0,
             minorGridLineWidth: 0,
             minPadding: 0,
-            maxPadding: 0
+            maxPadding: 0,
+lineWidth: 0,
+            labels: {
+              align: 'left',
+              x: 0,
+                style: {
+                  fontWeight: 'bold',
+                  fontFamily: 'Gotham',
+                  fontColor: '#c3c3c3',
+                },
+            },
           },
 
           yAxis: {
@@ -1433,7 +1593,12 @@ $(function() {
             tickLength: 0,
             labels: {
               align: 'right',
-              x: 42
+              x: 42,
+                style: {
+                  fontWeight: 'light',
+                  fontFamily: 'Gotham',
+                  fontColor: '#c3c3c3',
+                },
             },
             title: {
               text: ''
@@ -1551,7 +1716,17 @@ $(function() {
             gridLineWidth: 0,
             minorGridLineWidth: 0,
             minPadding: 0,
-            maxPadding: 0
+            maxPadding: 0,
+lineWidth: 0,
+            labels: {
+              align: 'left',
+              x: 0,
+                style: {
+                  fontWeight: 'bold',
+                  fontFamily: 'Gotham',
+                  fontColor: '#c3c3c3',
+                },
+            },
           },
 
           yAxis: {
@@ -1563,7 +1738,12 @@ $(function() {
             tickLength: 0,
             labels: {
               align: 'right',
-              x: 42
+              x: 42,
+                style: {
+                  fontWeight: 'light',
+                  fontFamily: 'Gotham',
+                  fontColor: '#c3c3c3',
+                },
             },
             title: {
               text: ''
@@ -1681,7 +1861,17 @@ $(function() {
             gridLineWidth: 0,
             minorGridLineWidth: 0,
             minPadding: 0,
-            maxPadding: 0
+            maxPadding: 0,
+            lineWidth: 0,
+            labels: {
+              align: 'left',
+              x: 0,
+                style: {
+                  fontWeight: 'bold',
+                  fontFamily: 'Gotham',
+                  fontColor: '#c3c3c3',
+                },
+            },
           },
 
           yAxis: {
@@ -1695,7 +1885,12 @@ $(function() {
             tickLength: 0,
             labels: {
               align: 'right',
-              x: 42
+              x: 42,
+                style: {
+                  fontWeight: 'light',
+                  fontFamily: 'Gotham',
+                  fontColor: '#c3c3c3',
+                },
             },
             title: {
               text: ''
@@ -1813,7 +2008,17 @@ $(function() {
             gridLineWidth: 0,
             minorGridLineWidth: 0,
             minPadding: 0,
-            maxPadding: 0
+            maxPadding: 0,
+lineWidth: 0,
+            labels: {
+              align: 'left',
+              x: 0,
+                style: {
+                  fontWeight: 'bold',
+                  fontFamily: 'Gotham',
+                  fontColor: '#c3c3c3',
+                },
+            },
           },
 
           yAxis: {
@@ -1825,7 +2030,12 @@ $(function() {
             tickLength: 0,
             labels: {
               align: 'right',
-              x: 42
+              x: 42,
+                style: {
+                  fontWeight: 'light',
+                  fontFamily: 'Gotham',
+                  fontColor: '#c3c3c3',
+                },
             },
             title: {
               text: ''
@@ -1930,34 +2140,51 @@ $(function() {
                   var series = this.series[0];
                   setInterval(function () {
                       var x = (new Date()).getTime(), // current time
-                          y = Math.random() * (421 - 421) + 421
+                          y = Math.random() * (260 - 260) + 260
                       series.addPoint([x, y], true, true);
                   }, 10000);
               }
           }
         },
-          xAxis: {
-            type: 'datetime',
-            tickPixelInterval: 150,
-            floating: true,
-            offset: -35,
-            gridLineWidth: 0,
-            minorGridLineWidth: 0,
-            minPadding: 0,
-            maxPadding: 0
+        xAxis: {
+          type: 'datetime',
+          tickPixelInterval: 150,
+          floating: true,
+          opposite: true,
+          offset: -18,
+          gridLineWidth: 0,
+          minorGridLineWidth: 0,
+          minPadding: 0,
+          maxPadding: 0,
+lineWidth: 0,
+          labels: {
+            align: 'left',
+            x: 0,
+              style: {
+                fontWeight: 'bold',
+                fontFamily: 'Gotham',
+                fontColor: '#c3c3c3',
+              },
           },
 
-          yAxis: {
-            gridLineWidth: 0,
-            minorGridLineWidth: 0,
-            minorTickInterval: 400,
-            offset: -50,
-            opposite: true,
-            tickLength: 0,
-            labels: {
-              align: 'right',
-              x: 42
-            },
+        },
+
+        yAxis: {
+          gridLineWidth: 0,
+          minorGridLineWidth: 0,
+          minorTickInterval: 400,
+          offset: -50,
+          opposite: true,
+          tickLength: 0,
+          labels: {
+            align: 'right',
+            x: 42,
+              style: {
+                fontWeight: 'light',
+                fontFamily: 'Gotham',
+                fontColor: '#c3c3c3',
+              },
+          },
             title: {
               text: ''
             },
@@ -1968,7 +2195,7 @@ $(function() {
             }],
             plotBands: [{
               from: 0,
-              to: 0,
+              to: 260,
               linearGradient: [0, 0, 0, 350],
               color: 'rgba(123,152,184,0.5)',
               zIndex: 5
@@ -2009,7 +2236,7 @@ $(function() {
             enabled: false
           },
           title: {
-            text: 'Energy consumption <span class="blue">kW/h</span>',
+            text: 'Gear Oil <span class="blue">%</span>',
             align: 'left',
             floating: true,
               style: {
@@ -2060,7 +2287,7 @@ $(function() {
                   var series = this.series[0];
                   setInterval(function () {
                       var x = (new Date()).getTime(), // current time
-                          y = Math.random() * (260 - 260) + 260
+                          y = Math.random() * (90 - 90) + 90
                       series.addPoint([x, y], true, true);
                   }, 10000);
               }
@@ -2070,11 +2297,23 @@ $(function() {
             type: 'datetime',
             tickPixelInterval: 150,
             floating: true,
-            offset: -35,
+            opposite: true,
+            offset: -18,
             gridLineWidth: 0,
             minorGridLineWidth: 0,
             minPadding: 0,
-            maxPadding: 0
+            maxPadding: 0,
+lineWidth: 0,
+            labels: {
+              align: 'left',
+              x: 0,
+                style: {
+                  fontWeight: 'bold',
+                  fontFamily: 'Gotham',
+                  fontColor: '#c3c3c3',
+                },
+            },
+
           },
 
           yAxis: {
@@ -2086,7 +2325,12 @@ $(function() {
             tickLength: 0,
             labels: {
               align: 'right',
-              x: 42
+              x: 42,
+                style: {
+                  fontWeight: 'light',
+                  fontFamily: 'Gotham',
+                  fontColor: '#c3c3c3',
+                },
             },
             title: {
               text: ''
@@ -2098,7 +2342,7 @@ $(function() {
             }],
             plotBands: [{
               from: 0,
-              to: 0,
+              to: 100,
               linearGradient: [0, 0, 0, 350],
               color: 'rgba(123,152,184,0.5)',
               zIndex: 5
@@ -2123,7 +2367,7 @@ $(function() {
                 for (i = -999; i <= 0; i += 5) {
                     data.push([
                         time + i * 3000,
-                        Math.random() * (421 - 421) + 421
+                        Math.random() * (90 - 90) + 90
                     ]);
                 }
                 return data;
@@ -2204,7 +2448,17 @@ $(function() {
             gridLineWidth: 0,
             minorGridLineWidth: 0,
             minPadding: 0,
-            maxPadding: 0
+            maxPadding: 0,
+            lineWidth: 0,
+            labels: {
+              align: 'left',
+              x: 0,
+                style: {
+                  fontWeight: 'bold',
+                  fontFamily: 'Gotham',
+                  fontColor: '#c3c3c3',
+                },
+            },
           },
 
           yAxis: {
@@ -2334,7 +2588,17 @@ $(function() {
             gridLineWidth: 0,
             minorGridLineWidth: 0,
             minPadding: 0,
-            maxPadding: 0
+            maxPadding: 0,
+lineWidth: 0,
+            labels: {
+              align: 'left',
+              x: 0,
+                style: {
+                  fontWeight: 'bold',
+                  fontFamily: 'Gotham',
+                  fontColor: '#c3c3c3',
+                },
+            },
           },
 
           yAxis: {
@@ -2463,7 +2727,17 @@ $(function() {
             gridLineWidth: 0,
             minorGridLineWidth: 0,
             minPadding: 0,
-            maxPadding: 0
+            maxPadding: 0,
+lineWidth: 0,
+            labels: {
+              align: 'left',
+              x: 0,
+                style: {
+                  fontWeight: 'bold',
+                  fontFamily: 'Gotham',
+                  fontColor: '#c3c3c3',
+                },
+            },
           },
 
           yAxis: {
@@ -2474,7 +2748,12 @@ $(function() {
             tickLength: 0,
             labels: {
               align: 'right',
-              x: 42
+              x: 42,
+                style: {
+                  fontWeight: 'light',
+                  fontFamily: 'Gotham',
+                  fontColor: '#c3c3c3',
+                },
             },
             title: {
               text: ''
@@ -2593,7 +2872,17 @@ $(function() {
             gridLineWidth: 0,
             minorGridLineWidth: 0,
             minPadding: 0,
-            maxPadding: 0
+            maxPadding: 0,
+lineWidth: 0,
+            labels: {
+              align: 'left',
+              x: 0,
+                style: {
+                  fontWeight: 'bold',
+                  fontFamily: 'Gotham',
+                  fontColor: '#c3c3c3',
+                },
+            },
           },
 
           yAxis: {
@@ -2602,9 +2891,15 @@ $(function() {
             offset: -40,
             opposite: true,
             tickLength: 0,
+
             labels: {
               align: 'right',
-              x: 32
+              x: 32,
+                style: {
+                  fontWeight: 'light',
+                  fontFamily: 'Gotham',
+                  fontColor: '#c3c3c3',
+                },
             },
             title: {
               text: ''
@@ -2723,7 +3018,17 @@ $(function() {
             gridLineWidth: 0,
             minorGridLineWidth: 0,
             minPadding: 0,
-            maxPadding: 0
+            maxPadding: 0,
+lineWidth: 0,
+            labels: {
+              align: 'left',
+              x: 0,
+                style: {
+                  fontWeight: 'bold',
+                  fontFamily: 'Gotham',
+                  fontColor: '#c3c3c3',
+                },
+            },
           },
 
           yAxis: {
@@ -2734,7 +3039,12 @@ $(function() {
             tickLength: 0,
             labels: {
               align: 'right',
-              x: 32
+              x: 32,
+                style: {
+                  fontWeight: 'light',
+                  fontFamily: 'Gotham',
+                  fontColor: '#c3c3c3',
+                },
             },
             title: {
               text: ''
@@ -2853,18 +3163,33 @@ $(function() {
             gridLineWidth: 0,
             minorGridLineWidth: 0,
             minPadding: 0,
-            maxPadding: 0
+            maxPadding: 0,
+lineWidth: 0,
+            labels: {
+              align: 'left',
+              x: 0,
+                style: {
+                  fontWeight: 'bold',
+                  fontFamily: 'Gotham',
+                  fontColor: '#c3c3c3',
+                },
+            },
           },
 
           yAxis: {
             gridLineWidth: 0,
             minorGridLineWidth: 0,
-            offset: -50,
+            offset: -40,
             opposite: true,
             tickLength: 0,
             labels: {
               align: 'right',
-              x: 42
+              x: 32,
+                style: {
+                  fontWeight: 'light',
+                  fontFamily: 'Gotham',
+                  fontColor: '#c3c3c3',
+                },
             },
             title: {
               text: ''
@@ -2982,7 +3307,17 @@ $(function() {
             gridLineWidth: 0,
             minorGridLineWidth: 0,
             minPadding: 0,
-            maxPadding: 0
+            maxPadding: 0,
+lineWidth: 0,
+            labels: {
+              align: 'left',
+              x: 0,
+                style: {
+                  fontWeight: 'bold',
+                  fontFamily: 'Gotham',
+                  fontColor: '#c3c3c3',
+                },
+            },
           },
 
           yAxis: {
@@ -2993,7 +3328,12 @@ $(function() {
             tickLength: 0,
             labels: {
               align: 'right',
-              x: 42
+              x: 42,
+                style: {
+                  fontWeight: 'light',
+                  fontFamily: 'Gotham',
+                  fontColor: '#c3c3c3',
+                },
             },
             title: {
               text: ''
@@ -3113,7 +3453,17 @@ $(function() {
             gridLineWidth: 0,
             minorGridLineWidth: 0,
             minPadding: 0,
-            maxPadding: 0
+            maxPadding: 0,
+lineWidth: 0,
+            labels: {
+              align: 'left',
+              x: 0,
+                style: {
+                  fontWeight: 'bold',
+                  fontFamily: 'Gotham',
+                  fontColor: '#c3c3c3',
+                },
+            },
           },
 
           yAxis: {
@@ -3124,7 +3474,12 @@ $(function() {
             tickLength: 0,
             labels: {
               align: 'right',
-              x: 42
+              x: 42,
+                style: {
+                  fontWeight: 'light',
+                  fontFamily: 'Gotham',
+                  fontColor: '#c3c3c3',
+                },
             },
             title: {
               text: ''
@@ -3242,7 +3597,17 @@ $(function() {
             gridLineWidth: 0,
             minorGridLineWidth: 0,
             minPadding: 0,
-            maxPadding: 0
+            maxPadding: 0,
+lineWidth: 0,
+            labels: {
+              align: 'left',
+              x: 0,
+                style: {
+                  fontWeight: 'bold',
+                  fontFamily: 'Gotham',
+                  fontColor: '#c3c3c3',
+                },
+            },
           },
 
           yAxis: {
@@ -3253,7 +3618,12 @@ $(function() {
             tickLength: 0,
             labels: {
               align: 'right',
-              x: 42
+              x: 42,
+                style: {
+                  fontWeight: 'light',
+                  fontFamily: 'Gotham',
+                  fontColor: '#c3c3c3',
+                },
             },
             title: {
               text: ''
@@ -3372,7 +3742,17 @@ $(function() {
             gridLineWidth: 0,
             minorGridLineWidth: 0,
             minPadding: 0,
-            maxPadding: 0
+            maxPadding: 0,
+lineWidth: 0,
+            labels: {
+              align: 'left',
+              x: 0,
+                style: {
+                  fontWeight: 'bold',
+                  fontFamily: 'Gotham',
+                  fontColor: '#c3c3c3',
+                },
+            },
           },
 
           yAxis: {
@@ -3383,7 +3763,12 @@ $(function() {
             tickLength: 0,
             labels: {
               align: 'right',
-              x: 42
+              x: 42,
+                style: {
+                  fontWeight: 'light',
+                  fontFamily: 'Gotham',
+                  fontColor: '#c3c3c3',
+                },
             },
             title: {
               text: ''
@@ -3502,7 +3887,18 @@ $(function() {
             gridLineWidth: 0,
             minorGridLineWidth: 0,
             minPadding: 0,
-            maxPadding: 0
+            maxPadding: 0,
+lineWidth: 0,
+            labels: {
+              align: 'left',
+              x: 0,
+                style: {
+                  fontWeight: 'bold',
+                  fontFamily: 'Gotham',
+                  fontColor: '#c3c3c3',
+                },
+            },
+
           },
 
           yAxis: {
@@ -3513,7 +3909,12 @@ $(function() {
             tickLength: 0,
             labels: {
               align: 'right',
-              x: 42
+              x: 42,
+                style: {
+                  fontWeight: 'light',
+                  fontFamily: 'Gotham',
+                  fontColor: '#c3c3c3',
+                },
             },
             title: {
               text: ''
@@ -3631,7 +4032,18 @@ $(function() {
             gridLineWidth: 0,
             minorGridLineWidth: 0,
             minPadding: 0,
-            maxPadding: 0
+            maxPadding: 0,
+lineWidth: 0,
+            labels: {
+              align: 'left',
+              x: 0,
+                style: {
+                  fontWeight: 'bold',
+                  fontFamily: 'Gotham',
+                  fontColor: '#c3c3c3',
+                },
+            },
+
           },
 
           yAxis: {
@@ -3642,7 +4054,12 @@ $(function() {
             tickLength: 0,
             labels: {
               align: 'right',
-              x: 32
+              x: 42,
+                style: {
+                  fontWeight: 'light',
+                  fontFamily: 'Gotham',
+                  fontColor: '#c3c3c3',
+                },
             },
             title: {
               text: ''
@@ -3760,7 +4177,17 @@ $(function() {
             gridLineWidth: 0,
             minorGridLineWidth: 0,
             minPadding: 0,
-            maxPadding: 0
+            maxPadding: 0,
+lineWidth: 0,
+            labels: {
+              align: 'left',
+              x: 0,
+                style: {
+                  fontWeight: 'bold',
+                  fontFamily: 'Gotham',
+                  fontColor: '#c3c3c3',
+                },
+            },
           },
 
           yAxis: {
@@ -3771,7 +4198,12 @@ $(function() {
             tickLength: 0,
             labels: {
               align: 'right',
-              x: 32
+              x: 32,
+                style: {
+                  fontWeight: 'light',
+                  fontFamily: 'Gotham',
+                  fontColor: '#c3c3c3',
+                },
             },
             title: {
               text: ''
@@ -3889,7 +4321,17 @@ $(function() {
             gridLineWidth: 0,
             minorGridLineWidth: 0,
             minPadding: 0,
-            maxPadding: 0
+            maxPadding: 0,
+lineWidth: 0,
+            labels: {
+              align: 'left',
+              x: 0,
+                style: {
+                  fontWeight: 'bold',
+                  fontFamily: 'Gotham',
+                  fontColor: '#c3c3c3',
+                },
+            },
           },
 
           yAxis: {
@@ -3900,7 +4342,12 @@ $(function() {
             tickLength: 0,
             labels: {
               align: 'right',
-              x: 32
+              x: 32,
+                style: {
+                  fontWeight: 'light',
+                  fontFamily: 'Gotham',
+                  fontColor: '#c3c3c3',
+                },
             },
             title: {
               text: ''
@@ -4145,7 +4592,17 @@ $(function() {
             gridLineWidth: 0,
             minorGridLineWidth: 0,
             minPadding: 0,
-            maxPadding: 0
+            maxPadding: 0,
+lineWidth: 0,
+            labels: {
+              align: 'left',
+              x: 0,
+                style: {
+                  fontWeight: 'bold',
+                  fontFamily: 'Gotham',
+                  fontColor: '#c3c3c3',
+                },
+            },
           },
 
           yAxis: {
@@ -4156,7 +4613,12 @@ $(function() {
             tickLength: 0,
             labels: {
               align: 'right',
-              x: 42
+              x: 32,
+                style: {
+                  fontWeight: 'light',
+                  fontFamily: 'Gotham',
+                  fontColor: '#c3c3c3',
+                },
             },
             title: {
               text: ''
@@ -4273,8 +4735,21 @@ $(function() {
             offset: -35,
             gridLineWidth: 0,
             minorGridLineWidth: 0,
+            gridLineColor: '#C0C0C0',
+            gridLineWidth: 0,
             minPadding: 0,
-            maxPadding: 0
+            maxPadding: 0,
+lineWidth: 0,
+            lineWidth: 0,
+            labels: {
+              align: 'left',
+              x: 0,
+                style: {
+                  fontWeight: 'bold',
+                  fontFamily: 'Gotham',
+                  fontColor: '#c3c3c3',
+                },
+            },
           },
 
           yAxis: {
@@ -4285,7 +4760,13 @@ $(function() {
             tickLength: 0,
             labels: {
               align: 'right',
-              x: 32
+              x: 32,
+                style: {
+                  fontWeight: 'light',
+                  fontFamily: 'Gotham',
+                  fontColor: '#c3c3c3',
+
+                },
             },
             title: {
               text: ''
@@ -4403,7 +4884,17 @@ $(function() {
             gridLineWidth: 0,
             minorGridLineWidth: 0,
             minPadding: 0,
-            maxPadding: 0
+            maxPadding: 0,
+lineWidth: 0,
+            labels: {
+              align: 'left',
+              x: 0,
+                style: {
+                  fontWeight: 'bold',
+                  fontFamily: 'Gotham',
+                  fontColor: '#c3c3c3',
+                },
+            },
           },
 
           yAxis: {
@@ -4415,7 +4906,12 @@ $(function() {
             tickLength: 0,
             labels: {
               align: 'right',
-              x: 42
+              x: 42,
+                style: {
+                  fontWeight: 'light',
+                  fontFamily: 'Gotham',
+                  fontColor: '#c3c3c3',
+                },
             },
             title: {
               text: ''
@@ -4534,7 +5030,17 @@ $(function() {
             gridLineWidth: 0,
             minorGridLineWidth: 0,
             minPadding: 0,
-            maxPadding: 0
+            maxPadding: 0,
+lineWidth: 0,
+            labels: {
+              align: 'left',
+              x: 0,
+                style: {
+                  fontWeight: 'bold',
+                  fontFamily: 'Gotham',
+                  fontColor: '#c3c3c3',
+                },
+            },
           },
           yAxis: {
             gridLineWidth: 0,
@@ -4544,7 +5050,12 @@ $(function() {
             tickLength: 0,
             labels: {
               align: 'right',
-              x: 42
+              x: 42,
+                style: {
+                  fontWeight: 'light',
+                  fontFamily: 'Gotham',
+                  fontColor: '#c3c3c3',
+                },
             },
             title: {
               text: ''
@@ -4662,7 +5173,17 @@ $(function() {
             gridLineWidth: 0,
             minorGridLineWidth: 0,
             minPadding: 0,
-            maxPadding: 0
+            maxPadding: 0,
+lineWidth: 0,
+            labels: {
+              align: 'left',
+              x: 0,
+                style: {
+                  fontWeight: 'bold',
+                  fontFamily: 'Gotham',
+                  fontColor: '#c3c3c3',
+                },
+            },
           },
 
           yAxis: {
@@ -4674,7 +5195,12 @@ $(function() {
             tickLength: 0,
             labels: {
               align: 'right',
-              x: 42
+              x: 42,
+                style: {
+                  fontWeight: 'light',
+                  fontFamily: 'Gotham',
+                  fontColor: '#c3c3c3',
+                },
             },
             title: {
               text: ''
@@ -4792,7 +5318,17 @@ $(function() {
             gridLineWidth: 0,
             minorGridLineWidth: 0,
             minPadding: 0,
-            maxPadding: 0
+            maxPadding: 0,
+lineWidth: 0,
+            labels: {
+              align: 'left',
+              x: 0,
+                style: {
+                  fontWeight: 'bold',
+                  fontFamily: 'Gotham',
+                  fontColor: '#c3c3c3',
+                },
+            },
           },
 
           yAxis: {
@@ -4803,7 +5339,12 @@ $(function() {
             tickLength: 0,
             labels: {
               align: 'right',
-              x: 42
+              x: 42,
+                style: {
+                  fontWeight: 'light',
+                  fontFamily: 'Gotham',
+                  fontColor: '#c3c3c3',
+                },
             },
             title: {
               text: ''
