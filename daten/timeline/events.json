@@ -3,7 +3,7 @@
 	"date": "2016-10-07 07:55:16",
 	"type": "optimisation",
 	"title": "Bridging",
-	"description": "<b>Registry Entry</b><br/>Conveying pressure low<br/><b>Suspicion</b><br/>Bridging in Silo 2<br/><b>Solution</b> <br/>Silofluidisation (Pulsator) in ATI activated",
+	"description": "<b>Registry Entry</b><br/>Conveying pressure low<br/><br/><b>Suspicion</b><br/>Bridging in Silo 2<br/><br/><b>Solution</b><br/>Silofluidisation (Pulsator) in ATI activated",
 	"image": "img/timeline/events/01_bridging_diagramm.png",
 	"image_big": "img/timeline/events/01_bridging_zeichnung.png"
 }, {
@@ -11,7 +11,7 @@
 	"date": "2016-10-11 18:14:30",
 	"type": "optimisation",
 	"title": "Leakage in Conveying System / Wear in Rotary Valve",
-	"description": "<b>Registry Entry</b><br/>Conveying pressure constantly increasing for 5 hours<br/><b>Suspicion</b> <br/>Leakage in Conveying System / Wear in Rotary Valve<br/><b>Solution</b> <br/>Performance is increased",
+	"description": "<b>Registry Entry</b><br/>Conveying pressure constantly increasing for 5 hours<br/><br/><b>Suspicion</b><br/>Leakage in Conveying System / Wear in Rotary Valve<br/><br/><b>Solution</b><br/>Performance is increased",
 	"image": "img/timeline/events/02_leakage_01_diagramm.png",
 	"image_big": "img/timeline/events/02_leakage_01_zeichnung.png"
 }, {
@@ -19,7 +19,7 @@
 	"date": "2016-10-21 12:27:30",
 	"type": "optimisation",
 	"title": "Uncontrolled Material Flow",
-	"description": "<b>Registry Entry</b><br/>Synced peaks of torque (Extruder) and refilling (Feeder) every 150 seconds<br/><b>Suspicion</b> <br/>Uncontrolled material flow in volumetric mode<br/><b>Solution</b> <br/>Extruder increases low-level, to avoid <i>Durchschie&szlig;en</i>",
+	"description": "<b>Registry Entry</b><br/>Synced peaks of torque (Extruder) and refilling (Feeder) every 150 seconds<br/><br/><b>Suspicion</b><br/>Uncontrolled material flow in volumetric mode<br/><br/><b>Solution</b><br/>Extruder increases low-level, to avoid <i>Durchschie&szlig;en</i>",
 	"image": "img/timeline/events/03_uncontrolled_flow_diagramm.png",
 	"image_big": "img/timeline/events/03_uncontrolled_flow_zeichnung.png"
 }, {
@@ -27,7 +27,7 @@
 	"date": "2016-10-31 15:23:32",
 	"type": "optimisation",
 	"title": "Leakage in Conveying System / Wear in Rotary Valve",
-	"description": "<b>Registry Entry</b><br/>Conveying pressure constantly increasing for 5 hours<br/><b>Suspicion</b><br/>Leakage in Conveying System / Wear in Rotary Valve<br/><b>Solution</b><br/>Performance is increased",
+	"description": "<b>Registry Entry</b><br/>Conveying pressure constantly increasing for 5 hours<br/><br/><b>Suspicion</b><br/>Leakage in Conveying System / Wear in Rotary Valve<br/><br/><b>Solution</b><br/>Performance is increased",
 	"image": "img/timeline/events/04_leakage_02_diagramm.png",
 	"image_big": "img/timeline/events/04_leakage_02_zeichnung.png"
 }, {

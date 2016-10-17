@@ -224,6 +224,7 @@
 	position: absolute;
 	top: 0;
 	display: none;
+	transform: translateY(-100%);
 }
 
 #timeline-popup.has-big-image .timeline-big-image-wrapper {
@@ -233,7 +234,10 @@
 #timeline-big-image {
 	width: 100%;
 	display: block;
-	transform: translateY(-100%);
+}
+
+#timeline b {
+	font-weight: bold;
 }
 
 /* #timeline-popup.is-in-past {
