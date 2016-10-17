@@ -1,4 +1,4 @@
-/*global $, moment, tableData, Promise*/
+/*global $, moment, tableData, Promise, accounting*/
 
 // moment.js wird benutzt für alle datums variablen: http://momentjs.com/docs/#/displaying/format/
 
@@ -315,7 +315,7 @@ var rawTimeline = {
 					var percentage = Math.round( recipe[index].percentage * 100 );
 					var unit = recipe[index].throughput.unit;
 
-					throughputValueEl.text( value + ' ' + unit );
+					throughputValueEl.text( accounting.formatNumber( value ) + ' ' + unit );
 					percentEl.text( percentage + '%' );
 					titleEl.text( recipe[index].material.longname );
 					subtitleEl.text( recipe[index].material.title );
@@ -369,7 +369,7 @@ var rawTimeline = {
 							titleEl.text( charge.material.longname );
 
 							var amountEl = $( '[data-content="amount"]', rowEl );
-							amountEl.text( allocationData.amount.value + ' ' + allocationData.amount.unit );
+							amountEl.text( accounting.formatNumber( allocationData.amount.value ) + ' ' + allocationData.amount.unit );
 
 							var losnummerEl = $( '[data-content="losnummer"]', rowEl );
 							losnummerEl.text( charge.chargeIndex );
