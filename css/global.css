@@ -1409,6 +1409,8 @@ a#sensor-2 .3d-ansicht .anlagen-bild{
 	padding:50px 25px 0px;
 	margin-bottom:25px;
 	background-position: bottom center;
+	background-size: contain;
+	background-repeat: no-repeat;
 }
 
 .hiddenEventPopups .hiddenError > div .text {
@@ -1423,6 +1425,10 @@ a#sensor-2 .3d-ansicht .anlagen-bild{
 
 .hiddenEventPopups .hiddenError > div .text .strong {
 	font-weight: 700;
+}
+
+.hiddenEventPopups .hiddenError-Message .text {
+	text-align: left !important;
 }
 
 .hiddenErrorHeader span {

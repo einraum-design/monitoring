@@ -535,3 +535,7 @@ span.wartung::before,
 	background-color: #ccc;
 	width: 1px;
 }
+
+.hiddenEventPopups b {
+	font-weight: bold;
+}

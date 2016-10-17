@@ -101,8 +101,7 @@
 	"popUpTitle": "Barrel #6 cannot be heated over 90°C!",
 	"description": "Barrel #6 // HEATING // In progress. <br />Result: Malfunctioning cooling valve. Error has been solved.",
 	"image": "img/timeline/events/Stoermeldung_1.barrel_small.png"
-},
-{
+}, {
 	"id": "error-red-04",
 	"date": "2016-10-18 09:21:42",
 	"type": "error",
