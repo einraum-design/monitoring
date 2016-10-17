@@ -41,7 +41,7 @@ $(function() {
           colors: ['#7c99bb']
         });
 
-        $('#sp500').highcharts({
+        $('#sp500-graph').highcharts({
           tooltip: {
             shared: false
           },
@@ -92,7 +92,7 @@ $(function() {
             },
             marginLeft: 0,
             marginRight: 0,
-            marginBottom: 0,
+            marginBottom: -5,
             events: {
               load: function () {
 
@@ -110,7 +110,7 @@ $(function() {
             type: 'datetime',
             tickPixelInterval: 150,
             floating: true,
-            offset: -30,
+            offset: -35,
             gridLineWidth: 0,
             minorGridLineWidth: 0,
             minPadding: 0,
@@ -123,6 +123,10 @@ $(function() {
             opposite: true,
             textAlign: 'right',
             tickLength: 0,
+            labels: {
+              align: 'right',
+              x: 42
+            },
             title: {
               text: ''
             },
@@ -217,7 +221,7 @@ $(function() {
             },
             marginLeft: 0,
             marginRight: 0,
-            marginBottom: 0,
+            marginBottom: -5,
             events: {
               load: function () {
 
@@ -235,7 +239,7 @@ $(function() {
             type: 'datetime',
             tickPixelInterval: 150,
             floating: true,
-            offset: -70,
+            offset: -35,
             gridLineWidth: 0,
             minorGridLineWidth: 0,
             minPadding: 0,
@@ -249,6 +253,10 @@ $(function() {
             offset: -50,
             opposite: true,
             tickLength: 0,
+            labels: {
+              align: 'right',
+              x: 42
+            },
             title: {
               text: ''
             },
@@ -344,7 +352,7 @@ $(function() {
             },
             marginLeft: 0,
             marginRight: 0,
-            marginBottom: 0,
+            marginBottom: -5,
             events: {
               load: function () {
 
@@ -362,7 +370,7 @@ $(function() {
             type: 'datetime',
             tickPixelInterval: 150,
             floating: true,
-            offset: -70,
+            offset: -35,
             gridLineWidth: 0,
             minorGridLineWidth: 0,
             minPadding: 0,
@@ -376,6 +384,10 @@ $(function() {
             offset: -50,
             opposite: true,
             tickLength: 0,
+            labels: {
+              align: 'right',
+              x: 42
+            },
             title: {
               text: ''
             },
@@ -470,7 +482,7 @@ $(function() {
             },
             marginLeft: 0,
             marginRight: 0,
-            marginBottom: 0,
+            marginBottom: -5,
             events: {
               load: function () {
 
@@ -488,7 +500,7 @@ $(function() {
             type: 'datetime',
             tickPixelInterval: 150,
             floating: true,
-            offset: -70,
+            offset: -35,
             gridLineWidth: 0,
             minorGridLineWidth: 0,
             minPadding: 0,
@@ -502,6 +514,10 @@ $(function() {
             offset: -50,
             opposite: true,
             tickLength: 0,
+            labels: {
+              align: 'right',
+              x: 42
+            },
             title: {
               text: ''
             },
@@ -553,7 +569,7 @@ $(function() {
             enabled: false
           },
           title: {
-            text: 'Vibration <span class="blue">mm/s</span>',
+            text: 'Temperature <span class="blue">C</span>',
             align: 'left',
             floating: true,
               style: {
@@ -596,7 +612,7 @@ $(function() {
             },
             marginLeft: 0,
             marginRight: 0,
-            marginBottom: 0,
+            marginBottom: -5,
             events: {
               load: function () {
 
@@ -604,7 +620,7 @@ $(function() {
                   var series = this.series[0];
                   setInterval(function () {
                       var x = (new Date()).getTime(), // current time
-                          y = Math.random() * (1.8 - 1.9) + 1.9
+                          y = Math.random() * (45 - 45) + 45
                       series.addPoint([x, y], true, true);
                   }, 10000);
               }
@@ -614,7 +630,7 @@ $(function() {
             type: 'datetime',
             tickPixelInterval: 150,
             floating: true,
-            offset: -70,
+            offset: -35,
             gridLineWidth: 0,
             minorGridLineWidth: 0,
             minPadding: 0,
@@ -626,8 +642,14 @@ $(function() {
             minorGridLineWidth: 0,
             minorTickInterval: 400,
             offset: -50,
+            min: 0,
+            max: 100,
             opposite: true,
             tickLength: 0,
+            labels: {
+              align: 'right',
+              x: 42
+            },
             title: {
               text: ''
             },
@@ -638,7 +660,7 @@ $(function() {
             }],
             plotBands: [{
               from: 0,
-              to: 0,
+              to: 60,
               linearGradient: [0, 0, 0, 350],
               color: 'rgba(123,152,184,0.5)',
               zIndex: 5
@@ -663,7 +685,7 @@ $(function() {
                 for (i = -999; i <= 0; i += 5) {
                     data.push([
                         time + i * 3000,
-                        Math.random() * (1.8 - 1.9) + 1.9
+                        Math.random() * (45 - 45) + 45
                     ]);
                 }
                 return data;
@@ -723,7 +745,7 @@ $(function() {
             },
             marginLeft: 0,
             marginRight: 0,
-            marginBottom: 0,
+            marginBottom: -5,
             events: {
               load: function () {
 
@@ -741,7 +763,7 @@ $(function() {
             type: 'datetime',
             tickPixelInterval: 150,
             floating: true,
-            offset: -70,
+            offset: 20,
             gridLineWidth: 0,
             minorGridLineWidth: 0,
             minPadding: 0,
@@ -755,6 +777,10 @@ $(function() {
             offset: -50,
             opposite: true,
             tickLength: 0,
+            labels: {
+              align: 'right',
+              x: 42
+            },
             title: {
               text: ''
             },
@@ -850,7 +876,7 @@ $(function() {
             },
             marginLeft: 0,
             marginRight: 0,
-            marginBottom: 0,
+            marginBottom: -5,
             events: {
               load: function () {
 
@@ -868,7 +894,7 @@ $(function() {
             type: 'datetime',
             tickPixelInterval: 150,
             floating: true,
-            offset: -70,
+            offset: -35,
             gridLineWidth: 0,
             minorGridLineWidth: 0,
             minPadding: 0,
@@ -882,6 +908,10 @@ $(function() {
             offset: -50,
             opposite: true,
             tickLength: 0,
+            labels: {
+              align: 'right',
+              x: 42
+            },
             title: {
               text: ''
             },
@@ -976,7 +1006,7 @@ $(function() {
             },
             marginLeft: 0,
             marginRight: 0,
-            marginBottom: 0,
+            marginBottom: -5,
             events: {
               load: function () {
 
@@ -994,7 +1024,7 @@ $(function() {
             type: 'datetime',
             tickPixelInterval: 150,
             floating: true,
-            offset: -70,
+            offset: -35,
             gridLineWidth: 0,
             minorGridLineWidth: 0,
             minPadding: 0,
@@ -1008,6 +1038,10 @@ $(function() {
             offset: -50,
             opposite: true,
             tickLength: 0,
+            labels: {
+              align: 'right',
+              x: 42
+            },
             title: {
               text: ''
             },
@@ -1059,7 +1093,7 @@ $(function() {
             enabled: false
           },
           title: {
-            text: 'Vibration <span class="blue">mm/s</span>',
+            text: 'Screw Speed <span class="blue">min-1</span>',
             align: 'left',
             floating: true,
               style: {
@@ -1102,7 +1136,7 @@ $(function() {
             },
             marginLeft: 0,
             marginRight: 0,
-            marginBottom: 0,
+            marginBottom: -5,
             events: {
               load: function () {
 
@@ -1110,7 +1144,7 @@ $(function() {
                   var series = this.series[0];
                   setInterval(function () {
                       var x = (new Date()).getTime(), // current time
-                          y = Math.random() * (1.8 - 1.9) + 1.9
+                          y = Math.random() * (350 - 350) + 350
                       series.addPoint([x, y], true, true);
                   }, 10000);
               }
@@ -1120,7 +1154,7 @@ $(function() {
             type: 'datetime',
             tickPixelInterval: 150,
             floating: true,
-            offset: -70,
+            offset: -35,
             gridLineWidth: 0,
             minorGridLineWidth: 0,
             minPadding: 0,
@@ -1133,7 +1167,13 @@ $(function() {
             minorTickInterval: 400,
             offset: -50,
             opposite: true,
+            min: 0,
+            max: 500,
             tickLength: 0,
+            labels: {
+              align: 'right',
+              x: 42
+            },
             title: {
               text: ''
             },
@@ -1144,7 +1184,7 @@ $(function() {
             }],
             plotBands: [{
               from: 0,
-              to: 0,
+              to: 400,
               linearGradient: [0, 0, 0, 350],
               color: 'rgba(123,152,184,0.5)',
               zIndex: 5
@@ -1169,14 +1209,13 @@ $(function() {
                 for (i = -999; i <= 0; i += 5) {
                     data.push([
                         time + i * 3000,
-                        Math.random() * (1.8 - 1.9) + 1.9
+                        Math.random() * (350 - 350) + 350
                     ]);
                 }
                 return data;
             }())
           }]
         });
-
 
         $('#zsb-graph-04').highcharts({
           tooltip: {
@@ -1229,7 +1268,7 @@ $(function() {
             },
             marginLeft: 0,
             marginRight: 0,
-            marginBottom: 0,
+            marginBottom: -5,
             events: {
               load: function () {
 
@@ -1247,7 +1286,7 @@ $(function() {
             type: 'datetime',
             tickPixelInterval: 150,
             floating: true,
-            offset: -70,
+            offset: -35,
             gridLineWidth: 0,
             minorGridLineWidth: 0,
             minPadding: 0,
@@ -1261,6 +1300,10 @@ $(function() {
             offset: -50,
             opposite: true,
             tickLength: 0,
+            labels: {
+              align: 'right',
+              x: 42
+            },
             title: {
               text: ''
             },
@@ -1356,7 +1399,7 @@ $(function() {
             },
             marginLeft: 0,
             marginRight: 0,
-            marginBottom: 0,
+            marginBottom: -5,
             events: {
               load: function () {
 
@@ -1374,7 +1417,7 @@ $(function() {
             type: 'datetime',
             tickPixelInterval: 150,
             floating: true,
-            offset: -70,
+            offset: -35,
             gridLineWidth: 0,
             minorGridLineWidth: 0,
             minPadding: 0,
@@ -1388,6 +1431,10 @@ $(function() {
             offset: -50,
             opposite: true,
             tickLength: 0,
+            labels: {
+              align: 'right',
+              x: 42
+            },
             title: {
               text: ''
             },
@@ -1482,7 +1529,7 @@ $(function() {
             },
             marginLeft: 0,
             marginRight: 0,
-            marginBottom: 0,
+            marginBottom: -5,
             events: {
               load: function () {
 
@@ -1500,7 +1547,7 @@ $(function() {
             type: 'datetime',
             tickPixelInterval: 150,
             floating: true,
-            offset: -70,
+            offset: -35,
             gridLineWidth: 0,
             minorGridLineWidth: 0,
             minPadding: 0,
@@ -1514,6 +1561,10 @@ $(function() {
             offset: -50,
             opposite: true,
             tickLength: 0,
+            labels: {
+              align: 'right',
+              x: 42
+            },
             title: {
               text: ''
             },
@@ -1608,7 +1659,7 @@ $(function() {
             },
             marginLeft: 0,
             marginRight: 0,
-            marginBottom: 0,
+            marginBottom: -5,
             events: {
               load: function () {
 
@@ -1626,7 +1677,7 @@ $(function() {
             type: 'datetime',
             tickPixelInterval: 150,
             floating: true,
-            offset: -70,
+            offset: -35,
             gridLineWidth: 0,
             minorGridLineWidth: 0,
             minPadding: 0,
@@ -1642,6 +1693,10 @@ $(function() {
             min: 0,
             max: 500,
             tickLength: 0,
+            labels: {
+              align: 'right',
+              x: 42
+            },
             title: {
               text: ''
             },
@@ -1736,7 +1791,7 @@ $(function() {
             },
             marginLeft: 0,
             marginRight: 0,
-            marginBottom: 0,
+            marginBottom: -5,
             events: {
               load: function () {
 
@@ -1754,7 +1809,7 @@ $(function() {
             type: 'datetime',
             tickPixelInterval: 150,
             floating: true,
-            offset: -70,
+            offset: -35,
             gridLineWidth: 0,
             minorGridLineWidth: 0,
             minPadding: 0,
@@ -1768,6 +1823,10 @@ $(function() {
             offset: -50,
             opposite: true,
             tickLength: 0,
+            labels: {
+              align: 'right',
+              x: 42
+            },
             title: {
               text: ''
             },
@@ -1863,7 +1922,7 @@ $(function() {
             },
             marginLeft: 0,
             marginRight: 0,
-            marginBottom: 0,
+            marginBottom: -5,
             events: {
               load: function () {
 
@@ -1881,7 +1940,7 @@ $(function() {
             type: 'datetime',
             tickPixelInterval: 150,
             floating: true,
-            offset: -70,
+            offset: -35,
             gridLineWidth: 0,
             minorGridLineWidth: 0,
             minPadding: 0,
@@ -1895,6 +1954,10 @@ $(function() {
             offset: -50,
             opposite: true,
             tickLength: 0,
+            labels: {
+              align: 'right',
+              x: 42
+            },
             title: {
               text: ''
             },
@@ -1989,7 +2052,7 @@ $(function() {
             },
             marginLeft: 0,
             marginRight: 0,
-            marginBottom: 0,
+            marginBottom: -5,
             events: {
               load: function () {
 
@@ -2007,7 +2070,7 @@ $(function() {
             type: 'datetime',
             tickPixelInterval: 150,
             floating: true,
-            offset: -70,
+            offset: -35,
             gridLineWidth: 0,
             minorGridLineWidth: 0,
             minPadding: 0,
@@ -2021,6 +2084,10 @@ $(function() {
             offset: -50,
             opposite: true,
             tickLength: 0,
+            labels: {
+              align: 'right',
+              x: 42
+            },
             title: {
               text: ''
             },
@@ -2115,7 +2182,7 @@ $(function() {
             },
             marginLeft: 0,
             marginRight: 0,
-            marginBottom: 0,
+            marginBottom: -5,
             events: {
               load: function () {
 
@@ -2133,7 +2200,7 @@ $(function() {
             type: 'datetime',
             tickPixelInterval: 150,
             floating: true,
-            offset: -70,
+            offset: -35,
             gridLineWidth: 0,
             minorGridLineWidth: 0,
             minPadding: 0,
@@ -2147,6 +2214,10 @@ $(function() {
             offset: -50,
             opposite: true,
             tickLength: 0,
+            labels: {
+              align: 'right',
+              x: 42
+            },
             title: {
               text: ''
             },
@@ -2241,7 +2312,7 @@ $(function() {
             },
             marginLeft: 0,
             marginRight: 0,
-            marginBottom: 0,
+            marginBottom: -5,
             events: {
               load: function () {
 
@@ -2259,7 +2330,7 @@ $(function() {
             type: 'datetime',
             tickPixelInterval: 150,
             floating: true,
-            offset: -30,
+            offset: -35,
             gridLineWidth: 0,
             minorGridLineWidth: 0,
             minPadding: 0,
@@ -2272,6 +2343,10 @@ $(function() {
             offset: -40,
             opposite: true,
             tickLength: 0,
+            labels: {
+              align: 'right',
+              x: 32
+            },
             title: {
               text: ''
             },
@@ -2366,7 +2441,7 @@ $(function() {
             },
             marginLeft: 0,
             marginRight: 0,
-            marginBottom: 0,
+            marginBottom: -5,
             events: {
               load: function () {
 
@@ -2384,7 +2459,7 @@ $(function() {
             type: 'datetime',
             tickPixelInterval: 150,
             floating: true,
-            offset: -30,
+            offset: -35,
             gridLineWidth: 0,
             minorGridLineWidth: 0,
             minPadding: 0,
@@ -2397,6 +2472,10 @@ $(function() {
             offset: -40,
             opposite: true,
             tickLength: 0,
+            labels: {
+              align: 'right',
+              x: 42
+            },
             title: {
               text: ''
             },
@@ -2492,7 +2571,7 @@ $(function() {
             },
             marginLeft: 0,
             marginRight: 0,
-            marginBottom: 0,
+            marginBottom: -5,
             events: {
               load: function () {
 
@@ -2510,7 +2589,7 @@ $(function() {
             type: 'datetime',
             tickPixelInterval: 150,
             floating: true,
-            offset: -20,
+            offset: -35,
             gridLineWidth: 0,
             minorGridLineWidth: 0,
             minPadding: 0,
@@ -2523,6 +2602,10 @@ $(function() {
             offset: -40,
             opposite: true,
             tickLength: 0,
+            labels: {
+              align: 'right',
+              x: 32
+            },
             title: {
               text: ''
             },
@@ -2618,7 +2701,7 @@ $(function() {
             },
             marginLeft: 0,
             marginRight: 0,
-            marginBottom: 0,
+            marginBottom: -5,
             events: {
               load: function () {
 
@@ -2636,7 +2719,7 @@ $(function() {
             type: 'datetime',
             tickPixelInterval: 150,
             floating: true,
-            offset: -30,
+            offset: -35,
             gridLineWidth: 0,
             minorGridLineWidth: 0,
             minPadding: 0,
@@ -2649,6 +2732,10 @@ $(function() {
             offset: -40,
             opposite: true,
             tickLength: 0,
+            labels: {
+              align: 'right',
+              x: 32
+            },
             title: {
               text: ''
             },
@@ -2744,7 +2831,7 @@ $(function() {
             },
             marginLeft: 0,
             marginRight: 0,
-            marginBottom: 0,
+            marginBottom: -5,
             events: {
               load: function () {
 
@@ -2762,7 +2849,7 @@ $(function() {
             type: 'datetime',
             tickPixelInterval: 150,
             floating: true,
-            offset: -30,
+            offset: -35,
             gridLineWidth: 0,
             minorGridLineWidth: 0,
             minPadding: 0,
@@ -2775,6 +2862,10 @@ $(function() {
             offset: -50,
             opposite: true,
             tickLength: 0,
+            labels: {
+              align: 'right',
+              x: 42
+            },
             title: {
               text: ''
             },
@@ -2869,7 +2960,7 @@ $(function() {
             },
             marginLeft: 0,
             marginRight: 0,
-            marginBottom: 0,
+            marginBottom: -5,
             events: {
               load: function () {
 
@@ -2887,7 +2978,7 @@ $(function() {
             type: 'datetime',
             tickPixelInterval: 150,
             floating: true,
-            offset: -30,
+            offset: -35,
             gridLineWidth: 0,
             minorGridLineWidth: 0,
             minPadding: 0,
@@ -2900,6 +2991,10 @@ $(function() {
             offset: -50,
             opposite: true,
             tickLength: 0,
+            labels: {
+              align: 'right',
+              x: 42
+            },
             title: {
               text: ''
             },
@@ -2996,7 +3091,7 @@ $(function() {
             },
             marginLeft: 0,
             marginRight: 0,
-            marginBottom: 0,
+            marginBottom: -5,
             events: {
               load: function () {
 
@@ -3014,7 +3109,7 @@ $(function() {
             type: 'datetime',
             tickPixelInterval: 150,
             floating: true,
-            offset: -30,
+            offset: -35,
             gridLineWidth: 0,
             minorGridLineWidth: 0,
             minPadding: 0,
@@ -3027,6 +3122,10 @@ $(function() {
             offset: -50,
             opposite: true,
             tickLength: 0,
+            labels: {
+              align: 'right',
+              x: 42
+            },
             title: {
               text: ''
             },
@@ -3121,7 +3220,7 @@ $(function() {
             },
             marginLeft: 0,
             marginRight: 0,
-            marginBottom: 0,
+            marginBottom: -5,
             events: {
               load: function () {
 
@@ -3139,7 +3238,7 @@ $(function() {
             type: 'datetime',
             tickPixelInterval: 150,
             floating: true,
-            offset: -30,
+            offset: -35,
             gridLineWidth: 0,
             minorGridLineWidth: 0,
             minPadding: 0,
@@ -3152,6 +3251,10 @@ $(function() {
             offset: -50,
             opposite: true,
             tickLength: 0,
+            labels: {
+              align: 'right',
+              x: 42
+            },
             title: {
               text: ''
             },
@@ -3247,7 +3350,7 @@ $(function() {
             },
             marginLeft: 0,
             marginRight: 0,
-            marginBottom: 0,
+            marginBottom: -5,
             events: {
               load: function () {
 
@@ -3265,7 +3368,7 @@ $(function() {
             type: 'datetime',
             tickPixelInterval: 150,
             floating: true,
-            offset: -30,
+            offset: -35,
             gridLineWidth: 0,
             minorGridLineWidth: 0,
             minPadding: 0,
@@ -3278,6 +3381,10 @@ $(function() {
             offset: -50,
             opposite: true,
             tickLength: 0,
+            labels: {
+              align: 'right',
+              x: 42
+            },
             title: {
               text: ''
             },
@@ -3373,7 +3480,7 @@ $(function() {
             },
             marginLeft: 0,
             marginRight: 0,
-            marginBottom: 0,
+            marginBottom: -5,
             events: {
               load: function () {
 
@@ -3391,7 +3498,7 @@ $(function() {
             type: 'datetime',
             tickPixelInterval: 150,
             floating: true,
-            offset: -30,
+            offset: -35,
             gridLineWidth: 0,
             minorGridLineWidth: 0,
             minPadding: 0,
@@ -3404,6 +3511,10 @@ $(function() {
             offset: -50,
             opposite: true,
             tickLength: 0,
+            labels: {
+              align: 'right',
+              x: 42
+            },
             title: {
               text: ''
             },
@@ -3498,7 +3609,7 @@ $(function() {
             },
             marginLeft: 0,
             marginRight: 0,
-            marginBottom: 0,
+            marginBottom: -5,
             events: {
               load: function () {
 
@@ -3516,7 +3627,7 @@ $(function() {
             type: 'datetime',
             tickPixelInterval: 150,
             floating: true,
-            offset: -30,
+            offset: -35,
             gridLineWidth: 0,
             minorGridLineWidth: 0,
             minPadding: 0,
@@ -3529,6 +3640,10 @@ $(function() {
             offset: -40,
             opposite: true,
             tickLength: 0,
+            labels: {
+              align: 'right',
+              x: 32
+            },
             title: {
               text: ''
             },
@@ -3623,7 +3738,7 @@ $(function() {
             },
             marginLeft: 0,
             marginRight: 0,
-            marginBottom: 0,
+            marginBottom: -5,
             events: {
               load: function () {
 
@@ -3641,7 +3756,7 @@ $(function() {
             type: 'datetime',
             tickPixelInterval: 150,
             floating: true,
-            offset: -30,
+            offset: -35,
             gridLineWidth: 0,
             minorGridLineWidth: 0,
             minPadding: 0,
@@ -3654,6 +3769,10 @@ $(function() {
             offset: -40,
             opposite: true,
             tickLength: 0,
+            labels: {
+              align: 'right',
+              x: 32
+            },
             title: {
               text: ''
             },
@@ -3748,7 +3867,7 @@ $(function() {
             },
             marginLeft: 0,
             marginRight: 0,
-            marginBottom: 0,
+            marginBottom: -5,
             events: {
               load: function () {
 
@@ -3766,7 +3885,7 @@ $(function() {
             type: 'datetime',
             tickPixelInterval: 150,
             floating: true,
-            offset: -30,
+            offset: -35,
             gridLineWidth: 0,
             minorGridLineWidth: 0,
             minPadding: 0,
@@ -3779,6 +3898,10 @@ $(function() {
             offset: -40,
             opposite: true,
             tickLength: 0,
+            labels: {
+              align: 'right',
+              x: 32
+            },
             title: {
               text: ''
             },
@@ -3874,7 +3997,7 @@ $(function() {
             },
             marginLeft: 0,
             marginRight: 0,
-            marginBottom: 0,
+            marginBottom: -5,
             events: {
               load: function () {
 
@@ -3892,7 +4015,7 @@ $(function() {
             type: 'datetime',
             tickPixelInterval: 150,
             floating: true,
-            offset: -30,
+            offset: -35,
             gridLineWidth: 0,
             minorGridLineWidth: 0,
             minPadding: 0,
@@ -4000,7 +4123,7 @@ $(function() {
             },
             marginLeft: 0,
             marginRight: 0,
-            marginBottom: 0,
+            marginBottom: -5,
             events: {
               load: function () {
 
@@ -4018,7 +4141,7 @@ $(function() {
             type: 'datetime',
             tickPixelInterval: 150,
             floating: true,
-            offset: -30,
+            offset: -35,
             gridLineWidth: 0,
             minorGridLineWidth: 0,
             minPadding: 0,
@@ -4031,6 +4154,10 @@ $(function() {
             offset: -40,
             opposite: true,
             tickLength: 0,
+            labels: {
+              align: 'right',
+              x: 42
+            },
             title: {
               text: ''
             },
@@ -4125,7 +4252,7 @@ $(function() {
             },
             marginLeft: 0,
             marginRight: 0,
-            marginBottom: 0,
+            marginBottom: -5,
             events: {
               load: function () {
 
@@ -4143,7 +4270,7 @@ $(function() {
             type: 'datetime',
             tickPixelInterval: 150,
             floating: true,
-            offset: -30,
+            offset: -35,
             gridLineWidth: 0,
             minorGridLineWidth: 0,
             minPadding: 0,
@@ -4156,6 +4283,10 @@ $(function() {
             offset: -40,
             opposite: true,
             tickLength: 0,
+            labels: {
+              align: 'right',
+              x: 32
+            },
             title: {
               text: ''
             },
@@ -4250,7 +4381,7 @@ $(function() {
             },
             marginLeft: 0,
             marginRight: 0,
-            marginBottom: 0,
+            marginBottom: -5,
             events: {
               load: function () {
 
@@ -4268,7 +4399,7 @@ $(function() {
             type: 'datetime',
             tickPixelInterval: 150,
             floating: true,
-            offset: -30,
+            offset: -35,
             gridLineWidth: 0,
             minorGridLineWidth: 0,
             minPadding: 0,
@@ -4282,6 +4413,10 @@ $(function() {
             offset: -50,
             opposite: true,
             tickLength: 0,
+            labels: {
+              align: 'right',
+              x: 42
+            },
             title: {
               text: ''
             },
@@ -4377,7 +4512,7 @@ $(function() {
             },
             marginLeft: 0,
             marginRight: 0,
-            marginBottom: 0,
+            marginBottom: -5,
             events: {
               load: function () {
 
@@ -4395,19 +4530,22 @@ $(function() {
             type: 'datetime',
             tickPixelInterval: 150,
             floating: true,
-            offset: -30,
+            offset: -35,
             gridLineWidth: 0,
             minorGridLineWidth: 0,
             minPadding: 0,
             maxPadding: 0
           },
-
           yAxis: {
             gridLineWidth: 0,
             minorGridLineWidth: 0,
             offset: -50,
             opposite: true,
             tickLength: 0,
+            labels: {
+              align: 'right',
+              x: 42
+            },
             title: {
               text: ''
             },
@@ -4502,7 +4640,7 @@ $(function() {
             },
             marginLeft: 0,
             marginRight: 0,
-            marginBottom: 0,
+            marginBottom: -5,
             events: {
               load: function () {
 
@@ -4520,7 +4658,7 @@ $(function() {
             type: 'datetime',
             tickPixelInterval: 150,
             floating: true,
-            offset: -30,
+            offset: -35,
             gridLineWidth: 0,
             minorGridLineWidth: 0,
             minPadding: 0,
@@ -4534,6 +4672,10 @@ $(function() {
             opposite: true,
             textAlign: 'right',
             tickLength: 0,
+            labels: {
+              align: 'right',
+              x: 42
+            },
             title: {
               text: ''
             },
@@ -4628,7 +4770,7 @@ $(function() {
             },
             marginLeft: 0,
             marginRight: 0,
-            marginBottom: 0,
+            marginBottom: -5,
             events: {
               load: function () {
 
@@ -4646,7 +4788,7 @@ $(function() {
             type: 'datetime',
             tickPixelInterval: 150,
             floating: true,
-            offset: -30,
+            offset: -35,
             gridLineWidth: 0,
             minorGridLineWidth: 0,
             minPadding: 0,
@@ -4659,6 +4801,10 @@ $(function() {
             offset: -50,
             opposite: true,
             tickLength: 0,
+            labels: {
+              align: 'right',
+              x: 42
+            },
             title: {
               text: ''
             },
