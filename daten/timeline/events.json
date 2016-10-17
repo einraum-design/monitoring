@@ -51,4 +51,46 @@
 	"title": "Conveying pressure low = -250 mbar",
 	"description": "No / insufficient product feed in suction conveying line.",
 	"image": "img/timeline/events/Silo.png"
+}, {
+	"id": "maintenance-01",
+	"date": "2016-10-06 18:07:20",
+	"type": "maintenance",
+	"title": "Filterbags",
+	"description": "Filter differential pressure abnormal high value = 18 mbar. <br/>Filterbags have been replaced.",
+	"image": "img/timeline/events/Meldungen_1.Filtertaschen.png"
+}, {
+	"id": "maintenance-02",
+	"date": "2016-10-11 09:05:30",
+	"type": "maintenance",
+	"title": "ATI",
+	"description": "Fluidisation fabric in ATI has been replaced after 16.000 operating hours.",
+	"image": "img/timeline/events/Meldungen_3.Belüftungstücher.png"
+}, {
+	"id": "maintenance-03",
+	"date": "2016-10-17 16:16:10",
+	"type": "maintenance",
+	"title": "ZXD - rotary valve",
+	"description": "Bearings and Sealings on ZXD-rotary valve have been replaced during Inspection after 8.000 operating hours",
+	"image": "img/timeline/events/Meldungen_4.LuDZXD.png"
+}, {
+	"id": "maintenance-04",
+	"date": "2016-10-26 08:19:10",
+	"type": "maintenance",
+	"title": "HFS - Elutriator Fans",
+	"description": "Bearings and Sealing on HFS-Elutriator Fans have been replaced during yearly inspection.",
+	"image": "img/timeline/events/Meldungen_6.LuDZRD.png"
+}, {
+	"id": "maintenance-05",
+	"date": "2016-11-05 06:55:19",
+	"type": "maintenance",
+	"title": "ZVB - rotary valve",
+	"description": "Bearings and Sealings on ZVB-rotary valve have been replaced during Inspection after 8.000 operating hours",
+	"image": "img/timeline/events/Meldungen_7.LuDZVB.png"
+}, {
+	"id": "maintenance-06",
+	"date": "2016-11-08 06:18:13",
+	"type": "maintenance",
+	"title": "WZK diverter valve",
+	"description": "Visual check has been done on WZK diverter valve during inspection after 4.000 operating hours.",
+	"image": "img/timeline/events/Meldungen_8.WZK.png"
 } ]
