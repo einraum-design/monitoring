@@ -365,8 +365,8 @@ img[data-src] {
 /* Sensoring: Filter 1*/
 .other #filter-1-point{
 	position: absolute;
-	left: 280px;
-	top: 170px;
+  left: 281px;
+  top: 160px;
 }
 /* Akiver Punkt*/
 .other a#filter-1-point .active-dot{
@@ -421,7 +421,7 @@ a#filter-1-point .active-dot{
 .other #zrd-point{
 	position: absolute;
 	left: 367px;
-	top: 260px;
+	top: 250px;
 }
 /* Akiver Punkt*/
 .other a#zrd-point .active-dot{
@@ -465,8 +465,8 @@ a#filter-1-point .active-dot{
 /* Sensoring: Dosierer 4 */
 .other #dosierer-4-point{
 	position: absolute;
-  left: 490px;
-  top: 250px;
+  left: 492px;
+  top: 225px;
 }
 /* Akiver Punkt*/
 .other a#dosierer-4-point .active-dot{
@@ -477,8 +477,8 @@ a#filter-1-point .active-dot{
 /* Sensoring: Dosierer 5 */
 .other #dosierer-5-point{
 	position: absolute;
-  left: 492px;
-  top: 240px;
+  left: 491px;
+  top: 247px;
 }
 /* Akiver Punkt*/
 .other a#dosierer-5-point .active-dot{
@@ -499,7 +499,7 @@ a#filter-1-point .active-dot{
 /* Sensoring: ZSB */
 .other #zsb-point{
 	position: absolute;
-  left: 480px;
+  left: 486px;
   top: 255px;
 }
 /* Akiver Punkt*/
@@ -511,7 +511,7 @@ a#filter-1-point .active-dot{
 /* Sensoring: ZS_EG */
 .other #zs_eg-point{
 	position: absolute;
-  left: 503px;
+  left: 499px;
   top: 255px;
 }
 /* Akiver Punkt*/
@@ -556,8 +556,8 @@ a#filter-1-point .active-dot{
 /* Sensoring: Screener */
 .other #screener-point{
 	position: absolute;
-  left: 588px;
-  top: 269px;
+  left: 593px;
+  top: 267px;
 }
 /* Akiver Punkt*/
 .other a#screener-point .active-dot{
@@ -569,7 +569,7 @@ a#filter-1-point .active-dot{
 .other #bxc-point{
 	position: absolute;
   left: 629px;
-  top: 205px;
+  top: 233px;
 }
 /* Akiver Punkt*/
 .other a#bxc-point .active-dot{
@@ -578,8 +578,8 @@ a#filter-1-point .active-dot{
 /* Sensoring: WZK */
 .other #wzk-point{
 	position: absolute;
-  left: 703px;
-	top: 140px;
+  left: 696px;
+  top: 126px;
 }
 /* Akiver Punkt*/
 .other a#wzk-point .active-dot{
@@ -599,7 +599,7 @@ a#filter-1-point .active-dot{
 .other #wet-point{
 	position: absolute;
   left: 830px;
-  top: 140px;
+  top: 126px;
 }
 /* Akiver Punkt*/
 .other a#wet-point .active-dot{
@@ -637,10 +637,10 @@ a#filter-1-point .active-dot{
 
 .auswahl-punkt .number {
 
-  display: none;
   font-size: 5px;
   font-family: "Gotham", sans-serif;
   color: #333;
+  margin-left: 5px;
 }
 
 .active-auswahl-punkt .number {

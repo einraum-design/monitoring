@@ -11,16 +11,30 @@ $(document).ready( function () {
 	var scaleEl = $( '.timeline-scale', timelineEl );
 	var popupEl = $( '#timeline-popup' );
 	var optionsEl = $( '#timeline-timespan-options', timelineEl );
-	var timelineData = getTimelineData();
+	var timelineData;
+	var currentTimelineSpanId;
 
-	hiddenEvents.init();
+	getTimelineData().then( function ( newTimelineData ) {
+		timelineData = newTimelineData;
+		
+		init();
+		render();
+	} );
 
-	var currentTimelineSpanId = Object.keys( timelineData.timespans )[0];
-
-	popupEl.find( '.timeline-popup-close-button' ).on( 'click', closePopup );
-	timelineEl.find( '#timeline-timespan-selected' ).on( 'click', toggleSelection );
+	function init () {
+		currentTimelineSpanId = Object.keys( timelineData.timespans )[0];
+		hiddenEvents.init();
+		popupEl.find( '.timeline-popup-close-button' ).on( 'click', closePopup );
+		timelineEl.find( '#timeline-timespan-selected' ).on( 'click', toggleSelection );
+	}
 
 	function render () {
+		if ( timelineData ) {
+			renderDetails();
+		}
+	}
+
+	function renderDetails () {
 		requestAnimationFrame( function () {
 			var now = getCurrentMoment();
 
@@ -46,12 +60,12 @@ $(document).ready( function () {
 				var eventTimestamp = parseInt( event.date.format( 'x' ), 10 );
 				var eventPositionInTimeline = ( eventTimestamp - timelineSpanStartTimestamp ) / ( timelineSpanEndTimestamp - timelineSpanStartTimestamp );
 				var eventX = eventPositionInTimeline * 100;
-
 				var eventIsInPast = eventTimestamp <= nowTimestamp;
 
 				var eventEl = $( '<button class="event-button type-' + event.type + '" id="button-' + event.id + '">' + event.title + '</button>' );
 				eventEl.css( 'left', eventX + '%' );
 				eventEl.attr( 'data-event-id', event.id );
+				eventEl.addClass( eventIsInPast ? 'is-in-past' : 'is-in-future' );
 				eventEl.on( 'click', function () {
 					openDetailPopup( event, eventX, eventIsInPast );
 				} );
@@ -129,7 +143,7 @@ $(document).ready( function () {
 		headlineEl.text( eventData.title );
 
 		var descriptionEl = $( '#timeline-popup-description', popupEl );
-		descriptionEl.text( eventData.description );
+		$( descriptionEl ).html( eventData.description );
 
 		var imageEl = $( '#timeline-popup-image', popupEl );
 		imageEl.attr( 'src', eventData.image );
@@ -140,7 +154,14 @@ $(document).ready( function () {
 
 		var timeEl = popupEl.find( '#timeline-popup-time' );
 		timeEl.attr( 'datetime', eventData.date.format( 'YYYY-MM-DDTHH:mm:ssZ') );
-		timeEl.text( eventData.date.format( 'dddd, MMMM Do YYYY, h:mm:ss a') );
+		timeEl.text( eventData.date.format( 'MMMM Do YYYY, h:mm:ss a') );
+
+		if ( eventData.image_big ) {
+			popupEl.find( '#timeline-big-image' ).attr( 'src', eventData.image_big );
+			popupEl.addClass( 'has-big-image' );
+		} else {
+			popupEl.removeClass( 'has-big-image' );
+		}
 	}
 
 	function closePopup () {
@@ -269,65 +290,81 @@ function getTimelineData () {
 	// 	}
 	// ]
 
-	var events = [
-		{
-			id:'event-1',
-			date: moment( startDate ).hours( 9 ).minutes( 30 ).seconds( 26 ),
-			type: 'maintenance',
-			title: 'Maintenance: ZXD',
-			description: 'Bearings and Sealings on ZXD- rotary valve below XXXX have been replaced during Inspection after 8.000 operating hours.',
-			image: 'img/events/2016-09-28-event.png'
-		},
+	// var events = [
+	// 	{
+	// 		id:'event-1',
+	// 		date: moment( startDate ).hours( 9 ).minutes( 30 ).seconds( 26 ),
+	// 		type: 'maintenance',
+	// 		title: 'Maintenance: ZXD',
+	// 		description: 'Bearings and Sealings on ZXD- rotary valve below XXXX have been replaced during Inspection after 8.000 operating hours.',
+	// 		image: 'img/events/2016-09-28-event.png'
+	// 	},
 
-		{
-			id:'event-2',
-			date: moment( startDate ).add( 1, 'day' ).hours( 9 ).minutes( 30 ).seconds( 26 ),
-			type: 'error',
-			title: 'Error #0246',
-			description: 'Analysis revealed: Suction conveying line was blocked. Conveying pressure = - 500 mbar.',
-			image: 'img/events/2016-09-27-event.png'
-		},
-		{
-			id:'event-3',
-			date: moment( startDate ).add( 2, 'days' ).hours( 15 ).minutes( 30 ).seconds( 26 ),// moment( '2016-09-30 15:30:26' ),
-			type: 'setup',
-			title: 'Leakage in Conveying System / Wear in Rotary Valve',
-			description: 'Conveying pressure constantly increasing for 5 hours. Solution: Performance was increased.',
-			image: 'img/events/2016-09-29-event.png'
-		},
-		{
-			id:'event-121312',
-			date: moment( startDate ).add( 3, 'days' ).hours( 14 ).minutes( 30 ).seconds( 26 ),//moment( '2016-09-26 14:30:26' ),
-			type: 'error',
-			title: 'Störmeldung #0248: Zu geringer Drehmoment',
-			description: 'Analyse ergab: Geringer Druck aufgrund niedriger Drehzahl.',
-			image: 'img/events/placeholder-event.jpg'
-		},
-		{
-			id:'event-121312',
-			date: moment( startDate ).add( 4, 'days' ).hours( 15 ).minutes( 30 ).seconds( 26 ),//moment( '2016-09-26 19:30:26' ),
-			type: 'error',
-			title: 'Störmeldung #0249: Maschine XY schaltet sich bei laufender Dosierung ab',
-			description: 'Analyse ergab: Leerlaufmoment war zu hoch eingestellt.',
-			image: 'img/events/placeholder-event.jpg'
-		},
-		{
-			id:'event-121312',
-			date: moment( startDate ).add( 5, 'days' ).hours( 15 ).minutes( 30 ).seconds( 26 ),//moment( '2016-09-26 19:30:26' ),
-			type: 'error',
-			title: 'Störmeldung #0249: Maschine XY schaltet sich bei laufender Dosierung ab',
-			description: 'Analyse ergab: Leerlaufmoment war zu hoch eingestellt.',
-			image: 'img/events/placeholder-event.jpg'
-		}
-	];
+	// 	{
+	// 		id:'event-2',
+	// 		date: moment( startDate ).add( 1, 'day' ).hours( 9 ).minutes( 30 ).seconds( 26 ),
+	// 		type: 'error',
+	// 		title: 'Error #0246',
+	// 		description: 'Analysis revealed: Suction conveying line was blocked. Conveying pressure = - 500 mbar.',
+	// 		image: 'img/events/2016-09-27-event.png'
+	// 	},
+	// 	{
+	// 		id:'event-3',
+	// 		date: moment( startDate ).add( 2, 'days' ).hours( 15 ).minutes( 30 ).seconds( 26 ),// moment( '2016-09-30 15:30:26' ),
+	// 		type: 'setup',
+	// 		title: 'Leakage in Conveying System / Wear in Rotary Valve',
+	// 		description: 'Conveying pressure constantly increasing for 5 hours. Solution: Performance was increased.',
+	// 		image: 'img/events/2016-09-29-event.png'
+	// 	},
+	// 	{
+	// 		id:'event-121312',
+	// 		date: moment( startDate ).add( 3, 'days' ).hours( 14 ).minutes( 30 ).seconds( 26 ),//moment( '2016-09-26 14:30:26' ),
+	// 		type: 'error',
+	// 		title: 'Störmeldung #0248: Zu geringer Drehmoment',
+	// 		description: 'Analyse ergab: Geringer Druck aufgrund niedriger Drehzahl.',
+	// 		image: 'img/events/placeholder-event.jpg'
+	// 	},
+	// 	{
+	// 		id:'event-121312',
+	// 		date: moment( startDate ).add( 4, 'days' ).hours( 15 ).minutes( 30 ).seconds( 26 ),//moment( '2016-09-26 19:30:26' ),
+	// 		type: 'error',
+	// 		title: 'Störmeldung #0249: Maschine XY schaltet sich bei laufender Dosierung ab',
+	// 		description: 'Analyse ergab: Leerlaufmoment war zu hoch eingestellt.',
+	// 		image: 'img/events/placeholder-event.jpg'
+	// 	},
+	// 	{
+	// 		id:'event-121312',
+	// 		date: moment( startDate ).add( 5, 'days' ).hours( 15 ).minutes( 30 ).seconds( 26 ),//moment( '2016-09-26 19:30:26' ),
+	// 		type: 'error',
+	// 		title: 'Störmeldung #0249: Maschine XY schaltet sich bei laufender Dosierung ab',
+	// 		description: 'Analyse ergab: Leerlaufmoment war zu hoch eingestellt.',
+	// 		image: 'img/events/placeholder-event.jpg'
+	// 	}
+	// ];
 
-	data.events = events;
-	data.startDate = startDate;
-	data.endDate = endDate;
-	data.timespans = timelineSpans;
-	data.eventTypes = eventTypes;
+	
 
-	return data;
+	return fetch ( 'daten/timeline/events.json' )
+		.then( function ( res ) {
+			return res.json();
+		} )
+		.then( function ( eventsData ) {
+			return eventsData.map( function ( event ) {
+				event.date = moment( event.date );
+				return event;
+			} );
+		} )
+		.then( function ( eventsData ) {
+			data.events = eventsData;
+			data.startDate = startDate;
+			data.endDate = endDate;
+			data.timespans = timelineSpans;
+			data.eventTypes = eventTypes;
+			console.log( data );
+			return data;
+		} );
+
+	// return data;
 }
 
 function getCurrentMoment () {
@@ -344,6 +381,19 @@ function randomNumber ( min, max, round ) {
 	return round ?
 		Math.round( min + Math.random() * ( max - min ) ) :
 		min + Math.random() * ( max - min );
+}
+
+// http://stackoverflow.com/a/20948347
+function addWeekdays(date, days) {
+  date = moment(date); // use a clone
+  while (days > 0) {
+    date = date.add(1, 'days');
+    // decrease "days" only if it's a weekday.
+    if (date.isoWeekday() !== 6 && date.isoWeekday() !== 7) {
+      days -= 1;
+    }
+  }
+  return date;
 }
 
 

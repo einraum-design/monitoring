@@ -1,4 +1,4 @@
-/*global $, moment, tableData, Promise*/
+/*global $, moment, tableData, Promise, accounting*/
 
 // moment.js wird benutzt für alle datums variablen: http://momentjs.com/docs/#/displaying/format/
 
@@ -67,7 +67,7 @@ var rawTimeline = {
 				var svgStr = '<svg class="fill-overlay">';
 	            svgStr += '<rect class="fill-layer" x="0" y="100%" width="100%" height="0%" style="fill:#f9d817;" />';
 	            svgStr += '<rect class="fill-layer" x="0" y="100%" width="100%" height="0%" style="fill:#ebcd15;" />';
-	            svgStr += '<rect class="fill-layer" x="0" y="100%" width="100%" height="0%" style="fill:;#d6ba18" />';
+	            svgStr += '<rect class="fill-layer" x="0" y="100%" width="100%" height="0%" style="fill:#d6ba18" />';
 	            svgStr +='</svg>';
 
 	            var svgEl = $( svgStr );
@@ -134,7 +134,7 @@ var rawTimeline = {
 							}
 
 							if ( useShiftBlocks ) {
-								if ( prevAllocationContent !== allocationContent || allocationHour % 8 === 0 ) {
+								if ( prevAllocationContent !== allocationContent ) {
 									allocationEl = $( '<div class="allocation"><span class="allocation-text">' + allocationContent + '</span></div>' )[0];
 									allocationEl.setAttribute( 'data-type', allocationContent.toLowerCase() );
 
@@ -257,6 +257,17 @@ var rawTimeline = {
 		}
 
 		function showAllocation ( allocation, nextAllocation ) {
+			var startOfDayInSecs = parseInt( moment( allocation.start ).hour( 0 ).minute( 0 ).second( 0 ).format( 'X' ), 10 );
+			var endOfDayInSecs = parseInt( moment( allocation.start ).hour( 23 ).minute( 59 ).second( 59 ).format( 'X' ), 10 );
+			var dayDurationInSecs = endOfDayInSecs - startOfDayInSecs;
+			var allocationStartInSecs = parseInt( allocation.start.format( 'X' ), 10 );
+
+			window.sendSpacebrewMessage( 'allocationSelected', {
+				start: allocation.start.format(),
+				end: allocation.end.format(),
+				positionInDay: ( allocationStartInSecs  - startOfDayInSecs ) / dayDurationInSecs
+			} );
+
 			var infoEl = $( '#app-tab2 #first-row-rohstoffe > .ui-tabs-panel[aria-hidden="false"]' );
 			var wrapperEl = $( '#rohstoffe-recipe', infoEl );
 
@@ -265,8 +276,9 @@ var rawTimeline = {
 
 			wrapperEl.attr( 'data-recipe', allocationContent.toLowerCase() );
 
-			// IF ALLOCATION == SETUP: => NEXT RECIPE!
-			console.log( );
+			if ( allocationContent.toLowerCase() === 'setup' && nextAllocation ) {
+				recipe = getAllocationContent( nextAllocation, 'recipe' );
+			}
 			
 			// UPDATE RECIPE EL
 			if ( recipe ) {
@@ -307,7 +319,7 @@ var rawTimeline = {
 					var percentage = Math.round( recipe[index].percentage * 100 );
 					var unit = recipe[index].throughput.unit;
 
-					throughputValueEl.text( value + ' ' + unit );
+					throughputValueEl.text( accounting.formatNumber( value ) + ' ' + unit );
 					percentEl.text( percentage + '%' );
 					titleEl.text( recipe[index].material.longname );
 					subtitleEl.text( recipe[index].material.title );
@@ -323,7 +335,7 @@ var rawTimeline = {
 			} else {
 				rawmaterialBarContainerEls.removeClass( 'is-active' );
 			}
-									
+															
 			allocation.production.data.forEach( function ( allocationData, componentIndex ) {
 				allocationData = allocationData[0];
 				
@@ -338,7 +350,7 @@ var rawTimeline = {
 					if ( allocationData.amount.value ) {
 						layers = allocationData.layers;
 					}
-					
+
 					layers.forEach( function ( layer, layerIndex ) {
 						layer.forEach( function ( charge, chargeIndes ) {
 							var rowEl = $( 'tr:nth-child(' + ( rowCounter + 2 ) + ')', componentEl );
@@ -361,7 +373,7 @@ var rawTimeline = {
 							titleEl.text( charge.material.longname );
 
 							var amountEl = $( '[data-content="amount"]', rowEl );
-							amountEl.text( allocationData.amount.value + ' ' + allocationData.amount.unit );
+							amountEl.text( accounting.formatNumber( allocationData.amount.value ) + ' ' + allocationData.amount.unit );
 
 							var losnummerEl = $( '[data-content="losnummer"]', rowEl );
 							losnummerEl.text( charge.chargeIndex );

@@ -320,6 +320,10 @@ li#full-link.ui-tabs-active{
     pointer-events: auto;
 }
 
+:focus{
+	outline: 0px !important;
+}
+
 .wrapper:after {
     border-color: #9bc7de transparent;
     border-width: 6px 6px 0 6px ;
@@ -844,7 +848,7 @@ ul.scroll {
   margin: 0 auto;
   /* left: 32%; */
   width: 460px;
-  left: 50%;
+  left: 52%;
   margin-left: -208px;
 	transition: all .6s ease-in-out;
 	z-index: 9;
@@ -1098,14 +1102,14 @@ li.z-tab.z-active.component-zoom img{
 
 .change-app {
 	position: relative;
-	width: 250px;
+	width: 350px;
 	margin: 0 auto;
 	top: 10px;
 	padding: 10px;
 	background: #fff;
 	cursor: pointer;
 	outline: none;
-	font-weight: 600;
+	font-weight: 400;
 	color: #333;
 	text-align: center;
 	font-size: 18px;
@@ -1177,6 +1181,11 @@ li.z-tab.z-active.component-zoom img{
     pointer-events: none;
 }
 
+#dd span:before {
+    content: 'Monitoring ';
+    font-weight: 600;
+}
+
 .change-app .dropdown li i {
     float: right;
     color: inherit;
@@ -1246,6 +1255,14 @@ a#sensor-2 .3d-ansicht .anlagen-bild{
 
 .blue{
   color: #7c9cbb;
+}
+
+.number{
+	margin-right: 5px;
+}
+
+.ui-tabs-active .number {
+	color: #fff;
 }
 
 /* Maskierung der Ansicht bei Upstream, Comounding und Downsream */
@@ -1493,13 +1510,13 @@ a#sensor-2 .3d-ansicht .anlagen-bild{
 
 .mycoperion .ui-btn {
 	position: absolute;
-	top: 30px;
-	right: 30px;
+	top: 20px;
+	right: 20px;
 	border: none;
 	padding: 0;
 	width: 45px;
 	height: 45px;
-	background-color: transparent;
+	background-color: transparent !important;
 	background-image: url(../img/popup-close.svg);
 	background-size: 20px;
 	cursor: pointer;
@@ -1509,5 +1526,5 @@ a#sensor-2 .3d-ansicht .anlagen-bild{
 	overflow: hidden;
 	text-indent: -5000px;
 	border-radius: 50px !important;
+	-webkit-box-shadow: 0 0px 0px rgba(0, 0, 0, .15);
 }
-

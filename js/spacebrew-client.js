@@ -33,6 +33,7 @@ $( document ).ready( function () {
 		spaceBrewClient.addPublish( 'plantActivated', 'string' );
 		spaceBrewClient.addPublish( 'plantDeactivated', 'string' );
 		spaceBrewClient.addPublish( 'appConnected', 'string' );
+		spaceBrewClient.addPublish( 'allocationSelected', 'string' );
 
 		isConnecting = true;
 		spaceBrewClient.connect();
