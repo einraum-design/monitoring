@@ -371,11 +371,14 @@ time#timeline-popup-time {
 	float: left;
 	margin-left: 25px;
 	margin-top: 15px;
+	max-width: 410px;
 }
 
 .timeline-image img{
 	height: 276px;
 	width: auto;
+		max-width: 100%;
+		object-fit: contain;
 }
 
 .timeline-content{
