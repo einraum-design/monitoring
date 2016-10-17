@@ -1,4 +1,4 @@
-/*global $, moment, tableData, Promise*/
+/*global $, moment, tableData, Promise, accounting*/
 
 // moment.js wird benutzt für alle datums variablen: http://momentjs.com/docs/#/displaying/format/
 
@@ -257,6 +257,17 @@ var rawTimeline = {
 		}
 
 		function showAllocation ( allocation, nextAllocation ) {
+			var startOfDayInSecs = parseInt( moment( allocation.start ).hour( 0 ).minute( 0 ).second( 0 ).format( 'X' ), 10 );
+			var endOfDayInSecs = parseInt( moment( allocation.start ).hour( 23 ).minute( 59 ).second( 59 ).format( 'X' ), 10 );
+			var dayDurationInSecs = endOfDayInSecs - startOfDayInSecs;
+			var allocationStartInSecs = parseInt( allocation.start.format( 'X' ), 10 );
+
+			window.sendSpacebrewMessage( 'allocationSelected', {
+				start: allocation.start.format(),
+				end: allocation.end.format(),
+				positionInDay: ( allocationStartInSecs  - startOfDayInSecs ) / dayDurationInSecs
+			} );
+
 			var infoEl = $( '#app-tab2 #first-row-rohstoffe > .ui-tabs-panel[aria-hidden="false"]' );
 			var wrapperEl = $( '#rohstoffe-recipe', infoEl );
 
@@ -264,9 +275,6 @@ var rawTimeline = {
 			var recipe = getAllocationContent( allocation, 'recipe' );
 
 			wrapperEl.attr( 'data-recipe', allocationContent.toLowerCase() );
-
-			// IF ALLOCATION == SETUP: => NEXT RECIPE!
-			console.log( );
 			
 			// UPDATE RECIPE EL
 			if ( recipe ) {
@@ -307,7 +315,7 @@ var rawTimeline = {
 					var percentage = Math.round( recipe[index].percentage * 100 );
 					var unit = recipe[index].throughput.unit;
 
-					throughputValueEl.text( value + ' ' + unit );
+					throughputValueEl.text( accounting.formatNumber( value ) + ' ' + unit );
 					percentEl.text( percentage + '%' );
 					titleEl.text( recipe[index].material.longname );
 					subtitleEl.text( recipe[index].material.title );
@@ -361,7 +369,7 @@ var rawTimeline = {
 							titleEl.text( charge.material.longname );
 
 							var amountEl = $( '[data-content="amount"]', rowEl );
-							amountEl.text( allocationData.amount.value + ' ' + allocationData.amount.unit );
+							amountEl.text( accounting.formatNumber( allocationData.amount.value ) + ' ' + allocationData.amount.unit );
 
 							var losnummerEl = $( '[data-content="losnummer"]', rowEl );
 							losnummerEl.text( charge.chargeIndex );

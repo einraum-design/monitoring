@@ -794,10 +794,11 @@ button.ui-button::-moz-focus-inner {
 }
 .ui-tabs .ui-tabs-nav .ui-tabs-anchor {
 	float: left;
-	padding: 4px 9px 4px 9px;
+	padding: 6px 7px 6px 7px;
 	text-decoration: none;
 	letter-spacing: 1px;
 	border-radius: 3px;
+	font-size: 11px;
 }
 
 #ui-id-2{

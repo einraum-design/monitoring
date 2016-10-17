@@ -21,6 +21,7 @@
 	<script src="js/lib/visibility.min.js"></script>
 	<script src="js/lib/moment.js"></script>
 	<script src="js/lib/papaparse.js"></script>
+	<script src="js/lib/accounting.js"></script>
 
 	<!-- Javascript for Content -->
 	<script src="js/dataAttr.js"></script>
@@ -192,10 +193,10 @@
 				</div>
 			<div id="first-row">
 				<ul id="sensoren-hauptnavi">
-					<li id="full-link"><a href="#full"><span></span></a></li>
-					<li id="upstream-link"><a href="#upstream">Raw materials<span class="upstream-arrow"></span></a></li>
-					<li id="compounding-link"><a href="#compounding">Compounding<span class="compounding-arrow"></span></a></li>
-					<li id="downstream-link"><a href="#downstream">Finished products<span class="downstream-arrow"></span></a></li>
+					<li id="full-link" class="sensoring-back-button"><a href="#full"><span></span></a></li>
+					<li id="upstream-link" class="sensoring-raw-materials-button"><a href="#upstream">Raw materials<span class="upstream-arrow"></span></a></li>
+					<li id="compounding-link" class="sensoring-compounding-button"><a href="#compounding">Compounding<span class="compounding-arrow"></span></a></li>
+					<li id="downstream-link" class="sensoring-finished-products-button"><a href="#downstream">Finished products<span class="downstream-arrow"></span></a></li>
 				</ul>
 
 				<!-- Fullview -->
@@ -211,11 +212,11 @@
 					<div id="second-row-upstream">
 						<ul class="second-row-navigation">
 							<li class="hidden"><a id="foerderdruck-link-1" href="#foerderdruck-1">Special Link Hidden</a></li>
-							<li><a id="filter-1-link" href="#filter-1"><span>Filter</span></a></li>
-							<li><a id="ati-link" href="#ati"><span>ATI</span></a></li>
-							<li><a id="zxd-link" href="#zxd"><span>ZXD</span></a></li>
-							<li><a id="hfs-link" href="#hfs"><span>HFS</span></a></li>
-							<li><a id="zrd-link" href="#zrd"><span>ZRD</span></a></li>
+							<li><a id="filter-1-link" href="#filter-1"><span class="blue number">1</span><span>Filter</span></a></li>
+							<li><a id="ati-link" href="#ati"><span class="blue number">2</span><span>ATI</span></a></li>
+							<li><a id="zxd-link" href="#zxd"><span class="blue number">3</span><span>ZXD</span></a></li>
+							<li><a id="hfs-link" href="#hfs"><span class="blue number">4</span><span>HFS</span></a></li>
+							<li><a id="zrd-link" href="#zrd"><span class="blue number">5</span><span>ZRD</span></a></li>
 						</ul>
 						<div id="foerderdruck-1">
 							<div class="sensoren-titel-in"><p>Conveying Pressure</p></div>
@@ -231,7 +232,7 @@
 								<h3 class="komponenten-titel"><span class="komponenten-strong">Filter</span> <span class="blue"></span></h3>
 								<p class="komponenten-id">
 									<span class="product-id"><span class="komponenten-strong">Product ID</span> 64758395</span>
-									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 12.12.2009</span>
+									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 12.12.2015</span>
 								</p>
 								<p class="komponenten-information">
 									<span class="komponenten-strong">Component Information</span><br />
@@ -248,7 +249,7 @@
 									<div class="komponenten-maintenance blue-box">
 										<p>
 											<span class="komponenten-strong">Contact Maintenance</span></br />
-											<span class="blue">John Doe</span><br />
+											<span class="blue">Eric Laser</span><br />
 											<span class="past-maintenance">Service Department</span>
 										</p>
 									</div>
@@ -256,7 +257,7 @@
 										<p>
 											<span class="komponenten-strong">Contact Coperion</span></br />
 											<span class="blue">Christian Soretz</span><br />
-											<span class="past-maintenance">Coperion HQ</span>
+											<span class="past-maintenance">Material Handling</span>
 										</p>
 									</div>
 									<div class="clear"></div>
@@ -279,7 +280,7 @@
 								<h3 class="komponenten-titel"><span class="komponenten-strong">ATI</span> <span class="blue"></span></h3>
 								<p class="komponenten-id">
 									<span class="product-id"><span class="komponenten-strong">Product ID</span> 74628595</span>
-									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 20.02.2009</span>
+									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 20.02.2015</span>
 								</p>
 								<p class="komponenten-information">
 									<span class="komponenten-strong">Component Information</span><br />
@@ -298,7 +299,7 @@
 									<div class="komponenten-maintenance blue-box">
 										<p>
 											<span class="komponenten-strong">Contact Maintenance</span></br />
-											<span class="blue">John Doe</span><br />
+											<span class="blue">Eric Laser</span><br />
 											<span class="past-maintenance">Service Department</span>
 										</p>
 									</div>
@@ -306,7 +307,7 @@
 										<p>
 											<span class="komponenten-strong">Contact Coperion</span></br />
 											<span class="blue">Jürgen Rumschick</span><br />
-											<span class="past-maintenance">Coperion HQ</span>
+											<span class="past-maintenance">Material Handling</span>
 										</p>
 									</div>
 									<div class="clear"></div>
@@ -330,7 +331,7 @@
 								<h3 class="komponenten-titel"><span class="komponenten-strong">ZXD 250</span> <span class="blue">Rotary Valve for Powder</span></h3>
 								<p class="komponenten-id">
 									<span class="product-id"><span class="komponenten-strong">Product ID</span> 25478394</span>
-									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 20.10.2007</span>
+									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 20.10.2015</span>
 								</p>
 								<p class="komponenten-information">
 									<span class="komponenten-strong">Component Information</span><br />
@@ -349,7 +350,7 @@
 									<div class="komponenten-maintenance blue-box">
 										<p>
 											<span class="komponenten-strong">Contact Maintenance</span></br />
-											<span class="blue">John Doe</span><br />
+											<span class="blue">Eric Laser</span><br />
 											<span class="past-maintenance">Service Department</span>
 										</p>
 									</div>
@@ -357,7 +358,7 @@
 										<p>
 											<span class="komponenten-strong">Contact Coperion</span></br />
 											<span class="blue">Fernando Ricart</span><br />
-											<span class="past-maintenance">Coperion HQ</span>
+											<span class="past-maintenance">Material Handling</span>
 										</p>
 									</div>
 									<div class="clear"></div>
@@ -381,7 +382,7 @@
 								<h3 class="komponenten-titel"><span class="komponenten-strong">HFS</span> <span class="blue">Horizontal Fluidbed Separator</span></h3>
 								<p class="komponenten-id">
 									<span class="product-id"><span class="komponenten-strong">Product ID</span> 74839484</span>
-									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 02.04.2008</span>
+									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 02.04.2015</span>
 								</p>
 								<p class="komponenten-information">
 									<span class="komponenten-strong">Component Information</span><br />
@@ -392,13 +393,13 @@
 										<p>
 											<span class="komponenten-strong">Maintenance Schedule</span></br />
 											<span class="blue">NEXT Wed 15.03.2017</span><br />
-											<span class="past-maintenance">LAST Mon 28.03.2016</span>
+											<span class="past-maintenance">LAST Mon 09.03.2016</span>
 										</p>
 									</div>
 									<div class="komponenten-maintenance blue-box">
 										<p>
 											<span class="komponenten-strong">Contact Maintenance</span></br />
-											<span class="blue">John Doe</span><br />
+											<span class="blue">Eric Laser</span><br />
 											<span class="past-maintenance">Service Department</span>
 										</p>
 									</div>
@@ -406,7 +407,7 @@
 										<p>
 											<span class="komponenten-strong">Contact Coperion</span></br />
 											<span class="blue">Olaf Hustert</span><br />
-											<span class="past-maintenance">Coperion HQ</span>
+											<span class="past-maintenance">Material Handling</span>
 										</p>
 									</div>
 									<div class="clear"></div>
@@ -429,7 +430,7 @@
 								<h3 class="komponenten-titel"><span class="komponenten-strong">ZRD</span> <span class="blue">Rotary Valve</span></h3>
 								<p class="komponenten-id">
 									<span class="product-id"><span class="komponenten-strong">Product ID</span> 64742849</span>
-									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 05.08.2009</span>
+									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 05.08.2015</span>
 								</p>
 								<p class="komponenten-information">
 									<span class="komponenten-strong">Component Information</span><br />
@@ -448,7 +449,7 @@
 									<div class="komponenten-maintenance blue-box">
 										<p>
 											<span class="komponenten-strong">Contact Maintenance</span></br />
-											<span class="blue">John Doe</span><br />
+											<span class="blue">Eric Laser</span><br />
 											<span class="past-maintenance">Service Department</span>
 										</p>
 									</div>
@@ -456,7 +457,7 @@
 										<p>
 											<span class="komponenten-strong">Contact Coperion</span></br />
 											<span class="blue">Fernando Ricart</span><br />
-											<span class="past-maintenance">Coperion HQ</span>
+											<span class="past-maintenance">Material Handling</span>
 										</p>
 									</div>
 									<div class="clear"></div>
@@ -478,18 +479,18 @@
 					<div id="second-row-compounding">
 						<ul class="second-row-navigation scroll">
 							<li class="hidden"><a id="foerderdruck-link-2" href="#foerderdruck-2">Special Link Hidden</a></li>
-							<li><a id="dosierer-1-link" href="#dosierer-1"><span>Feeder 1</span></a></li>
-							<li><a id="dosierer-2-link" href="#dosierer-2"><span>Feeder 2</span></a></li>
-							<li><a id="dosierer-3-link" href="#dosierer-3"><span>Feeder 3</span></a></li>
-							<li><a id="dosierer-4-link" href="#dosierer-4"><span>Feeder 4</span></a></li>
-							<li><a id="dosierer-5-link" href="#dosierer-5"><span>Feeder 5</span></a></li>
-							<li><a id="zsk-link" href="#zsk"><span>ZSK</span></a></li>
-							<li><a id="zsb-link" href="#zsb"><span>ZS-B</span></a></li>
-							<li><a id="zs_eg-link" href="#zs_eg"><span>ZS-EG</span></a></li>
-							<li><a id="ssd-link" href="#ssd"><span>ASC</span></a></li>
-							<li><a id="sp-link" href="#sp500"><span>SP 500</span></a></li>
-							<li><a id="zvb-link" href="#zvb"><span>ZVB</span></a></li>
-							<li><a id="screener-link" href="#screener"><span>Screener</span></a></li>
+							<li><a id="dosierer-1-link" href="#dosierer-1"><span class="blue number">6</span><span>Feeder 1</span></a></li>
+							<li><a id="dosierer-2-link" href="#dosierer-2"><span class="blue number">7</span><span>Feeder 2</span></a></li>
+							<li><a id="dosierer-3-link" href="#dosierer-3"><span class="blue number">8</span><span>Feeder 3</span></a></li>
+							<li><a id="dosierer-4-link" href="#dosierer-4"><span class="blue number">9</span><span>Feeder 4</span></a></li>
+							<li><a id="dosierer-5-link" href="#dosierer-5"><span class="blue number">10</span><span>Feeder 5</span></a></li>
+							<li><a id="zsk-link" href="#zsk"><span class="blue number">11</span><span>ZSK</span></a></li>
+							<li><a id="zsb-link" href="#zsb"><span class="blue number">12</span><span>ZS-B</span></a></li>
+							<li><a id="zs_eg-link" href="#zs_eg"><span class="blue number">13</span><span>ZS-EG</span></a></li>
+							<li><a id="ssd-link" href="#ssd"><span class="blue number">14</span><span>ASC</span></a></li>
+							<li><a id="sp-link" href="#sp500"><span class="blue number">15</span><span>SP 500</span></a></li>
+							<li><a id="zvb-link" href="#zvb"><span class="blue number">16</span><span>ZVB</span></a></li>
+							<li><a id="screener-link" href="#screener"><span class="blue number">17</span><span>Screener</span></a></li>
 						</ul>
 						<div id="foerderdruck-2">
 							<div class="sensoren-titel-in"><p>Conveying Pressure</p></div>
@@ -505,7 +506,7 @@
 								<h3 class="komponenten-titel"><span class="komponenten-strong">Feeder</span> <span class="blue">K-ML-D5-BSP-135</span></h3>
 								<p class="komponenten-id">
 									<span class="product-id"><span class="komponenten-strong">Product ID</span> 35478695</span>
-									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 10.11.2009</span>
+									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 10.11.2015</span>
 								</p>
 								<p class="komponenten-information">
 									<span class="komponenten-strong">Component Information</span><br />
@@ -524,15 +525,15 @@
 									<div class="komponenten-maintenance blue-box">
 										<p>
 											<span class="komponenten-strong">Contact Maintenance</span></br />
-											<span class="blue">John Doe</span><br />
+											<span class="blue">Eric Laser</span><br />
 											<span class="past-maintenance">Service Department</span>
 										</p>
 									</div>
 									<div class="komponenten-maintenance blue-box">
 										<p>
 											<span class="komponenten-strong">Contact Coperion</span></br />
-											<span class="blue">Max Patternman</span><br />
-											<span class="past-maintenance">Coperion HQ</span>
+											<span class="blue">Christoph Grimm</span><br />
+											<span class="past-maintenance">Comp. & Extrusion</span>
 										</p>
 									</div>
 									<div class="clear"></div>
@@ -555,7 +556,7 @@
 								<h3 class="komponenten-titel"><span class="komponenten-strong">Feeder</span> <span class="blue">K2-ML-D5-S60</span></h3>
 								<p class="komponenten-id">
 									<span class="product-id"><span class="komponenten-strong">Product ID</span> 84637383</span>
-									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 03.07.2009</span>
+									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 03.07.2015</span>
 								</p>
 								<p class="komponenten-information">
 									<span class="komponenten-strong">Component Information</span><br />
@@ -574,15 +575,15 @@
 									<div class="komponenten-maintenance blue-box">
 										<p>
 											<span class="komponenten-strong">Contact Maintenance</span></br />
-											<span class="blue">John Doe</span><br />
+											<span class="blue">Eric Laser</span><br />
 											<span class="past-maintenance">Service Department</span>
 										</p>
 									</div>
 									<div class="komponenten-maintenance blue-box">
 										<p>
 											<span class="komponenten-strong">Contact Coperion</span></br />
-											<span class="blue">Max Patternman</span><br />
-											<span class="past-maintenance">Coperion HQ</span>
+											<span class="blue">Christoph Grimm</span><br />
+											<span class="past-maintenance">Comp. & Extrusion</span>
 										</p>
 									</div>
 									<div class="clear"></div>
@@ -605,7 +606,7 @@
 								<h3 class="komponenten-titel"><span class="komponenten-strong">Feeder</span> <span class="blue">K-ML-D5-KT20</span></h3>
 								<p class="komponenten-id">
 									<span class="product-id"><span class="komponenten-strong">Product ID</span> 84958374</span>
-									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 17.02.2008</span>
+									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 17.02.2015</span>
 								</p>
 								<p class="komponenten-information">
 									<span class="komponenten-strong">Component Information</span><br />
@@ -624,15 +625,15 @@
 									<div class="komponenten-maintenance blue-box">
 										<p>
 											<span class="komponenten-strong">Contact Maintenance</span></br />
-											<span class="blue">John Doe</span><br />
+											<span class="blue">Eric Laser</span><br />
 											<span class="past-maintenance">Service Department</span>
 										</p>
 									</div>
 									<div class="komponenten-maintenance blue-box">
 										<p>
 											<span class="komponenten-strong">Contact Coperion</span></br />
-											<span class="blue">Max Patternman</span><br />
-											<span class="past-maintenance">Coperion HQ</span>
+											<span class="blue">Christoph Grimm</span><br />
+											<span class="past-maintenance">Comp. & Extrusion</span>
 										</p>
 									</div>
 									<div class="clear"></div>
@@ -655,7 +656,7 @@
 								<h3 class="komponenten-titel"><span class="komponenten-strong">Feeder</span> <span class="blue">K2-ML-T60</span></h3>
 								<p class="komponenten-id">
 									<span class="product-id"><span class="komponenten-strong">Product ID</span> 26374953</span>
-									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 23.05.2009</span>
+									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 23.05.2015</span>
 								</p>
 								<p class="komponenten-information">
 									<span class="komponenten-strong">Component Information</span><br />
@@ -673,15 +674,15 @@
 									<div class="komponenten-maintenance blue-box">
 										<p>
 											<span class="komponenten-strong">Contact Maintenance</span></br />
-											<span class="blue">John Doe</span><br />
+											<span class="blue">Eric Laser</span><br />
 											<span class="past-maintenance">Service Department</span>
 										</p>
 									</div>
 									<div class="komponenten-maintenance blue-box">
 										<p>
 											<span class="komponenten-strong">Contact Coperion</span></br />
-											<span class="blue">Max Patternman</span><br />
-											<span class="past-maintenance">Coperion HQ</span>
+											<span class="blue">Christoph Grimm</span><br />
+											<span class="past-maintenance">Comp. & Extrusion</span>
 										</p>
 									</div>
 									<div class="clear"></div>
@@ -704,7 +705,7 @@
 								<h3 class="komponenten-titel"><span class="komponenten-strong">Feeder</span> <span class="blue">K-ML-KV3-F</span></h3>
 								<p class="komponenten-id">
 									<span class="product-id"><span class="komponenten-strong">Product ID</span> 74648485</span>
-									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 22.02.2007</span>
+									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 22.02.2015</span>
 								</p>
 								<p class="komponenten-information">
 									<span class="komponenten-strong">Component Information</span><br />
@@ -721,15 +722,15 @@
 									<div class="komponenten-maintenance blue-box">
 										<p>
 											<span class="komponenten-strong">Contact Maintenance</span></br />
-											<span class="blue">John Doe</span><br />
+											<span class="blue">Eric Laser</span><br />
 											<span class="past-maintenance">Service Department</span>
 										</p>
 									</div>
 									<div class="komponenten-maintenance blue-box">
 										<p>
 											<span class="komponenten-strong">Contact Coperion</span></br />
-											<span class="blue">Max Patternman</span><br />
-											<span class="past-maintenance">Coperion HQ</span>
+											<span class="blue">Christoph Grimm</span><br />
+											<span class="past-maintenance">Comp. & Extrusion</span>
 										</p>
 									</div>
 									<div class="clear"></div>
@@ -757,7 +758,7 @@
 								<h3 class="komponenten-titel"><span class="komponenten-strong">ZSK</span> <span class="blue"></span></h3>
 								<p class="komponenten-id">
 									<span class="product-id"><span class="komponenten-strong">Product ID</span> 74839404</span>
-									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 04.07.2010</span>
+									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 04.07.2015</span>
 								</p>
 								<p class="komponenten-information">
 									<span class="komponenten-strong">Component Information</span><br />
@@ -769,14 +770,14 @@
 									<div class="komponenten-maintenance grey-box">
 										<p>
 											<span class="komponenten-strong">Maintenance Schedule</span></br />
-											<span class="blue">NEXT Wed 18.01.2017</span><br />
-											<span class="past-maintenance">LAST Mon 11.04.2016</span>
+											<span class="blue">NEXT Mon 14.11.2016</span><br />
+											<span class="past-maintenance">LAST Wed 12.10.2016</span>
 										</p>
 									</div>
 									<div class="komponenten-maintenance blue-box">
 										<p>
 											<span class="komponenten-strong">Contact Maintenance</span></br />
-											<span class="blue">John Doe</span><br />
+											<span class="blue">Eric Laser</span><br />
 											<span class="past-maintenance">Service Department</span>
 										</p>
 									</div>
@@ -784,7 +785,7 @@
 										<p>
 											<span class="komponenten-strong">Contact Coperion</span></br />
 											<span class="blue">Frank Mack</span><br />
-											<span class="past-maintenance">Coperion HQ</span>
+											<span class="past-maintenance">Comp. & Extrusion</span>
 										</p>
 									</div>
 									<div class="clear"></div>
@@ -802,10 +803,7 @@
 							<div class="sensoren-titel-in"><p>ZS-B</p></div>
 
 							<div class="more-graphs">
-								<div id="zsb-graph-01" class="graph graph-thin"><p class="graph-title">ZSK <span class="blue">values</span></p></div>
-								<div id="zsb-graph-02" class="graph graph-thin"><p class="graph-title">ZSK <span class="blue">values</span></p></div>
-								<div id="zsb-graph-03" class="graph graph-thin"><p class="graph-title">ZSK <span class="blue">values</span></p></div>
-								<div id="zsb-graph-04" class="graph graph-thin"><p class="graph-title">ZSK <span class="blue">values</span></p></div>
+								<div id="zsb-graph-01" class="graph dummy-2"><p class="graph-title">ZSK <span class="blue">values</span></p></div>
 							</div>
 
 							<!--- Anfang Infobox -->
@@ -813,7 +811,7 @@
 								<h3 class="komponenten-titel"><span class="komponenten-strong">ZS-B</span> <span class="blue"></span></h3>
 								<p class="komponenten-id">
 									<span class="product-id"><span class="komponenten-strong">Product ID</span> 57456789</span>
-									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 10.03.2009</span>
+									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 10.03.2015</span>
 								</p>
 								<p class="komponenten-information">
 									<span class="komponenten-strong">Component Information</span><br />
@@ -825,14 +823,14 @@
 									<div class="komponenten-maintenance grey-box">
 										<p>
 											<span class="komponenten-strong">Maintenance Schedule</span></br />
-											<span class="blue">NEXT Wed 18.01.2017</span><br />
-											<span class="past-maintenance">LAST Mon 11.04.2016</span>
+											<span class="blue">NEXT Tue 17.05.2016</span><br />
+											<span class="past-maintenance">LAST Tue 16.05.2017</span>
 										</p>
 									</div>
 									<div class="komponenten-maintenance blue-box">
 										<p>
 											<span class="komponenten-strong">Contact Maintenance</span></br />
-											<span class="blue">John Doe</span><br />
+											<span class="blue">Eric Laser</span><br />
 											<span class="past-maintenance">Service Department</span>
 										</p>
 									</div>
@@ -840,7 +838,7 @@
 										<p>
 											<span class="komponenten-strong">Contact Coperion</span></br />
 											<span class="blue">Thorsten Stirner</span><br />
-											<span class="past-maintenance">Coperion HQ</span>
+											<span class="past-maintenance">Comp. & Extrusion</span>
 										</p>
 									</div>
 									<div class="clear"></div>
@@ -858,11 +856,8 @@
 							<div class="sensoren-titel-in"><p>ZS_EG</p></div>
 
 								<div class="more-graphs">
-									<div id="zs_eg-graph-01" class="graph graph-thin"><p class="graph-title">ZSK <span class="blue">values</span></p></div>
-									<div id="zs_eg-graph-02" class="graph graph-thin"><p class="graph-title">ZSK <span class="blue">values</span></p></div>
-									<div id="zs_eg-graph-03" class="graph graph-thin"><p class="graph-title">ZSK <span class="blue">values</span></p></div>
-									<div id="zs_eg-graph-04" class="graph graph-thin"><p class="graph-title">ZSK <span class="blue">values</span></p></div>
-								</div>
+									<div id="zs_eg-graph-01" class="graph dummy-2"><p class="graph-title">ZSK <span class="blue">values</span></p></div>
+						</div>
 
 							<!--- Anfang Infobox -->
 							<div class="komponenten-infobox">
@@ -879,14 +874,14 @@
 									<div class="komponenten-maintenance grey-box">
 										<p>
 											<span class="komponenten-strong">Maintenance Schedule</span></br />
-											<span class="blue">NEXT Wed 18.01.2017</span><br />
+											<span class="blue">NEXT Tue 11.04.2017</span><br />
 											<span class="past-maintenance">LAST Mon 11.04.2016</span>
 										</p>
 									</div>
 									<div class="komponenten-maintenance blue-box">
 										<p>
 											<span class="komponenten-strong">Contact Maintenance</span></br />
-											<span class="blue">John Doe</span><br />
+											<span class="blue">Eric Laser</span><br />
 											<span class="past-maintenance">Service Department</span>
 										</p>
 									</div>
@@ -894,7 +889,7 @@
 										<p>
 											<span class="komponenten-strong">Contact Coperion</span></br />
 											<span class="blue">Marina Matta</span><br />
-											<span class="past-maintenance">Coperion HQ</span>
+											<span class="past-maintenance">Comp. & Extrusion</span>
 										</p>
 									</div>
 									<div class="clear"></div>
@@ -922,7 +917,7 @@
 								<h3 class="komponenten-titel"><span class="komponenten-strong">ASC</span> <span class="blue">Automatic Strand Conveying System</span></h3>
 								<p class="komponenten-id">
 									<span class="product-id"><span class="komponenten-strong">Product ID</span> 76543456</span>
-									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 04.06.2012</span>
+									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 04.06.2015</span>
 								</p>
 								<p class="komponenten-information">
 									<span class="komponenten-strong">Component Information</span><br />
@@ -932,14 +927,14 @@
 									<div class="komponenten-maintenance grey-box">
 										<p>
 											<span class="komponenten-strong">Maintenance Schedule</span></br />
-											<span class="blue">NEXT Wed 18.01.2017</span><br />
-											<span class="past-maintenance">LAST Mon 11.04.2016</span>
+											<span class="blue">NEXT Mon 21.11.2016</span><br />
+											<span class="past-maintenance">LAST Mon 17.10.2016</span>
 										</p>
 									</div>
 									<div class="komponenten-maintenance blue-box">
 										<p>
 											<span class="komponenten-strong">Contact Maintenance</span></br />
-											<span class="blue">John Doe</span><br />
+											<span class="blue">Eric Laser</span><br />
 											<span class="past-maintenance">Service Department</span>
 										</p>
 									</div>
@@ -947,7 +942,7 @@
 										<p>
 											<span class="komponenten-strong">Contact Coperion</span></br />
 											<span class="blue">Raphael Strehle</span><br />
-											<span class="past-maintenance">Coperion HQ</span>
+											<span class="past-maintenance">Material Handling</span>
 										</p>
 									</div>
 									<div class="clear"></div>
@@ -964,14 +959,14 @@
 
 						<div id="sp500">
 							<div class="sensoren-titel-in"><p>SP 500</p></div>
-							<div id="sensoring-full-durchsatz" class="graph dummy-2"><p class="graph-title">SP 500 HD <span class="blue">values</span></p></div>
+							<div id="sp500-graph" class="graph dummy-2"><p class="graph-title">SP 500 HD <span class="blue">values</span></p></div>
 
 							<!--- Anfang Infobox -->
 							<div class="komponenten-infobox">
 								<h3 class="komponenten-titel"><span class="komponenten-strong">SP 500 HD</span> <span class="blue">Strand pelletizer</span></h3>
 								<p class="komponenten-id">
 									<span class="product-id"><span class="komponenten-strong">Product ID</span> 37485973</span>
-									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 15.03.2012</span>
+									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 15.03.2015</span>
 								</p>
 								<p class="komponenten-information">
 									<span class="komponenten-strong">Component Information</span><br />
@@ -981,14 +976,14 @@
 									<div class="komponenten-maintenance grey-box">
 										<p>
 											<span class="komponenten-strong">Maintenance Schedule</span></br />
-											<span class="blue">NEXT Wed 18.01.2017</span><br />
-											<span class="past-maintenance">LAST Mon 11.04.2017</span>
+											<span class="blue">NEXT Wed 09.11.2016</span><br />
+											<span class="past-maintenance">LAST Mon 05.10.2016</span>
 										</p>
 									</div>
 									<div class="komponenten-maintenance blue-box">
 										<p>
 											<span class="komponenten-strong">Contact Maintenance</span></br />
-											<span class="blue">John Doe</span><br />
+											<span class="blue">Eric Laser</span><br />
 											<span class="past-maintenance">Service Department</span>
 										</p>
 									</div>
@@ -996,7 +991,7 @@
 										<p>
 											<span class="komponenten-strong">Contact Coperion</span></br />
 											<span class="blue">Raphael Strehle</span><br />
-											<span class="past-maintenance">Coperion HQ</span>
+											<span class="past-maintenance">Material Handling</span>
 										</p>
 									</div>
 									<div class="clear"></div>
@@ -1019,7 +1014,7 @@
 								<h3 class="komponenten-titel"><span class="komponenten-strong">ZVB</span> <span class="blue"></span></h3>
 								<p class="komponenten-id">
 									<span class="product-id"><span class="komponenten-strong">Product ID</span> 46378299</span>
-									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 10.04.2011</span>
+									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 10.04.2015</span>
 								</p>
 								<p class="komponenten-information">
 									<span class="komponenten-strong">Component Information</span><br />
@@ -1038,7 +1033,7 @@
 									<div class="komponenten-maintenance blue-box">
 										<p>
 											<span class="komponenten-strong">Contact Maintenance</span></br />
-											<span class="blue">John Doe</span><br />
+											<span class="blue">Eric Laser</span><br />
 											<span class="past-maintenance">Service Department</span>
 										</p>
 									</div>
@@ -1046,7 +1041,7 @@
 										<p>
 											<span class="komponenten-strong">Contact Coperion</span></br />
 											<span class="blue">Fernando Ricart</span><br />
-											<span class="past-maintenance">Coperion HQ</span>
+											<span class="past-maintenance">Material Handling</span>
 										</p>
 									</div>
 									<div class="clear"></div>
@@ -1070,7 +1065,7 @@
 								<h3 class="komponenten-titel"><span class="komponenten-strong">Screener</span> <span class="blue">Vibrating Screen Type VS</span></h3>
 								<p class="komponenten-id">
 									<span class="product-id"><span class="komponenten-strong">Product ID</span> 78394732</span>
-									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 12.10.2012</span>
+									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 12.10.2015</span>
 								</p>
 								<p class="komponenten-information">
 									<span class="komponenten-strong">Component Information</span><br />
@@ -1080,14 +1075,14 @@
 									<div class="komponenten-maintenance grey-box">
 										<p>
 											<span class="komponenten-strong">Maintenance Schedule</span></br />
-											<span class="blue">NEXT Wed 18.01.2017</span><br />
-											<span class="past-maintenance">LAST Mon 11.04.2016</span>
+											<span class="blue">NEXT Tue 04.10.2016</span><br />
+											<span class="past-maintenance">LAST Tue 08.11.2016</span>
 										</p>
 									</div>
 									<div class="komponenten-maintenance blue-box">
 										<p>
 											<span class="komponenten-strong">Contact Maintenance</span></br />
-											<span class="blue">John Doe</span><br />
+											<span class="blue">Eric Laser</span><br />
 											<span class="past-maintenance">Service Department</span>
 										</p>
 									</div>
@@ -1095,7 +1090,7 @@
 										<p>
 											<span class="komponenten-strong">Contact Coperion</span></br />
 											<span class="blue">Daniel Stockton</span><br />
-											<span class="past-maintenance">Coperion HQ</span>
+											<span class="past-maintenance">Material Handling</span>
 										</p>
 									</div>
 									<div class="clear"></div>
@@ -1117,10 +1112,10 @@
 					<div id="second-row-downstream">
 						<ul class="second-row-navigation">
 							<li class="hidden"><a id="foerderdruck-link-3" href="#foerderdruck-3">Special Link Hidden</a></li>
-							<li><a id="bxc-link" href="#bxc-component"><span>BXC</span></a></li>
-							<li><a id="wzk-link" href="#wzk-box"><span>WZK</span></a></li>
-							<li><a id="ibp-link" href="#ibp250"><span>IBP 250</span></a></li>
-							<li><a id="wet-link" href="#wet"><span>WET</span></a></li>
+							<li><a id="bxc-link" href="#bxc-component"><span class="blue number">18</span><span>BXC</span></a></li>
+							<li><a id="wzk-link" href="#wzk-box"><span class="blue number">19</span><span>WZK</span></a></li>
+							<li><a id="ibp-link" href="#ibp250"><span class="blue number">20</span><span>IBP 250</span></a></li>
+							<li><a id="wet-link" href="#wet"><span class="blue number">21</span><span>WET</span></a></li>
 						</ul>
 						<div id="foerderdruck-3">
 							<div class="sensoren-titel-in"><p>Conveying Pressure</p></div>
@@ -1136,7 +1131,7 @@
 								<h3 class="komponenten-titel"><span class="komponenten-strong">BXC</span> <span class="blue">»BULK-X-CHANGE«</span></h3>
 								<p class="komponenten-id">
 									<span class="product-id"><span class="komponenten-strong">Product ID</span> 84792347</span>
-									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 07.05.2011</span>
+									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 07.05.2015</span>
 								</p>
 								<p class="komponenten-information">
 									<span class="komponenten-strong">Component Information</span><br />
@@ -1154,7 +1149,7 @@
 									<div class="komponenten-maintenance blue-box">
 										<p>
 											<span class="komponenten-strong">Contact Maintenance</span></br />
-											<span class="blue">John Doe</span><br />
+											<span class="blue">Eric Laser</span><br />
 											<span class="past-maintenance">Service Department</span>
 										</p>
 									</div>
@@ -1162,7 +1157,7 @@
 										<p>
 											<span class="komponenten-strong">Contact Coperion</span></br />
 											<span class="blue">Olaf Hustert</span><br />
-											<span class="past-maintenance">Coperion HQ</span>
+											<span class="past-maintenance">Material Handling</span>
 										</p>
 									</div>
 									<div class="clear"></div>
@@ -1185,7 +1180,7 @@
 								<h3 class="komponenten-titel"><span class="komponenten-strong">WZK</span> <span class="blue"></span></h3>
 								<p class="komponenten-id">
 									<span class="product-id"><span class="komponenten-strong">Product ID</span> 64839487</span>
-									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 26.04.2011</span>
+									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 26.04.2015</span>
 								</p>
 								<p class="komponenten-information">
 									<span class="komponenten-strong">Component Information</span><br />
@@ -1198,13 +1193,13 @@
 										<p>
 											<span class="komponenten-strong">Maintenance Schedule</span></br />
 											<span class="blue">NEXT Wed 11.01.2017</span><br />
-											<span class="past-maintenance">LAST Mon 11.07.2016</span>
+											<span class="past-maintenance">LAST Wed 13.01.2016</span>
 										</p>
 									</div>
 									<div class="komponenten-maintenance blue-box">
 										<p>
 											<span class="komponenten-strong">Contact Maintenance</span></br />
-											<span class="blue">John Doe</span><br />
+											<span class="blue">Eric Laser</span><br />
 											<span class="past-maintenance">Service Department</span>
 										</p>
 									</div>
@@ -1212,7 +1207,7 @@
 										<p>
 											<span class="komponenten-strong">Contact Coperion</span></br />
 											<span class="blue">Markus Locher</span><br />
-											<span class="past-maintenance">Coperion HQ</span>
+											<span class="past-maintenance">Material Handling</span>
 										</p>
 									</div>
 									<div class="clear"></div>
@@ -1235,7 +1230,7 @@
 								<h3 class="komponenten-titel"><span class="komponenten-strong">IBP 250</span> <span class="blue"></span></h3>
 								<p class="komponenten-id">
 									<span class="product-id"><span class="komponenten-strong">Product ID</span> 24568374</span>
-									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 22.11.2009</span>
+									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 22.11.2015</span>
 								</p>
 								<p class="komponenten-information">
 									<span class="komponenten-strong">Component Information</span><br />
@@ -1254,7 +1249,7 @@
 									<div class="komponenten-maintenance blue-box">
 										<p>
 											<span class="komponenten-strong">Contact Maintenance</span></br />
-											<span class="blue">John Doe</span><br />
+											<span class="blue">Eric Laser</span><br />
 											<span class="past-maintenance">Service Department</span>
 										</p>
 									</div>
@@ -1262,7 +1257,7 @@
 										<p>
 											<span class="komponenten-strong">Contact Coperion</span></br />
 											<span class="blue">Alessandro Pesso</span><br />
-											<span class="past-maintenance">Coperion HQ</span>
+											<span class="past-maintenance">Sales</span>
 										</p>
 									</div>
 									<div class="clear"></div>
@@ -1285,7 +1280,7 @@
 								<h3 class="komponenten-titel"><span class="komponenten-strong">WET</span> <span class="blue"></span></h3>
 								<p class="komponenten-id">
 									<span class="product-id"><span class="komponenten-strong">Product ID</span> 74893847</span>
-									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 04.09.2012</span>
+									<span class="product-initial-date"><span class="komponenten-strong">Initial Date</span> 04.09.2015</span>
 								</p>
 								<p class="komponenten-information">
 									<span class="komponenten-strong">Component Information</span><br />
@@ -1305,7 +1300,7 @@
 									<div class="komponenten-maintenance blue-box">
 										<p>
 											<span class="komponenten-strong">Contact Maintenance</span></br />
-											<span class="blue">John Doe</span><br />
+											<span class="blue">Eric Laser</span><br />
 											<span class="past-maintenance">Service Department</span>
 										</p>
 									</div>
@@ -1313,7 +1308,7 @@
 										<p>
 											<span class="komponenten-strong">Contact Coperion</span></br />
 											<span class="blue">Markus Locher</span><br />
-											<span class="past-maintenance">Coperion HQ</span>
+											<span class="past-maintenance">Material Handling</span>
 										</p>
 									</div>
 									<div class="clear"></div>
@@ -1453,10 +1448,10 @@
 				</div>
 				<div id="first-row-rohstoffe">
 					<ul id="sensoren-hauptnavi">
-						<li id="full-link" class="full-link-spacebrew"><a href="#full"><span></span></a></li>
-						<li id="upstream-link" class="upstream-spacebrew"><a href="#upstream">Raw materials<span class="upstream-arrow"></span></a></li>
-						<li id="compounding-link" class="compounding-spacebrew"><a href="#compounding">Compounding<span class="compounding-arrow"></span></a></li>
-						<li id="downstream-link" class="downstream-spacebrew"><a href="#downstream">Finished products<span class="downstream-arrow"></span></a></li>
+						<li id="full-link" class="full-link-spacebrew sensoring-back-button"><a href="#full"><span></span></a></li>
+						<li id="upstream-link" class="upstream-spacebrew tracking-raw-materials-button"><a href="#upstream">Raw materials<span class="upstream-arrow"></span></a></li>
+						<li id="compounding-link" class="compounding-spacebrew tracking-compounding-button"><a href="#compounding">Compounding<span class="compounding-arrow"></span></a></li>
+						<li id="downstream-link" class="downstream-spacebrew tracking-finished-products-button"><a href="#downstream">Finished products<span class="downstream-arrow"></span></a></li>
 					</ul>
 
 					<!-- Fullview -->
@@ -1698,7 +1693,7 @@
 						<div id="second-row-downstream-rohstoffe">
 							<ul class="second-row-navigation">
 								<li><a id="silo-3-link" href="#silo-3"><span>Silo 3</span></a></li>
-								<li><a id="wzk-r-link" href="#wzk-r"><span>WZK</span></a></li>
+								<!-- <li><a id="wzk-r-link" href="#wzk-r"><span class="blue number">15</span><span>WZK</span></a></li> -->
 								<li><a id="ibp-r-link" href="#ibp250-r"><span>IBP 250</span></a></li>
 								<li><a id="silo-4-link" href="#silo-4"><span>Silo 4</span></a></li>
 								<li><a id="silo-5-link" href="#silo-5"><span>Silo 5</span></a></li>
