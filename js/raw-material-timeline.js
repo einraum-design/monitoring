@@ -275,6 +275,10 @@ var rawTimeline = {
 			var recipe = getAllocationContent( allocation, 'recipe' );
 
 			wrapperEl.attr( 'data-recipe', allocationContent.toLowerCase() );
+
+			if ( allocationContent.toLowerCase() === 'setup' && nextAllocation ) {
+				recipe = getAllocationContent( nextAllocation, 'recipe' );
+			}
 			
 			// UPDATE RECIPE EL
 			if ( recipe ) {

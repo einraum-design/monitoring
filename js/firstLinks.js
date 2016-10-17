@@ -100,4 +100,12 @@ $( '.sensoring-back-button, .tracking-back-button' ).click( function () {
   });
 } );
 
+$( '.tracking-back-button' ).click( function () {
+  window.sendSpacebrewMessage('componentActivated', {
+      componentId: 100,
+      componentName: 'Back Button',
+      rohstoffTracking: true
+  });
+} );
+
 });

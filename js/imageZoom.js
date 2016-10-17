@@ -71,7 +71,7 @@ $(document).ready(function(){
         $("#second-row").tabs({ active: 1 });
         $("ul li").siblings().removeClass('active-auswahl-punkt');
         $("#upstream-links #filter-1-point").addClass('active-auswahl-punkt');
-        $(".anlagen-bild").css({'transform':'translate(1250px, -120px) scale(4.3)'});
+        $(".anlagen-bild").css({'transform':'translate(1000px, -70px) scale(4.3)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 1,
           componentName: 'Filter',
@@ -89,7 +89,7 @@ $(document).ready(function(){
         $("#second-row").tabs({ active: 2 });
         $("ul li").siblings().removeClass('active-auswahl-punkt');
         $("#upstream-links #ati-point").addClass('active-auswahl-punkt');
-        $(".anlagen-bild").css({'transform':'translate(1250px, -320px) scale(4.3)'});
+        $(".anlagen-bild").css({'transform':'translate(1000px, -320px) scale(4.3)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 3,
           componentName: 'ATI',
@@ -108,7 +108,7 @@ $(document).ready(function(){
         $("#second-row").tabs({ active: 3 });
         $("ul li").siblings().removeClass('active-auswahl-punkt');
         $("#upstream-links #zxd-point").addClass('active-auswahl-punkt');
-        $(".anlagen-bild").css({'transform':'translate(1250px, -350px) scale(4.3)'});
+        $(".anlagen-bild").css({'transform':'translate(1000px, -350px) scale(4.3)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 4,
           componentName: 'ZXD',

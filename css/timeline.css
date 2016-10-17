@@ -79,7 +79,35 @@
 	background-color: red;
 }
 
-#timeline .event-button.type-setup {
+#timeline-popup[data-type="error"] #timline-data-type-bar {
+	background-color: red;
+}
+
+#timeline .event-button.type-error.is-in-future {
+	display: none;
+}
+
+#timeline .event-button.type-warning {
+	background-color: orange;
+}
+
+#timeline-popup[data-type="warning"] #timline-data-type-bar {
+	background-color: orange;
+}
+
+#timeline .event-button.type-warning.is-in-future {
+	display: none;
+}
+
+#timeline .event-button.type-optimisation {
+	background-color: green;
+}
+
+#timeline .event-button.type-optimisation.is-in-future {
+	display: none;
+}
+
+#timeline-popup[data-type="optimisation"] #timline-data-type-bar {
 	background-color: green;
 }
 
@@ -88,11 +116,11 @@
 	top: 0;
 	left: 0;
 	height: 100%;
-	
+
 	overflow: hidden;
 	/* border-radius: 30px; */
-	
-	
+
+
 	cursor: pointer;
 
 }
@@ -182,7 +210,9 @@
 	display: none;
 	width: 100%;
 	height: 315px;
-	background-color: #ccc;
+	/* background-color: #ccc; */
+	background-color: #333;
+	color: #fff;
 }
 
 #timeline-popup.is-active {
@@ -190,15 +220,32 @@
 	z-index: 11 !important;
 }
 
-#timeline-popup.is-in-past {
+.timeline-big-image-wrapper {
+	position: absolute;
+	top: 0;
+	display: none;
+}
+
+#timeline-popup.has-big-image .timeline-big-image-wrapper {
+	display: block;
+}
+
+#timeline-big-image {
+	width: 100%;
+	display: block;
+	transform: translateY(-100%);
+}
+
+/* #timeline-popup.is-in-past {
 	background-color: #333;
 	color: #fff;
-}
+} */
+
 
 #timeline-popup .timeline-popup-close-button {
   position: absolute;
-  top: 15px;
-  right: 20px;
+	top: 13px;
+	right: 12px;
   width: 30px;
   height: 30px;
   overflow: hidden;
@@ -212,8 +259,7 @@
   font-family: 'Gotham';
   padding: 0px;
   margin: 0px;
-	box-shadow: 0px !important;
-	-webkit-box-shadow: 0px !important;
+  -webkit-box-shadow: 0 0px 0px rgba(0, 0, 0, .15);
 	background-image: url('../img/popup-close.svg');
 	background-size: 16px;
 	background-position: center;
@@ -346,7 +392,7 @@ p#timeline-popup-description {
 }
 
 #timline-data-type-bar{
-	width: 10px;
+	width: 7px;
 	position: absolute;
 	left: 0px;
 	top: 0px;
@@ -397,25 +443,29 @@ div#timeline-popup[data-type="maintenance"] #timeline-popup-title{
 	background-size: cover;
 }
 
-span.selbstoptimierung::before {
+span.selbstoptimierung::before,
+#timeline span.optimisation::before {
   content: url(../img/legende-selbstopimierung.png);
 	padding-right: 6px;
 	margin-top: -2px;
 }
 
-span.warnung::before {
+span.warnung::before,
+#timeline span.warnung::before {
   content: url(../img/legende-warning.png);
 	padding-right: 6px;
 	margin-top: -2px;
 }
 
-span.stoerung::before {
+span.stoerung::before,
+#timeline span.error::before {
   content: url(../img/legende-error.png);
 	padding-right: 6px;
 	margin-top: -2px;
 }
 
-span.wartung::before {
+span.wartung::before,
+#timeline span.maintenance::before {
   content: url(../img/legende-maintenance.png);
 	padding-right: 6px;
 	margin-top: -2px;
