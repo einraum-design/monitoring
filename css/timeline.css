@@ -416,8 +416,18 @@ div#timeline-popup[data-type="setup"] #timline-data-type-bar {
   background-color: green;
 }
 
-div#timeline-popup[data-type="setup"] #timeline-popup-title{
+div#timeline-popup[data-type="setup"] #timeline-popup-title {
 	color: green;
+}
+
+div#timeline-popup[data-type="optimization"] #timeline-popup-title,
+div#timeline-popup[data-type="optimisation"] #timeline-popup-title {
+	color: green;
+}
+
+div#timeline-popup[data-type="warning"] #timeline-popup-title,
+div#timeline-popup[data-type="warning"] #timeline-popup-title {
+	color: orange;
 }
 
 div#timeline-popup[data-type="maintenance"] #timline-data-type-bar {
