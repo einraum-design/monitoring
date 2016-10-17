@@ -34,26 +34,26 @@ $(document).ready(function(){
         $("#app-tab1").addClass("active");
         $("#app-tab2").removeClass("active");
         
-        window.sendSpacebrewMessage('componentActivated', {
-          componentId: 90,
-          componentName: 'Switch to Sensoring',
-          rohstoffTracking: false
-        });
+        // window.sendSpacebrewMessage('componentActivated', {
+        //   componentId: 90,
+        //   componentName: 'Switch to Sensoring',
+        //   rohstoffTracking: false
+        // });
 
-        resetPlantView();
+        resetSensoringPlantView();
 
       });
 
       $('#dd li:nth-child(2)').on('click',function(){
         $("#app-tab2").addClass("active");
         $("#app-tab1").removeClass("active");
-        window.sendSpacebrewMessage('componentActivated', {
-          componentId: 89,
-          componentName: 'Switch to Material Tracking',
-          rohstoffTracking: true
-        });
+        // window.sendSpacebrewMessage('componentActivated', {
+        //   componentId: 89,
+        //   componentName: 'Switch to Material Tracking',
+        //   rohstoffTracking: true
+        // });
 
-        resetPlantView();
+        resetTrackingPlantView();
       });
 
       obj.opts.on('click',function(){
@@ -88,9 +88,31 @@ $(document).ready(function(){
 
 });
 
-var resetPlantView = function() {
+// var resetPlantView = function() {
 
-  $('#full-link').trigger('click');
+//   $('#full-link').trigger('click');
+//   $('#upstream-link a').addClass('upstream-start');
+//   $('#compounding-link a').addClass('compounding-start');
+//   $('#downstream-link a').addClass('downstream-start');
+
+//   $("#first-row").tabs({active: 0});
+//   $("#first-row-rohstoffe").tabs({active: 0});
+// }
+
+var resetSensoringPlantView = function() {
+
+  $('.sensoring-back-button').trigger('click');
+  $('#upstream-link a').addClass('upstream-start');
+  $('#compounding-link a').addClass('compounding-start');
+  $('#downstream-link a').addClass('downstream-start');
+
+  $("#first-row").tabs({active: 0});
+  $("#first-row-rohstoffe").tabs({active: 0});
+}
+
+var resetTrackingPlantView = function() {
+
+  $('.tracking-back-button').trigger('click');
   $('#upstream-link a').addClass('upstream-start');
   $('#compounding-link a').addClass('compounding-start');
   $('#downstream-link a').addClass('downstream-start');

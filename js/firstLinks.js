@@ -92,11 +92,19 @@ $( '.sensoring-finished-products-button' ).click( function () {
   });
 } );
 
-$( '.sensoring-back-button, .tracking-back-button' ).click( function () {
+$( '.sensoring-back-button' ).click( function () {
   window.sendSpacebrewMessage('componentActivated', {
       componentId: 100,
-      componentName: 'Back Button',
+      componentName: 'Sensoring Back Button',
       rohstoffTracking: false
+  });
+} );
+
+$( '.tracking-back-button' ).click( function () {
+  window.sendSpacebrewMessage('componentActivated', {
+      componentId: 100,
+      componentName: 'Tracking Back Button',
+      rohstoffTracking: true
   });
 } );
 
