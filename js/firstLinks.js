@@ -62,4 +62,42 @@ $(document).ready(function(){
     $('#downstream-link a').removeClass('downstream-start');
   });
 
+$( '.sensoring-raw-materials-button' ).click( function () {
+  console.log( 'sensoring-raw-materials-button' );
+
+  window.sendSpacebrewMessage('componentActivated', {
+      componentId: 40,
+      componentName: 'Sensoring Raw Materials Button',
+      rohstoffTracking: true
+  });
+} );
+
+$( '.sensoring-raw-materials-button' ).click( function () {
+  console.log( 'sensoring-compounding-button' );
+
+  window.sendSpacebrewMessage('componentActivated', {
+      componentId: 41,
+      componentName: 'Sensoring Compounding Button',
+      rohstoffTracking: true
+  });
+} );
+
+$( '.sensoring-finished-products-button' ).click( function () {
+  console.log( 'sensoring-compounding-button' );
+
+  window.sendSpacebrewMessage('componentActivated', {
+      componentId: 42,
+      componentName: 'Sensoring Finished Products Button',
+      rohstoffTracking: true
+  });
+} );
+
+$( '.sensoring-back-button, .tracking-back-button' ).click( function () {
+  window.sendSpacebrewMessage('componentActivated', {
+      componentId: 100,
+      componentName: 'Back Button',
+      rohstoffTracking: false
+  });
+} );
+
 });
