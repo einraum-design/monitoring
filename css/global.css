@@ -320,6 +320,10 @@ li#full-link.ui-tabs-active{
     pointer-events: auto;
 }
 
+:focus{
+	outline: 0px !important;
+}
+
 .wrapper:after {
     border-color: #9bc7de transparent;
     border-width: 6px 6px 0 6px ;
@@ -1248,6 +1252,14 @@ a#sensor-2 .3d-ansicht .anlagen-bild{
   color: #7c9cbb;
 }
 
+.number{
+	margin-right: 5px;
+}
+
+.ui-tabs-active .number {
+	color: #fff;
+}
+
 /* Maskierung der Ansicht bei Upstream, Comounding und Downsream */
 
 .border-sensoren{
@@ -1510,4 +1522,3 @@ a#sensor-2 .3d-ansicht .anlagen-bild{
 	text-indent: -5000px;
 	border-radius: 50px !important;
 }
-
