@@ -72,7 +72,7 @@ $( '.sensoring-raw-materials-button' ).click( function () {
   });
 } );
 
-$( '.sensoring-raw-materials-button' ).click( function () {
+$( '.sensoring-compounding-button' ).click( function () {
   console.log( 'sensoring-compounding-button' );
 
   window.sendSpacebrewMessage('componentActivated', {
