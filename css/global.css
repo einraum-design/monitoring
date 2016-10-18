@@ -116,6 +116,16 @@ li{
 	display: none;
 }
 
+.rohstoffe-inhalte{
+	font-size: 12px !important;
+	line-height: 1.3em;
+}
+
+sub{
+	font-size: 7px;
+	margin-top: -6px;
+}
+
 
 
 /* Zweite Ebene Navigation und Close Button der Navigation */
