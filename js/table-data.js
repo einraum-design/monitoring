@@ -41,7 +41,7 @@ function tableDataManager () {
 			recipeThroughputPerComponent: recipeThroughputPerComponentTransformFn,
 		},
 		afterStore: {
-			contentMaterialsByHour: contentMaterialsAfterStoreTransformFn	
+			contentMaterialsByHour: contentMaterialsAfterStoreTransformFn
 		}
 	};
 
@@ -107,7 +107,7 @@ function tableDataManager () {
 
 		var componentIdCol = 0;
 		var componentNameCol = 1;
-		
+
 		var ignoreRowIndices = [ hourOfProductionRow, hourOfDayRow, dayOfProductionRow ];
 		var ignoreColIndices = [ componentIdCol, componentNameCol ];
 
@@ -116,7 +116,7 @@ function tableDataManager () {
 				return row.map( function ( cell, colIndex ) {
 					var chargeStr = '' + cell ? '' + cell : false;
 
-					if ( ignoreColIndices.indexOf( colIndex ) === -1 ) {					
+					if ( ignoreColIndices.indexOf( colIndex ) === -1 ) {
 						return {
 							chargeStr: chargeStr,
 							hourOfProduction: csvData[hourOfProductionRow][colIndex],
@@ -148,7 +148,7 @@ function tableDataManager () {
 					var layers = getMaterialByStr( cell.chargeStr );
 					cell.layers = layers.length ? layers : [ ];
 				}
-				
+
 				return cell;
 			} );
 		} );
@@ -161,14 +161,14 @@ function tableDataManager () {
 
 		var componentIdCol = 0;
 		var componentNameCol = 1;
-		
+
 		var ignoreRowIndices = [ hourOfProductionRow, hourOfDayRow, dayOfProductionRow ];
 		var ignoreColIndices = [ componentIdCol, componentNameCol ];
 
 		var result = csvData
 			.map( function ( row, rowIndex ) {
 				return row.map( function ( cell, colIndex ) {
-					if ( ignoreColIndices.indexOf( colIndex ) === -1 ) {					
+					if ( ignoreColIndices.indexOf( colIndex ) === -1 ) {
 						return {
 							amount: {
 								value: ( '' + cell ).length ? parseInt( cell, 10 ) : 0,
@@ -202,19 +202,19 @@ function tableDataManager () {
 		var componentIdCol = 0;
 		var componentNameCol = 1;
 		var maxAmountCol = 4;
-		
+
 		var ignoreRowIndices = [ headerRow ];
 		var ignoreColIndices = [ componentIdCol, componentNameCol ];
 
 		var result = csvData
 			.map( function ( row, rowIndex ) {
 				var maxAmount = row[maxAmountCol];
-				
+
 				return {
 					maxAmount: {
 						value: ( '' + maxAmount ).length ? parseInt( maxAmount, 10 ) : 0,
 						unit: 'kg'
-					},						
+					},
 					componentId: csvData[rowIndex][componentIdCol],
 					componentTitle: csvData[rowIndex][componentNameCol]
 				};
@@ -234,7 +234,7 @@ function tableDataManager () {
 
 		var componentIdCol = 0;
 		var componentNameCol = 1;
-		
+
 		var ignoreColIndices = [ componentIdCol, componentNameCol ];
 
 		var result = csvData[recipeRow]
@@ -273,7 +273,7 @@ function tableDataManager () {
 						if ( recipePercent ) {
 							var recipeId = recipeIds[colIndex];
 							var materialId = csvData[rowIndex][componentCol];
-							
+
 							result[recipeId].push( {
 								recipeId: recipeId,
 								materialId: materialId,
@@ -342,20 +342,24 @@ function tableDataManager () {
 
 	function getMaterialByChargeId ( id ) {
 		var result;
-			
+
 		if ( data && data.materialRegister ) {
 			var materialNr = parseInt( id, 10 );
-			
+
 			var material = data.materialRegister.filter( function ( material, index ) {
 				return materialNr >= material.chargeIdMin && materialNr <= material.chargeIdMax;
 			} )[0];
+
+			var randomNumber = (Math.floor(100000 + Math.random() * 900000)).toString();
+			randomNumber = randomNumber.substring(-2);
 
 			if ( material ) {
 				result = {
 					material: material,
 					materialId: material.id,
 					chargeSize: material.chargeSize,
-					chargeIndex: materialNr - material.chargeIdMin
+					//chargeIndex: materialNr - material.chargeIdMin // TODO: hier zufallszahlen rein
+					chargeIndex: randomNumber,
 				};
 			}
 		}
@@ -384,7 +388,7 @@ function tableDataManager () {
 			var fileName = url
 					.replace( filePath + '/', '' )
 					.replace( '.csv', '' );
-			
+
 			var opts = copyObj( parseOptions );
 
 			if ( fileParseOptions[fileName] ) {
@@ -445,7 +449,7 @@ function tableDataManager () {
 
 		result.map( function ( row, rowIndex ) {
 			return row.map( function ( cell, colIndex ) {
-				if ( 
+				if (
 					data.contentAmountsPerHour &&
 					data.contentAmountsPerHour[rowIndex] &&
 					data.contentAmountsPerHour[rowIndex][colIndex] &&
@@ -505,7 +509,7 @@ function tableDataManager () {
 	function getProduction () {
 		var me = this;
 		var args = arguments;
-		
+
 		return new Promise ( function ( resolve, reject ) {
 			if ( data ) {
 				resolve( _getProduction.apply( me, args ) );

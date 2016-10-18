@@ -31,6 +31,14 @@
 	"image": "img/timeline/events/04_leakage_02_diagramm.png",
 	"image_big": "img/timeline/events/04_leakage_02_zeichnung.png"
 }, {
+	"id": "optimisation-05",
+	"date": "2016-10-08 18:14:30",
+	"type": "optimisation",
+	"title": "Leakage in Conveying System / Wear in Rotary Valve",
+	"description": "<b>Registry Entry</b><br/>Conveying pressure constantly increasing for 5 hours<br/><br/><b>Suspicion</b><br/>Leakage in Conveying System / Wear in Rotary Valve<br/><br/><b>Solution</b><br/>Performance is increased",
+	"image": "img/timeline/events/02_leakage_01_diagramm.png",
+	"image_big": "img/timeline/events/02_leakage_01_zeichnung.png"
+}, {
 	"id": "warning-01",
 	"date": "2016-10-14 08:49:23",
 	"type": "warning",
@@ -51,6 +59,13 @@
 	"title": "Conveying pressure low = -250 mbar",
 	"description": "No / insufficient product feed in suction conveying line.",
 	"image": "img/timeline/events/Silo.png"
+}, {
+  "id": "warning-04",
+	"date": "2016-10-05 08:49:23",
+	"type": "warning",
+	"title": "Filterbags have been replaced",
+	"description": "Filter differential pressure abnormal high value = 18 mbar.",
+	"image": "img/timeline/events/Warnung_2.filter_zu_hoch_druck.png"
 }, {
 	"id": "maintenance-01",
 	"date": "2016-10-06 18:07:20",

@@ -829,6 +829,12 @@ button.ui-button::-moz-focus-inner {
 	background: none;
 	font-size: 14px;
 	line-height: 1.4em;
+
+}
+
+.scrolling{
+	height: 260px;
+	overflow: scroll;
 }
 .ui-tooltip {
 	padding: 8px;

@@ -478,27 +478,169 @@ $(document).ready(function(){
     // MATERIAL TRACKING
 
     $('.upstream-spacebrew').on('click', function(){
-      console.log( 'i was clicked', 'upstream' );
       $(".anlagen-bild").css({'transform':'translate(830px, -150px) scale(2.8)'});
       window.rawTimeline.setSelectedComponent( 0 );
     });
 
     $('.compounding-spacebrew').on('click', function(){
-      $(".anlagen-bild").css({'transform':'translate(360px, -320px) scale(6.3)'});
+      $(".anlagen-bild").css({'transform':'translate(360px, -320px) scale(60.3)'});
       window.rawTimeline.setSelectedComponent( 8 );
     });
 
     $('.downstream-spacebrew').on('click', function(){
-      console.log('i was clicked downstream');
       $(".anlagen-bild").css({'transform':'translate(-400px, -65px) scale(1.7)'});
       window.rawTimeline.setSelectedComponent( 16 );
     });
 
-    // SILO 1
-    $('#silo-1, #silo-1-link').click(function() {
-        $("#second-row").tabs({ active: 1 });
+    $(".fill-overlays").delegate(".fill-overlay", "click", function(){
+	     // "$(this)" is the node that was clicked
+      // console.log("you clicked a link!",$(this));
+      var id = $(this).attr("fill-overlay-id")
+
+      if(id == 0) {
+        console.log('was clicked');
+        $('#silo-1-link').trigger("click");
+        $("#second-row").tabs({ active: 0 });
         $("#silo-1-point .auswahl-punkt").addClass('active-auswahl-punkt');
         $(".anlagen-bild").css({'transform':'translate(830px, -150px) scale(2.8)'});
+      }
+
+      if(id == 2) {
+        $('#silo-2-link').trigger("click");
+        $("#second-row").tabs({ active: 2 });
+        $("#silo-2-point .auswahl-punkt").addClass('active-auswahl-punkt');
+        $(".anlagen-bild").css({'transform':'translate(670px, -150px) scale(2.8)'});
+      }
+
+      // Tagessilo 1
+      if(id == 2) {
+        $('#silo-2-link').trigger("click");
+        $("#second-row").tabs({ active: 1 });
+        $("#silo-2-point .auswahl-punkt").addClass('active-auswahl-punkt');
+        $(".anlagen-bild").css({'transform':'translate(670px, -150px) scale(2.8)'});
+      }
+
+      if(id == 8) {
+        $('#tagessilo-1-link').trigger("click");
+        $("#second-row").tabs({ active: 1 });
+        $("#tagessilo-1-point .auswahl-punkt").addClass('active-auswahl-punkt');
+        $(".anlagen-bild").css({'transform':'translate(300px, -320px) scale(6.3)'});
+      }
+
+      if(id == 9) {
+        $('#dosierer-1-r-link').trigger("click");
+        $("#second-row").tabs({ active: 1 });
+        $("#dosierer-1-r-point .auswahl-punkt").addClass('active-auswahl-punkt');
+        $(".anlagen-bild").css({'transform':'translate(300px, -410px) scale(6.3)'});
+      }
+
+      if(id == 10) {
+        $('#tagessilo-2-link').trigger("click");
+        $("#second-row").tabs({ active: 1 });
+        $("#tagessilo-2-point .auswahl-punkt").addClass('active-auswahl-punkt');
+        $(".anlagen-bild").css({'transform':'translate(340px, -320px) scale(6.3)'});
+      }
+
+      if(id == 11) {
+        $('#dosierer-2-r-link').trigger("click");
+        $("#second-row").tabs({ active: 1 });
+        $("#dosierer-2-r-point .auswahl-punkt").addClass('active-auswahl-punkt');
+        $(".anlagen-bild").css({'transform':'translate(340px, -490px) scale(7)'});
+      }
+
+      if(id == 12) {
+        $('#hopper-link').trigger("click");
+        $("#second-row").tabs({ active: 1 });
+        $("#hopper-point .auswahl-punkt").addClass('active-auswahl-punkt');
+        $(".anlagen-bild").css({'transform':'translate(200px, -440px) scale(6.9)'});
+      }
+
+      if(id == 13) {
+        $('#dosierer-3-r-link').trigger("click");
+        $("#second-row").tabs({ active: 1 });
+        $("#dosierer-3-r-point .auswahl-punkt").addClass('active-auswahl-punkt');
+        $(".anlagen-bild").css({'transform':'translate(280px, -780px) scale(9)'});
+      }
+
+      if(id == 14) {
+        $('#bigbag2-link').trigger("click");
+        $("#second-row").tabs({ active: 1 });
+        $("#bigbag2-point .auswahl-punkt").addClass('active-auswahl-punkt');
+        $(".anlagen-bild").css({'transform':'translate(160px, -250px) scale(6.5)'});
+      }
+
+      if(id == 15) {
+        $('#dosierer-4-r-link').trigger("click");
+        $("#second-row").tabs({ active: 1 });
+        $("#dosierer-4-r-point .auswahl-punkt").addClass('active-auswahl-punkt');
+        $(".anlagen-bild").css({'transform':'translate(140px, -490px) scale(7)'});
+      }
+
+      if(id == 16) {
+        $('#tagessilo-3-link').trigger("click");
+        $("#second-row").tabs({ active: 1 });
+        $("#tagessilo-3-point .auswahl-punkt").addClass('active-auswahl-punkt');
+        $(".anlagen-bild").css({'transform':'translate(140px, -490px) scale(7)'});
+      }
+
+      if(id == 17) {
+        $('#dosierer-5-r-link').trigger("click");
+        $("#second-row").tabs({ active: 1 });
+        $("#dosierer-5-r-point .auswahl-punkt").addClass('active-auswahl-punkt');
+        $(".anlagen-bild").css({'transform':'translate(140px, -540px) scale(6.5)'});
+      }
+
+      if(id == 28) {
+        $('#silo-3-link').trigger("click");
+        $("#second-row").tabs({ active: 1 });
+        $("#silo-3-point .auswahl-punkt").addClass('active-auswahl-punkt');
+        $(".anlagen-bild").css({'transform':'translate(-540px, -50px) scale(2.8)'});
+      }
+
+      if(id == 29) {
+        $('#silo-4-link').trigger("click");
+        $("#second-row").tabs({ active: 1 });
+        $("#silo-4-point .auswahl-punkt").addClass('active-auswahl-punkt');
+        $(".anlagen-bild").css({'transform':'translate(-630px, -50px) scale(2.8)'});
+      }
+
+      if(id == 32) {
+        $('#silo-5-link').trigger("click");
+        $("#second-row").tabs({ active: 1 });
+        $("#silo-5-point .auswahl-punkt").addClass('active-auswahl-punkt');
+        $(".anlagen-bild").css({'transform':'translate(-880px, -50px) scale(2.8)'});
+      }
+
+      if(id == 33) {
+        $('#silo-6-link').trigger("click");
+        $("#second-row").tabs({ active: 1 });
+        $("#silo-6-point .auswahl-punkt").addClass('active-auswahl-punkt');
+        $(".anlagen-bild").css({'transform':'translate(-980px, -50px) scale(2.8)'});
+      }
+
+      if(id == 34) {
+        $('#silo-7-link').trigger("click");
+        $("#second-row").tabs({ active: 1 });
+        $("#silo-6-point .auswahl-punkt").addClass('active-auswahl-punkt');
+        $(".anlagen-bild").css({'transform':'translate(-1080px, -50px) scale(2.8)'});
+      }
+
+      if(id == 35) {
+        $('#silo-8-link').trigger("click");
+        $("#second-row").tabs({ active: 1 });
+        $("#silo-8-point .auswahl-punkt").addClass('active-auswahl-punkt');
+        $(".anlagen-bild").css({'transform':'translate(-1180px, -50px) scale(2.8)'});
+      }
+
+    });
+
+
+    // SILO 1
+    $('#silo-1, #silo-1-link').click(function() {
+      $('#silo-2-link').trigger("click");
+      $("#second-row").tabs({ active: 1 });
+      $("#silo-2-point .auswahl-punkt").addClass('active-auswahl-punkt');
+      $(".anlagen-bild").css({'transform':'translate(670px, -150px) scale(2.8)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 0,
           componentName: 'Silo_1',
@@ -543,7 +685,7 @@ $(document).ready(function(){
     $('#tagessilo-1, #tagessilo-1-link').click(function() {
         $("#second-row").tabs({ active: 1 });
         $("#tagessilo-1-point .auswahl-punkt").addClass('active-auswahl-punkt');
-        $(".anlagen-bild").css({'transform':'translate(360px, -320px) scale(6.3)'});
+        $(".anlagen-bild").css({'transform':'translate(300px, -320px) scale(6.3)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 8,
           componentName: 'Tagessilo_1',
@@ -558,7 +700,7 @@ $(document).ready(function(){
     $('#dosierer-1-r, #dosierer-1-r-link').click(function() {
         $("#second-row").tabs({ active: 1 });
         $("#dosierer-1-r-point .auswahl-punkt").addClass('active-auswahl-punkt');
-        $(".anlagen-bild").css({'transform':'translate(360px, -410px) scale(6.3)'});
+        $(".anlagen-bild").css({'transform':'translate(300px, -410px) scale(6.3)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 9,
           componentName: 'K-ML-D5-BSP-135',
