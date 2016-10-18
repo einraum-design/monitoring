@@ -67,7 +67,7 @@ $(document).ready(function(){
     })
 }
 
-  $("#raw-material-timeline").delegate(".allocation, .second-row-navigation li a", "click", function(){
+  $("#raw-material-timeline").delegate(".allocation", "click", function(){
     var number = 8000 + Math.floor(Math.random() * 20000);
     var number2 = 8000 + Math.floor(Math.random() * 20000);
 
