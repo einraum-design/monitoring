@@ -104,7 +104,7 @@ $(document).ready( function () {
 
 			if ( currentTimelineSpanId.toLowerCase() === 'week' ) {
 				scaleItemDurationInSeconds = moment.duration( 1, 'day' ).asMilliseconds();
-				scaleFormat = 'ddd, MMM Do';
+				scaleFormat = 'ddd, MMM D';
 			}
 
 			if ( currentTimelineSpanId.toLowerCase() === 'month' ) {

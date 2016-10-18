@@ -193,7 +193,7 @@ lineWidth: 0,
             enabled: false
           },
           title: {
-            text: 'Torque <span class="blue">%</span>',
+            text: 'Torque <span class="blue">Nm/cm<sup>³</sup></span>',
             align: 'left',
             floating: true,
               style: {
@@ -777,7 +777,7 @@ lineWidth: 0,
             enabled: false
           },
           title: {
-            text: 'Torque <span class="blue">%</span>',
+            text: 'Torque <span class="blue">Nm/cm<sup>³</sup></span>',
             align: 'left',
             floating: true,
               style: {
@@ -1213,7 +1213,7 @@ lineWidth: 0,
             enabled: false
           },
           title: {
-            text: 'Screw Speed <span class="blue">min-1</span>',
+            text: 'Screw Speed <span class="blue">min −1</span>',
             align: 'left',
             floating: true,
               style: {
@@ -1360,7 +1360,7 @@ lineWidth: 0,
             enabled: false
           },
           title: {
-            text: 'Torque <span class="blue">%</span>',
+            text: 'Torque <span class="blue">Nm/cm<sup>³</sup></span>',
             align: 'left',
             floating: true,
               style: {
@@ -1943,7 +1943,7 @@ lineWidth: 0,
             enabled: false
           },
           title: {
-            text: 'Torque <span class="blue">%</span>',
+            text: 'Torque <span class="blue">Nm/cm<sup>³</sup></span>',
             align: 'left',
             floating: true,
               style: {
@@ -2236,7 +2236,7 @@ lineWidth: 0,
             enabled: false
           },
           title: {
-            text: 'Gear Oil <span class="blue">%</span>',
+            text: 'Gear oil quality <span class="blue">%</span>',
             align: 'left',
             floating: true,
               style: {
@@ -4105,7 +4105,7 @@ lineWidth: 0,
           }]
         });
 
-      
+
 /*
         $('#zxd-graph').highcharts({
           tooltip: {
@@ -4967,7 +4967,7 @@ lineWidth: 0,
             enabled: false
           },
           title: {
-            text: 'Torque <span class="blue">Nm/cm<sup>3</sup></span>',
+            text: 'Torque <span class="blue">Nm/cm<sup>³</sup></span>',
             align: 'left',
             floating: true,
               style: {

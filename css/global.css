@@ -97,6 +97,11 @@ h6{
 	color: #2e2e2e;
 }
 
+.recipe-running{
+	margin-top: 15px;
+	font-size: 20px;
+}
+
 li{
 	list-style-type: none;
 	color: #2e2e2e;
