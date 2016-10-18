@@ -32,7 +32,15 @@
 	"image_big": "img/timeline/events/04_leakage_02_zeichnung.png"
 }, {
 	"id": "optimisation-05",
-	"date": "2016-10-08 18:14:30",
+	"date": "2016-10-13 18:14:30",
+	"type": "optimisation",
+	"title": "Leakage in Conveying System / Wear in Rotary Valve",
+	"description": "<b>Registry Entry</b><br/>Conveying pressure constantly increasing for 5 hours<br/><br/><b>Suspicion</b><br/>Leakage in Conveying System / Wear in Rotary Valve<br/><br/><b>Solution</b><br/>Performance is increased",
+	"image": "img/timeline/events/02_leakage_01_diagramm.png",
+	"image_big": "img/timeline/events/02_leakage_01_zeichnung.png"
+}, {
+	"id": "optimisation-06",
+	"date": "2016-10-20 14:14:30",
 	"type": "optimisation",
 	"title": "Leakage in Conveying System / Wear in Rotary Valve",
 	"description": "<b>Registry Entry</b><br/>Conveying pressure constantly increasing for 5 hours<br/><br/><b>Suspicion</b><br/>Leakage in Conveying System / Wear in Rotary Valve<br/><br/><b>Solution</b><br/>Performance is increased",
@@ -111,6 +119,14 @@
 }, {
 	"id": "error-red-01",
 	"date": "2016-10-10 12:56:10",
+	"type": "error",
+	"title": "Error #1285",
+	"popUpTitle": "Barrel #6 cannot be heated over 90°C!",
+	"description": "Barrel #6 // HEATING // In progress. <br />Result: Malfunctioning cooling valve. Error has been solved.",
+	"image": "img/timeline/events/Stoermeldung_1.barrel_small.png"
+}, {
+	"id": "error-red-06",
+	"date": "2016-10-14 14:56:10",
 	"type": "error",
 	"title": "Error #1285",
 	"popUpTitle": "Barrel #6 cannot be heated over 90°C!",
