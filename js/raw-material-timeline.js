@@ -139,6 +139,8 @@ var rawTimeline = {
 									allocationEl.setAttribute( 'data-type', allocationContent.toLowerCase() );
 
 									allocationEl.addEventListener( 'click', function () {
+										$(this).siblings(".allocation").removeClass("-touched");
+										$(this).addClass("-touched");
 										showAllocation( allocation, allocations[allocationIndex + 1] );
 									} );
 
@@ -164,6 +166,8 @@ var rawTimeline = {
 								timelineEl[0].appendChild( allocationEl );
 
 								allocationEl.addEventListener( 'click', function () {
+									$(this).siblings(".allocation").removeClass("-touched");
+									$(this).addClass("-touched");
 									showAllocation( allocation, allocations[allocationIndex + 1] );
 								} );
 

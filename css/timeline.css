@@ -203,6 +203,10 @@
 	background-color: #cbcbcb;
 }
 
+#raw-material-timeline .allocation.-touched span {
+	background-color: #edd34b;
+}
+
 #timeline-popup {
 	position: absolute;
 	top: 0;
