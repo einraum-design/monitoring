@@ -84,7 +84,7 @@ $(document).ready(function(){
     $('.rohstoffe-order-number-02').text(ordernumber2);
 
     $('.rohstoffe-batch').text(batchnumber);
-    $('.rohstoffe-batch-02').text(batchnumber);
+    $('.rohstoffe-batch-02').text(batchnumber2);
 
   });
 
