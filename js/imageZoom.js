@@ -61,6 +61,34 @@ $(document).ready(function(){
     $(this).attr('id');
   });*/
 
+  $("#raw-material-timeline").delegate(".allocation", "click", function(){
+    var number = 8000 + Math.floor(Math.random() * 20000);
+    var number2 = 8000 + Math.floor(Math.random() * 20000);
+
+    var materialcode = 8000000 + Math.floor(Math.random() * 20000000);
+    var materialcode2 = 8000000 + Math.floor(Math.random() * 20000000);
+
+    var ordernumber = 800000000000 + Math.floor(Math.random() * 2000000000000);
+    var ordernumber2 = 800000000000 + Math.floor(Math.random() * 2000000000000);
+
+    var batchnumber = 100000 + Math.floor(Math.random() * 800000);
+    var batchnumber2 = 100000 + Math.floor(Math.random() * 800000);
+
+    $('.rohstoffe-menge').text(number + 'kg');
+    $('.rohstoffe-menge-02').text(number2 + 'kg');
+
+    $('.rohstoffe-code').text(materialcode);
+    $('.rohstoffe-code-02').text(materialcode2);
+
+    $('.rohstoffe-order-number').text(ordernumber);
+    $('.rohstoffe-order-number-02').text(ordernumber2);
+
+    $('.rohstoffe-batch').text(batchnumber);
+    $('.rohstoffe-batch-02').text(batchnumber);
+
+  });
+
+
 
   function zoomPoints(){
 
