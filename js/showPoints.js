@@ -1,5 +1,6 @@
 $(document).ready(function(){
 
+
 function showPoints(){
 
   $('#downstream-links, #upstream-links, #compounding-links, .compounding-arrow, .upstream-arrow, .downstream-arrow').css('display','none');
