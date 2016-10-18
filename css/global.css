@@ -121,9 +121,16 @@ li{
 	line-height: 1.3em;
 }
 
-sub{
-	font-size: 8px;
-	margin-top: -6px;
+.rohstoffe-code{
+	font-size: 13px !important;
+	line-height: 1.3em;
+}
+
+sub {
+  font-size: 8px;
+	vertical-align: text-top;
+	margin-top: 0px;
+	line-height: 120%;
 }
 
 
