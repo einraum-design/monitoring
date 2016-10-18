@@ -172,8 +172,8 @@
 }
 
 #raw-material-timeline .allocation.is-current span {
-	-webkit-animation: blink 4s linear infinite alternate;
-	animation: blink 4s linear infinite alternate;
+	-webkit-animation: blink 1.5s linear infinite;
+	animation: blink 1.5s linear infinite;
 }
 
 #raw-material-timeline .allocation[data-type="a"] span,
@@ -201,6 +201,10 @@
 
 #raw-material-timeline .allocation[data-type^="setup"] span {
 	background-color: #cbcbcb;
+}
+
+#raw-material-timeline .allocation.-touched span {
+	background-color: #edd34b;
 }
 
 #timeline-popup {
