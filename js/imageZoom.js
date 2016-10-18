@@ -167,7 +167,7 @@ $(document).ready(function(){
         $("#second-row").tabs({ active: 1 });
         $("ul li").siblings().removeClass('active-auswahl-punkt');
         $("#compounding-links #dosierer-1-point").addClass('active-auswahl-punkt');
-        $(".anlagen-bild").css({'transform':'translate(330px, -340px) scale(4.3)'});
+        $(".anlagen-bild").css({'transform':'translate(220px, -340px) scale(4.3)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 9,
           componentName: 'K-ML-D5-BSP-135',
@@ -186,7 +186,7 @@ $(document).ready(function(){
         $("#second-row").tabs({ active: 2 });
         $("ul li").siblings().removeClass('active-auswahl-punkt');
         $("#compounding-links #dosierer-2-point").addClass('active-auswahl-punkt');
-        $(".anlagen-bild").css({'transform':'translate(290px, -340px) scale(4.3)'});
+        $(".anlagen-bild").css({'transform':'translate(200px, -340px) scale(4.3)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 11,
           componentName: 'K2-ML-D5-S60',
@@ -205,7 +205,7 @@ $(document).ready(function(){
         $("#second-row").tabs({ active: 3 });
         $("ul li").siblings().removeClass('active-auswahl-punkt');
         $("#compounding-links #dosierer-3-point").addClass('active-auswahl-punkt');
-        $(".anlagen-bild").css({'transform':'translate(210px, -340px) scale(4.3)'});
+        $(".anlagen-bild").css({'transform':'translate(160px, -340px) scale(4.3)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 13,
           componentName: 'K-ML-D5-KT20',
@@ -224,7 +224,7 @@ $(document).ready(function(){
         $("#second-row").tabs({ active: 4 });
         $("ul li").siblings().removeClass('active-auswahl-punkt');
         $("#compounding-links #dosierer-4-point").addClass('active-auswahl-punkt');
-        $(".anlagen-bild").css({'transform':'translate(130px, -360px) scale(4.3)'});
+        $(".anlagen-bild").css({'transform':'translate(90px, -340px) scale(4.3)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 15,
           componentName: 'K-ML-KV3-6D',
@@ -243,7 +243,7 @@ $(document).ready(function(){
         $("#second-row").tabs({ active: 5 });
         $("ul li").siblings().removeClass('active-auswahl-punkt');
         $("#compounding-links #dosierer-5-point").addClass('active-auswahl-punkt');
-        $(".anlagen-bild").css({'transform':'translate(130px, -360px) scale(4.3)'});
+        $(".anlagen-bild").css({'transform':'translate(90px, -360px) scale(4.3)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 17,
           componentName: 'K2-ML-T60',
@@ -262,7 +262,7 @@ $(document).ready(function(){
         $("#second-row").tabs({ active: 6 });
         $("ul li").siblings().removeClass('active-auswahl-punkt');
         $("#compounding-links #zsk-point").addClass('active-auswahl-punkt');
-        $(".anlagen-bild").css({'transform':'translate(320px, -390px) scale(4.3)'});
+        $(".anlagen-bild").css({'transform':'translate(220px, -340px) scale(4.3)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 18,
           componentName: 'ZSK',
@@ -281,7 +281,7 @@ $(document).ready(function(){
         $("#second-row").tabs({ active: 7 });
         $("ul li").siblings().removeClass('active-auswahl-punkt');
         $("#compounding-links #zsb-point").addClass('active-auswahl-punkt');
-        $(".anlagen-bild").css({'transform':'translate(200px, -390px) scale(4.3)'});
+        $(".anlagen-bild").css({'transform':'translate(130px, -340px) scale(4.3)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 19,
           componentName: 'ZSB',
@@ -300,7 +300,7 @@ $(document).ready(function(){
         $("#second-row").tabs({ active: 8 });
         $("ul li").siblings().removeClass('active-auswahl-punkt');
         $("#compounding-links #zs_eg-point").addClass('active-auswahl-punkt');
-        $(".anlagen-bild").css({'transform':'translate(70px, -390px) scale(4.3)'});
+        $(".anlagen-bild").css({'transform':'translate(70px, -340px) scale(4.3)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 20,
           componentName: 'ZS_EG',
@@ -319,7 +319,7 @@ $(document).ready(function(){
         $("#second-row").tabs({ active: 9 });
         $("ul li").siblings().removeClass('active-auswahl-punkt');
         $("#compounding-links #ssd-point").addClass('active-auswahl-punkt');
-        $(".anlagen-bild").css({'transform':'translate(-250px, -390px) scale(4.3)'});
+        $(".anlagen-bild").css({'transform':'translate(-180px, -370px) scale(4.3)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 21,
           componentName: 'StrandSuctionDevice',
@@ -338,7 +338,7 @@ $(document).ready(function(){
         $("#second-row").tabs({ active: 10 });
         $("ul li").siblings().removeClass('active-auswahl-punkt');
         $("#compounding-links #sp500-point").addClass('active-auswahl-punkt');
-        $(".anlagen-bild").css({'transform':'translate(-410px, -390px) scale(4.3)'});
+        $(".anlagen-bild").css({'transform':'translate(-300px, -390px) scale(4.3)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 22,
           componentName: 'SP500',
@@ -357,7 +357,7 @@ $(document).ready(function(){
         $("#second-row").tabs({ active: 11 });
         $("ul li").siblings().removeClass('active-auswahl-punkt');
         $("#compounding-links #zvb-point").addClass('active-auswahl-punkt');
-        $(".anlagen-bild").css({'transform':'translate(-460px, -410px) scale(4.3)'});
+        $(".anlagen-bild").css({'transform':'translate(-320px, -390px) scale(4.3)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 24,
           componentName: 'ZVB',
@@ -376,7 +376,7 @@ $(document).ready(function(){
         $("#second-row").tabs({ active: 11 });
         $("ul li").siblings().removeClass('active-auswahl-punkt');
         $("#compounding-links #screener-point").addClass('active-auswahl-punkt');
-        $(".anlagen-bild").css({'transform':'translate(-450px, -410px) scale(4.3)'});
+        $(".anlagen-bild").css({'transform':'translate(-330px, -390px) scale(4.3)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 23,
           componentName: 'Screener',
@@ -416,7 +416,7 @@ $(document).ready(function(){
         $("#second-row").tabs({ active: 2 });
         $("ul li").siblings().removeClass('active-auswahl-punkt');
         $("#downstream-links #wzk-point").addClass('active-auswahl-punkt');
-        $(".anlagen-bild").css({'transform':'translate(-810px, 50px) scale(4.3)'});
+        $(".anlagen-bild").css({'transform':'translate(-810px, 100px) scale(4.3)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 26,
           componentName: 'WZK',
@@ -451,7 +451,7 @@ $(document).ready(function(){
         $("#second-row").tabs({ active: 4 });
         $("ul li").siblings().removeClass('active-auswahl-punkt');
         $("#downstream-links #wet-point").addClass('active-auswahl-punkt');
-        $(".anlagen-bild").css({'transform':'translate(-1330px, 60px) scale(4.3)'});
+        $(".anlagen-bild").css({'transform':'translate(-1370px, 100px) scale(4.3)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 31,
           componentName: 'WET',
