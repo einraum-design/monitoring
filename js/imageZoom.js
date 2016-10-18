@@ -106,6 +106,46 @@ $(document).ready(function(){
 
   });
 
+  $(".second-row-navigation").delegate("a", "click", function(){
+    var number = 8000 + Math.floor(Math.random() * 20000);
+    var number2 = 8000 + Math.floor(Math.random() * 20000);
+
+    var ordernumber = 800000000000 + Math.floor(Math.random() * 2000000000000);
+    var ordernumber2 = 800000000000 + Math.floor(Math.random() * 2000000000000);
+
+    var batchnumber = 100000 + Math.floor(Math.random() * 800000);
+    var batchnumber2 = 100000 + Math.floor(Math.random() * 800000);
+
+    // Drei nummer 1
+    var pewert = 8000000 + Math.floor(Math.random() * 20000000);
+    var adwert = 80000 + Math.floor(Math.random() * 200000);
+    var cacowert = 800000 + Math.floor(Math.random() * 2000000);
+
+    // Drei nummer 2
+    var pewert2 = 8000000 + Math.floor(Math.random() * 20000000);
+    var adwert2 = 80000 + Math.floor(Math.random() * 200000);
+    var cacowert2 = 800000 + Math.floor(Math.random() * 2000000);
+
+    $('.rohstoffe-menge').text(number + 'kg').digits();
+    $('.rohstoffe-menge-02').text(number2 + 'kg').digits();
+
+    $('.pe-wert').text(pewert);
+    $('.ad-wert').text(adwert);
+    $('.caco-wert').text(cacowert);
+
+    $('.pe-wert-02').text(pewert2);
+    $('.ad-wert-02').text(adwert2);
+    $('.caco-wert-02').text(cacowert2);
+
+    $('.rohstoffe-order-number').text(ordernumber);
+    $('.rohstoffe-order-number-02').text(ordernumber2);
+
+    $('.rohstoffe-batch').text(batchnumber);
+    $('.rohstoffe-batch-02').text(batchnumber2);
+
+  });
+
+
 
 
   function zoomPoints(){
