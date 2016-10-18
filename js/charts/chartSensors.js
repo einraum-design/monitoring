@@ -49,7 +49,7 @@ $(function() {
             enabled: false
           },
           title: {
-            text: 'Throughput Range <span class="blue">kg/h</span>',
+            text: 'Throughput Range <span style="color: #809ac0;">kg/h</span>',
             align: 'left',
             floating: true,
               style: {
@@ -193,7 +193,7 @@ lineWidth: 0,
             enabled: false
           },
           title: {
-            text: 'Torque <span class="blue">Nm/cm<sup>³</sup></span>',
+            text: 'Torque <span style="color: #809ac0;">Nm/cm<sup>³</sup></span>',
             align: 'left',
             floating: true,
               style: {
@@ -339,7 +339,7 @@ lineWidth: 0,
             enabled: false
           },
           title: {
-            text: 'Temperature <span class="blue">°C</span>',
+            text: 'Temperature <strong>°C</strong>',
             align: 'left',
             floating: true,
               style: {
@@ -484,7 +484,7 @@ lineWidth: 0,
             enabled: false
           },
           title: {
-            text: 'Energy consumption <span class="blue">kW/h</span>',
+            text: 'Energy consumption <strong>kW/h</strong>',
             align: 'left',
             floating: true,
               style: {
@@ -629,7 +629,7 @@ lineWidth: 0,
             enabled: false
           },
           title: {
-            text: 'Temperature <span class="blue">C</span>',
+            text: 'Temperature <span style="color: #809ac0;">C°</span>',
             align: 'left',
             floating: true,
               style: {
@@ -777,7 +777,7 @@ lineWidth: 0,
             enabled: false
           },
           title: {
-            text: 'Torque <span class="blue">Nm/cm<sup>³</sup></span>',
+            text: 'Torque <strong>Nm/cm<sup>³</sup></strong>',
             align: 'left',
             floating: true,
               style: {
@@ -923,7 +923,7 @@ lineWidth: 0,
             enabled: false
           },
           title: {
-            text: 'Temperature <span class="blue">°C</span>',
+            text: 'Temperature <span style="color: #809ac0;">C</span>',
             align: 'left',
             floating: true,
               style: {
@@ -1068,7 +1068,7 @@ lineWidth: 0,
             enabled: false
           },
           title: {
-            text: 'Energy consumption <span class="blue">kW/h</span>',
+            text: 'Energy consumption <strong>kW/h</strong>',
             align: 'left',
             floating: true,
               style: {
@@ -1213,7 +1213,7 @@ lineWidth: 0,
             enabled: false
           },
           title: {
-            text: 'Screw Speed <span class="blue">min −1</span>',
+            text: 'Screw Speed <span style="color: #809ac0;">min</strong><span style="font-size: 8px; baseline-shift: 5px; color: #809ac0;">-1</span>',
             align: 'left',
             floating: true,
               style: {
@@ -1360,7 +1360,7 @@ lineWidth: 0,
             enabled: false
           },
           title: {
-            text: 'Torque <span class="blue">Nm/cm<sup>³</sup></span>',
+            text: 'Torque <strong>Nm/cm<sup>³</sup></strong>',
             align: 'left',
             floating: true,
               style: {
@@ -1506,7 +1506,7 @@ lineWidth: 0,
             enabled: false
           },
           title: {
-            text: 'Temperature <span class="blue">°C</span>',
+            text: 'Temperature <span style="color: #809ac0;">°C</span>',
             align: 'left',
             floating: true,
               style: {
@@ -1651,7 +1651,7 @@ lineWidth: 0,
             enabled: false
           },
           title: {
-            text: 'Energy consumption <span class="blue">kW/h</span>',
+            text: 'Energy consumption <strong>kW/h</strong>',
             align: 'left',
             floating: true,
               style: {
@@ -1796,7 +1796,7 @@ lineWidth: 0,
             enabled: false
           },
           title: {
-            text: 'Screw Speed <span class="blue">min-1</span>',
+            text: 'Screw Speed <span style="color: #809ac0;">min</strong><span style="font-size: 8px; baseline-shift: 5px; color: #809ac0;">-1</span>',
             align: 'left',
             floating: true,
               style: {
@@ -1943,7 +1943,7 @@ lineWidth: 0,
             enabled: false
           },
           title: {
-            text: 'Torque <span class="blue">Nm/cm<sup>³</sup></span>',
+            text: 'Torque <strong>Nm/cm<sup>³</sup></strong>',
             align: 'left',
             floating: true,
               style: {
@@ -2089,7 +2089,7 @@ lineWidth: 0,
             enabled: false
           },
           title: {
-            text: 'Temperature <span class="blue">°C</span>',
+            text: 'Temperature <strong>°C</strong>',
             align: 'left',
             floating: true,
               style: {
@@ -2236,7 +2236,7 @@ lineWidth: 0,
             enabled: false
           },
           title: {
-            text: 'Gear oil quality <span class="blue">%</span>',
+            text: 'Gear oil quality <span style="color: #809ac0;">%</span>',
             align: 'left',
             floating: true,
               style: {
@@ -2383,7 +2383,7 @@ lineWidth: 0,
             enabled: false
           },
           title: {
-            text: 'Vibration <span class="blue">mm/s</span>',
+            text: 'Vibration <span style="color: #809ac0;">mm/s</span>',
             align: 'left',
             floating: true,
               style: {
@@ -2523,7 +2523,7 @@ lineWidth: 0,
             enabled: false
           },
           title: {
-            text: 'ZVB rpm',
+            text: 'ZVB <span style="color: #809ac0;">rpm</span>',
             align: 'left',
             floating: true,
               style: {
@@ -2662,7 +2662,7 @@ lineWidth: 0,
             enabled: false
           },
           title: {
-            text: 'K-ML-KV3-F kg/h',
+            text: 'K-ML-KV3-F <span style="color: #809ac0;">kg/h</span>',
             align: 'left',
             floating: true,
               style: {
@@ -2807,7 +2807,7 @@ lineWidth: 0,
             enabled: false
           },
           title: {
-            text: 'K-ML-T60 kg/h',
+            text: 'K-ML-T60 <span style="color: #809ac0;">kg/h</span>',
             align: 'left',
             floating: true,
               style: {
@@ -2953,7 +2953,7 @@ lineWidth: 0,
             enabled: false
           },
           title: {
-            text: 'K-ML-D5-KT20 kg/h',
+            text: 'K-ML-D5-KT20 <span style="color: #809ac0;">kg/h</span>',
             align: 'left',
             floating: true,
               style: {
@@ -3098,7 +3098,7 @@ lineWidth: 0,
             enabled: false
           },
           title: {
-            text: 'K-ML-D5-S60 <span class="blue">kg/h</span>',
+            text: 'K-ML-D5-S60 <span style="color: #809ac0;">kg/h</span>',
             align: 'left',
             floating: true,
               style: {
@@ -3242,7 +3242,7 @@ lineWidth: 0,
             enabled: false
           },
           title: {
-            text: 'K-ML-D5-BSP-135 <span class="blue">kg/h</span>',
+            text: 'K-ML-D5-BSP-135 <span style="color: #809ac0;">kg/h</span>',
             align: 'left',
             floating: true,
               style: {
@@ -3388,7 +3388,7 @@ lineWidth: 0,
             enabled: false
           },
           title: {
-            text: 'ATI <span class="blue">on</span>',
+            text: 'ATI <strong>on</strong>',
             align: 'left',
             floating: true,
               style: {
@@ -3532,7 +3532,7 @@ lineWidth: 0,
             enabled: false
           },
           title: {
-            text: 'Conveying pressure <span class="blue">kg/h</span>',
+            text: 'Conveying pressure <span style="color: #809ac0;">kg/h</span>',
             align: 'left',
             floating: true,
               style: {
@@ -3677,7 +3677,7 @@ lineWidth: 0,
             enabled: false
           },
           title: {
-            text: 'Conveying pressure <span class="blue">kg/h</span>',
+            text: 'Conveying pressure <span style="color: #809ac0;">kg/h</span>',
             align: 'left',
             floating: true,
               style: {
@@ -3822,7 +3822,7 @@ lineWidth: 0,
             enabled: false
           },
           title: {
-            text: 'Filter mBar',
+            text: 'Filter <span style="color: #809ac0;">mBar</span>',
             align: 'left',
             floating: true,
               style: {
@@ -3969,7 +3969,7 @@ lineWidth: 0,
             enabled: false
           },
           title: {
-            text: 'BXC kg/h',
+            text: 'BXC <span style="color: #809ac0;">kg/h</span>',
             align: 'left',
             floating: true,
               style: {
@@ -4241,7 +4241,7 @@ lineWidth: 0,
             enabled: false
           },
           title: {
-            text: 'ZRD rpm',
+            text: 'ZRD <strong>rpm</strong>',
             align: 'left',
             floating: true,
               style: {
@@ -4385,7 +4385,7 @@ lineWidth: 0,
             enabled: false
           },
           title: {
-            text: 'Vibrating Screen Type VS mm/s',
+            text: 'Vibrating Screen Type VS <span style="color: #809ac0;">mm/s</span>',
             align: 'left',
             floating: true,
               style: {
@@ -4533,7 +4533,7 @@ lineWidth: 0,
             enabled: false
           },
           title: {
-            text: 'Conveying pressure <span class="blue">kg/h</span>',
+            text: 'Conveying pressure <span style="color: #809ac0;">kg/h</span>',
             align: 'left',
             floating: true,
               style: {
@@ -4679,7 +4679,7 @@ lineWidth: 0,
             enabled: false
           },
           title: {
-            text: 'Throughput <span class="blue">kg/h</span>',
+            text: 'Throughput <span style="color: #809ac0;">kg/h</strong>',
             align: 'left',
             floating: true,
               style: {
@@ -4822,7 +4822,7 @@ lineWidth: 0,
             enabled: false
           },
           title: {
-            text: 'Energy consumption <span class="blue">kW/h</span>',
+            text: 'Energy consumption <span style="color: #809ac0;">kW/h</span>',
             align: 'left',
             floating: true,
               style: {
@@ -4967,7 +4967,7 @@ lineWidth: 0,
             enabled: false
           },
           title: {
-            text: 'Torque <span class="blue">Nm/cm<sup>³</sup></span>',
+            text: 'Torque <span style="color: #809ac0;">Nm/cm<sup>³</sup></span>',
             align: 'left',
             floating: true,
               style: {
@@ -5120,7 +5120,7 @@ lineWidth: 0,
     // $('#').highcharts({
 
     //   title: {
-    //     text: 'Throughput <span class="blue">kg/h</span>',
+    //     text: 'Throughput <strong>kg/h</strong>',
     //     align: 'left',
     //     floating: true,
     //       style: {
@@ -5254,7 +5254,7 @@ lineWidth: 0,
     // $('#').highcharts({
 
     //   title: {
-    //     text: 'Energy consumption <span class="blue">kW/h</span>',
+    //     text: 'Energy consumption <strong>kW/h</strong>',
     //     align: 'left',
     //     zIndex: 100,
     //     floating: true,
@@ -5383,7 +5383,7 @@ lineWidth: 0,
     // $('').highcharts({
 
     //   title: {
-    //     text: 'Torque <span class="blue">Nm/cm<sup>3</sup></span>',
+    //     text: 'Torque <strong>Nm/cm<sup>3</sup></strong>',
     //     align: 'left',
     //     floating: true,
     //       style: {
