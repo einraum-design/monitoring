@@ -2574,7 +2574,7 @@ lineWidth: 0,
                   var series = this.series[0];
                   setInterval(function () {
                       var x = (new Date()).getTime(), // current time
-                          y = Math.random() * (20 - 25) + 25
+                          y = Math.random() * (19 - 20) + 20
                       series.addPoint([x, y], true, true);
                   }, 10000);
               }
@@ -2589,7 +2589,7 @@ lineWidth: 0,
             minorGridLineWidth: 0,
             minPadding: 0,
             maxPadding: 0,
-lineWidth: 0,
+            lineWidth: 0,
             labels: {
               align: 'left',
               x: 0,
@@ -2621,7 +2621,7 @@ lineWidth: 0,
             }],
             plotBands: [{
               from: 0,
-              to: 22,
+              to: 19,
               linearGradient: [0, 0, 0, 350],
               color: 'rgba(123,152,184,0.5)',
               zIndex: 5
@@ -2646,7 +2646,7 @@ lineWidth: 0,
                 for (i = -999; i <= 0; i += 5) {
                     data.push([
                         time + i * 3000,
-                        Math.random() * (20 - 25) + 25
+                        Math.random() * (19 - 20) + 20
                     ]);
                 }
                 return data;

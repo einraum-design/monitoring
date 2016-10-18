@@ -56,7 +56,7 @@
 	"date": "2016-10-06 18:07:20",
 	"type": "maintenance",
 	"title": "Filterbags",
-	"description": "Filter differential pressure abnormal high value = 18 mbar. <br/>Filterbags have been replaced.",
+	"description": "Filterbags have been replaced.",
 	"image": "img/timeline/events/Meldungen_1.Filtertaschen.png"
 }, {
 	"id": "maintenance-02",
