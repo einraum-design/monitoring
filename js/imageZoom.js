@@ -479,13 +479,12 @@ $(document).ready(function(){
 
     $('.upstream-spacebrew').on('click', function(){
       console.log( 'i was clicked', 'upstream' );
-      $(".anlagen-bild").css({'transform':'translate(830px, -150px) scale(3.3)'});
+      $(".anlagen-bild").css({'transform':'translate(830px, -150px) scale(2.8)'});
       window.rawTimeline.setSelectedComponent( 0 );
     });
 
     $('.compounding-spacebrew').on('click', function(){
-      console.log('i was clicked compinding');
-      $(".anlagen-bild").css({'transform':'translate(300px, -220px) scale(6.3)'});
+      $(".anlagen-bild").css({'transform':'translate(360px, -320px) scale(6.3)'});
       window.rawTimeline.setSelectedComponent( 8 );
     });
 
@@ -499,7 +498,7 @@ $(document).ready(function(){
     $('#silo-1, #silo-1-link').click(function() {
         $("#second-row").tabs({ active: 1 });
         $("#silo-1-point .auswahl-punkt").addClass('active-auswahl-punkt');
-        $(".anlagen-bild").css({'transform':'translate(830px, -150px) scale(3.3)'});
+        $(".anlagen-bild").css({'transform':'translate(830px, -150px) scale(2.8)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 0,
           componentName: 'Silo_1',
@@ -514,7 +513,7 @@ $(document).ready(function(){
     $('#silo-2, #silo-2-link').click(function() {
         $("#second-row").tabs({ active: 1 });
         $("#silo-2-point .auswahl-punkt").addClass('active-auswahl-punkt');
-        $(".anlagen-bild").css({'transform':'translate(750px, -150px) scale(3.3)'});
+        $(".anlagen-bild").css({'transform':'translate(670px, -150px) scale(2.8)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 2,
           componentName: 'Silo_2',
@@ -529,7 +528,7 @@ $(document).ready(function(){
     $('#bigbag, #bigbag-link').click(function() {
         $("#second-row").tabs({ active: 1 });
         $("#bigbag-2-point .auswahl-punkt").addClass('active-auswahl-punkt');
-        $(".anlagen-bild").css({'transform':'translate(980px, -420px) scale(6)'});
+        $(".anlagen-bild").css({'transform':'translate(980px, -440px) scale(6)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 5,
           componentName: 'BigBag_1',
@@ -544,7 +543,7 @@ $(document).ready(function(){
     $('#tagessilo-1, #tagessilo-1-link').click(function() {
         $("#second-row").tabs({ active: 1 });
         $("#tagessilo-1-point .auswahl-punkt").addClass('active-auswahl-punkt');
-        $(".anlagen-bild").css({'transform':'translate(300px, -220px) scale(6.3)'});
+        $(".anlagen-bild").css({'transform':'translate(360px, -320px) scale(6.3)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 8,
           componentName: 'Tagessilo_1',
@@ -559,7 +558,7 @@ $(document).ready(function(){
     $('#dosierer-1-r, #dosierer-1-r-link').click(function() {
         $("#second-row").tabs({ active: 1 });
         $("#dosierer-1-r-point .auswahl-punkt").addClass('active-auswahl-punkt');
-        $(".anlagen-bild").css({'transform':'translate(290px, -220px) scale(6.3)'});
+        $(".anlagen-bild").css({'transform':'translate(360px, -410px) scale(6.3)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 9,
           componentName: 'K-ML-D5-BSP-135',
@@ -574,7 +573,7 @@ $(document).ready(function(){
     $('#tagessilo-2, #tagessilo-2-link').click(function() {
         $("#second-row").tabs({ active: 1 });
         $("#tagessilo-2-point .auswahl-punkt").addClass('active-auswahl-punkt');
-        $(".anlagen-bild").css({'transform':'translate(280px, -220px) scale(6.3)'});
+        $(".anlagen-bild").css({'transform':'translate(340px, -320px) scale(6.3)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 10,
           componentName: 'Tagessilo_2',
@@ -589,7 +588,7 @@ $(document).ready(function(){
     $('#dosierer-2-r, #dosierer-2-r-link').click(function() {
         $("#second-row").tabs({ active: 1 });
         $("#dosierer-2-r-point .auswahl-punkt").addClass('active-auswahl-punkt');
-        $(".anlagen-bild").css({'transform':'translate(380px, -390px) scale(6.3)'});
+        $(".anlagen-bild").css({'transform':'translate(340px, -490px) scale(7)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 11,
           componentName: 'K2-ML-D5-S60',
@@ -604,7 +603,7 @@ $(document).ready(function(){
     $('#hopper, #hopper-link').click(function() {
         $("#second-row").tabs({ active: 1 });
         $("#hopper-point .auswahl-punkt").addClass('active-auswahl-punkt');
-        $(".anlagen-bild").css({'transform':'translate(350px, -390px) scale(6.3)'});
+        $(".anlagen-bild").css({'transform':'translate(200px, -440px) scale(6.9)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 12,
           componentName: 'Hopper',
@@ -619,7 +618,7 @@ $(document).ready(function(){
     $('#dosierer-3-r, #dosierer-3-r-link').click(function() {
         $("#second-row").tabs({ active: 1 });
         $("#dosierer-3-r-point .auswahl-punkt").addClass('active-auswahl-punkt');
-        $(".anlagen-bild").css({'transform':'translate(300px, -390px) scale(6.3)'});
+        $(".anlagen-bild").css({'transform':'translate(280px, -780px) scale(9)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 13,
           componentName: 'K-ML-D5-KT20',
@@ -634,7 +633,7 @@ $(document).ready(function(){
     $('#bigbag2, #bigbag2-link').click(function() {
         $("#second-row").tabs({ active: 1 });
         $("#bigbag2-point .auswahl-punkt").addClass('active-auswahl-punkt');
-        $(".anlagen-bild").css({'transform':'translate(270px, -390px) scale(6.3)'});
+      $(".anlagen-bild").css({'transform':'translate(160px, -250px) scale(6.5)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 14,
           componentName: 'BigBag_2',
@@ -649,7 +648,7 @@ $(document).ready(function(){
     $('#dosierer-4-r, #dosierer-4-r-link').click(function() {
         $("#second-row").tabs({ active: 1 });
         $("#dosierer-4-r-point .auswahl-punkt").addClass('active-auswahl-punkt');
-        $(".anlagen-bild").css({'transform':'translate(270px, -520px) scale(6.3)'});
+        $(".anlagen-bild").css({'transform':'translate(140px, -490px) scale(7)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 15,
           componentName: 'K-ML-KV3-6D',
@@ -664,7 +663,7 @@ $(document).ready(function(){
     $('#tagessilo-3, #tagessilo-3-link').click(function() {
         $("#second-row").tabs({ active: 1 });
         $("#tagessilo-3-point .auswahl-punkt").addClass('active-auswahl-punkt');
-        $(".anlagen-bild").css({'transform':'translate(220px, -520px) scale(6.3)'});
+        $(".anlagen-bild").css({'transform':'translate(140px, -490px) scale(7)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 16,
           componentName: 'Tagessilo_3',
@@ -679,7 +678,7 @@ $(document).ready(function(){
     $('#dosierer-5-r, #dosierer-5-r-link').click(function() {
         $("#second-row").tabs({ active: 1 });
         $("#dosierer-5-r-point .auswahl-punkt").addClass('active-auswahl-punkt');
-        $(".anlagen-bild").css({'transform':'translate(200px, -520px) scale(6.3)'});
+        $(".anlagen-bild").css({'transform':'translate(140px, -540px) scale(6.5)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 17,
           componentName: 'K2-ML-T60',
@@ -709,7 +708,7 @@ $(document).ready(function(){
     $('#ibp-r, #ibp-r-link').click(function() {
         $("#second-row").tabs({ active: 1 });
         $("#ibp-r-point .auswahl-punkt").addClass('active-auswahl-punkt');
-        $(".anlagen-bild").css({'transform':'translate(-720px, -230px) scale(3.3)'});
+        $(".anlagen-bild").css({'transform':'translate(-1100px, -410px) scale(4.8)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 30,
           componentName: 'IBP250',
@@ -726,7 +725,7 @@ $(document).ready(function(){
     $('#silo-3, #silo-3-link').click(function() {
         $("#second-row").tabs({ active: 1 });
         $("#silo-3-point .auswahl-punkt").addClass('active-auswahl-punkt');
-        $(".anlagen-bild").css({'transform':'translate(-840px, 30px) scale(3.3)'});
+        $(".anlagen-bild").css({'transform':'translate(-540px, -50px) scale(2.8)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 28,
           componentName: 'Silo_3',
@@ -741,7 +740,7 @@ $(document).ready(function(){
     $('#silo-4, #silo-4-link').click(function() {
         $("#second-row").tabs({ active: 1 });
         $("#silo-4-point .auswahl-punkt").addClass('active-auswahl-punkt');
-        $(".anlagen-bild").css({'transform':'translate(-890px, 30px) scale(3.3)'});
+        $(".anlagen-bild").css({'transform':'translate(-630px, -50px) scale(2.8)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 29,
           componentName: 'Silo_4',
@@ -756,7 +755,7 @@ $(document).ready(function(){
     $('#silo-5, #silo-5-link').click(function() {
         $("#second-row").tabs({ active: 1 });
         $("#silo-5-point .auswahl-punkt").addClass('active-auswahl-punkt');
-        $(".anlagen-bild").css({'transform':'translate(-950px, 30px) scale(3.3)'});
+        $(".anlagen-bild").css({'transform':'translate(-880px, -50px) scale(2.8)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 32,
           componentName: 'Silo_5',
@@ -772,7 +771,7 @@ $(document).ready(function(){
     $('#silo-6, #silo-6-link').click(function() {
         $("#second-row").tabs({ active: 1 });
         $("#silo-6-point .auswahl-punkt").addClass('active-auswahl-punkt');
-        $(".anlagen-bild").css({'transform':'translate(-1000px, 30px) scale(3.3)'});
+        $(".anlagen-bild").css({'transform':'translate(-980px, -50px) scale(2.8)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 33,
           componentName: 'Silo_6',
@@ -787,7 +786,7 @@ $(document).ready(function(){
     $('#silo-7, #silo-7-link').click(function() {
         $("#second-row").tabs({ active: 1 });
         $("#silo-6-point .auswahl-punkt").addClass('active-auswahl-punkt');
-        $(".anlagen-bild").css({'transform':'translate(-1200px, 30px) scale(3.3)'});
+        $(".anlagen-bild").css({'transform':'translate(-1080px, -50px) scale(2.8)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 34,
           componentName: 'Silo_7',
@@ -802,7 +801,7 @@ $(document).ready(function(){
     $('#silo-8, #silo-8-link').click(function() {
         $("#second-row").tabs({ active: 1 });
         $("#silo-8-point .auswahl-punkt").addClass('active-auswahl-punkt');
-        $(".anlagen-bild").css({'transform':'translate(-1350px, 30px) scale(3.3)'});
+        $(".anlagen-bild").css({'transform':'translate(-1180px, -50px) scale(2.8)'});
         window.sendSpacebrewMessage('componentActivated', {
           componentId: 35,
           componentName: 'Silo_8',
