@@ -77,21 +77,21 @@
 	"date": "2016-10-26 08:19:10",
 	"type": "maintenance",
 	"title": "HFS - Elutriator Fans",
-	"description": "Bearings and Sealing on HFS-Elutriator Fans have been replaced during yearly inspection.",
+	"description": "Bearings and Sealing on HFS-Elutriator Fans should be replaced after 8.000 operating hours.",
 	"image": "img/timeline/events/Meldungen_6.LuDZRD.png"
 }, {
 	"id": "maintenance-05",
 	"date": "2016-11-05 06:55:19",
 	"type": "maintenance",
 	"title": "ZVB - rotary valve",
-	"description": "Bearings and Sealings on ZVB-rotary valve have been replaced during Inspection after 8.000 operating hours",
+	"description": "Bearings and Sealings on ZVB-rotary valve should be replaced after 8.000 operating hours.",
 	"image": "img/timeline/events/Meldungen_7.LuDZVB.png"
 }, {
 	"id": "maintenance-06",
 	"date": "2016-11-08 06:18:13",
 	"type": "maintenance",
 	"title": "WZK diverter valve",
-	"description": "Visual check has been done on WZK diverter valve during inspection after 4.000 operating hours.",
+	"description": "WZK diverter valve should be cleaned after 4.000 operating hours.",
 	"image": "img/timeline/events/Meldungen_8.WZK.png"
 }, {
 	"id": "error-red-01",

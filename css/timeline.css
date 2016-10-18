@@ -375,10 +375,11 @@ time#timeline-popup-time {
 }
 
 .timeline-image img{
-	height: 276px;
+
 	width: auto;
 		max-width: 100%;
 		object-fit: contain;
+		background-color: #383838;
 }
 
 .timeline-content{
