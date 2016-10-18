@@ -355,7 +355,7 @@ function tableDataManager () {
 					material: material,
 					materialId: material.id,
 					chargeSize: material.chargeSize,
-					chargeIndex: materialNr - material.chargeIdMin
+					chargeIndex: materialNr - material.chargeIdMin // TODO: hier zufallszahlen rein
 				};
 			}
 		}
