@@ -116,6 +116,23 @@ li{
 	display: none;
 }
 
+.rohstoffe-inhalte{
+	font-size: 13px !important;
+	line-height: 1.3em;
+}
+
+.rohstoffe-code{
+	font-size: 13px !important;
+	line-height: 1.3em;
+}
+
+sub {
+  font-size: 8px;
+	vertical-align: text-top;
+	margin-top: 0px;
+	line-height: 120%;
+}
+
 
 
 /* Zweite Ebene Navigation und Close Button der Navigation */
