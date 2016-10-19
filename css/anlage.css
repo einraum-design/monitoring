@@ -334,9 +334,9 @@ div#three-di-view {
 }
 
 img.three-di {
-  height: 205px;
-  width: auto;
-  margin: -3px;
+    height: 200px;
+    width: auto;
+    margin: -3px;
 }
 
 img {
@@ -393,11 +393,133 @@ img[data-src] {
 }
 
 /* Sensoring: Filter 1*/
-#filter-1-point{
-	position: absolute;
-	left: 175px;
-	top: 170px;
+#filter-1-point {
+    position: absolute;
+    left: 180px;
+    top: 100px;
 }
+
+ #ati-point {
+    position: absolute;
+    left: 180px;
+    top: 222px;
+}
+
+#zxd-point{
+  position: absolute;
+  left: 180px;
+  top: 238px;
+}
+
+#hfs-point {
+    position: absolute;
+    left: 300px;
+    top: 214px;
+}
+
+#zrd-point {
+    position: absolute;
+    left: 330px;
+    top: 234px;
+}
+
+#dosierer-1-point {
+    position: absolute;
+    left: 370px;
+    top: 171px;
+  }
+
+  #dosierer-2-point {
+    position: absolute;
+    left: 391px;
+    top: 171px;
+}
+
+#dosierer-3-point {
+    position: absolute;
+    left: 411px;
+    top: 171px;
+}
+
+#dosierer-4-point {
+    position: absolute;
+    left: 462px;
+    top: 171px;
+}
+
+#dosierer-5-point {
+    position: absolute;
+    left: 440px;
+    top: 171px;
+}
+
+#zsk-point {
+    position: absolute;
+    left: 409px;
+    top: 212px;
+}
+
+#zsb-point {
+    position: absolute;
+    left: 435px;
+    top: 211px;
+}
+
+#zs_eg-point {
+    position: absolute;
+    left: 475px;
+    top: 215px;
+}
+
+
+#ssd-point {
+    position: absolute;
+    left: 530px;
+    top: 224px;
+}
+
+#sp500-point {
+    position: absolute;
+    left: 560px;
+    top: 220px;
+}
+
+#screener-point {
+    position: absolute;
+    left: 575px;
+    top: 236px;
+}
+
+#zvb-point {
+    position: absolute;
+    left: 582px;
+    top: 246px;
+}
+
+#bxc-point {
+    position: absolute;
+    left: 609px;
+    top: 210px;
+}
+
+#wzk-point {
+    position: absolute;
+    left: 681px;
+    top: 160px;
+}
+
+#ibp250-point {
+    position: absolute;
+    left: 740px;
+    top: 246px;
+}
+
+#wet-point {
+    position: absolute;
+    left: 815px;
+    top: 160px;
+}
+
 /* Akiver Punkt*/
 a#filter-1-point .active-dot{
 
@@ -665,8 +787,4 @@ a#filter-1-point .active-dot{
 .active-auswahl-punkt .number {
 
   display: none;
-}
-
-body:not(.other) .auswahl-punkt {
-	opacity: 0 !important;
 }

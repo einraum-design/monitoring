@@ -6,7 +6,8 @@ function showPoints(){
   $('#downstream-links, #upstream-links, #compounding-links, .compounding-arrow, .upstream-arrow, .downstream-arrow').css('display','none');
 
 
-  $("#upstream-link").on('click', function(){
+
+  $(".other #upstream-link").on('click', function(){
     $("#upstream-links ul li").removeClass('active-auswahl-punkt');
     $(".anlagen-bild").css({'transform':'translate(530px, -120px) scale(2.2)'});
     $("#upstream-links").fadeIn(200);
