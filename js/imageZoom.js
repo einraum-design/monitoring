@@ -145,9 +145,6 @@ $(document).ready(function(){
 
   });
 
-
-
-
   function zoomPoints(){
 
     // UPSTREAM
@@ -1047,44 +1044,27 @@ $(document).ready(function(){
 
   // Switchen zwischen den Ansichten, Update Zoom
 
-  /*
+
   function caseSwitch(){
 
-    $('#toggle-switch').on('change', function() {
+
       if ($('body').hasClass('other')) {
 
-        $('#bxc, #bxc-link').click(function() {
-            $("#second-row").tabs({ active: 1 });
-            $("#bxc .auswahl-punkt").addClass('active-auswahl-punkt');
-            $(".anlagen-bild").css({'transform':'translate(-980px, -120px) scale(4.3)'});
-
-          })
-
-        if ($('#bxc .auswahl-punkt').hasClass('active-auswahl-punkt')){
-          $(".anlagen-bild").css({'transform':'translate(-1200px, -0px) scale(4.3)'});
-
-        }
 
       } else {
 
-        $('#bxc, #bxc-link').click(function() {
-            $("#second-row").tabs({ active: 1 });
-            $("#bxc .auswahl-punkt").addClass('active-auswahl-punkt');
-            $(".anlagen-bild").css({'transform':'translate(-980px, -120px) scale(4.3)'});
+        $('#wet, #wet-link').on('click', function(){
+          console.log('sdasdasd');
+            $(".anlagen-bild").css({'transform':'translate(-480px, -250px) scale(4.3)'});
 
           })
 
-        if ($('#bxc .auswahl-punkt').hasClass('active-auswahl-punkt')){
-          $(".anlagen-bild").css({'transform':'translate(-980px, -120px) scale(4.3)'});
-
-        }
       }
-    });
-  }
+    }
+
 
   caseSwitch();
 
-  */
 
   //change opacity
   /*$('#upstream-links .auswahl-punkt', '.second-row-navigation li a').on('click', function(event){
