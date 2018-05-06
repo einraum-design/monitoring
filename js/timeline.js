@@ -3,8 +3,8 @@
 // moment.js wird benutzt für alle datums variablen: http://momentjs.com/docs/#/displaying/format/
 
 
-var startWeek = 42;
-var endWeek = 47;
+var startWeek = 18;//42;
+var endWeek = 23;//47;
 
 $(document).ready( function () {
 	var timelineEl = $( '#timeline' );
@@ -256,6 +256,8 @@ function getTimelineData () {
 
 	var eventCount = 200;
 
+	console.log("startDateTimestamp: " + new Date(startDateTimestamp).toString() + " endDateTimestamp: " +new Date(endDateTimestamp).toString() );
+
 	var eventTypes = [
 		'maintenance',
 		'error',
@@ -350,6 +352,7 @@ function getTimelineData () {
 		} )
 		.then( function ( eventsData ) {
 			return eventsData.map( function ( event ) {
+				console.log("events: " + new Date(event.date).toString());
 				event.date = moment( event.date );
 				return event;
 			} );
@@ -369,11 +372,11 @@ function getTimelineData () {
 
 function getCurrentMoment () {
 	var now = moment();
-
+	//console.log("timeline moment: " + new Date(now).toString);
 	// den jetzigen zeitpunkt faken, so dass wir events angezeigt bekommen
-	if ( now.week() < startWeek ) {
+	/*if ( now.week() < startWeek ) {
 		now = moment().week( startWeek );
-	}
+	}*/
 	return now;
 }
 
