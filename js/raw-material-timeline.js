@@ -546,11 +546,11 @@ var rawTimeline = {
 
 		function getCurrentMoment () {
 			var now = moment();
-
+			//console.log("row mat moment: " + new Date(now).toString());
 			// den jetzigen zeitpunkt faken, so dass wir events angezeigt bekommen
-			if ( now.week() < 42 ) {
+			/*if ( now.week() < 42 ) {
 				now = moment().week( 42 );
-			}
+			}*/
 			return now;
 		}
 
